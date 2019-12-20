@@ -181,6 +181,388 @@ struct _GTimeVal
   glong tv_sec;
   glong tv_usec;
 } ;
+typedef int hb_direction_t;
+typedef int hb_script_t;
+typedef int hb_memory_mode_t;
+typedef int hb_unicode_general_category_t;
+typedef int hb_unicode_combining_class_t;
+typedef int hb_glyph_flags_t;
+typedef int GTlsRehandshakeMode;
+typedef int  GtkToolPaletteDragTargets;
+typedef int GTokenType;
+typedef int GTestTrapFlags;
+typedef int GThreadPriority;
+typedef int GTypeDebugFlags;
+typedef int hb_buffer_content_type_t;
+typedef int hb_buffer_flags_t;
+typedef int hb_buffer_cluster_level_t;
+typedef int hb_buffer_serialize_flags_t;
+typedef int hb_buffer_serialize_format_t;
+typedef int hb_buffer_diff_flags_t;
+typedef int cairo_status_t;
+typedef int cairo_content_t;
+typedef int cairo_format_t;
+typedef int cairo_operator_t;
+typedef int cairo_antialias_t;
+typedef int cairo_fill_rule_t;
+typedef int cairo_line_cap_t;
+typedef int cairo_line_join_t;
+typedef int cairo_text_cluster_flags_t;
+typedef int cairo_font_slant_t;
+typedef int cairo_font_weight_t;
+typedef int cairo_subpixel_order_t;
+typedef int cairo_hint_style_t;
+typedef int cairo_hint_metrics_t;
+typedef int cairo_font_type_t;
+typedef int cairo_path_data_type_t;
+typedef int cairo_device_type_t;
+typedef int cairo_surface_observer_mode_t;
+typedef int cairo_surface_type_t;
+typedef int cairo_pattern_type_t;
+typedef int cairo_extend_t;
+typedef int cairo_filter_t;
+typedef int cairo_region_overlap_t;
+typedef int AtkCoordType;
+typedef int AtkValueType;
+typedef int  GUserDirectory;
+typedef int  GFormatSizeFlags;
+typedef int  GThreadError;
+typedef int  GOnceStatus;
+typedef int  GBookmarkFileError;
+typedef int  GChecksumType;
+typedef int  GConvertError;
+typedef int  GDateDMY;
+typedef int  GDateWeekday;
+typedef int  GDateMonth;
+typedef int  GTimeType;
+typedef int  GFileError;
+typedef int  GFileTest;
+typedef int  GTraverseFlags;
+typedef int  GTraverseType;
+typedef int  GHookFlagMask;
+typedef int  GIOCondition;
+typedef int  GUnicodeType;
+typedef int  GUnicodeBreakType;
+typedef int  GUnicodeScript;
+typedef int  GNormalizeMode;
+typedef int  GIOError;
+typedef int  GIOChannelError;
+typedef int  GIOStatus;
+typedef int  GSeekType;
+typedef int  GIOFlags;
+typedef int  GKeyFileError;
+typedef int  GKeyFileFlags;
+typedef int  GMarkupError;
+typedef int  GMarkupParseFlags;
+typedef int  GMarkupCollectType;
+typedef int  GVariantClass;
+typedef int  GVariantParseError;
+typedef int  GLogLevelFlags;
+typedef int  GLogWriterOutput;
+typedef int  GOptionFlags;
+typedef int  GOptionArg;
+typedef int  GOptionError;
+typedef int  GRegexError;
+typedef int  GRegexCompileFlags;
+typedef int  GRegexMatchFlags;
+typedef int  GErrorType;
+typedef int  GShellError;
+typedef int  GSliceConfig;
+typedef int  GSpawnError;
+typedef int  GSpawnFlags;
+typedef int  GAsciiType;
+typedef int  GNumberParserError;
+typedef int  GTestSubprocessFlags;
+typedef int  GTestResult;
+typedef int  GTestLogType;
+typedef int  GTestFileType;
+typedef int  GTypeFundamentalFlags;
+typedef int  GTypeFlags;
+typedef int  GParamFlags;
+typedef int  GSignalFlags;
+typedef int  GConnectFlags;
+typedef int  GSignalMatchType;
+typedef int  GBindingFlags;
+typedef int  GAppInfoCreateFlags;
+typedef int  GConverterFlags;
+typedef int  GConverterResult;
+typedef int  GDataStreamByteOrder;
+typedef int  GDataStreamNewlineType;
+typedef int  GFileAttributeType;
+typedef int  GFileAttributeInfoFlags;
+typedef int  GFileAttributeStatus;
+typedef int  GFileQueryInfoFlags;
+typedef int  GFileCreateFlags;
+typedef int  GFileMeasureFlags;
+typedef int  GMountMountFlags;
+typedef int  GMountUnmountFlags;
+typedef int  GDriveStartFlags;
+typedef int  GDriveStartStopType;
+typedef int  GFileCopyFlags;
+typedef int  GFileMonitorFlags;
+typedef int  GFileType;
+typedef int  GFilesystemPreviewType;
+typedef int  GFileMonitorEvent;
+typedef int  GIOErrorEnum;
+typedef int  GAskPasswordFlags;
+typedef int  GPasswordSave;
+typedef int  GMountOperationResult;
+typedef int  GOutputStreamSpliceFlags;
+typedef int  GIOStreamSpliceFlags;
+typedef int  GEmblemOrigin;
+typedef int  GResolverError;
+typedef int  GResolverRecordType;
+typedef int  GResourceError;
+typedef int  GResourceFlags;
+typedef int  GResourceLookupFlags;
+typedef int  GSocketFamily;
+typedef int  GSocketType;
+typedef int  GSocketMsgFlags;
+typedef int  GSocketProtocol;
+typedef int  GZlibCompressorFormat;
+typedef int  GUnixSocketAddressType;
+typedef int  GBusType;
+typedef int  GBusNameOwnerFlags;
+typedef int  GBusNameWatcherFlags;
+typedef int  GDBusProxyFlags;
+typedef int  GDBusError;
+typedef int  GDBusConnectionFlags;
+typedef int  GDBusCapabilityFlags;
+typedef int  GDBusCallFlags;
+typedef int  GDBusMessageType;
+typedef int  GDBusMessageFlags;
+typedef int  GDBusMessageHeaderField;
+typedef int  GDBusPropertyInfoFlags;
+typedef int  GDBusSubtreeFlags;
+typedef int  GDBusServerFlags;
+typedef int  GDBusSignalFlags;
+typedef int  GDBusSendMessageFlags;
+typedef int  GCredentialsType;
+typedef int  GDBusMessageByteOrder;
+typedef int  GApplicationFlags;
+typedef int  GTlsError;
+typedef int  GTlsCertificateFlags;
+typedef int  GTlsAuthenticationMode;
+typedef int  GTlsPasswordFlags;
+typedef int  GTlsInteractionResult;
+typedef int  GDBusInterfaceSkeletonFlags;
+typedef int  GDBusObjectManagerClientFlags;
+typedef int  GTlsDatabaseVerifyFlags;
+typedef int  GTlsDatabaseLookupFlags;
+typedef int  GTlsCertificateRequestFlags;
+typedef int  GIOModuleScopeFlags;
+typedef int  GSocketClientEvent;
+typedef int  GSocketListenerEvent;
+typedef int  GTestDBusFlags;
+typedef int  GSubprocessFlags;
+typedef int  GNotificationPriority;
+typedef int  GNetworkConnectivity;
+typedef int  GPollableReturn;
+typedef int  GModuleFlags;
+typedef int  GResolverNameLookupFlags;
+typedef int  GSettingsBindFlags;
+typedef int  PangoCoverageLevel;
+typedef int  PangoGravity;
+typedef int  PangoGravityHint;
+typedef int  PangoScript;
+typedef int  PangoDirection;
+typedef int  PangoBidiType;
+typedef int  PangoStyle;
+typedef int  PangoVariant;
+typedef int  PangoWeight;
+typedef int  PangoStretch;
+typedef int  PangoFontMask;
+typedef int  PangoAttrType;
+typedef int  PangoUnderline;
+typedef int  PangoShowFlags;
+typedef int  PangoShapeFlags;
+typedef int  PangoTabAlign;
+typedef int  PangoAlignment;
+typedef int  PangoWrapMode;
+typedef int  PangoEllipsizeMode;
+typedef int  PangoRenderPart;
+typedef int  GdkByteOrder;
+typedef int  GdkModifierType;
+typedef int  GdkModifierIntent;
+typedef int  GdkStatus;
+typedef int  GdkGrabStatus;
+typedef int  GdkGrabOwnership;
+typedef int  GdkEventMask;
+typedef int  GdkGLError;
+typedef int  GdkWindowTypeHint;
+typedef int  GdkAxisUse;
+typedef int  GdkAxisFlags;
+typedef int  GdkInputSource;
+typedef int  GdkInputMode;
+typedef int  GdkDeviceType;
+typedef int  GdkDragAction;
+typedef int  GdkDragCancelReason;
+typedef int  GdkDragProtocol;
+typedef int  GdkDeviceToolType;
+typedef int  GdkFilterReturn;
+typedef int  GdkEventType;
+typedef int  GdkVisibilityState;
+typedef int  GdkTouchpadGesturePhase;
+typedef int  GdkScrollDirection;
+typedef int  GdkNotifyType;
+typedef int  GdkCrossingMode;
+typedef int  GdkPropertyState;
+typedef int  GdkWindowState;
+typedef int  GdkSettingAction;
+typedef int  GdkOwnerChange;
+typedef int  GdkFrameClockPhase;
+typedef int  GdkWindowWindowClass;
+typedef int  GdkWindowType;
+typedef int  GdkWindowAttributesType;
+typedef int  GdkWindowHints;
+typedef int  GdkWMDecoration;
+typedef int  GdkWMFunction;
+typedef int  GdkGravity;
+typedef int  GdkAnchorHints;
+typedef int  GdkWindowEdge;
+typedef int  GdkFullscreenMode;
+typedef int  GdkSeatCapabilities;
+typedef int  GdkSubpixelLayout;
+typedef int  GdkPixbufAlphaMode;
+typedef int  GdkColorspace;
+typedef int  GdkPixbufError;
+typedef int  GdkInterpType;
+typedef int  GdkPixbufRotation;
+typedef int  GdkCursorType;
+typedef int  GdkDevicePadFeature;
+typedef int  GdkPropMode;
+typedef int  GdkVisualType;
+typedef int  GtkAlign;
+typedef int  GtkArrowType;
+typedef int  GtkBaselinePosition;
+typedef int  GtkDeleteType;
+typedef int  GtkDirectionType;
+typedef int  GtkIconSize;
+typedef int  GtkSensitivityType;
+typedef int  GtkTextDirection;
+typedef int  GtkJustification;
+typedef int  GtkMenuDirectionType;
+typedef int  GtkMessageType;
+typedef int  GtkMovementStep;
+typedef int  GtkScrollStep;
+typedef int  GtkOrientation;
+typedef int  GtkPackType;
+typedef int  GtkPositionType;
+typedef int  GtkReliefStyle;
+typedef int  GtkScrollType;
+typedef int  GtkSelectionMode;
+typedef int  GtkShadowType;
+typedef int  GtkStateType;
+typedef int  GtkToolbarStyle;
+typedef int  GtkWrapMode;
+typedef int  GtkSortType;
+typedef int  GtkIMPreeditStyle;
+typedef int  GtkIMStatusStyle;
+typedef int  GtkPackDirection;
+typedef int  GtkPrintPages;
+typedef int  GtkPageSet;
+typedef int  GtkNumberUpLayout;
+typedef int  GtkPageOrientation;
+typedef int  GtkPrintQuality;
+typedef int  GtkPrintDuplex;
+typedef int  GtkUnit;
+typedef int  GtkTreeViewGridLines;
+typedef int  GtkDragResult;
+typedef int  GtkSizeGroupMode;
+typedef int  GtkSizeRequestMode;
+typedef int  GtkScrollablePolicy;
+typedef int  GtkStateFlags;
+typedef int  GtkRegionFlags;
+typedef int  GtkJunctionSides;
+typedef int  GtkBorderStyle;
+typedef int  GtkLevelBarMode;
+typedef int  GtkInputPurpose;
+typedef int  GtkInputHints;
+typedef int  GtkPropagationPhase;
+typedef int  GtkEventSequenceState;
+typedef int  GtkPanDirection;
+typedef int  GtkPopoverConstraint;
+typedef int  GtkAccelFlags;
+typedef int  AtkStateType;
+typedef int  AtkRelationType;
+typedef int  AtkRole;
+typedef int  AtkLayer;
+typedef int  AtkKeyEventType;
+typedef int  AtkScrollType;
+typedef int  AtkTextAttribute;
+typedef int  AtkTextBoundary;
+typedef int  AtkTextGranularity;
+typedef int  AtkTextClipType;
+typedef int  AtkHyperlinkStateFlags;
+typedef int  GtkWidgetHelpType;
+typedef int  GtkApplicationInhibitFlags;
+typedef int  GtkResizeMode;
+typedef int  GtkWindowType;
+typedef int  GtkWindowPosition;
+typedef int  GtkDialogFlags;
+typedef int  GtkResponseType;
+typedef int  GtkLicense;
+typedef int  GtkArrowPlacement;
+typedef int  GtkTreeModelFlags;
+typedef int  GtkCellRendererState;
+typedef int  GtkCellRendererMode;
+typedef int  GtkTreeViewColumnSizing;
+typedef int  GtkTextSearchFlags;
+typedef int  GtkTargetFlags;
+typedef int  GtkImageType;
+typedef int  GtkEntryIconPosition;
+typedef int  GtkTreeViewDropPosition;
+typedef int  GtkAssistantPageType;
+typedef int  GtkButtonBoxStyle;
+typedef int  GtkBuilderError;
+typedef int  GtkCalendarDisplayOptions;
+typedef int  GtkCellRendererAccelMode;
+typedef int  GtkCssSectionType;
+typedef int  GtkCssProviderError;
+typedef int  GtkDebugFlag;
+typedef int  GtkDestDefaults;
+typedef int  GtkEventControllerScrollFlags;
+typedef int  GtkFileFilterFlags;
+typedef int  GtkFileChooserAction;
+typedef int  GtkFileChooserConfirmation;
+typedef int  GtkFileChooserError;
+typedef int  GtkFontChooserLevel;
+typedef int  GtkStyleContextPrintFlags;
+typedef int  GtkIconLookupFlags;
+typedef int  GtkIconThemeError;
+typedef int  GtkIconViewDropPosition;
+typedef int  GtkButtonsType;
+typedef int  GtkButtonRole;
+typedef int  GtkNotebookTab;
+typedef int  GtkPadActionType;
+typedef int  GtkPlacesOpenFlags;
+typedef int  GtkPrintStatus;
+typedef int  GtkPrintOperationResult;
+typedef int  GtkPrintOperationAction;
+typedef int  GtkPrintError;
+typedef int  GtkRecentManagerError;
+typedef int  GtkRecentFilterFlags;
+typedef int  GtkRecentSortType;
+typedef int  GtkRecentChooserError;
+typedef int  GtkRevealerTransitionType;
+typedef int  GtkCornerType;
+typedef int  GtkPolicyType;
+typedef int  GtkShortcutType;
+typedef int  GtkStackTransitionType;
+typedef int  GtkSpinButtonUpdatePolicy;
+typedef int  GtkSpinType;
+typedef int  GtkTextBufferTargetInfo;
+typedef int  GtkTextWindowType;
+typedef int  GtkTextViewLayer;
+typedef int  GtkTextExtendSelection;
+typedef int  GtkToolbarSpaceStyle;
+typedef int  GtkRcFlags;
+typedef int  GtkRcTokenType;
+typedef int  GtkPathPriorityType;
+typedef int  GtkPathType;
+typedef int  GtkExpanderStyle;
+typedef int  GtkAttachOptions;
+typedef int  GtkUIManagerItemType;
 typedef gint grefcount;
 typedef volatile gint gatomicrefcount;
 typedef struct _GBytes GBytes;
@@ -212,30 +594,14 @@ struct _GError
   gint code;
   gchar *message;
 };
-typedef enum {
-  G_USER_DIRECTORY_DESKTOP,
-  G_USER_DIRECTORY_DOCUMENTS,
-  G_USER_DIRECTORY_DOWNLOAD,
-  G_USER_DIRECTORY_MUSIC,
-  G_USER_DIRECTORY_PICTURES,
-  G_USER_DIRECTORY_PUBLIC_SHARE,
-  G_USER_DIRECTORY_TEMPLATES,
-  G_USER_DIRECTORY_VIDEOS,
-  G_USER_N_DIRECTORIES
-} GUserDirectory;
+
 typedef struct _GDebugKey GDebugKey;
 struct _GDebugKey
 {
   const gchar *key;
   guint value;
 };
-typedef enum
-{
-  G_FORMAT_SIZE_DEFAULT = 0,
-  G_FORMAT_SIZE_LONG_FORMAT = 1 << 0,
-  G_FORMAT_SIZE_IEC_UNITS = 1 << 1,
-  G_FORMAT_SIZE_BITS = 1 << 2
-} GFormatSizeFlags;
+
 typedef void (*GVoidFunc) (void) ;
 
 typedef struct
@@ -436,10 +802,7 @@ struct drand48_data
     unsigned long long int __a;
   };
 typedef int (*__compar_fn_t) (const void *, const void *);
-typedef enum
-{
-  G_THREAD_ERROR_AGAIN
-} GThreadError;
+
 typedef gpointer (*GThreadFunc) (gpointer data);
 typedef struct _GThread GThread;
 typedef union _GMutex GMutex;
@@ -474,12 +837,7 @@ struct _GPrivate
   GDestroyNotify notify;
   gpointer future[2];
 };
-typedef enum
-{
-  G_ONCE_STATUS_NOTCALLED,
-  G_ONCE_STATUS_PROGRESS,
-  G_ONCE_STATUS_READY
-} GOnceStatus;
+
 struct _GOnce
 {
   volatile GOnceStatus status;
@@ -822,37 +1180,11 @@ struct sigstack
     void *ss_sp;
     int ss_onstack;
   };
-typedef enum
-{
-  G_BOOKMARK_FILE_ERROR_INVALID_URI,
-  G_BOOKMARK_FILE_ERROR_INVALID_VALUE,
-  G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED,
-  G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND,
-  G_BOOKMARK_FILE_ERROR_READ,
-  G_BOOKMARK_FILE_ERROR_UNKNOWN_ENCODING,
-  G_BOOKMARK_FILE_ERROR_WRITE,
-  G_BOOKMARK_FILE_ERROR_FILE_NOT_FOUND
-} GBookmarkFileError;
+
 typedef struct _GBookmarkFile GBookmarkFile;
-typedef enum {
-  G_CHECKSUM_MD5,
-  G_CHECKSUM_SHA1,
-  G_CHECKSUM_SHA256,
-  G_CHECKSUM_SHA512,
-  G_CHECKSUM_SHA384
-} GChecksumType;
+
 typedef struct _GChecksum GChecksum;
-typedef enum
-{
-  G_CONVERT_ERROR_NO_CONVERSION,
-  G_CONVERT_ERROR_ILLEGAL_SEQUENCE,
-  G_CONVERT_ERROR_FAILED,
-  G_CONVERT_ERROR_PARTIAL_INPUT,
-  G_CONVERT_ERROR_BAD_URI,
-  G_CONVERT_ERROR_NOT_ABSOLUTE_PATH,
-  G_CONVERT_ERROR_NO_MEMORY,
-  G_CONVERT_ERROR_EMBEDDED_NUL
-} GConvertError;
+
 typedef struct _GIConv *GIConv;
 typedef struct _GData GData;
 typedef void (*GDataForeachFunc) (GQuark key_id,
@@ -863,39 +1195,9 @@ typedef gint32 GTime ;
 typedef guint16 GDateYear;
 typedef guint8 GDateDay;
 typedef struct _GDate GDate;
-typedef enum
-{
-  G_DATE_DAY = 0,
-  G_DATE_MONTH = 1,
-  G_DATE_YEAR = 2
-} GDateDMY;
-typedef enum
-{
-  G_DATE_BAD_WEEKDAY = 0,
-  G_DATE_MONDAY = 1,
-  G_DATE_TUESDAY = 2,
-  G_DATE_WEDNESDAY = 3,
-  G_DATE_THURSDAY = 4,
-  G_DATE_FRIDAY = 5,
-  G_DATE_SATURDAY = 6,
-  G_DATE_SUNDAY = 7
-} GDateWeekday;
-typedef enum
-{
-  G_DATE_BAD_MONTH = 0,
-  G_DATE_JANUARY = 1,
-  G_DATE_FEBRUARY = 2,
-  G_DATE_MARCH = 3,
-  G_DATE_APRIL = 4,
-  G_DATE_MAY = 5,
-  G_DATE_JUNE = 6,
-  G_DATE_JULY = 7,
-  G_DATE_AUGUST = 8,
-  G_DATE_SEPTEMBER = 9,
-  G_DATE_OCTOBER = 10,
-  G_DATE_NOVEMBER = 11,
-  G_DATE_DECEMBER = 12
-} GDateMonth;
+
+
+
 struct _GDate
 {
   guint julian_days : 32;
@@ -906,12 +1208,7 @@ struct _GDate
   guint year : 16;
 };
 typedef struct _GTimeZone GTimeZone;
-typedef enum
-{
-  G_TIME_TYPE_STANDARD,
-  G_TIME_TYPE_DAYLIGHT,
-  G_TIME_TYPE_UNIVERSAL
-} GTimeType;
+
 typedef gint64 GTimeSpan;
 typedef struct _GDateTime GDateTime;
 struct dirent
@@ -936,42 +1233,8 @@ enum
   };
 typedef struct __dirstream DIR;
 typedef struct _GDir GDir;
-typedef enum
-{
-  G_FILE_ERROR_EXIST,
-  G_FILE_ERROR_ISDIR,
-  G_FILE_ERROR_ACCES,
-  G_FILE_ERROR_NAMETOOLONG,
-  G_FILE_ERROR_NOENT,
-  G_FILE_ERROR_NOTDIR,
-  G_FILE_ERROR_NXIO,
-  G_FILE_ERROR_NODEV,
-  G_FILE_ERROR_ROFS,
-  G_FILE_ERROR_TXTBSY,
-  G_FILE_ERROR_FAULT,
-  G_FILE_ERROR_LOOP,
-  G_FILE_ERROR_NOSPC,
-  G_FILE_ERROR_NOMEM,
-  G_FILE_ERROR_MFILE,
-  G_FILE_ERROR_NFILE,
-  G_FILE_ERROR_BADF,
-  G_FILE_ERROR_INVAL,
-  G_FILE_ERROR_PIPE,
-  G_FILE_ERROR_AGAIN,
-  G_FILE_ERROR_INTR,
-  G_FILE_ERROR_IO,
-  G_FILE_ERROR_PERM,
-  G_FILE_ERROR_NOSYS,
-  G_FILE_ERROR_FAILED
-} GFileError;
-typedef enum
-{
-  G_FILE_TEST_IS_REGULAR = 1 << 0,
-  G_FILE_TEST_IS_SYMLINK = 1 << 1,
-  G_FILE_TEST_IS_DIR = 1 << 2,
-  G_FILE_TEST_IS_EXECUTABLE = 1 << 3,
-  G_FILE_TEST_EXISTS = 1 << 4
-} GFileTest;
+
+
 typedef struct _GMemVTable GMemVTable;
 
 struct _GMemVTable {
@@ -986,22 +1249,8 @@ struct _GMemVTable {
       gsize n_bytes);
 };
 typedef struct _GNode GNode;
-typedef enum
-{
-  G_TRAVERSE_LEAVES = 1 << 0,
-  G_TRAVERSE_NON_LEAVES = 1 << 1,
-  G_TRAVERSE_ALL = G_TRAVERSE_LEAVES | G_TRAVERSE_NON_LEAVES,
-  G_TRAVERSE_MASK = 0x03,
-  G_TRAVERSE_LEAFS = G_TRAVERSE_LEAVES,
-  G_TRAVERSE_NON_LEAFS = G_TRAVERSE_NON_LEAVES
-} GTraverseFlags;
-typedef enum
-{
-  G_IN_ORDER,
-  G_PRE_ORDER,
-  G_POST_ORDER,
-  G_LEVEL_ORDER
-} GTraverseType;
+
+
 typedef gboolean (*GNodeTraverseFunc) (GNode *node,
        gpointer data);
 typedef void (*GNodeForeachFunc) (GNode *node,
@@ -1050,12 +1299,7 @@ typedef void (*GHookFunc) (gpointer data);
 typedef gboolean (*GHookCheckFunc) (gpointer data);
 typedef void (*GHookFinalizeFunc) (GHookList *hook_list,
        GHook *hook);
-typedef enum
-{
-  G_HOOK_FLAG_ACTIVE = 1 << 0,
-  G_HOOK_FLAG_IN_CALL = 1 << 1,
-  G_HOOK_FLAG_MASK = 0x0f
-} GHookFlagMask;
+
 struct _GHookList
 {
   gulong seq_id;
@@ -1093,15 +1337,7 @@ struct _GSList
   gpointer data;
   GSList *next;
 };
-typedef enum
-{
-  G_IO_IN =1,
-  G_IO_OUT =4,
-  G_IO_PRI =2,
-  G_IO_ERR =8,
-  G_IO_HUP =16,
-  G_IO_NVAL =32
-} GIOCondition;
+
 typedef struct _GMainContext GMainContext;
 typedef struct _GMainLoop GMainLoop;
 typedef struct _GSource GSource;
@@ -1153,252 +1389,10 @@ struct _GSourceFuncs
 typedef void (* GClearHandleFunc) (guint handle_id);
 typedef guint32 gunichar;
 typedef guint16 gunichar2;
-typedef enum
-{
-  G_UNICODE_CONTROL,
-  G_UNICODE_FORMAT,
-  G_UNICODE_UNASSIGNED,
-  G_UNICODE_PRIVATE_USE,
-  G_UNICODE_SURROGATE,
-  G_UNICODE_LOWERCASE_LETTER,
-  G_UNICODE_MODIFIER_LETTER,
-  G_UNICODE_OTHER_LETTER,
-  G_UNICODE_TITLECASE_LETTER,
-  G_UNICODE_UPPERCASE_LETTER,
-  G_UNICODE_SPACING_MARK,
-  G_UNICODE_ENCLOSING_MARK,
-  G_UNICODE_NON_SPACING_MARK,
-  G_UNICODE_DECIMAL_NUMBER,
-  G_UNICODE_LETTER_NUMBER,
-  G_UNICODE_OTHER_NUMBER,
-  G_UNICODE_CONNECT_PUNCTUATION,
-  G_UNICODE_DASH_PUNCTUATION,
-  G_UNICODE_CLOSE_PUNCTUATION,
-  G_UNICODE_FINAL_PUNCTUATION,
-  G_UNICODE_INITIAL_PUNCTUATION,
-  G_UNICODE_OTHER_PUNCTUATION,
-  G_UNICODE_OPEN_PUNCTUATION,
-  G_UNICODE_CURRENCY_SYMBOL,
-  G_UNICODE_MODIFIER_SYMBOL,
-  G_UNICODE_MATH_SYMBOL,
-  G_UNICODE_OTHER_SYMBOL,
-  G_UNICODE_LINE_SEPARATOR,
-  G_UNICODE_PARAGRAPH_SEPARATOR,
-  G_UNICODE_SPACE_SEPARATOR
-} GUnicodeType;
-typedef enum
-{
-  G_UNICODE_BREAK_MANDATORY,
-  G_UNICODE_BREAK_CARRIAGE_RETURN,
-  G_UNICODE_BREAK_LINE_FEED,
-  G_UNICODE_BREAK_COMBINING_MARK,
-  G_UNICODE_BREAK_SURROGATE,
-  G_UNICODE_BREAK_ZERO_WIDTH_SPACE,
-  G_UNICODE_BREAK_INSEPARABLE,
-  G_UNICODE_BREAK_NON_BREAKING_GLUE,
-  G_UNICODE_BREAK_CONTINGENT,
-  G_UNICODE_BREAK_SPACE,
-  G_UNICODE_BREAK_AFTER,
-  G_UNICODE_BREAK_BEFORE,
-  G_UNICODE_BREAK_BEFORE_AND_AFTER,
-  G_UNICODE_BREAK_HYPHEN,
-  G_UNICODE_BREAK_NON_STARTER,
-  G_UNICODE_BREAK_OPEN_PUNCTUATION,
-  G_UNICODE_BREAK_CLOSE_PUNCTUATION,
-  G_UNICODE_BREAK_QUOTATION,
-  G_UNICODE_BREAK_EXCLAMATION,
-  G_UNICODE_BREAK_IDEOGRAPHIC,
-  G_UNICODE_BREAK_NUMERIC,
-  G_UNICODE_BREAK_INFIX_SEPARATOR,
-  G_UNICODE_BREAK_SYMBOL,
-  G_UNICODE_BREAK_ALPHABETIC,
-  G_UNICODE_BREAK_PREFIX,
-  G_UNICODE_BREAK_POSTFIX,
-  G_UNICODE_BREAK_COMPLEX_CONTEXT,
-  G_UNICODE_BREAK_AMBIGUOUS,
-  G_UNICODE_BREAK_UNKNOWN,
-  G_UNICODE_BREAK_NEXT_LINE,
-  G_UNICODE_BREAK_WORD_JOINER,
-  G_UNICODE_BREAK_HANGUL_L_JAMO,
-  G_UNICODE_BREAK_HANGUL_V_JAMO,
-  G_UNICODE_BREAK_HANGUL_T_JAMO,
-  G_UNICODE_BREAK_HANGUL_LV_SYLLABLE,
-  G_UNICODE_BREAK_HANGUL_LVT_SYLLABLE,
-  G_UNICODE_BREAK_CLOSE_PARANTHESIS,
-  G_UNICODE_BREAK_CONDITIONAL_JAPANESE_STARTER,
-  G_UNICODE_BREAK_HEBREW_LETTER,
-  G_UNICODE_BREAK_REGIONAL_INDICATOR,
-  G_UNICODE_BREAK_EMOJI_BASE,
-  G_UNICODE_BREAK_EMOJI_MODIFIER,
-  G_UNICODE_BREAK_ZERO_WIDTH_JOINER
-} GUnicodeBreakType;
-typedef enum
-{
-  G_UNICODE_SCRIPT_INVALID_CODE = -1,
-  G_UNICODE_SCRIPT_COMMON = 0,
-  G_UNICODE_SCRIPT_INHERITED,
-  G_UNICODE_SCRIPT_ARABIC,
-  G_UNICODE_SCRIPT_ARMENIAN,
-  G_UNICODE_SCRIPT_BENGALI,
-  G_UNICODE_SCRIPT_BOPOMOFO,
-  G_UNICODE_SCRIPT_CHEROKEE,
-  G_UNICODE_SCRIPT_COPTIC,
-  G_UNICODE_SCRIPT_CYRILLIC,
-  G_UNICODE_SCRIPT_DESERET,
-  G_UNICODE_SCRIPT_DEVANAGARI,
-  G_UNICODE_SCRIPT_ETHIOPIC,
-  G_UNICODE_SCRIPT_GEORGIAN,
-  G_UNICODE_SCRIPT_GOTHIC,
-  G_UNICODE_SCRIPT_GREEK,
-  G_UNICODE_SCRIPT_GUJARATI,
-  G_UNICODE_SCRIPT_GURMUKHI,
-  G_UNICODE_SCRIPT_HAN,
-  G_UNICODE_SCRIPT_HANGUL,
-  G_UNICODE_SCRIPT_HEBREW,
-  G_UNICODE_SCRIPT_HIRAGANA,
-  G_UNICODE_SCRIPT_KANNADA,
-  G_UNICODE_SCRIPT_KATAKANA,
-  G_UNICODE_SCRIPT_KHMER,
-  G_UNICODE_SCRIPT_LAO,
-  G_UNICODE_SCRIPT_LATIN,
-  G_UNICODE_SCRIPT_MALAYALAM,
-  G_UNICODE_SCRIPT_MONGOLIAN,
-  G_UNICODE_SCRIPT_MYANMAR,
-  G_UNICODE_SCRIPT_OGHAM,
-  G_UNICODE_SCRIPT_OLD_ITALIC,
-  G_UNICODE_SCRIPT_ORIYA,
-  G_UNICODE_SCRIPT_RUNIC,
-  G_UNICODE_SCRIPT_SINHALA,
-  G_UNICODE_SCRIPT_SYRIAC,
-  G_UNICODE_SCRIPT_TAMIL,
-  G_UNICODE_SCRIPT_TELUGU,
-  G_UNICODE_SCRIPT_THAANA,
-  G_UNICODE_SCRIPT_THAI,
-  G_UNICODE_SCRIPT_TIBETAN,
-  G_UNICODE_SCRIPT_CANADIAN_ABORIGINAL,
-  G_UNICODE_SCRIPT_YI,
-  G_UNICODE_SCRIPT_TAGALOG,
-  G_UNICODE_SCRIPT_HANUNOO,
-  G_UNICODE_SCRIPT_BUHID,
-  G_UNICODE_SCRIPT_TAGBANWA,
-  G_UNICODE_SCRIPT_BRAILLE,
-  G_UNICODE_SCRIPT_CYPRIOT,
-  G_UNICODE_SCRIPT_LIMBU,
-  G_UNICODE_SCRIPT_OSMANYA,
-  G_UNICODE_SCRIPT_SHAVIAN,
-  G_UNICODE_SCRIPT_LINEAR_B,
-  G_UNICODE_SCRIPT_TAI_LE,
-  G_UNICODE_SCRIPT_UGARITIC,
-  G_UNICODE_SCRIPT_NEW_TAI_LUE,
-  G_UNICODE_SCRIPT_BUGINESE,
-  G_UNICODE_SCRIPT_GLAGOLITIC,
-  G_UNICODE_SCRIPT_TIFINAGH,
-  G_UNICODE_SCRIPT_SYLOTI_NAGRI,
-  G_UNICODE_SCRIPT_OLD_PERSIAN,
-  G_UNICODE_SCRIPT_KHAROSHTHI,
-  G_UNICODE_SCRIPT_UNKNOWN,
-  G_UNICODE_SCRIPT_BALINESE,
-  G_UNICODE_SCRIPT_CUNEIFORM,
-  G_UNICODE_SCRIPT_PHOENICIAN,
-  G_UNICODE_SCRIPT_PHAGS_PA,
-  G_UNICODE_SCRIPT_NKO,
-  G_UNICODE_SCRIPT_KAYAH_LI,
-  G_UNICODE_SCRIPT_LEPCHA,
-  G_UNICODE_SCRIPT_REJANG,
-  G_UNICODE_SCRIPT_SUNDANESE,
-  G_UNICODE_SCRIPT_SAURASHTRA,
-  G_UNICODE_SCRIPT_CHAM,
-  G_UNICODE_SCRIPT_OL_CHIKI,
-  G_UNICODE_SCRIPT_VAI,
-  G_UNICODE_SCRIPT_CARIAN,
-  G_UNICODE_SCRIPT_LYCIAN,
-  G_UNICODE_SCRIPT_LYDIAN,
-  G_UNICODE_SCRIPT_AVESTAN,
-  G_UNICODE_SCRIPT_BAMUM,
-  G_UNICODE_SCRIPT_EGYPTIAN_HIEROGLYPHS,
-  G_UNICODE_SCRIPT_IMPERIAL_ARAMAIC,
-  G_UNICODE_SCRIPT_INSCRIPTIONAL_PAHLAVI,
-  G_UNICODE_SCRIPT_INSCRIPTIONAL_PARTHIAN,
-  G_UNICODE_SCRIPT_JAVANESE,
-  G_UNICODE_SCRIPT_KAITHI,
-  G_UNICODE_SCRIPT_LISU,
-  G_UNICODE_SCRIPT_MEETEI_MAYEK,
-  G_UNICODE_SCRIPT_OLD_SOUTH_ARABIAN,
-  G_UNICODE_SCRIPT_OLD_TURKIC,
-  G_UNICODE_SCRIPT_SAMARITAN,
-  G_UNICODE_SCRIPT_TAI_THAM,
-  G_UNICODE_SCRIPT_TAI_VIET,
-  G_UNICODE_SCRIPT_BATAK,
-  G_UNICODE_SCRIPT_BRAHMI,
-  G_UNICODE_SCRIPT_MANDAIC,
-  G_UNICODE_SCRIPT_CHAKMA,
-  G_UNICODE_SCRIPT_MEROITIC_CURSIVE,
-  G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS,
-  G_UNICODE_SCRIPT_MIAO,
-  G_UNICODE_SCRIPT_SHARADA,
-  G_UNICODE_SCRIPT_SORA_SOMPENG,
-  G_UNICODE_SCRIPT_TAKRI,
-  G_UNICODE_SCRIPT_BASSA_VAH,
-  G_UNICODE_SCRIPT_CAUCASIAN_ALBANIAN,
-  G_UNICODE_SCRIPT_DUPLOYAN,
-  G_UNICODE_SCRIPT_ELBASAN,
-  G_UNICODE_SCRIPT_GRANTHA,
-  G_UNICODE_SCRIPT_KHOJKI,
-  G_UNICODE_SCRIPT_KHUDAWADI,
-  G_UNICODE_SCRIPT_LINEAR_A,
-  G_UNICODE_SCRIPT_MAHAJANI,
-  G_UNICODE_SCRIPT_MANICHAEAN,
-  G_UNICODE_SCRIPT_MENDE_KIKAKUI,
-  G_UNICODE_SCRIPT_MODI,
-  G_UNICODE_SCRIPT_MRO,
-  G_UNICODE_SCRIPT_NABATAEAN,
-  G_UNICODE_SCRIPT_OLD_NORTH_ARABIAN,
-  G_UNICODE_SCRIPT_OLD_PERMIC,
-  G_UNICODE_SCRIPT_PAHAWH_HMONG,
-  G_UNICODE_SCRIPT_PALMYRENE,
-  G_UNICODE_SCRIPT_PAU_CIN_HAU,
-  G_UNICODE_SCRIPT_PSALTER_PAHLAVI,
-  G_UNICODE_SCRIPT_SIDDHAM,
-  G_UNICODE_SCRIPT_TIRHUTA,
-  G_UNICODE_SCRIPT_WARANG_CITI,
-  G_UNICODE_SCRIPT_AHOM,
-  G_UNICODE_SCRIPT_ANATOLIAN_HIEROGLYPHS,
-  G_UNICODE_SCRIPT_HATRAN,
-  G_UNICODE_SCRIPT_MULTANI,
-  G_UNICODE_SCRIPT_OLD_HUNGARIAN,
-  G_UNICODE_SCRIPT_SIGNWRITING,
-  G_UNICODE_SCRIPT_ADLAM,
-  G_UNICODE_SCRIPT_BHAIKSUKI,
-  G_UNICODE_SCRIPT_MARCHEN,
-  G_UNICODE_SCRIPT_NEWA,
-  G_UNICODE_SCRIPT_OSAGE,
-  G_UNICODE_SCRIPT_TANGUT,
-  G_UNICODE_SCRIPT_MASARAM_GONDI,
-  G_UNICODE_SCRIPT_NUSHU,
-  G_UNICODE_SCRIPT_SOYOMBO,
-  G_UNICODE_SCRIPT_ZANABAZAR_SQUARE,
-  G_UNICODE_SCRIPT_DOGRA,
-  G_UNICODE_SCRIPT_GUNJALA_GONDI,
-  G_UNICODE_SCRIPT_HANIFI_ROHINGYA,
-  G_UNICODE_SCRIPT_MAKASAR,
-  G_UNICODE_SCRIPT_MEDEFAIDRIN,
-  G_UNICODE_SCRIPT_OLD_SOGDIAN,
-  G_UNICODE_SCRIPT_SOGDIAN,
-  G_UNICODE_SCRIPT_ELYMAIC,
-  G_UNICODE_SCRIPT_NANDINAGARI,
-  G_UNICODE_SCRIPT_NYIAKENG_PUACHUE_HMONG,
-  G_UNICODE_SCRIPT_WANCHO
-} GUnicodeScript;
-typedef enum {
-  G_NORMALIZE_DEFAULT,
-  G_NORMALIZE_NFD = G_NORMALIZE_DEFAULT,
-  G_NORMALIZE_DEFAULT_COMPOSE,
-  G_NORMALIZE_NFC = G_NORMALIZE_DEFAULT_COMPOSE,
-  G_NORMALIZE_ALL,
-  G_NORMALIZE_NFKD = G_NORMALIZE_ALL,
-  G_NORMALIZE_ALL_COMPOSE,
-  G_NORMALIZE_NFKC = G_NORMALIZE_ALL_COMPOSE
-} GNormalizeMode;
+
+
+
+
 typedef struct _GString GString;
 struct _GString
 {
@@ -1409,50 +1403,11 @@ struct _GString
 
 typedef struct _GIOChannel GIOChannel;
 typedef struct _GIOFuncs GIOFuncs;
-typedef enum
-{
-  G_IO_ERROR_NONE,
-  G_IO_ERROR_AGAIN,
-  G_IO_ERROR_INVAL,
-  G_IO_ERROR_UNKNOWN
-} GIOError;
-typedef enum
-{
-  G_IO_CHANNEL_ERROR_FBIG,
-  G_IO_CHANNEL_ERROR_INVAL,
-  G_IO_CHANNEL_ERROR_IO,
-  G_IO_CHANNEL_ERROR_ISDIR,
-  G_IO_CHANNEL_ERROR_NOSPC,
-  G_IO_CHANNEL_ERROR_NXIO,
-  G_IO_CHANNEL_ERROR_OVERFLOW,
-  G_IO_CHANNEL_ERROR_PIPE,
-  G_IO_CHANNEL_ERROR_FAILED
-} GIOChannelError;
-typedef enum
-{
-  G_IO_STATUS_ERROR,
-  G_IO_STATUS_NORMAL,
-  G_IO_STATUS_EOF,
-  G_IO_STATUS_AGAIN
-} GIOStatus;
-typedef enum
-{
-  G_SEEK_CUR,
-  G_SEEK_SET,
-  G_SEEK_END
-} GSeekType;
-typedef enum
-{
-  G_IO_FLAG_APPEND = 1 << 0,
-  G_IO_FLAG_NONBLOCK = 1 << 1,
-  G_IO_FLAG_IS_READABLE = 1 << 2,
-  G_IO_FLAG_IS_WRITABLE = 1 << 3,
-  G_IO_FLAG_IS_WRITEABLE = 1 << 3,
-  G_IO_FLAG_IS_SEEKABLE = 1 << 4,
-  G_IO_FLAG_MASK = (1 << 5) - 1,
-  G_IO_FLAG_GET_MASK = G_IO_FLAG_MASK,
-  G_IO_FLAG_SET_MASK = G_IO_FLAG_APPEND | G_IO_FLAG_NONBLOCK
-} GIOFlags;
+
+
+
+
+
 struct _GIOChannel
 {
   gint ref_count;
@@ -1505,40 +1460,12 @@ struct _GIOFuncs
       GError **err);
   GIOFlags (*io_get_flags) (GIOChannel *channel);
 };
-typedef enum
-{
-  G_KEY_FILE_ERROR_UNKNOWN_ENCODING,
-  G_KEY_FILE_ERROR_PARSE,
-  G_KEY_FILE_ERROR_NOT_FOUND,
-  G_KEY_FILE_ERROR_KEY_NOT_FOUND,
-  G_KEY_FILE_ERROR_GROUP_NOT_FOUND,
-  G_KEY_FILE_ERROR_INVALID_VALUE
-} GKeyFileError;
+
 typedef struct _GKeyFile GKeyFile;
-typedef enum
-{
-  G_KEY_FILE_NONE = 0,
-  G_KEY_FILE_KEEP_COMMENTS = 1 << 0,
-  G_KEY_FILE_KEEP_TRANSLATIONS = 1 << 1
-} GKeyFileFlags;
+
 typedef struct _GMappedFile GMappedFile;
-typedef enum
-{
-  G_MARKUP_ERROR_BAD_UTF8,
-  G_MARKUP_ERROR_EMPTY,
-  G_MARKUP_ERROR_PARSE,
-  G_MARKUP_ERROR_UNKNOWN_ELEMENT,
-  G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE,
-  G_MARKUP_ERROR_INVALID_CONTENT,
-  G_MARKUP_ERROR_MISSING_ATTRIBUTE
-} GMarkupError;
-typedef enum
-{
-  G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG = 1 << 0,
-  G_MARKUP_TREAT_CDATA_AS_TEXT = 1 << 1,
-  G_MARKUP_PREFIX_ERROR_POSITION = 1 << 2,
-  G_MARKUP_IGNORE_QUALIFIED = 1 << 3
-} GMarkupParseFlags;
+
+
 typedef struct _GMarkupParseContext GMarkupParseContext;
 typedef struct _GMarkupParser GMarkupParser;
 struct _GMarkupParser
@@ -1567,38 +1494,10 @@ struct _GMarkupParser
                           GError *error,
                           gpointer user_data);
 };
-typedef enum
-{
-  G_MARKUP_COLLECT_INVALID,
-  G_MARKUP_COLLECT_STRING,
-  G_MARKUP_COLLECT_STRDUP,
-  G_MARKUP_COLLECT_BOOLEAN,
-  G_MARKUP_COLLECT_TRISTATE,
-  G_MARKUP_COLLECT_OPTIONAL = (1 << 16)
-} GMarkupCollectType;
+
 typedef struct _GVariantType GVariantType;
 typedef struct _GVariant GVariant;
-typedef enum
-{
-  G_VARIANT_CLASS_BOOLEAN = 'b',
-  G_VARIANT_CLASS_BYTE = 'y',
-  G_VARIANT_CLASS_INT16 = 'n',
-  G_VARIANT_CLASS_UINT16 = 'q',
-  G_VARIANT_CLASS_INT32 = 'i',
-  G_VARIANT_CLASS_UINT32 = 'u',
-  G_VARIANT_CLASS_INT64 = 'x',
-  G_VARIANT_CLASS_UINT64 = 't',
-  G_VARIANT_CLASS_HANDLE = 'h',
-  G_VARIANT_CLASS_DOUBLE = 'd',
-  G_VARIANT_CLASS_STRING = 's',
-  G_VARIANT_CLASS_OBJECT_PATH = 'o',
-  G_VARIANT_CLASS_SIGNATURE = 'g',
-  G_VARIANT_CLASS_VARIANT = 'v',
-  G_VARIANT_CLASS_MAYBE = 'm',
-  G_VARIANT_CLASS_ARRAY = 'a',
-  G_VARIANT_CLASS_TUPLE = '(',
-  G_VARIANT_CLASS_DICT_ENTRY = '{'
-} GVariantClass;
+
 typedef struct _GVariantIter GVariantIter;
 struct _GVariantIter {
   gsize x[16];
@@ -1615,27 +1514,7 @@ struct _GVariantBuilder {
     gsize x[16];
   } u;
 };
-typedef enum
-{
-  G_VARIANT_PARSE_ERROR_FAILED,
-  G_VARIANT_PARSE_ERROR_BASIC_TYPE_EXPECTED,
-  G_VARIANT_PARSE_ERROR_CANNOT_INFER_TYPE,
-  G_VARIANT_PARSE_ERROR_DEFINITE_TYPE_EXPECTED,
-  G_VARIANT_PARSE_ERROR_INPUT_NOT_AT_END,
-  G_VARIANT_PARSE_ERROR_INVALID_CHARACTER,
-  G_VARIANT_PARSE_ERROR_INVALID_FORMAT_STRING,
-  G_VARIANT_PARSE_ERROR_INVALID_OBJECT_PATH,
-  G_VARIANT_PARSE_ERROR_INVALID_SIGNATURE,
-  G_VARIANT_PARSE_ERROR_INVALID_TYPE_STRING,
-  G_VARIANT_PARSE_ERROR_NO_COMMON_TYPE,
-  G_VARIANT_PARSE_ERROR_NUMBER_OUT_OF_RANGE,
-  G_VARIANT_PARSE_ERROR_NUMBER_TOO_BIG,
-  G_VARIANT_PARSE_ERROR_TYPE_ERROR,
-  G_VARIANT_PARSE_ERROR_UNEXPECTED_TOKEN,
-  G_VARIANT_PARSE_ERROR_UNKNOWN_KEYWORD,
-  G_VARIANT_PARSE_ERROR_UNTERMINATED_STRING_CONSTANT,
-  G_VARIANT_PARSE_ERROR_VALUE_EXPECTED
-} GVariantParseError;
+
 typedef struct _GVariantDict GVariantDict;
 struct _GVariantDict {
   union
@@ -1648,27 +1527,12 @@ struct _GVariantDict {
     gsize x[16];
   } u;
 };
-typedef enum
-{
-  G_LOG_FLAG_RECURSION = 1 << 0,
-  G_LOG_FLAG_FATAL = 1 << 1,
-  G_LOG_LEVEL_ERROR = 1 << 2,
-  G_LOG_LEVEL_CRITICAL = 1 << 3,
-  G_LOG_LEVEL_WARNING = 1 << 4,
-  G_LOG_LEVEL_MESSAGE = 1 << 5,
-  G_LOG_LEVEL_INFO = 1 << 6,
-  G_LOG_LEVEL_DEBUG = 1 << 7,
-  G_LOG_LEVEL_MASK = ~(G_LOG_FLAG_RECURSION | G_LOG_FLAG_FATAL)
-} GLogLevelFlags;
+
 typedef void (*GLogFunc) (const gchar *log_domain,
                                                  GLogLevelFlags log_level,
                                                  const gchar *message,
                                                  gpointer user_data);
-typedef enum
-{
-  G_LOG_WRITER_HANDLED = 1,
-  G_LOG_WRITER_UNHANDLED = 0,
-} GLogWriterOutput;
+
 typedef struct _GLogField GLogField;
 struct _GLogField
 {
@@ -1685,29 +1549,8 @@ typedef void (*GPrintFunc) (const gchar *string);
 typedef struct _GOptionContext GOptionContext;
 typedef struct _GOptionGroup GOptionGroup;
 typedef struct _GOptionEntry GOptionEntry;
-typedef enum
-{
-  G_OPTION_FLAG_NONE = 0,
-  G_OPTION_FLAG_HIDDEN = 1 << 0,
-  G_OPTION_FLAG_IN_MAIN = 1 << 1,
-  G_OPTION_FLAG_REVERSE = 1 << 2,
-  G_OPTION_FLAG_NO_ARG = 1 << 3,
-  G_OPTION_FLAG_FILENAME = 1 << 4,
-  G_OPTION_FLAG_OPTIONAL_ARG = 1 << 5,
-  G_OPTION_FLAG_NOALIAS = 1 << 6
-} GOptionFlags;
-typedef enum
-{
-  G_OPTION_ARG_NONE,
-  G_OPTION_ARG_STRING,
-  G_OPTION_ARG_INT,
-  G_OPTION_ARG_CALLBACK,
-  G_OPTION_ARG_FILENAME,
-  G_OPTION_ARG_STRING_ARRAY,
-  G_OPTION_ARG_FILENAME_ARRAY,
-  G_OPTION_ARG_DOUBLE,
-  G_OPTION_ARG_INT64
-} GOptionArg;
+
+
 typedef gboolean (*GOptionArgFunc) (const gchar *option_name,
         const gchar *value,
         gpointer data,
@@ -1720,12 +1563,7 @@ typedef void (*GOptionErrorFunc) (GOptionContext *context,
       GOptionGroup *group,
       gpointer data,
       GError **error);
-typedef enum
-{
-  G_OPTION_ERROR_UNKNOWN_OPTION,
-  G_OPTION_ERROR_BAD_VALUE,
-  G_OPTION_ERROR_FAILED
-} GOptionError;
+
 struct _GOptionEntry
 {
   const gchar *long_name;
@@ -1748,105 +1586,9 @@ typedef struct _GRand GRand;
        
        
 typedef char GRefString;
-typedef enum
-{
-  G_REGEX_ERROR_COMPILE,
-  G_REGEX_ERROR_OPTIMIZE,
-  G_REGEX_ERROR_REPLACE,
-  G_REGEX_ERROR_MATCH,
-  G_REGEX_ERROR_INTERNAL,
-  G_REGEX_ERROR_STRAY_BACKSLASH = 101,
-  G_REGEX_ERROR_MISSING_CONTROL_CHAR = 102,
-  G_REGEX_ERROR_UNRECOGNIZED_ESCAPE = 103,
-  G_REGEX_ERROR_QUANTIFIERS_OUT_OF_ORDER = 104,
-  G_REGEX_ERROR_QUANTIFIER_TOO_BIG = 105,
-  G_REGEX_ERROR_UNTERMINATED_CHARACTER_CLASS = 106,
-  G_REGEX_ERROR_INVALID_ESCAPE_IN_CHARACTER_CLASS = 107,
-  G_REGEX_ERROR_RANGE_OUT_OF_ORDER = 108,
-  G_REGEX_ERROR_NOTHING_TO_REPEAT = 109,
-  G_REGEX_ERROR_UNRECOGNIZED_CHARACTER = 112,
-  G_REGEX_ERROR_POSIX_NAMED_CLASS_OUTSIDE_CLASS = 113,
-  G_REGEX_ERROR_UNMATCHED_PARENTHESIS = 114,
-  G_REGEX_ERROR_INEXISTENT_SUBPATTERN_REFERENCE = 115,
-  G_REGEX_ERROR_UNTERMINATED_COMMENT = 118,
-  G_REGEX_ERROR_EXPRESSION_TOO_LARGE = 120,
-  G_REGEX_ERROR_MEMORY_ERROR = 121,
-  G_REGEX_ERROR_VARIABLE_LENGTH_LOOKBEHIND = 125,
-  G_REGEX_ERROR_MALFORMED_CONDITION = 126,
-  G_REGEX_ERROR_TOO_MANY_CONDITIONAL_BRANCHES = 127,
-  G_REGEX_ERROR_ASSERTION_EXPECTED = 128,
-  G_REGEX_ERROR_UNKNOWN_POSIX_CLASS_NAME = 130,
-  G_REGEX_ERROR_POSIX_COLLATING_ELEMENTS_NOT_SUPPORTED = 131,
-  G_REGEX_ERROR_HEX_CODE_TOO_LARGE = 134,
-  G_REGEX_ERROR_INVALID_CONDITION = 135,
-  G_REGEX_ERROR_SINGLE_BYTE_MATCH_IN_LOOKBEHIND = 136,
-  G_REGEX_ERROR_INFINITE_LOOP = 140,
-  G_REGEX_ERROR_MISSING_SUBPATTERN_NAME_TERMINATOR = 142,
-  G_REGEX_ERROR_DUPLICATE_SUBPATTERN_NAME = 143,
-  G_REGEX_ERROR_MALFORMED_PROPERTY = 146,
-  G_REGEX_ERROR_UNKNOWN_PROPERTY = 147,
-  G_REGEX_ERROR_SUBPATTERN_NAME_TOO_LONG = 148,
-  G_REGEX_ERROR_TOO_MANY_SUBPATTERNS = 149,
-  G_REGEX_ERROR_INVALID_OCTAL_VALUE = 151,
-  G_REGEX_ERROR_TOO_MANY_BRANCHES_IN_DEFINE = 154,
-  G_REGEX_ERROR_DEFINE_REPETION = 155,
-  G_REGEX_ERROR_INCONSISTENT_NEWLINE_OPTIONS = 156,
-  G_REGEX_ERROR_MISSING_BACK_REFERENCE = 157,
-  G_REGEX_ERROR_INVALID_RELATIVE_REFERENCE = 158,
-  G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_FORBIDDEN = 159,
-  G_REGEX_ERROR_UNKNOWN_BACKTRACKING_CONTROL_VERB = 160,
-  G_REGEX_ERROR_NUMBER_TOO_BIG = 161,
-  G_REGEX_ERROR_MISSING_SUBPATTERN_NAME = 162,
-  G_REGEX_ERROR_MISSING_DIGIT = 163,
-  G_REGEX_ERROR_INVALID_DATA_CHARACTER = 164,
-  G_REGEX_ERROR_EXTRA_SUBPATTERN_NAME = 165,
-  G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_REQUIRED = 166,
-  G_REGEX_ERROR_INVALID_CONTROL_CHAR = 168,
-  G_REGEX_ERROR_MISSING_NAME = 169,
-  G_REGEX_ERROR_NOT_SUPPORTED_IN_CLASS = 171,
-  G_REGEX_ERROR_TOO_MANY_FORWARD_REFERENCES = 172,
-  G_REGEX_ERROR_NAME_TOO_LONG = 175,
-  G_REGEX_ERROR_CHARACTER_VALUE_TOO_LARGE = 176
-} GRegexError;
-typedef enum
-{
-  G_REGEX_CASELESS = 1 << 0,
-  G_REGEX_MULTILINE = 1 << 1,
-  G_REGEX_DOTALL = 1 << 2,
-  G_REGEX_EXTENDED = 1 << 3,
-  G_REGEX_ANCHORED = 1 << 4,
-  G_REGEX_DOLLAR_ENDONLY = 1 << 5,
-  G_REGEX_UNGREEDY = 1 << 9,
-  G_REGEX_RAW = 1 << 11,
-  G_REGEX_NO_AUTO_CAPTURE = 1 << 12,
-  G_REGEX_OPTIMIZE = 1 << 13,
-  G_REGEX_FIRSTLINE = 1 << 18,
-  G_REGEX_DUPNAMES = 1 << 19,
-  G_REGEX_NEWLINE_CR = 1 << 20,
-  G_REGEX_NEWLINE_LF = 1 << 21,
-  G_REGEX_NEWLINE_CRLF = G_REGEX_NEWLINE_CR | G_REGEX_NEWLINE_LF,
-  G_REGEX_NEWLINE_ANYCRLF = G_REGEX_NEWLINE_CR | 1 << 22,
-  G_REGEX_BSR_ANYCRLF = 1 << 23,
-  G_REGEX_JAVASCRIPT_COMPAT = 1 << 25
-} GRegexCompileFlags;
-typedef enum
-{
-  G_REGEX_MATCH_ANCHORED = 1 << 4,
-  G_REGEX_MATCH_NOTBOL = 1 << 7,
-  G_REGEX_MATCH_NOTEOL = 1 << 8,
-  G_REGEX_MATCH_NOTEMPTY = 1 << 10,
-  G_REGEX_MATCH_PARTIAL = 1 << 15,
-  G_REGEX_MATCH_NEWLINE_CR = 1 << 20,
-  G_REGEX_MATCH_NEWLINE_LF = 1 << 21,
-  G_REGEX_MATCH_NEWLINE_CRLF = G_REGEX_MATCH_NEWLINE_CR | G_REGEX_MATCH_NEWLINE_LF,
-  G_REGEX_MATCH_NEWLINE_ANY = 1 << 22,
-  G_REGEX_MATCH_NEWLINE_ANYCRLF = G_REGEX_MATCH_NEWLINE_CR | G_REGEX_MATCH_NEWLINE_ANY,
-  G_REGEX_MATCH_BSR_ANYCRLF = 1 << 23,
-  G_REGEX_MATCH_BSR_ANY = 1 << 24,
-  G_REGEX_MATCH_PARTIAL_SOFT = G_REGEX_MATCH_PARTIAL,
-  G_REGEX_MATCH_PARTIAL_HARD = 1 << 27,
-  G_REGEX_MATCH_NOTEMPTY_ATSTART = 1 << 28
-} GRegexMatchFlags;
+
+
+
 typedef struct _GRegex GRegex;
 typedef struct _GMatchInfo GMatchInfo;
 typedef gboolean (*GRegexEvalCallback) (const GMatchInfo *match_info,
@@ -1858,44 +1600,8 @@ typedef union _GTokenValue GTokenValue;
 typedef void (*GScannerMsgFunc) (GScanner *scanner,
        gchar *message,
        gboolean error);
-typedef enum
-{
-  G_ERR_UNKNOWN,
-  G_ERR_UNEXP_EOF,
-  G_ERR_UNEXP_EOF_IN_STRING,
-  G_ERR_UNEXP_EOF_IN_COMMENT,
-  G_ERR_NON_DIGIT_IN_CONST,
-  G_ERR_DIGIT_RADIX,
-  G_ERR_FLOAT_RADIX,
-  G_ERR_FLOAT_MALFORMED
-} GErrorType;
-typedef enum
-{
-  G_TOKEN_EOF = 0,
-  G_TOKEN_LEFT_PAREN = '(',
-  G_TOKEN_RIGHT_PAREN = ')',
-  G_TOKEN_LEFT_CURLY = '{',
-  G_TOKEN_RIGHT_CURLY = '}',
-  G_TOKEN_LEFT_BRACE = '[',
-  G_TOKEN_RIGHT_BRACE = ']',
-  G_TOKEN_EQUAL_SIGN = '=',
-  G_TOKEN_COMMA = ',',
-  G_TOKEN_NONE = 256,
-  G_TOKEN_ERROR,
-  G_TOKEN_CHAR,
-  G_TOKEN_BINARY,
-  G_TOKEN_OCTAL,
-  G_TOKEN_INT,
-  G_TOKEN_HEX,
-  G_TOKEN_FLOAT,
-  G_TOKEN_STRING,
-  G_TOKEN_SYMBOL,
-  G_TOKEN_IDENTIFIER,
-  G_TOKEN_IDENTIFIER_NULL,
-  G_TOKEN_COMMENT_SINGLE,
-  G_TOKEN_COMMENT_MULTI,
-  G_TOKEN_LAST
-} GTokenType;
+
+
 union _GTokenValue
 {
   gpointer v_symbol;
@@ -1970,77 +1676,14 @@ typedef struct _GSequenceNode GSequenceIter;
 typedef gint (* GSequenceIterCompareFunc) (GSequenceIter *a,
                                            GSequenceIter *b,
                                            gpointer data);
-typedef enum
-{
-  G_SHELL_ERROR_BAD_QUOTING,
-  G_SHELL_ERROR_EMPTY_STRING,
-  G_SHELL_ERROR_FAILED
-} GShellError;
-typedef enum {
-  G_SLICE_CONFIG_ALWAYS_MALLOC = 1,
-  G_SLICE_CONFIG_BYPASS_MAGAZINES,
-  G_SLICE_CONFIG_WORKING_SET_MSECS,
-  G_SLICE_CONFIG_COLOR_INCREMENT,
-  G_SLICE_CONFIG_CHUNK_SIZES,
-  G_SLICE_CONFIG_CONTENTION_COUNTER
-} GSliceConfig;
-typedef enum
-{
-  G_SPAWN_ERROR_FORK,
-  G_SPAWN_ERROR_READ,
-  G_SPAWN_ERROR_CHDIR,
-  G_SPAWN_ERROR_ACCES,
-  G_SPAWN_ERROR_PERM,
-  G_SPAWN_ERROR_TOO_BIG,
-  G_SPAWN_ERROR_2BIG = G_SPAWN_ERROR_TOO_BIG,
-  G_SPAWN_ERROR_NOEXEC,
-  G_SPAWN_ERROR_NAMETOOLONG,
-  G_SPAWN_ERROR_NOENT,
-  G_SPAWN_ERROR_NOMEM,
-  G_SPAWN_ERROR_NOTDIR,
-  G_SPAWN_ERROR_LOOP,
-  G_SPAWN_ERROR_TXTBUSY,
-  G_SPAWN_ERROR_IO,
-  G_SPAWN_ERROR_NFILE,
-  G_SPAWN_ERROR_MFILE,
-  G_SPAWN_ERROR_INVAL,
-  G_SPAWN_ERROR_ISDIR,
-  G_SPAWN_ERROR_LIBBAD,
-  G_SPAWN_ERROR_FAILED
-} GSpawnError;
+
+
+
 typedef void (* GSpawnChildSetupFunc) (gpointer user_data);
-typedef enum
-{
-  G_SPAWN_DEFAULT = 0,
-  G_SPAWN_LEAVE_DESCRIPTORS_OPEN = 1 << 0,
-  G_SPAWN_DO_NOT_REAP_CHILD = 1 << 1,
-  G_SPAWN_SEARCH_PATH = 1 << 2,
-  G_SPAWN_STDOUT_TO_DEV_NULL = 1 << 3,
-  G_SPAWN_STDERR_TO_DEV_NULL = 1 << 4,
-  G_SPAWN_CHILD_INHERITS_STDIN = 1 << 5,
-  G_SPAWN_FILE_AND_ARGV_ZERO = 1 << 6,
-  G_SPAWN_SEARCH_PATH_FROM_ENVP = 1 << 7,
-  G_SPAWN_CLOEXEC_PIPES = 1 << 8
-} GSpawnFlags;
-typedef enum {
-  G_ASCII_ALNUM = 1 << 0,
-  G_ASCII_ALPHA = 1 << 1,
-  G_ASCII_CNTRL = 1 << 2,
-  G_ASCII_DIGIT = 1 << 3,
-  G_ASCII_GRAPH = 1 << 4,
-  G_ASCII_LOWER = 1 << 5,
-  G_ASCII_PRINT = 1 << 6,
-  G_ASCII_PUNCT = 1 << 7,
-  G_ASCII_SPACE = 1 << 8,
-  G_ASCII_UPPER = 1 << 9,
-  G_ASCII_XDIGIT = 1 << 10
-} GAsciiType;
+
+
 typedef gchar** GStrv;
-typedef enum
-  {
-    G_NUMBER_PARSER_ERROR_INVALID,
-    G_NUMBER_PARSER_ERROR_OUT_OF_BOUNDS,
-  } GNumberParserError;
+
 typedef struct _GStringChunk GStringChunk;
 typedef struct GTestCase GTestCase;
 typedef struct GTestSuite GTestSuite;
@@ -2048,16 +1691,8 @@ typedef void (*GTestFunc) (void);
 typedef void (*GTestDataFunc) (gconstpointer user_data);
 typedef void (*GTestFixtureFunc) (gpointer fixture,
                                   gconstpointer user_data);
-typedef enum {
-  G_TEST_TRAP_SILENCE_STDOUT = 1 << 7,
-  G_TEST_TRAP_SILENCE_STDERR = 1 << 8,
-  G_TEST_TRAP_INHERIT_STDIN = 1 << 9
-} GTestTrapFlags ;
-typedef enum {
-  G_TEST_SUBPROCESS_INHERIT_STDIN = 1 << 0,
-  G_TEST_SUBPROCESS_INHERIT_STDOUT = 1 << 1,
-  G_TEST_SUBPROCESS_INHERIT_STDERR = 1 << 2
-} GTestSubprocessFlags;
+
+
 typedef struct {
   gboolean test_initialized;
   gboolean test_quick;
@@ -2066,26 +1701,8 @@ typedef struct {
   gboolean test_quiet;
   gboolean test_undefined;
 } GTestConfig;
-typedef enum {
-  G_TEST_RUN_SUCCESS,
-  G_TEST_RUN_SKIPPED,
-  G_TEST_RUN_FAILURE,
-  G_TEST_RUN_INCOMPLETE
-} GTestResult;
-typedef enum {
-  G_TEST_LOG_NONE,
-  G_TEST_LOG_ERROR,
-  G_TEST_LOG_START_BINARY,
-  G_TEST_LOG_LIST_CASE,
-  G_TEST_LOG_SKIP_CASE,
-  G_TEST_LOG_START_CASE,
-  G_TEST_LOG_STOP_CASE,
-  G_TEST_LOG_MIN_RESULT,
-  G_TEST_LOG_MAX_RESULT,
-  G_TEST_LOG_MESSAGE,
-  G_TEST_LOG_START_SUITE,
-  G_TEST_LOG_STOP_SUITE
-} GTestLogType;
+
+
 typedef struct {
   GTestLogType log_type;
   guint n_strings;
@@ -2101,11 +1718,7 @@ typedef gboolean (*GTestLogFatalFunc) (const gchar *log_domain,
                                                  GLogLevelFlags log_level,
                                                  const gchar *message,
                                                  gpointer user_data);
-typedef enum
-{
-  G_TEST_DIST,
-  G_TEST_BUILT
-} GTestFileType;
+
 typedef struct _GThreadPool GThreadPool;
 struct _GThreadPool
 {
@@ -2148,13 +1761,7 @@ struct _GTuples
 {
   guint len;
 };
-typedef enum
-{
-  G_THREAD_PRIORITY_LOW,
-  G_THREAD_PRIORITY_NORMAL,
-  G_THREAD_PRIORITY_HIGH,
-  G_THREAD_PRIORITY_URGENT
-} GThreadPriority ;
+
 struct _GThread
 {
   GThreadFunc func;
@@ -2457,14 +2064,7 @@ struct _GTypeQuery
   guint class_size;
   guint instance_size;
 };
-typedef enum
-{
-  G_TYPE_DEBUG_NONE = 0,
-  G_TYPE_DEBUG_OBJECTS = 1 << 0,
-  G_TYPE_DEBUG_SIGNALS = 1 << 1,
-  G_TYPE_DEBUG_INSTANCE_COUNT = 1 << 2,
-  G_TYPE_DEBUG_MASK = 0x07
-} GTypeDebugFlags ;
+
 typedef void (*GBaseInitFunc) (gpointer g_class);
 typedef void (*GBaseFinalizeFunc) (gpointer g_class);
 typedef void (*GClassInitFunc) (gpointer g_class,
@@ -2481,18 +2081,8 @@ typedef gboolean (*GTypeClassCacheFunc) (gpointer cache_data,
            GTypeClass *g_class);
 typedef void (*GTypeInterfaceCheckFunc) (gpointer check_data,
            gpointer g_iface);
-typedef enum
-{
-  G_TYPE_FLAG_CLASSED = (1 << 0),
-  G_TYPE_FLAG_INSTANTIATABLE = (1 << 1),
-  G_TYPE_FLAG_DERIVABLE = (1 << 2),
-  G_TYPE_FLAG_DEEP_DERIVABLE = (1 << 3)
-} GTypeFundamentalFlags;
-typedef enum
-{
-  G_TYPE_FLAG_ABSTRACT = (1 << 4),
-  G_TYPE_FLAG_VALUE_ABSTRACT = (1 << 5)
-} GTypeFlags;
+
+
 struct _GTypeInfo
 {
   guint16 class_size;
@@ -2551,21 +2141,7 @@ struct _GValue
     gpointer v_pointer;
   } data[2];
 };
-typedef enum
-{
-  G_PARAM_READABLE = 1 << 0,
-  G_PARAM_WRITABLE = 1 << 1,
-  G_PARAM_READWRITE = (G_PARAM_READABLE | G_PARAM_WRITABLE),
-  G_PARAM_CONSTRUCT = 1 << 2,
-  G_PARAM_CONSTRUCT_ONLY = 1 << 3,
-  G_PARAM_LAX_VALIDATION = 1 << 4,
-  G_PARAM_STATIC_NAME = 1 << 5,
-  G_PARAM_PRIVATE = G_PARAM_STATIC_NAME,
-  G_PARAM_STATIC_NICK = 1 << 6,
-  G_PARAM_STATIC_BLURB = 1 << 7,
-  G_PARAM_EXPLICIT_NOTIFY = 1 << 30,
-  G_PARAM_DEPRECATED = (gint)(1u << 31)
-} GParamFlags;
+
 typedef struct _GParamSpec GParamSpec;
 typedef struct _GParamSpecClass GParamSpecClass;
 typedef struct _GParameter GParameter ;
@@ -2681,32 +2257,9 @@ typedef gboolean (*GSignalAccumulator) (GSignalInvocationHint *ihint,
       GValue *return_accu,
       const GValue *handler_return,
       gpointer data);
-typedef enum
-{
-  G_SIGNAL_RUN_FIRST = 1 << 0,
-  G_SIGNAL_RUN_LAST = 1 << 1,
-  G_SIGNAL_RUN_CLEANUP = 1 << 2,
-  G_SIGNAL_NO_RECURSE = 1 << 3,
-  G_SIGNAL_DETAILED = 1 << 4,
-  G_SIGNAL_ACTION = 1 << 5,
-  G_SIGNAL_NO_HOOKS = 1 << 6,
-  G_SIGNAL_MUST_COLLECT = 1 << 7,
-  G_SIGNAL_DEPRECATED = 1 << 8
-} GSignalFlags;
-typedef enum
-{
-  G_CONNECT_AFTER = 1 << 0,
-  G_CONNECT_SWAPPED = 1 << 1
-} GConnectFlags;
-typedef enum
-{
-  G_SIGNAL_MATCH_ID = 1 << 0,
-  G_SIGNAL_MATCH_DETAIL = 1 << 1,
-  G_SIGNAL_MATCH_CLOSURE = 1 << 2,
-  G_SIGNAL_MATCH_FUNC = 1 << 3,
-  G_SIGNAL_MATCH_DATA = 1 << 4,
-  G_SIGNAL_MATCH_UNBLOCKED = 1 << 5
-} GSignalMatchType;
+
+
+
 struct _GSignalInvocationHint
 {
   guint signal_id;
@@ -2790,12 +2343,7 @@ typedef gboolean (* GBindingTransformFunc) (GBinding *binding,
                                             const GValue *from_value,
                                             GValue *to_value,
                                             gpointer user_data);
-typedef enum {
-  G_BINDING_DEFAULT = 0,
-  G_BINDING_BIDIRECTIONAL = 1 << 0,
-  G_BINDING_SYNC_CREATE = 1 << 1,
-  G_BINDING_INVERT_BOOLEAN = 1 << 2
-} GBindingFlags;
+
 typedef struct _GEnumClass GEnumClass;
 typedef struct _GFlagsClass GFlagsClass;
 typedef struct _GEnumValue GEnumValue;
@@ -3056,566 +2604,82 @@ typedef GParamSpec *GParamSpec_autoptr; typedef GList *GParamSpec_listautoptr; t
  
 typedef GTypeClass *GTypeClass_autoptr; typedef GList *GTypeClass_listautoptr; typedef GSList *GTypeClass_slistautoptr; typedef GQueue *GTypeClass_queueautoptr;
 
-typedef enum {
-  G_APP_INFO_CREATE_NONE = 0,
-  G_APP_INFO_CREATE_NEEDS_TERMINAL = (1 << 0),
-  G_APP_INFO_CREATE_SUPPORTS_URIS = (1 << 1),
-  G_APP_INFO_CREATE_SUPPORTS_STARTUP_NOTIFICATION = (1 << 2)
-} GAppInfoCreateFlags;
-typedef enum {
-  G_CONVERTER_NO_FLAGS = 0,
-  G_CONVERTER_INPUT_AT_END = (1 << 0),
-  G_CONVERTER_FLUSH = (1 << 1)
-} GConverterFlags;
-typedef enum {
-  G_CONVERTER_ERROR = 0,
-  G_CONVERTER_CONVERTED = 1,
-  G_CONVERTER_FINISHED = 2,
-  G_CONVERTER_FLUSHED = 3
-} GConverterResult;
-typedef enum {
-  G_DATA_STREAM_BYTE_ORDER_BIG_ENDIAN,
-  G_DATA_STREAM_BYTE_ORDER_LITTLE_ENDIAN,
-  G_DATA_STREAM_BYTE_ORDER_HOST_ENDIAN
-} GDataStreamByteOrder;
-typedef enum {
-  G_DATA_STREAM_NEWLINE_TYPE_LF,
-  G_DATA_STREAM_NEWLINE_TYPE_CR,
-  G_DATA_STREAM_NEWLINE_TYPE_CR_LF,
-  G_DATA_STREAM_NEWLINE_TYPE_ANY
-} GDataStreamNewlineType;
-typedef enum {
-  G_FILE_ATTRIBUTE_TYPE_INVALID = 0,
-  G_FILE_ATTRIBUTE_TYPE_STRING,
-  G_FILE_ATTRIBUTE_TYPE_BYTE_STRING,
-  G_FILE_ATTRIBUTE_TYPE_BOOLEAN,
-  G_FILE_ATTRIBUTE_TYPE_UINT32,
-  G_FILE_ATTRIBUTE_TYPE_INT32,
-  G_FILE_ATTRIBUTE_TYPE_UINT64,
-  G_FILE_ATTRIBUTE_TYPE_INT64,
-  G_FILE_ATTRIBUTE_TYPE_OBJECT,
-  G_FILE_ATTRIBUTE_TYPE_STRINGV
-} GFileAttributeType;
-typedef enum {
-  G_FILE_ATTRIBUTE_INFO_NONE = 0,
-  G_FILE_ATTRIBUTE_INFO_COPY_WITH_FILE = (1 << 0),
-  G_FILE_ATTRIBUTE_INFO_COPY_WHEN_MOVED = (1 << 1)
-} GFileAttributeInfoFlags;
-typedef enum {
-  G_FILE_ATTRIBUTE_STATUS_UNSET = 0,
-  G_FILE_ATTRIBUTE_STATUS_SET,
-  G_FILE_ATTRIBUTE_STATUS_ERROR_SETTING
-} GFileAttributeStatus;
-typedef enum {
-  G_FILE_QUERY_INFO_NONE = 0,
-  G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS = (1 << 0)
-} GFileQueryInfoFlags;
-typedef enum {
-  G_FILE_CREATE_NONE = 0,
-  G_FILE_CREATE_PRIVATE = (1 << 0),
-  G_FILE_CREATE_REPLACE_DESTINATION = (1 << 1)
-} GFileCreateFlags;
-typedef enum {
-  G_FILE_MEASURE_NONE = 0,
-  G_FILE_MEASURE_REPORT_ANY_ERROR = (1 << 1),
-  G_FILE_MEASURE_APPARENT_SIZE = (1 << 2),
-  G_FILE_MEASURE_NO_XDEV = (1 << 3)
-} GFileMeasureFlags;
-typedef enum {
-  G_MOUNT_MOUNT_NONE = 0
-} GMountMountFlags;
-typedef enum {
-  G_MOUNT_UNMOUNT_NONE = 0,
-  G_MOUNT_UNMOUNT_FORCE = (1 << 0)
-} GMountUnmountFlags;
-typedef enum {
-  G_DRIVE_START_NONE = 0
-} GDriveStartFlags;
-typedef enum {
-  G_DRIVE_START_STOP_TYPE_UNKNOWN,
-  G_DRIVE_START_STOP_TYPE_SHUTDOWN,
-  G_DRIVE_START_STOP_TYPE_NETWORK,
-  G_DRIVE_START_STOP_TYPE_MULTIDISK,
-  G_DRIVE_START_STOP_TYPE_PASSWORD
-} GDriveStartStopType;
-typedef enum {
-  G_FILE_COPY_NONE = 0,
-  G_FILE_COPY_OVERWRITE = (1 << 0),
-  G_FILE_COPY_BACKUP = (1 << 1),
-  G_FILE_COPY_NOFOLLOW_SYMLINKS = (1 << 2),
-  G_FILE_COPY_ALL_METADATA = (1 << 3),
-  G_FILE_COPY_NO_FALLBACK_FOR_MOVE = (1 << 4),
-  G_FILE_COPY_TARGET_DEFAULT_PERMS = (1 << 5)
-} GFileCopyFlags;
-typedef enum {
-  G_FILE_MONITOR_NONE = 0,
-  G_FILE_MONITOR_WATCH_MOUNTS = (1 << 0),
-  G_FILE_MONITOR_SEND_MOVED = (1 << 1),
-  G_FILE_MONITOR_WATCH_HARD_LINKS = (1 << 2),
-  G_FILE_MONITOR_WATCH_MOVES = (1 << 3)
-} GFileMonitorFlags;
-typedef enum {
-  G_FILE_TYPE_UNKNOWN = 0,
-  G_FILE_TYPE_REGULAR,
-  G_FILE_TYPE_DIRECTORY,
-  G_FILE_TYPE_SYMBOLIC_LINK,
-  G_FILE_TYPE_SPECIAL,
-  G_FILE_TYPE_SHORTCUT,
-  G_FILE_TYPE_MOUNTABLE
-} GFileType;
-typedef enum {
-  G_FILESYSTEM_PREVIEW_TYPE_IF_ALWAYS = 0,
-  G_FILESYSTEM_PREVIEW_TYPE_IF_LOCAL,
-  G_FILESYSTEM_PREVIEW_TYPE_NEVER
-} GFilesystemPreviewType;
-typedef enum {
-  G_FILE_MONITOR_EVENT_CHANGED,
-  G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT,
-  G_FILE_MONITOR_EVENT_DELETED,
-  G_FILE_MONITOR_EVENT_CREATED,
-  G_FILE_MONITOR_EVENT_ATTRIBUTE_CHANGED,
-  G_FILE_MONITOR_EVENT_PRE_UNMOUNT,
-  G_FILE_MONITOR_EVENT_UNMOUNTED,
-  G_FILE_MONITOR_EVENT_MOVED,
-  G_FILE_MONITOR_EVENT_RENAMED,
-  G_FILE_MONITOR_EVENT_MOVED_IN,
-  G_FILE_MONITOR_EVENT_MOVED_OUT
-} GFileMonitorEvent;
-typedef enum {
-  G_IO_ERROR_FAILED,
-  G_IO_ERROR_NOT_FOUND,
-  G_IO_ERROR_EXISTS,
-  G_IO_ERROR_IS_DIRECTORY,
-  G_IO_ERROR_NOT_DIRECTORY,
-  G_IO_ERROR_NOT_EMPTY,
-  G_IO_ERROR_NOT_REGULAR_FILE,
-  G_IO_ERROR_NOT_SYMBOLIC_LINK,
-  G_IO_ERROR_NOT_MOUNTABLE_FILE,
-  G_IO_ERROR_FILENAME_TOO_LONG,
-  G_IO_ERROR_INVALID_FILENAME,
-  G_IO_ERROR_TOO_MANY_LINKS,
-  G_IO_ERROR_NO_SPACE,
-  G_IO_ERROR_INVALID_ARGUMENT,
-  G_IO_ERROR_PERMISSION_DENIED,
-  G_IO_ERROR_NOT_SUPPORTED,
-  G_IO_ERROR_NOT_MOUNTED,
-  G_IO_ERROR_ALREADY_MOUNTED,
-  G_IO_ERROR_CLOSED,
-  G_IO_ERROR_CANCELLED,
-  G_IO_ERROR_PENDING,
-  G_IO_ERROR_READ_ONLY,
-  G_IO_ERROR_CANT_CREATE_BACKUP,
-  G_IO_ERROR_WRONG_ETAG,
-  G_IO_ERROR_TIMED_OUT,
-  G_IO_ERROR_WOULD_RECURSE,
-  G_IO_ERROR_BUSY,
-  G_IO_ERROR_WOULD_BLOCK,
-  G_IO_ERROR_HOST_NOT_FOUND,
-  G_IO_ERROR_WOULD_MERGE,
-  G_IO_ERROR_FAILED_HANDLED,
-  G_IO_ERROR_TOO_MANY_OPEN_FILES,
-  G_IO_ERROR_NOT_INITIALIZED,
-  G_IO_ERROR_ADDRESS_IN_USE,
-  G_IO_ERROR_PARTIAL_INPUT,
-  G_IO_ERROR_INVALID_DATA,
-  G_IO_ERROR_DBUS_ERROR,
-  G_IO_ERROR_HOST_UNREACHABLE,
-  G_IO_ERROR_NETWORK_UNREACHABLE,
-  G_IO_ERROR_CONNECTION_REFUSED,
-  G_IO_ERROR_PROXY_FAILED,
-  G_IO_ERROR_PROXY_AUTH_FAILED,
-  G_IO_ERROR_PROXY_NEED_AUTH,
-  G_IO_ERROR_PROXY_NOT_ALLOWED,
-  G_IO_ERROR_BROKEN_PIPE,
-  G_IO_ERROR_CONNECTION_CLOSED = G_IO_ERROR_BROKEN_PIPE,
-  G_IO_ERROR_NOT_CONNECTED,
-  G_IO_ERROR_MESSAGE_TOO_LARGE
-} GIOErrorEnum;
-typedef enum {
-  G_ASK_PASSWORD_NEED_PASSWORD = (1 << 0),
-  G_ASK_PASSWORD_NEED_USERNAME = (1 << 1),
-  G_ASK_PASSWORD_NEED_DOMAIN = (1 << 2),
-  G_ASK_PASSWORD_SAVING_SUPPORTED = (1 << 3),
-  G_ASK_PASSWORD_ANONYMOUS_SUPPORTED = (1 << 4),
-  G_ASK_PASSWORD_TCRYPT = (1 << 5),
-} GAskPasswordFlags;
-typedef enum {
-  G_PASSWORD_SAVE_NEVER,
-  G_PASSWORD_SAVE_FOR_SESSION,
-  G_PASSWORD_SAVE_PERMANENTLY
-} GPasswordSave;
-typedef enum {
-  G_MOUNT_OPERATION_HANDLED,
-  G_MOUNT_OPERATION_ABORTED,
-  G_MOUNT_OPERATION_UNHANDLED
-} GMountOperationResult;
-typedef enum {
-  G_OUTPUT_STREAM_SPLICE_NONE = 0,
-  G_OUTPUT_STREAM_SPLICE_CLOSE_SOURCE = (1 << 0),
-  G_OUTPUT_STREAM_SPLICE_CLOSE_TARGET = (1 << 1)
-} GOutputStreamSpliceFlags;
-typedef enum {
-  G_IO_STREAM_SPLICE_NONE = 0,
-  G_IO_STREAM_SPLICE_CLOSE_STREAM1 = (1 << 0),
-  G_IO_STREAM_SPLICE_CLOSE_STREAM2 = (1 << 1),
-  G_IO_STREAM_SPLICE_WAIT_FOR_BOTH = (1 << 2)
-} GIOStreamSpliceFlags;
-typedef enum {
-  G_EMBLEM_ORIGIN_UNKNOWN,
-  G_EMBLEM_ORIGIN_DEVICE,
-  G_EMBLEM_ORIGIN_LIVEMETADATA,
-  G_EMBLEM_ORIGIN_TAG
-} GEmblemOrigin;
-typedef enum {
-  G_RESOLVER_ERROR_NOT_FOUND,
-  G_RESOLVER_ERROR_TEMPORARY_FAILURE,
-  G_RESOLVER_ERROR_INTERNAL
-} GResolverError;
-typedef enum {
-  G_RESOLVER_RECORD_SRV = 1,
-  G_RESOLVER_RECORD_MX,
-  G_RESOLVER_RECORD_TXT,
-  G_RESOLVER_RECORD_SOA,
-  G_RESOLVER_RECORD_NS
-} GResolverRecordType;
-typedef enum {
-  G_RESOURCE_ERROR_NOT_FOUND,
-  G_RESOURCE_ERROR_INTERNAL
-} GResourceError;
-typedef enum {
-  G_RESOURCE_FLAGS_NONE = 0,
-  G_RESOURCE_FLAGS_COMPRESSED = (1<<0)
-} GResourceFlags;
-typedef enum {
-  G_RESOURCE_LOOKUP_FLAGS_NONE = 0
-} GResourceLookupFlags;
-typedef enum {
-  G_SOCKET_FAMILY_INVALID,
-  G_SOCKET_FAMILY_UNIX = 1,
-  G_SOCKET_FAMILY_IPV4 = 2,
-  G_SOCKET_FAMILY_IPV6 = 10
-} GSocketFamily;
-typedef enum
-{
-  G_SOCKET_TYPE_INVALID,
-  G_SOCKET_TYPE_STREAM,
-  G_SOCKET_TYPE_DATAGRAM,
-  G_SOCKET_TYPE_SEQPACKET
-} GSocketType;
-typedef enum
-{
-  G_SOCKET_MSG_NONE,
-  G_SOCKET_MSG_OOB = 1,
-  G_SOCKET_MSG_PEEK = 2,
-  G_SOCKET_MSG_DONTROUTE = 4
-} GSocketMsgFlags;
-typedef enum {
-  G_SOCKET_PROTOCOL_UNKNOWN = -1,
-  G_SOCKET_PROTOCOL_DEFAULT = 0,
-  G_SOCKET_PROTOCOL_TCP = 6,
-  G_SOCKET_PROTOCOL_UDP = 17,
-  G_SOCKET_PROTOCOL_SCTP = 132
-} GSocketProtocol;
-typedef enum {
-  G_ZLIB_COMPRESSOR_FORMAT_ZLIB,
-  G_ZLIB_COMPRESSOR_FORMAT_GZIP,
-  G_ZLIB_COMPRESSOR_FORMAT_RAW
-} GZlibCompressorFormat;
-typedef enum {
-  G_UNIX_SOCKET_ADDRESS_INVALID,
-  G_UNIX_SOCKET_ADDRESS_ANONYMOUS,
-  G_UNIX_SOCKET_ADDRESS_PATH,
-  G_UNIX_SOCKET_ADDRESS_ABSTRACT,
-  G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED
-} GUnixSocketAddressType;
-typedef enum
-{
-  G_BUS_TYPE_STARTER = -1,
-  G_BUS_TYPE_NONE = 0,
-  G_BUS_TYPE_SYSTEM = 1,
-  G_BUS_TYPE_SESSION = 2
-} GBusType;
-typedef enum
-{
-  G_BUS_NAME_OWNER_FLAGS_NONE = 0,
-  G_BUS_NAME_OWNER_FLAGS_ALLOW_REPLACEMENT = (1<<0),
-  G_BUS_NAME_OWNER_FLAGS_REPLACE = (1<<1),
-  G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE = (1<<2)
-} GBusNameOwnerFlags;
-typedef enum
-{
-  G_BUS_NAME_WATCHER_FLAGS_NONE = 0,
-  G_BUS_NAME_WATCHER_FLAGS_AUTO_START = (1<<0)
-} GBusNameWatcherFlags;
-typedef enum
-{
-  G_DBUS_PROXY_FLAGS_NONE = 0,
-  G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES = (1<<0),
-  G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS = (1<<1),
-  G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START = (1<<2),
-  G_DBUS_PROXY_FLAGS_GET_INVALIDATED_PROPERTIES = (1<<3),
-  G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START_AT_CONSTRUCTION = (1<<4)
-} GDBusProxyFlags;
-typedef enum
-{
-  G_DBUS_ERROR_FAILED,
-  G_DBUS_ERROR_NO_MEMORY,
-  G_DBUS_ERROR_SERVICE_UNKNOWN,
-  G_DBUS_ERROR_NAME_HAS_NO_OWNER,
-  G_DBUS_ERROR_NO_REPLY,
-  G_DBUS_ERROR_IO_ERROR,
-  G_DBUS_ERROR_BAD_ADDRESS,
-  G_DBUS_ERROR_NOT_SUPPORTED,
-  G_DBUS_ERROR_LIMITS_EXCEEDED,
-  G_DBUS_ERROR_ACCESS_DENIED,
-  G_DBUS_ERROR_AUTH_FAILED,
-  G_DBUS_ERROR_NO_SERVER,
-  G_DBUS_ERROR_TIMEOUT,
-  G_DBUS_ERROR_NO_NETWORK,
-  G_DBUS_ERROR_ADDRESS_IN_USE,
-  G_DBUS_ERROR_DISCONNECTED,
-  G_DBUS_ERROR_INVALID_ARGS,
-  G_DBUS_ERROR_FILE_NOT_FOUND,
-  G_DBUS_ERROR_FILE_EXISTS,
-  G_DBUS_ERROR_UNKNOWN_METHOD,
-  G_DBUS_ERROR_TIMED_OUT,
-  G_DBUS_ERROR_MATCH_RULE_NOT_FOUND,
-  G_DBUS_ERROR_MATCH_RULE_INVALID,
-  G_DBUS_ERROR_SPAWN_EXEC_FAILED,
-  G_DBUS_ERROR_SPAWN_FORK_FAILED,
-  G_DBUS_ERROR_SPAWN_CHILD_EXITED,
-  G_DBUS_ERROR_SPAWN_CHILD_SIGNALED,
-  G_DBUS_ERROR_SPAWN_FAILED,
-  G_DBUS_ERROR_SPAWN_SETUP_FAILED,
-  G_DBUS_ERROR_SPAWN_CONFIG_INVALID,
-  G_DBUS_ERROR_SPAWN_SERVICE_INVALID,
-  G_DBUS_ERROR_SPAWN_SERVICE_NOT_FOUND,
-  G_DBUS_ERROR_SPAWN_PERMISSIONS_INVALID,
-  G_DBUS_ERROR_SPAWN_FILE_INVALID,
-  G_DBUS_ERROR_SPAWN_NO_MEMORY,
-  G_DBUS_ERROR_UNIX_PROCESS_ID_UNKNOWN,
-  G_DBUS_ERROR_INVALID_SIGNATURE,
-  G_DBUS_ERROR_INVALID_FILE_CONTENT,
-  G_DBUS_ERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN,
-  G_DBUS_ERROR_ADT_AUDIT_DATA_UNKNOWN,
-  G_DBUS_ERROR_OBJECT_PATH_IN_USE,
-  G_DBUS_ERROR_UNKNOWN_OBJECT,
-  G_DBUS_ERROR_UNKNOWN_INTERFACE,
-  G_DBUS_ERROR_UNKNOWN_PROPERTY,
-  G_DBUS_ERROR_PROPERTY_READ_ONLY
-} GDBusError;
-typedef enum {
-  G_DBUS_CONNECTION_FLAGS_NONE = 0,
-  G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_CLIENT = (1<<0),
-  G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER = (1<<1),
-  G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS = (1<<2),
-  G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION = (1<<3),
-  G_DBUS_CONNECTION_FLAGS_DELAY_MESSAGE_PROCESSING = (1<<4)
-} GDBusConnectionFlags;
-typedef enum {
-  G_DBUS_CAPABILITY_FLAGS_NONE = 0,
-  G_DBUS_CAPABILITY_FLAGS_UNIX_FD_PASSING = (1<<0)
-} GDBusCapabilityFlags;
-typedef enum {
-  G_DBUS_CALL_FLAGS_NONE = 0,
-  G_DBUS_CALL_FLAGS_NO_AUTO_START = (1<<0),
-  G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION = (1<<1)
-} GDBusCallFlags;
-typedef enum {
-  G_DBUS_MESSAGE_TYPE_INVALID,
-  G_DBUS_MESSAGE_TYPE_METHOD_CALL,
-  G_DBUS_MESSAGE_TYPE_METHOD_RETURN,
-  G_DBUS_MESSAGE_TYPE_ERROR,
-  G_DBUS_MESSAGE_TYPE_SIGNAL
-} GDBusMessageType;
-typedef enum {
-  G_DBUS_MESSAGE_FLAGS_NONE = 0,
-  G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED = (1<<0),
-  G_DBUS_MESSAGE_FLAGS_NO_AUTO_START = (1<<1),
-  G_DBUS_MESSAGE_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION = (1<<2)
-} GDBusMessageFlags;
-typedef enum {
-  G_DBUS_MESSAGE_HEADER_FIELD_INVALID,
-  G_DBUS_MESSAGE_HEADER_FIELD_PATH,
-  G_DBUS_MESSAGE_HEADER_FIELD_INTERFACE,
-  G_DBUS_MESSAGE_HEADER_FIELD_MEMBER,
-  G_DBUS_MESSAGE_HEADER_FIELD_ERROR_NAME,
-  G_DBUS_MESSAGE_HEADER_FIELD_REPLY_SERIAL,
-  G_DBUS_MESSAGE_HEADER_FIELD_DESTINATION,
-  G_DBUS_MESSAGE_HEADER_FIELD_SENDER,
-  G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE,
-  G_DBUS_MESSAGE_HEADER_FIELD_NUM_UNIX_FDS
-} GDBusMessageHeaderField;
-typedef enum
-{
-  G_DBUS_PROPERTY_INFO_FLAGS_NONE = 0,
-  G_DBUS_PROPERTY_INFO_FLAGS_READABLE = (1<<0),
-  G_DBUS_PROPERTY_INFO_FLAGS_WRITABLE = (1<<1)
-} GDBusPropertyInfoFlags;
-typedef enum
-{
-  G_DBUS_SUBTREE_FLAGS_NONE = 0,
-  G_DBUS_SUBTREE_FLAGS_DISPATCH_TO_UNENUMERATED_NODES = (1<<0)
-} GDBusSubtreeFlags;
-typedef enum
-{
-  G_DBUS_SERVER_FLAGS_NONE = 0,
-  G_DBUS_SERVER_FLAGS_RUN_IN_THREAD = (1<<0),
-  G_DBUS_SERVER_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS = (1<<1)
-} GDBusServerFlags;
-typedef enum
-{
-  G_DBUS_SIGNAL_FLAGS_NONE = 0,
-  G_DBUS_SIGNAL_FLAGS_NO_MATCH_RULE = (1<<0),
-  G_DBUS_SIGNAL_FLAGS_MATCH_ARG0_NAMESPACE = (1<<1),
-  G_DBUS_SIGNAL_FLAGS_MATCH_ARG0_PATH = (1<<2)
-} GDBusSignalFlags;
-typedef enum
-{
-  G_DBUS_SEND_MESSAGE_FLAGS_NONE = 0,
-  G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL = (1<<0)
-} GDBusSendMessageFlags;
-typedef enum
-{
-  G_CREDENTIALS_TYPE_INVALID,
-  G_CREDENTIALS_TYPE_LINUX_UCRED,
-  G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED,
-  G_CREDENTIALS_TYPE_OPENBSD_SOCKPEERCRED,
-  G_CREDENTIALS_TYPE_SOLARIS_UCRED,
-  G_CREDENTIALS_TYPE_NETBSD_UNPCBID
-} GCredentialsType;
-typedef enum
-{
-  G_DBUS_MESSAGE_BYTE_ORDER_BIG_ENDIAN = 'B',
-  G_DBUS_MESSAGE_BYTE_ORDER_LITTLE_ENDIAN = 'l'
-} GDBusMessageByteOrder;
-typedef enum
-{
-  G_APPLICATION_FLAGS_NONE,
-  G_APPLICATION_IS_SERVICE = (1 << 0),
-  G_APPLICATION_IS_LAUNCHER = (1 << 1),
-  G_APPLICATION_HANDLES_OPEN = (1 << 2),
-  G_APPLICATION_HANDLES_COMMAND_LINE = (1 << 3),
-  G_APPLICATION_SEND_ENVIRONMENT = (1 << 4),
-  G_APPLICATION_NON_UNIQUE = (1 << 5),
-  G_APPLICATION_CAN_OVERRIDE_APP_ID = (1 << 6),
-  G_APPLICATION_ALLOW_REPLACEMENT = (1 << 7),
-  G_APPLICATION_REPLACE = (1 << 8)
-} GApplicationFlags;
-typedef enum {
-  G_TLS_ERROR_UNAVAILABLE,
-  G_TLS_ERROR_MISC,
-  G_TLS_ERROR_BAD_CERTIFICATE,
-  G_TLS_ERROR_NOT_TLS,
-  G_TLS_ERROR_HANDSHAKE,
-  G_TLS_ERROR_CERTIFICATE_REQUIRED,
-  G_TLS_ERROR_EOF,
-  G_TLS_ERROR_INAPPROPRIATE_FALLBACK
-} GTlsError;
-typedef enum {
-  G_TLS_CERTIFICATE_UNKNOWN_CA = (1 << 0),
-  G_TLS_CERTIFICATE_BAD_IDENTITY = (1 << 1),
-  G_TLS_CERTIFICATE_NOT_ACTIVATED = (1 << 2),
-  G_TLS_CERTIFICATE_EXPIRED = (1 << 3),
-  G_TLS_CERTIFICATE_REVOKED = (1 << 4),
-  G_TLS_CERTIFICATE_INSECURE = (1 << 5),
-  G_TLS_CERTIFICATE_GENERIC_ERROR = (1 << 6),
-  G_TLS_CERTIFICATE_VALIDATE_ALL = 0x007f
-} GTlsCertificateFlags;
-typedef enum {
-  G_TLS_AUTHENTICATION_NONE,
-  G_TLS_AUTHENTICATION_REQUESTED,
-  G_TLS_AUTHENTICATION_REQUIRED
-} GTlsAuthenticationMode;
-typedef enum {
-  G_TLS_REHANDSHAKE_NEVER,
-  G_TLS_REHANDSHAKE_SAFELY,
-  G_TLS_REHANDSHAKE_UNSAFELY
-} GTlsRehandshakeMode ;
-typedef enum _GTlsPasswordFlags
-{
-  G_TLS_PASSWORD_NONE = 0,
-  G_TLS_PASSWORD_RETRY = 1 << 1,
-  G_TLS_PASSWORD_MANY_TRIES = 1 << 2,
-  G_TLS_PASSWORD_FINAL_TRY = 1 << 3
-} GTlsPasswordFlags;
-typedef enum {
-  G_TLS_INTERACTION_UNHANDLED,
-  G_TLS_INTERACTION_HANDLED,
-  G_TLS_INTERACTION_FAILED
-} GTlsInteractionResult;
-typedef enum
-{
-  G_DBUS_INTERFACE_SKELETON_FLAGS_NONE = 0,
-  G_DBUS_INTERFACE_SKELETON_FLAGS_HANDLE_METHOD_INVOCATIONS_IN_THREAD = (1<<0)
-} GDBusInterfaceSkeletonFlags;
-typedef enum
-{
-  G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_NONE = 0,
-  G_DBUS_OBJECT_MANAGER_CLIENT_FLAGS_DO_NOT_AUTO_START = (1<<0)
-} GDBusObjectManagerClientFlags;
-typedef enum {
-  G_TLS_DATABASE_VERIFY_NONE = 0
-} GTlsDatabaseVerifyFlags;
-typedef enum {
-  G_TLS_DATABASE_LOOKUP_NONE = 0,
-  G_TLS_DATABASE_LOOKUP_KEYPAIR = 1
-} GTlsDatabaseLookupFlags;
-typedef enum {
-  G_TLS_CERTIFICATE_REQUEST_NONE = 0
-} GTlsCertificateRequestFlags;
-typedef enum {
-  G_IO_MODULE_SCOPE_NONE,
-  G_IO_MODULE_SCOPE_BLOCK_DUPLICATES
-} GIOModuleScopeFlags;
-typedef enum {
-  G_SOCKET_CLIENT_RESOLVING,
-  G_SOCKET_CLIENT_RESOLVED,
-  G_SOCKET_CLIENT_CONNECTING,
-  G_SOCKET_CLIENT_CONNECTED,
-  G_SOCKET_CLIENT_PROXY_NEGOTIATING,
-  G_SOCKET_CLIENT_PROXY_NEGOTIATED,
-  G_SOCKET_CLIENT_TLS_HANDSHAKING,
-  G_SOCKET_CLIENT_TLS_HANDSHAKED,
-  G_SOCKET_CLIENT_COMPLETE
-} GSocketClientEvent;
-typedef enum {
-  G_SOCKET_LISTENER_BINDING,
-  G_SOCKET_LISTENER_BOUND,
-  G_SOCKET_LISTENER_LISTENING,
-  G_SOCKET_LISTENER_LISTENED
-} GSocketListenerEvent;
-typedef enum {
-  G_TEST_DBUS_NONE = 0
-} GTestDBusFlags;
-typedef enum {
-  G_SUBPROCESS_FLAGS_NONE = 0,
-  G_SUBPROCESS_FLAGS_STDIN_PIPE = (1u << 0),
-  G_SUBPROCESS_FLAGS_STDIN_INHERIT = (1u << 1),
-  G_SUBPROCESS_FLAGS_STDOUT_PIPE = (1u << 2),
-  G_SUBPROCESS_FLAGS_STDOUT_SILENCE = (1u << 3),
-  G_SUBPROCESS_FLAGS_STDERR_PIPE = (1u << 4),
-  G_SUBPROCESS_FLAGS_STDERR_SILENCE = (1u << 5),
-  G_SUBPROCESS_FLAGS_STDERR_MERGE = (1u << 6),
-  G_SUBPROCESS_FLAGS_INHERIT_FDS = (1u << 7)
-} GSubprocessFlags;
-typedef enum {
-  G_NOTIFICATION_PRIORITY_NORMAL,
-  G_NOTIFICATION_PRIORITY_LOW,
-  G_NOTIFICATION_PRIORITY_HIGH,
-  G_NOTIFICATION_PRIORITY_URGENT
-} GNotificationPriority;
-typedef enum {
-  G_NETWORK_CONNECTIVITY_LOCAL = 1,
-  G_NETWORK_CONNECTIVITY_LIMITED = 2,
-  G_NETWORK_CONNECTIVITY_PORTAL = 3,
-  G_NETWORK_CONNECTIVITY_FULL = 4
-} GNetworkConnectivity;
-typedef enum {
-  G_POLLABLE_RETURN_FAILED = 0,
-  G_POLLABLE_RETURN_OK = 1,
-  G_POLLABLE_RETURN_WOULD_BLOCK = -G_IO_ERROR_WOULD_BLOCK
-} GPollableReturn;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 typedef struct _GAppLaunchContext GAppLaunchContext;
 typedef struct _GAppInfo GAppInfo;
 typedef struct _GAsyncResult GAsyncResult;
@@ -5714,12 +4778,7 @@ struct _GInetSocketAddressClass
 {
   GSocketAddressClass parent_class;
 };
-typedef enum
-{
-  G_MODULE_BIND_LAZY = 1 << 0,
-  G_MODULE_BIND_LOCAL = 1 << 1,
-  G_MODULE_BIND_MASK = 0x03
-} GModuleFlags;
+
 typedef struct _GModule GModule;
 typedef const gchar* (*GModuleCheckInit) (GModule *module);
 typedef void (*GModuleUnload) (GModule *module);
@@ -6157,11 +5216,7 @@ struct _GResolver {
   GObject parent_instance;
   GResolverPrivate *priv;
 };
-typedef enum {
-  G_RESOLVER_NAME_LOOKUP_FLAGS_DEFAULT = 0,
-  G_RESOLVER_NAME_LOOKUP_FLAGS_IPV4_ONLY = 1 << 0,
-  G_RESOLVER_NAME_LOOKUP_FLAGS_IPV6_ONLY = 1 << 1,
-} GResolverNameLookupFlags;
+
 struct _GResolverClass {
   GObjectClass parent_class;
   void ( *reload) (GResolver *resolver);
@@ -6288,15 +5343,7 @@ typedef gboolean (*GSettingsBindGetMapping) (GValue *value,
 typedef gboolean (*GSettingsGetMapping) (GVariant *value,
                                                                          gpointer *result,
                                                                          gpointer user_data);
-typedef enum
-{
-  G_SETTINGS_BIND_DEFAULT,
-  G_SETTINGS_BIND_GET = (1<<0),
-  G_SETTINGS_BIND_SET = (1<<1),
-  G_SETTINGS_BIND_NO_SENSITIVITY = (1<<2),
-  G_SETTINGS_BIND_GET_NO_CHANGES = (1<<3),
-  G_SETTINGS_BIND_INVERT_BOOLEAN = (1<<4)
-} GSettingsBindFlags;
+
 typedef struct _GSimpleActionGroupPrivate GSimpleActionGroupPrivate;
 typedef struct _GSimpleActionGroupClass GSimpleActionGroupClass;
 struct _GSimpleActionGroup
@@ -7332,173 +6379,9 @@ typedef union _hb_var_int_t {
   int8_t i8[4];
 } hb_var_int_t;
 typedef uint32_t hb_tag_t;
-typedef enum {
-  HB_DIRECTION_INVALID = 0,
-  HB_DIRECTION_LTR = 4,
-  HB_DIRECTION_RTL,
-  HB_DIRECTION_TTB,
-  HB_DIRECTION_BTT
-} hb_direction_t;
+
 typedef const struct hb_language_impl_t *hb_language_t;
-typedef enum
-{
-          HB_SCRIPT_COMMON = ((hb_tag_t)((((uint32_t)('Z')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('y')&0xFF)<<8)|((uint32_t)('y')&0xFF))),
-          HB_SCRIPT_INHERITED = ((hb_tag_t)((((uint32_t)('Z')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('h')&0xFF))),
-          HB_SCRIPT_UNKNOWN = ((hb_tag_t)((((uint32_t)('Z')&0xFF)<<24)|(((uint32_t)('z')&0xFF)<<16)|(((uint32_t)('z')&0xFF)<<8)|((uint32_t)('z')&0xFF))),
-          HB_SCRIPT_ARABIC = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_ARMENIAN = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('n')&0xFF))),
-          HB_SCRIPT_BENGALI = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_CYRILLIC = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('l')&0xFF))),
-          HB_SCRIPT_DEVANAGARI = ((hb_tag_t)((((uint32_t)('D')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('v')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_GEORGIAN = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('o')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_GREEK = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('e')&0xFF)<<8)|((uint32_t)('k')&0xFF))),
-          HB_SCRIPT_GUJARATI = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('j')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_GURMUKHI = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('u')&0xFF))),
-          HB_SCRIPT_HANGUL = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_HAN = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_HEBREW = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('b')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_HIRAGANA = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_KANNADA = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('n')&0xFF)<<16)|(((uint32_t)('d')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_KATAKANA = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_LAO = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('o')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_LATIN = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('t')&0xFF)<<8)|((uint32_t)('n')&0xFF))),
-          HB_SCRIPT_MALAYALAM = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('y')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_ORIYA = ((hb_tag_t)((((uint32_t)('O')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('y')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_TAMIL = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('l')&0xFF))),
-          HB_SCRIPT_TELUGU = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('u')&0xFF))),
-          HB_SCRIPT_THAI = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_TIBETAN = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('b')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_BOPOMOFO = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('p')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_BRAILLE = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_CANADIAN_SYLLABICS = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('s')&0xFF))),
-          HB_SCRIPT_CHEROKEE = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('e')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_ETHIOPIC = ((hb_tag_t)((((uint32_t)('E')&0xFF)<<24)|(((uint32_t)('t')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_KHMER = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_MONGOLIAN = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_MYANMAR = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_OGHAM = ((hb_tag_t)((((uint32_t)('O')&0xFF)<<24)|(((uint32_t)('g')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_RUNIC = ((hb_tag_t)((((uint32_t)('R')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_SINHALA = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('h')&0xFF))),
-          HB_SCRIPT_SYRIAC = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('c')&0xFF))),
-          HB_SCRIPT_THAANA = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_YI = ((hb_tag_t)((((uint32_t)('Y')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('i')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_DESERET = ((hb_tag_t)((((uint32_t)('D')&0xFF)<<24)|(((uint32_t)('s')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_GOTHIC = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('t')&0xFF)<<8)|((uint32_t)('h')&0xFF))),
-          HB_SCRIPT_OLD_ITALIC = ((hb_tag_t)((((uint32_t)('I')&0xFF)<<24)|(((uint32_t)('t')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('l')&0xFF))),
-          HB_SCRIPT_BUHID = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_HANUNOO = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_TAGALOG = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('g')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_TAGBANWA = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('g')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_CYPRIOT = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('p')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_LIMBU = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_LINEAR_B = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_OSMANYA = ((hb_tag_t)((((uint32_t)('O')&0xFF)<<24)|(((uint32_t)('s')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_SHAVIAN = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('w')&0xFF))),
-          HB_SCRIPT_TAI_LE = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('e')&0xFF))),
-          HB_SCRIPT_UGARITIC = ((hb_tag_t)((((uint32_t)('U')&0xFF)<<24)|(((uint32_t)('g')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_BUGINESE = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('g')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_COPTIC = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('p')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_GLAGOLITIC = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_KHAROSHTHI = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_NEW_TAI_LUE = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('u')&0xFF))),
-          HB_SCRIPT_OLD_PERSIAN = ((hb_tag_t)((((uint32_t)('X')&0xFF)<<24)|(((uint32_t)('p')&0xFF)<<16)|(((uint32_t)('e')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_SYLOTI_NAGRI = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_TIFINAGH = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('f')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_BALINESE = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_CUNEIFORM = ((hb_tag_t)((((uint32_t)('X')&0xFF)<<24)|(((uint32_t)('s')&0xFF)<<16)|(((uint32_t)('u')&0xFF)<<8)|((uint32_t)('x')&0xFF))),
-          HB_SCRIPT_NKO = ((hb_tag_t)((((uint32_t)('N')&0xFF)<<24)|(((uint32_t)('k')&0xFF)<<16)|(((uint32_t)('o')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_PHAGS_PA = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_PHOENICIAN = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('x')&0xFF))),
-          HB_SCRIPT_CARIAN = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_CHAM = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_KAYAH_LI = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_LEPCHA = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('p')&0xFF)<<8)|((uint32_t)('c')&0xFF))),
-          HB_SCRIPT_LYCIAN = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('c')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_LYDIAN = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('y')&0xFF)<<16)|(((uint32_t)('d')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_OL_CHIKI = ((hb_tag_t)((((uint32_t)('O')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('c')&0xFF)<<8)|((uint32_t)('k')&0xFF))),
-          HB_SCRIPT_REJANG = ((hb_tag_t)((((uint32_t)('R')&0xFF)<<24)|(((uint32_t)('j')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_SAURASHTRA = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('u')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_SUNDANESE = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_VAI = ((hb_tag_t)((((uint32_t)('V')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('i')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_AVESTAN = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('v')&0xFF)<<16)|(((uint32_t)('s')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_BAMUM = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('u')&0xFF))),
-          HB_SCRIPT_EGYPTIAN_HIEROGLYPHS = ((hb_tag_t)((((uint32_t)('E')&0xFF)<<24)|(((uint32_t)('g')&0xFF)<<16)|(((uint32_t)('y')&0xFF)<<8)|((uint32_t)('p')&0xFF))),
-          HB_SCRIPT_IMPERIAL_ARAMAIC = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_INSCRIPTIONAL_PAHLAVI = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_INSCRIPTIONAL_PARTHIAN = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('t')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_JAVANESE = ((hb_tag_t)((((uint32_t)('J')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('v')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_KAITHI = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('t')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_LISU = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('s')&0xFF)<<8)|((uint32_t)('u')&0xFF))),
-          HB_SCRIPT_MEETEI_MAYEK = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('t')&0xFF)<<16)|(((uint32_t)('e')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_OLD_SOUTH_ARABIAN = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_OLD_TURKIC = ((hb_tag_t)((((uint32_t)('O')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('k')&0xFF)<<8)|((uint32_t)('h')&0xFF))),
-          HB_SCRIPT_SAMARITAN = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('m')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_TAI_THAM = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_TAI_VIET = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('v')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_BATAK = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('t')&0xFF)<<8)|((uint32_t)('k')&0xFF))),
-          HB_SCRIPT_BRAHMI = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('h')&0xFF))),
-          HB_SCRIPT_MANDAIC = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_CHAKMA = ((hb_tag_t)((((uint32_t)('C')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('k')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_MEROITIC_CURSIVE = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('c')&0xFF))),
-          HB_SCRIPT_MEROITIC_HIEROGLYPHS = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_MIAO = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_SHARADA = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_SORA_SOMPENG = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_TAKRI = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('k')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_BASSA_VAH = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('s')&0xFF)<<8)|((uint32_t)('s')&0xFF))),
-          HB_SCRIPT_CAUCASIAN_ALBANIAN = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('g')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_DUPLOYAN = ((hb_tag_t)((((uint32_t)('D')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('p')&0xFF)<<8)|((uint32_t)('l')&0xFF))),
-          HB_SCRIPT_ELBASAN = ((hb_tag_t)((((uint32_t)('E')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('b')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_GRANTHA = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('n')&0xFF))),
-          HB_SCRIPT_KHOJKI = ((hb_tag_t)((((uint32_t)('K')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('o')&0xFF)<<8)|((uint32_t)('j')&0xFF))),
-          HB_SCRIPT_KHUDAWADI = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_LINEAR_A = ((hb_tag_t)((((uint32_t)('L')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_MAHAJANI = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('j')&0xFF))),
-          HB_SCRIPT_MANICHAEAN = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_MENDE_KIKAKUI = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_MODI = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('d')&0xFF)<<8)|((uint32_t)('i')&0xFF))),
-          HB_SCRIPT_MRO = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('r')&0xFF)<<16)|(((uint32_t)('o')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_NABATAEAN = ((hb_tag_t)((((uint32_t)('N')&0xFF)<<24)|(((uint32_t)('b')&0xFF)<<16)|(((uint32_t)('a')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_OLD_NORTH_ARABIAN = ((hb_tag_t)((((uint32_t)('N')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_OLD_PERMIC = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_PAHAWH_HMONG = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('m')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_PALMYRENE = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_PAU_CIN_HAU = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('u')&0xFF)<<8)|((uint32_t)('c')&0xFF))),
-          HB_SCRIPT_PSALTER_PAHLAVI = ((hb_tag_t)((((uint32_t)('P')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('p')&0xFF))),
-          HB_SCRIPT_SIDDHAM = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('d')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_TIRHUTA = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('i')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('h')&0xFF))),
-          HB_SCRIPT_WARANG_CITI = ((hb_tag_t)((((uint32_t)('W')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_AHOM = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('o')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_ANATOLIAN_HIEROGLYPHS = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('u')&0xFF)<<8)|((uint32_t)('w')&0xFF))),
-          HB_SCRIPT_HATRAN = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('t')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_MULTANI = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('t')&0xFF))),
-          HB_SCRIPT_OLD_HUNGARIAN = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('u')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_SIGNWRITING = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('g')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('w')&0xFF))),
-          HB_SCRIPT_ADLAM = ((hb_tag_t)((((uint32_t)('A')&0xFF)<<24)|(((uint32_t)('d')&0xFF)<<16)|(((uint32_t)('l')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_BHAIKSUKI = ((hb_tag_t)((((uint32_t)('B')&0xFF)<<24)|(((uint32_t)('h')&0xFF)<<16)|(((uint32_t)('k')&0xFF)<<8)|((uint32_t)('s')&0xFF))),
-          HB_SCRIPT_MARCHEN = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('r')&0xFF)<<8)|((uint32_t)('c')&0xFF))),
-          HB_SCRIPT_OSAGE = ((hb_tag_t)((((uint32_t)('O')&0xFF)<<24)|(((uint32_t)('s')&0xFF)<<16)|(((uint32_t)('g')&0xFF)<<8)|((uint32_t)('e')&0xFF))),
-          HB_SCRIPT_TANGUT = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_NEWA = ((hb_tag_t)((((uint32_t)('N')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('w')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_MASARAM_GONDI = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_NUSHU = ((hb_tag_t)((((uint32_t)('N')&0xFF)<<24)|(((uint32_t)('s')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('u')&0xFF))),
-          HB_SCRIPT_SOYOMBO = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('y')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_ZANABAZAR_SQUARE = ((hb_tag_t)((((uint32_t)('Z')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('b')&0xFF))),
-          HB_SCRIPT_DOGRA = ((hb_tag_t)((((uint32_t)('D')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('g')&0xFF)<<8)|((uint32_t)('r')&0xFF))),
-          HB_SCRIPT_GUNJALA_GONDI = ((hb_tag_t)((((uint32_t)('G')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_HANIFI_ROHINGYA = ((hb_tag_t)((((uint32_t)('R')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('g')&0xFF))),
-          HB_SCRIPT_MAKASAR = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('k')&0xFF)<<8)|((uint32_t)('a')&0xFF))),
-          HB_SCRIPT_MEDEFAIDRIN = ((hb_tag_t)((((uint32_t)('M')&0xFF)<<24)|(((uint32_t)('e')&0xFF)<<16)|(((uint32_t)('d')&0xFF)<<8)|((uint32_t)('f')&0xFF))),
-          HB_SCRIPT_OLD_SOGDIAN = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('g')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-          HB_SCRIPT_SOGDIAN = ((hb_tag_t)((((uint32_t)('S')&0xFF)<<24)|(((uint32_t)('o')&0xFF)<<16)|(((uint32_t)('g')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_ELYMAIC = ((hb_tag_t)((((uint32_t)('E')&0xFF)<<24)|(((uint32_t)('l')&0xFF)<<16)|(((uint32_t)('y')&0xFF)<<8)|((uint32_t)('m')&0xFF))),
-          HB_SCRIPT_NANDINAGARI = ((hb_tag_t)((((uint32_t)('N')&0xFF)<<24)|(((uint32_t)('a')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('d')&0xFF))),
-          HB_SCRIPT_NYIAKENG_PUACHUE_HMONG = ((hb_tag_t)((((uint32_t)('H')&0xFF)<<24)|(((uint32_t)('m')&0xFF)<<16)|(((uint32_t)('n')&0xFF)<<8)|((uint32_t)('p')&0xFF))),
-          HB_SCRIPT_WANCHO = ((hb_tag_t)((((uint32_t)('W')&0xFF)<<24)|(((uint32_t)('c')&0xFF)<<16)|(((uint32_t)('h')&0xFF)<<8)|((uint32_t)('o')&0xFF))),
-  HB_SCRIPT_INVALID = ((hb_tag_t)((((uint32_t)(0)&0xFF)<<24)|(((uint32_t)(0)&0xFF)<<16)|(((uint32_t)(0)&0xFF)<<8)|((uint32_t)(0)&0xFF))),
-  _HB_SCRIPT_MAX_VALUE = ((hb_tag_t)((((uint32_t)(0x7f)&0xFF)<<24)|(((uint32_t)(0xff)&0xFF)<<16)|(((uint32_t)(0xff)&0xFF)<<8)|((uint32_t)(0xff)&0xFF))),
-  _HB_SCRIPT_MAX_VALUE_SIGNED = ((hb_tag_t)((((uint32_t)(0x7f)&0xFF)<<24)|(((uint32_t)(0xff)&0xFF)<<16)|(((uint32_t)(0xff)&0xFF)<<8)|((uint32_t)(0xff)&0xFF)))
-} hb_script_t;
+
 typedef struct hb_user_data_key_t {
   char unused;
 } hb_user_data_key_t;
@@ -7514,106 +6397,10 @@ typedef struct hb_variation_t {
   float value;
 } hb_variation_t;
 typedef uint32_t hb_color_t;
-typedef enum {
-  HB_MEMORY_MODE_DUPLICATE,
-  HB_MEMORY_MODE_READONLY,
-  HB_MEMORY_MODE_WRITABLE,
-  HB_MEMORY_MODE_READONLY_MAY_MAKE_WRITABLE
-} hb_memory_mode_t;
+
 typedef struct hb_blob_t hb_blob_t;
-typedef enum
-{
-  HB_UNICODE_GENERAL_CATEGORY_CONTROL,
-  HB_UNICODE_GENERAL_CATEGORY_FORMAT,
-  HB_UNICODE_GENERAL_CATEGORY_UNASSIGNED,
-  HB_UNICODE_GENERAL_CATEGORY_PRIVATE_USE,
-  HB_UNICODE_GENERAL_CATEGORY_SURROGATE,
-  HB_UNICODE_GENERAL_CATEGORY_LOWERCASE_LETTER,
-  HB_UNICODE_GENERAL_CATEGORY_MODIFIER_LETTER,
-  HB_UNICODE_GENERAL_CATEGORY_OTHER_LETTER,
-  HB_UNICODE_GENERAL_CATEGORY_TITLECASE_LETTER,
-  HB_UNICODE_GENERAL_CATEGORY_UPPERCASE_LETTER,
-  HB_UNICODE_GENERAL_CATEGORY_SPACING_MARK,
-  HB_UNICODE_GENERAL_CATEGORY_ENCLOSING_MARK,
-  HB_UNICODE_GENERAL_CATEGORY_NON_SPACING_MARK,
-  HB_UNICODE_GENERAL_CATEGORY_DECIMAL_NUMBER,
-  HB_UNICODE_GENERAL_CATEGORY_LETTER_NUMBER,
-  HB_UNICODE_GENERAL_CATEGORY_OTHER_NUMBER,
-  HB_UNICODE_GENERAL_CATEGORY_CONNECT_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_DASH_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_CLOSE_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_FINAL_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_INITIAL_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_OTHER_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_OPEN_PUNCTUATION,
-  HB_UNICODE_GENERAL_CATEGORY_CURRENCY_SYMBOL,
-  HB_UNICODE_GENERAL_CATEGORY_MODIFIER_SYMBOL,
-  HB_UNICODE_GENERAL_CATEGORY_MATH_SYMBOL,
-  HB_UNICODE_GENERAL_CATEGORY_OTHER_SYMBOL,
-  HB_UNICODE_GENERAL_CATEGORY_LINE_SEPARATOR,
-  HB_UNICODE_GENERAL_CATEGORY_PARAGRAPH_SEPARATOR,
-  HB_UNICODE_GENERAL_CATEGORY_SPACE_SEPARATOR
-} hb_unicode_general_category_t;
-typedef enum
-{
-  HB_UNICODE_COMBINING_CLASS_NOT_REORDERED = 0,
-  HB_UNICODE_COMBINING_CLASS_OVERLAY = 1,
-  HB_UNICODE_COMBINING_CLASS_NUKTA = 7,
-  HB_UNICODE_COMBINING_CLASS_KANA_VOICING = 8,
-  HB_UNICODE_COMBINING_CLASS_VIRAMA = 9,
-  HB_UNICODE_COMBINING_CLASS_CCC10 = 10,
-  HB_UNICODE_COMBINING_CLASS_CCC11 = 11,
-  HB_UNICODE_COMBINING_CLASS_CCC12 = 12,
-  HB_UNICODE_COMBINING_CLASS_CCC13 = 13,
-  HB_UNICODE_COMBINING_CLASS_CCC14 = 14,
-  HB_UNICODE_COMBINING_CLASS_CCC15 = 15,
-  HB_UNICODE_COMBINING_CLASS_CCC16 = 16,
-  HB_UNICODE_COMBINING_CLASS_CCC17 = 17,
-  HB_UNICODE_COMBINING_CLASS_CCC18 = 18,
-  HB_UNICODE_COMBINING_CLASS_CCC19 = 19,
-  HB_UNICODE_COMBINING_CLASS_CCC20 = 20,
-  HB_UNICODE_COMBINING_CLASS_CCC21 = 21,
-  HB_UNICODE_COMBINING_CLASS_CCC22 = 22,
-  HB_UNICODE_COMBINING_CLASS_CCC23 = 23,
-  HB_UNICODE_COMBINING_CLASS_CCC24 = 24,
-  HB_UNICODE_COMBINING_CLASS_CCC25 = 25,
-  HB_UNICODE_COMBINING_CLASS_CCC26 = 26,
-  HB_UNICODE_COMBINING_CLASS_CCC27 = 27,
-  HB_UNICODE_COMBINING_CLASS_CCC28 = 28,
-  HB_UNICODE_COMBINING_CLASS_CCC29 = 29,
-  HB_UNICODE_COMBINING_CLASS_CCC30 = 30,
-  HB_UNICODE_COMBINING_CLASS_CCC31 = 31,
-  HB_UNICODE_COMBINING_CLASS_CCC32 = 32,
-  HB_UNICODE_COMBINING_CLASS_CCC33 = 33,
-  HB_UNICODE_COMBINING_CLASS_CCC34 = 34,
-  HB_UNICODE_COMBINING_CLASS_CCC35 = 35,
-  HB_UNICODE_COMBINING_CLASS_CCC36 = 36,
-  HB_UNICODE_COMBINING_CLASS_CCC84 = 84,
-  HB_UNICODE_COMBINING_CLASS_CCC91 = 91,
-  HB_UNICODE_COMBINING_CLASS_CCC103 = 103,
-  HB_UNICODE_COMBINING_CLASS_CCC107 = 107,
-  HB_UNICODE_COMBINING_CLASS_CCC118 = 118,
-  HB_UNICODE_COMBINING_CLASS_CCC122 = 122,
-  HB_UNICODE_COMBINING_CLASS_CCC129 = 129,
-  HB_UNICODE_COMBINING_CLASS_CCC130 = 130,
-  HB_UNICODE_COMBINING_CLASS_CCC133 = 132,
-  HB_UNICODE_COMBINING_CLASS_ATTACHED_BELOW_LEFT = 200,
-  HB_UNICODE_COMBINING_CLASS_ATTACHED_BELOW = 202,
-  HB_UNICODE_COMBINING_CLASS_ATTACHED_ABOVE = 214,
-  HB_UNICODE_COMBINING_CLASS_ATTACHED_ABOVE_RIGHT = 216,
-  HB_UNICODE_COMBINING_CLASS_BELOW_LEFT = 218,
-  HB_UNICODE_COMBINING_CLASS_BELOW = 220,
-  HB_UNICODE_COMBINING_CLASS_BELOW_RIGHT = 222,
-  HB_UNICODE_COMBINING_CLASS_LEFT = 224,
-  HB_UNICODE_COMBINING_CLASS_RIGHT = 226,
-  HB_UNICODE_COMBINING_CLASS_ABOVE_LEFT = 228,
-  HB_UNICODE_COMBINING_CLASS_ABOVE = 230,
-  HB_UNICODE_COMBINING_CLASS_ABOVE_RIGHT = 232,
-  HB_UNICODE_COMBINING_CLASS_DOUBLE_BELOW = 233,
-  HB_UNICODE_COMBINING_CLASS_DOUBLE_ABOVE = 234,
-  HB_UNICODE_COMBINING_CLASS_IOTA_SUBSCRIPT = 240,
-  HB_UNICODE_COMBINING_CLASS_INVALID = 255
-} hb_unicode_combining_class_t;
+
+
 typedef struct hb_unicode_funcs_t hb_unicode_funcs_t;
 typedef hb_unicode_combining_class_t (*hb_unicode_combining_class_func_t) (hb_unicode_funcs_t *ufuncs,
            hb_codepoint_t unicode,
@@ -7732,10 +6519,7 @@ typedef struct hb_glyph_info_t
   hb_var_int_t var1;
   hb_var_int_t var2;
 } hb_glyph_info_t;
-typedef enum {
-  HB_GLYPH_FLAG_UNSAFE_TO_BREAK = 0x00000001,
-  HB_GLYPH_FLAG_DEFINED = 0x00000001
-} hb_glyph_flags_t;
+
 typedef struct hb_glyph_position_t {
   hb_position_t x_advance;
   hb_position_t y_advance;
@@ -7751,50 +6535,12 @@ typedef struct hb_segment_properties_t {
   void *reserved2;
 } hb_segment_properties_t;
 typedef struct hb_buffer_t hb_buffer_t;
-typedef enum {
-  HB_BUFFER_CONTENT_TYPE_INVALID = 0,
-  HB_BUFFER_CONTENT_TYPE_UNICODE,
-  HB_BUFFER_CONTENT_TYPE_GLYPHS
-} hb_buffer_content_type_t;
-typedef enum {
-  HB_BUFFER_FLAG_DEFAULT = 0x00000000u,
-  HB_BUFFER_FLAG_BOT = 0x00000001u,
-  HB_BUFFER_FLAG_EOT = 0x00000002u,
-  HB_BUFFER_FLAG_PRESERVE_DEFAULT_IGNORABLES = 0x00000004u,
-  HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES = 0x00000008u,
-  HB_BUFFER_FLAG_DO_NOT_INSERT_DOTTED_CIRCLE = 0x00000010u
-} hb_buffer_flags_t;
-typedef enum {
-  HB_BUFFER_CLUSTER_LEVEL_MONOTONE_GRAPHEMES = 0,
-  HB_BUFFER_CLUSTER_LEVEL_MONOTONE_CHARACTERS = 1,
-  HB_BUFFER_CLUSTER_LEVEL_CHARACTERS = 2,
-  HB_BUFFER_CLUSTER_LEVEL_DEFAULT = HB_BUFFER_CLUSTER_LEVEL_MONOTONE_GRAPHEMES
-} hb_buffer_cluster_level_t;
-typedef enum {
-  HB_BUFFER_SERIALIZE_FLAG_DEFAULT = 0x00000000u,
-  HB_BUFFER_SERIALIZE_FLAG_NO_CLUSTERS = 0x00000001u,
-  HB_BUFFER_SERIALIZE_FLAG_NO_POSITIONS = 0x00000002u,
-  HB_BUFFER_SERIALIZE_FLAG_NO_GLYPH_NAMES = 0x00000004u,
-  HB_BUFFER_SERIALIZE_FLAG_GLYPH_EXTENTS = 0x00000008u,
-  HB_BUFFER_SERIALIZE_FLAG_GLYPH_FLAGS = 0x00000010u,
-  HB_BUFFER_SERIALIZE_FLAG_NO_ADVANCES = 0x00000020u
-} hb_buffer_serialize_flags_t;
-typedef enum {
-  HB_BUFFER_SERIALIZE_FORMAT_TEXT = ((hb_tag_t)((((uint32_t)('T')&0xFF)<<24)|(((uint32_t)('E')&0xFF)<<16)|(((uint32_t)('X')&0xFF)<<8)|((uint32_t)('T')&0xFF))),
-  HB_BUFFER_SERIALIZE_FORMAT_JSON = ((hb_tag_t)((((uint32_t)('J')&0xFF)<<24)|(((uint32_t)('S')&0xFF)<<16)|(((uint32_t)('O')&0xFF)<<8)|((uint32_t)('N')&0xFF))),
-  HB_BUFFER_SERIALIZE_FORMAT_INVALID = ((hb_tag_t)((((uint32_t)(0)&0xFF)<<24)|(((uint32_t)(0)&0xFF)<<16)|(((uint32_t)(0)&0xFF)<<8)|((uint32_t)(0)&0xFF)))
-} hb_buffer_serialize_format_t;
-typedef enum {
-  HB_BUFFER_DIFF_FLAG_EQUAL = 0x0000,
-  HB_BUFFER_DIFF_FLAG_CONTENT_TYPE_MISMATCH = 0x0001,
-  HB_BUFFER_DIFF_FLAG_LENGTH_MISMATCH = 0x0002,
-  HB_BUFFER_DIFF_FLAG_NOTDEF_PRESENT = 0x0004,
-  HB_BUFFER_DIFF_FLAG_DOTTED_CIRCLE_PRESENT = 0x0008,
-  HB_BUFFER_DIFF_FLAG_CODEPOINT_MISMATCH = 0x0010,
-  HB_BUFFER_DIFF_FLAG_CLUSTER_MISMATCH = 0x0020,
-  HB_BUFFER_DIFF_FLAG_GLYPH_FLAGS_MISMATCH = 0x0040,
-  HB_BUFFER_DIFF_FLAG_POSITION_MISMATCH = 0x0080
-} hb_buffer_diff_flags_t;
+
+
+
+
+
+
 typedef hb_bool_t (*hb_buffer_message_func_t) (hb_buffer_t *buffer,
         hb_font_t *font,
         const char *message,
@@ -7814,12 +6560,7 @@ typedef hb_font_get_glyph_kerning_func_t hb_font_get_glyph_v_kerning_func_t;
 typedef struct hb_map_t hb_map_t;
 typedef struct hb_shape_plan_t hb_shape_plan_t;
 typedef struct _PangoCoverage PangoCoverage;
-typedef enum {
-  PANGO_COVERAGE_NONE,
-  PANGO_COVERAGE_FALLBACK,
-  PANGO_COVERAGE_APPROXIMATE,
-  PANGO_COVERAGE_EXACT
-} PangoCoverageLevel;
+
 typedef struct _PangoLogAttr PangoLogAttr;
 typedef struct _PangoEngineLang PangoEngineLang;
 typedef struct _PangoEngineShape PangoEngineShape;
@@ -7834,18 +6575,8 @@ struct _PangoRectangle
   int width;
   int height;
 };
-typedef enum {
-  PANGO_GRAVITY_SOUTH,
-  PANGO_GRAVITY_EAST,
-  PANGO_GRAVITY_NORTH,
-  PANGO_GRAVITY_WEST,
-  PANGO_GRAVITY_AUTO
-} PangoGravity;
-typedef enum {
-  PANGO_GRAVITY_HINT_NATURAL,
-  PANGO_GRAVITY_HINT_STRONG,
-  PANGO_GRAVITY_HINT_LINE
-} PangoGravityHint;
+
+
 typedef struct _PangoMatrix PangoMatrix;
 struct _PangoMatrix
 {
@@ -7857,203 +6588,17 @@ struct _PangoMatrix
   double y0;
 };
 typedef struct _PangoScriptIter PangoScriptIter;
-typedef enum {
-      PANGO_SCRIPT_INVALID_CODE = -1,
-      PANGO_SCRIPT_COMMON = 0,
-      PANGO_SCRIPT_INHERITED,
-      PANGO_SCRIPT_ARABIC,
-      PANGO_SCRIPT_ARMENIAN,
-      PANGO_SCRIPT_BENGALI,
-      PANGO_SCRIPT_BOPOMOFO,
-      PANGO_SCRIPT_CHEROKEE,
-      PANGO_SCRIPT_COPTIC,
-      PANGO_SCRIPT_CYRILLIC,
-      PANGO_SCRIPT_DESERET,
-      PANGO_SCRIPT_DEVANAGARI,
-      PANGO_SCRIPT_ETHIOPIC,
-      PANGO_SCRIPT_GEORGIAN,
-      PANGO_SCRIPT_GOTHIC,
-      PANGO_SCRIPT_GREEK,
-      PANGO_SCRIPT_GUJARATI,
-      PANGO_SCRIPT_GURMUKHI,
-      PANGO_SCRIPT_HAN,
-      PANGO_SCRIPT_HANGUL,
-      PANGO_SCRIPT_HEBREW,
-      PANGO_SCRIPT_HIRAGANA,
-      PANGO_SCRIPT_KANNADA,
-      PANGO_SCRIPT_KATAKANA,
-      PANGO_SCRIPT_KHMER,
-      PANGO_SCRIPT_LAO,
-      PANGO_SCRIPT_LATIN,
-      PANGO_SCRIPT_MALAYALAM,
-      PANGO_SCRIPT_MONGOLIAN,
-      PANGO_SCRIPT_MYANMAR,
-      PANGO_SCRIPT_OGHAM,
-      PANGO_SCRIPT_OLD_ITALIC,
-      PANGO_SCRIPT_ORIYA,
-      PANGO_SCRIPT_RUNIC,
-      PANGO_SCRIPT_SINHALA,
-      PANGO_SCRIPT_SYRIAC,
-      PANGO_SCRIPT_TAMIL,
-      PANGO_SCRIPT_TELUGU,
-      PANGO_SCRIPT_THAANA,
-      PANGO_SCRIPT_THAI,
-      PANGO_SCRIPT_TIBETAN,
-      PANGO_SCRIPT_CANADIAN_ABORIGINAL,
-      PANGO_SCRIPT_YI,
-      PANGO_SCRIPT_TAGALOG,
-      PANGO_SCRIPT_HANUNOO,
-      PANGO_SCRIPT_BUHID,
-      PANGO_SCRIPT_TAGBANWA,
-      PANGO_SCRIPT_BRAILLE,
-      PANGO_SCRIPT_CYPRIOT,
-      PANGO_SCRIPT_LIMBU,
-      PANGO_SCRIPT_OSMANYA,
-      PANGO_SCRIPT_SHAVIAN,
-      PANGO_SCRIPT_LINEAR_B,
-      PANGO_SCRIPT_TAI_LE,
-      PANGO_SCRIPT_UGARITIC,
-      PANGO_SCRIPT_NEW_TAI_LUE,
-      PANGO_SCRIPT_BUGINESE,
-      PANGO_SCRIPT_GLAGOLITIC,
-      PANGO_SCRIPT_TIFINAGH,
-      PANGO_SCRIPT_SYLOTI_NAGRI,
-      PANGO_SCRIPT_OLD_PERSIAN,
-      PANGO_SCRIPT_KHAROSHTHI,
-      PANGO_SCRIPT_UNKNOWN,
-      PANGO_SCRIPT_BALINESE,
-      PANGO_SCRIPT_CUNEIFORM,
-      PANGO_SCRIPT_PHOENICIAN,
-      PANGO_SCRIPT_PHAGS_PA,
-      PANGO_SCRIPT_NKO,
-      PANGO_SCRIPT_KAYAH_LI,
-      PANGO_SCRIPT_LEPCHA,
-      PANGO_SCRIPT_REJANG,
-      PANGO_SCRIPT_SUNDANESE,
-      PANGO_SCRIPT_SAURASHTRA,
-      PANGO_SCRIPT_CHAM,
-      PANGO_SCRIPT_OL_CHIKI,
-      PANGO_SCRIPT_VAI,
-      PANGO_SCRIPT_CARIAN,
-      PANGO_SCRIPT_LYCIAN,
-      PANGO_SCRIPT_LYDIAN,
-      PANGO_SCRIPT_BATAK,
-      PANGO_SCRIPT_BRAHMI,
-      PANGO_SCRIPT_MANDAIC,
-      PANGO_SCRIPT_CHAKMA,
-      PANGO_SCRIPT_MEROITIC_CURSIVE,
-      PANGO_SCRIPT_MEROITIC_HIEROGLYPHS,
-      PANGO_SCRIPT_MIAO,
-      PANGO_SCRIPT_SHARADA,
-      PANGO_SCRIPT_SORA_SOMPENG,
-      PANGO_SCRIPT_TAKRI,
-      PANGO_SCRIPT_BASSA_VAH,
-      PANGO_SCRIPT_CAUCASIAN_ALBANIAN,
-      PANGO_SCRIPT_DUPLOYAN,
-      PANGO_SCRIPT_ELBASAN,
-      PANGO_SCRIPT_GRANTHA,
-      PANGO_SCRIPT_KHOJKI,
-      PANGO_SCRIPT_KHUDAWADI,
-      PANGO_SCRIPT_LINEAR_A,
-      PANGO_SCRIPT_MAHAJANI,
-      PANGO_SCRIPT_MANICHAEAN,
-      PANGO_SCRIPT_MENDE_KIKAKUI,
-      PANGO_SCRIPT_MODI,
-      PANGO_SCRIPT_MRO,
-      PANGO_SCRIPT_NABATAEAN,
-      PANGO_SCRIPT_OLD_NORTH_ARABIAN,
-      PANGO_SCRIPT_OLD_PERMIC,
-      PANGO_SCRIPT_PAHAWH_HMONG,
-      PANGO_SCRIPT_PALMYRENE,
-      PANGO_SCRIPT_PAU_CIN_HAU,
-      PANGO_SCRIPT_PSALTER_PAHLAVI,
-      PANGO_SCRIPT_SIDDHAM,
-      PANGO_SCRIPT_TIRHUTA,
-      PANGO_SCRIPT_WARANG_CITI,
-      PANGO_SCRIPT_AHOM,
-      PANGO_SCRIPT_ANATOLIAN_HIEROGLYPHS,
-      PANGO_SCRIPT_HATRAN,
-      PANGO_SCRIPT_MULTANI,
-      PANGO_SCRIPT_OLD_HUNGARIAN,
-      PANGO_SCRIPT_SIGNWRITING
-} PangoScript;
+
 typedef struct _PangoLanguage PangoLanguage;
-typedef enum {
-  PANGO_DIRECTION_LTR,
-  PANGO_DIRECTION_RTL,
-  PANGO_DIRECTION_TTB_LTR,
-  PANGO_DIRECTION_TTB_RTL,
-  PANGO_DIRECTION_WEAK_LTR,
-  PANGO_DIRECTION_WEAK_RTL,
-  PANGO_DIRECTION_NEUTRAL
-} PangoDirection;
-typedef enum {
-  PANGO_BIDI_TYPE_L,
-  PANGO_BIDI_TYPE_LRE,
-  PANGO_BIDI_TYPE_LRO,
-  PANGO_BIDI_TYPE_R,
-  PANGO_BIDI_TYPE_AL,
-  PANGO_BIDI_TYPE_RLE,
-  PANGO_BIDI_TYPE_RLO,
-  PANGO_BIDI_TYPE_PDF,
-  PANGO_BIDI_TYPE_EN,
-  PANGO_BIDI_TYPE_ES,
-  PANGO_BIDI_TYPE_ET,
-  PANGO_BIDI_TYPE_AN,
-  PANGO_BIDI_TYPE_CS,
-  PANGO_BIDI_TYPE_NSM,
-  PANGO_BIDI_TYPE_BN,
-  PANGO_BIDI_TYPE_B,
-  PANGO_BIDI_TYPE_S,
-  PANGO_BIDI_TYPE_WS,
-  PANGO_BIDI_TYPE_ON
-} PangoBidiType;
+
+
 typedef struct _PangoFontDescription PangoFontDescription;
 typedef struct _PangoFontMetrics PangoFontMetrics;
-typedef enum {
-  PANGO_STYLE_NORMAL,
-  PANGO_STYLE_OBLIQUE,
-  PANGO_STYLE_ITALIC
-} PangoStyle;
-typedef enum {
-  PANGO_VARIANT_NORMAL,
-  PANGO_VARIANT_SMALL_CAPS
-} PangoVariant;
-typedef enum {
-  PANGO_WEIGHT_THIN = 100,
-  PANGO_WEIGHT_ULTRALIGHT = 200,
-  PANGO_WEIGHT_LIGHT = 300,
-  PANGO_WEIGHT_SEMILIGHT = 350,
-  PANGO_WEIGHT_BOOK = 380,
-  PANGO_WEIGHT_NORMAL = 400,
-  PANGO_WEIGHT_MEDIUM = 500,
-  PANGO_WEIGHT_SEMIBOLD = 600,
-  PANGO_WEIGHT_BOLD = 700,
-  PANGO_WEIGHT_ULTRABOLD = 800,
-  PANGO_WEIGHT_HEAVY = 900,
-  PANGO_WEIGHT_ULTRAHEAVY = 1000
-} PangoWeight;
-typedef enum {
-  PANGO_STRETCH_ULTRA_CONDENSED,
-  PANGO_STRETCH_EXTRA_CONDENSED,
-  PANGO_STRETCH_CONDENSED,
-  PANGO_STRETCH_SEMI_CONDENSED,
-  PANGO_STRETCH_NORMAL,
-  PANGO_STRETCH_SEMI_EXPANDED,
-  PANGO_STRETCH_EXPANDED,
-  PANGO_STRETCH_EXTRA_EXPANDED,
-  PANGO_STRETCH_ULTRA_EXPANDED
-} PangoStretch;
-typedef enum {
-  PANGO_FONT_MASK_FAMILY = 1 << 0,
-  PANGO_FONT_MASK_STYLE = 1 << 1,
-  PANGO_FONT_MASK_VARIANT = 1 << 2,
-  PANGO_FONT_MASK_WEIGHT = 1 << 3,
-  PANGO_FONT_MASK_STRETCH = 1 << 4,
-  PANGO_FONT_MASK_SIZE = 1 << 5,
-  PANGO_FONT_MASK_GRAVITY = 1 << 6,
-  PANGO_FONT_MASK_VARIATIONS = 1 << 7,
-} PangoFontMask;
+
+
+
+
+
 struct _PangoFontMetrics
 {
   guint ref_count;
@@ -8148,45 +6693,8 @@ typedef struct _PangoAttrShape PangoAttrShape;
 typedef struct _PangoAttrFontFeatures PangoAttrFontFeatures;
 typedef struct _PangoAttrList PangoAttrList;
 typedef struct _PangoAttrIterator PangoAttrIterator;
-typedef enum
-{
-  PANGO_ATTR_INVALID,
-  PANGO_ATTR_LANGUAGE,
-  PANGO_ATTR_FAMILY,
-  PANGO_ATTR_STYLE,
-  PANGO_ATTR_WEIGHT,
-  PANGO_ATTR_VARIANT,
-  PANGO_ATTR_STRETCH,
-  PANGO_ATTR_SIZE,
-  PANGO_ATTR_FONT_DESC,
-  PANGO_ATTR_FOREGROUND,
-  PANGO_ATTR_BACKGROUND,
-  PANGO_ATTR_UNDERLINE,
-  PANGO_ATTR_STRIKETHROUGH,
-  PANGO_ATTR_RISE,
-  PANGO_ATTR_SHAPE,
-  PANGO_ATTR_SCALE,
-  PANGO_ATTR_FALLBACK,
-  PANGO_ATTR_LETTER_SPACING,
-  PANGO_ATTR_UNDERLINE_COLOR,
-  PANGO_ATTR_STRIKETHROUGH_COLOR,
-  PANGO_ATTR_ABSOLUTE_SIZE,
-  PANGO_ATTR_GRAVITY,
-  PANGO_ATTR_GRAVITY_HINT,
-  PANGO_ATTR_FONT_FEATURES,
-  PANGO_ATTR_FOREGROUND_ALPHA,
-  PANGO_ATTR_BACKGROUND_ALPHA,
-  PANGO_ATTR_ALLOW_BREAKS,
-  PANGO_ATTR_SHOW,
-  PANGO_ATTR_INSERT_HYPHENS,
-} PangoAttrType;
-typedef enum {
-  PANGO_UNDERLINE_NONE,
-  PANGO_UNDERLINE_SINGLE,
-  PANGO_UNDERLINE_DOUBLE,
-  PANGO_UNDERLINE_LOW,
-  PANGO_UNDERLINE_ERROR
-} PangoUnderline;
+
+
 struct _PangoAttribute
 {
   const PangoAttrClass *klass;
@@ -8253,12 +6761,7 @@ struct _PangoAttrFontFeatures
   PangoAttribute attr;
   gchar *features;
 };
-typedef enum {
-  PANGO_SHOW_NONE = 0,
-  PANGO_SHOW_SPACES = 1 << 0,
-  PANGO_SHOW_LINE_BREAKS = 1 << 1,
-  PANGO_SHOW_IGNORABLES = 1 << 2
-} PangoShowFlags;
+
 typedef struct _PangoAnalysis PangoAnalysis;
 typedef struct _PangoItem PangoItem;
 struct _PangoAnalysis
@@ -8375,10 +6878,7 @@ struct _PangoGlyphString {
   gint *log_clusters;
   gint space;
 };
-typedef enum {
-  PANGO_SHAPE_NONE = 0,
-  PANGO_SHAPE_ROUND_POSITIONS = 1 << 0,
-} PangoShapeFlags;
+
 typedef struct _PangoEngine PangoEngine;
 typedef struct _PangoEngineClass PangoEngineClass;
 struct _PangoEngine
@@ -8459,30 +6959,14 @@ struct _PangoGlyphItemIter
   int end_char;
 };
 typedef struct _PangoTabArray PangoTabArray;
-typedef enum
-{
-  PANGO_TAB_LEFT
-} PangoTabAlign;
+
 typedef struct _PangoLayout PangoLayout;
 typedef struct _PangoLayoutClass PangoLayoutClass;
 typedef struct _PangoLayoutLine PangoLayoutLine;
 typedef PangoGlyphItem PangoLayoutRun;
-typedef enum {
-  PANGO_ALIGN_LEFT,
-  PANGO_ALIGN_CENTER,
-  PANGO_ALIGN_RIGHT
-} PangoAlignment;
-typedef enum {
-  PANGO_WRAP_WORD,
-  PANGO_WRAP_CHAR,
-  PANGO_WRAP_WORD_CHAR
-} PangoWrapMode;
-typedef enum {
-  PANGO_ELLIPSIZE_NONE,
-  PANGO_ELLIPSIZE_START,
-  PANGO_ELLIPSIZE_MIDDLE,
-  PANGO_ELLIPSIZE_END
-} PangoEllipsizeMode;
+
+
+
 struct _PangoLayoutLine
 {
   PangoLayout *layout;
@@ -8496,13 +6980,7 @@ typedef struct _PangoLayoutIter PangoLayoutIter;
 typedef struct _PangoRenderer PangoRenderer;
 typedef struct _PangoRendererClass PangoRendererClass;
 typedef struct _PangoRendererPrivate PangoRendererPrivate;
-typedef enum
-{
-  PANGO_RENDER_PART_FOREGROUND,
-  PANGO_RENDER_PART_BACKGROUND,
-  PANGO_RENDER_PART_UNDERLINE,
-  PANGO_RENDER_PART_STRIKETHROUGH
-} PangoRenderPart;
+
 struct _PangoRenderer
 {
   GObject parent_instance;
@@ -8638,66 +7116,9 @@ typedef void (*cairo_destroy_func_t) (void *data);
 typedef struct _cairo_user_data_key {
     int unused;
 } cairo_user_data_key_t;
-typedef enum _cairo_status {
-    CAIRO_STATUS_SUCCESS = 0,
-    CAIRO_STATUS_NO_MEMORY,
-    CAIRO_STATUS_INVALID_RESTORE,
-    CAIRO_STATUS_INVALID_POP_GROUP,
-    CAIRO_STATUS_NO_CURRENT_POINT,
-    CAIRO_STATUS_INVALID_MATRIX,
-    CAIRO_STATUS_INVALID_STATUS,
-    CAIRO_STATUS_NULL_POINTER,
-    CAIRO_STATUS_INVALID_STRING,
-    CAIRO_STATUS_INVALID_PATH_DATA,
-    CAIRO_STATUS_READ_ERROR,
-    CAIRO_STATUS_WRITE_ERROR,
-    CAIRO_STATUS_SURFACE_FINISHED,
-    CAIRO_STATUS_SURFACE_TYPE_MISMATCH,
-    CAIRO_STATUS_PATTERN_TYPE_MISMATCH,
-    CAIRO_STATUS_INVALID_CONTENT,
-    CAIRO_STATUS_INVALID_FORMAT,
-    CAIRO_STATUS_INVALID_VISUAL,
-    CAIRO_STATUS_FILE_NOT_FOUND,
-    CAIRO_STATUS_INVALID_DASH,
-    CAIRO_STATUS_INVALID_DSC_COMMENT,
-    CAIRO_STATUS_INVALID_INDEX,
-    CAIRO_STATUS_CLIP_NOT_REPRESENTABLE,
-    CAIRO_STATUS_TEMP_FILE_ERROR,
-    CAIRO_STATUS_INVALID_STRIDE,
-    CAIRO_STATUS_FONT_TYPE_MISMATCH,
-    CAIRO_STATUS_USER_FONT_IMMUTABLE,
-    CAIRO_STATUS_USER_FONT_ERROR,
-    CAIRO_STATUS_NEGATIVE_COUNT,
-    CAIRO_STATUS_INVALID_CLUSTERS,
-    CAIRO_STATUS_INVALID_SLANT,
-    CAIRO_STATUS_INVALID_WEIGHT,
-    CAIRO_STATUS_INVALID_SIZE,
-    CAIRO_STATUS_USER_FONT_NOT_IMPLEMENTED,
-    CAIRO_STATUS_DEVICE_TYPE_MISMATCH,
-    CAIRO_STATUS_DEVICE_ERROR,
-    CAIRO_STATUS_INVALID_MESH_CONSTRUCTION,
-    CAIRO_STATUS_DEVICE_FINISHED,
-    CAIRO_STATUS_JBIG2_GLOBAL_MISSING,
-    CAIRO_STATUS_PNG_ERROR,
-    CAIRO_STATUS_FREETYPE_ERROR,
-    CAIRO_STATUS_WIN32_GDI_ERROR,
-    CAIRO_STATUS_TAG_ERROR,
-    CAIRO_STATUS_LAST_STATUS
-} cairo_status_t;
-typedef enum _cairo_content {
-    CAIRO_CONTENT_COLOR = 0x1000,
-    CAIRO_CONTENT_ALPHA = 0x2000,
-    CAIRO_CONTENT_COLOR_ALPHA = 0x3000
-} cairo_content_t;
-typedef enum _cairo_format {
-    CAIRO_FORMAT_INVALID = -1,
-    CAIRO_FORMAT_ARGB32 = 0,
-    CAIRO_FORMAT_RGB24 = 1,
-    CAIRO_FORMAT_A8 = 2,
-    CAIRO_FORMAT_A1 = 3,
-    CAIRO_FORMAT_RGB16_565 = 4,
-    CAIRO_FORMAT_RGB30 = 5
-} cairo_format_t;
+
+
+
 typedef cairo_status_t (*cairo_write_func_t) (void *closure,
            const unsigned char *data,
            unsigned int length);
@@ -8709,64 +7130,15 @@ typedef struct _cairo_rectangle_int {
     int width, height;
 } cairo_rectangle_int_t;
 
-typedef enum _cairo_operator {
-    CAIRO_OPERATOR_CLEAR,
-    CAIRO_OPERATOR_SOURCE,
-    CAIRO_OPERATOR_OVER,
-    CAIRO_OPERATOR_IN,
-    CAIRO_OPERATOR_OUT,
-    CAIRO_OPERATOR_ATOP,
-    CAIRO_OPERATOR_DEST,
-    CAIRO_OPERATOR_DEST_OVER,
-    CAIRO_OPERATOR_DEST_IN,
-    CAIRO_OPERATOR_DEST_OUT,
-    CAIRO_OPERATOR_DEST_ATOP,
-    CAIRO_OPERATOR_XOR,
-    CAIRO_OPERATOR_ADD,
-    CAIRO_OPERATOR_SATURATE,
-    CAIRO_OPERATOR_MULTIPLY,
-    CAIRO_OPERATOR_SCREEN,
-    CAIRO_OPERATOR_OVERLAY,
-    CAIRO_OPERATOR_DARKEN,
-    CAIRO_OPERATOR_LIGHTEN,
-    CAIRO_OPERATOR_COLOR_DODGE,
-    CAIRO_OPERATOR_COLOR_BURN,
-    CAIRO_OPERATOR_HARD_LIGHT,
-    CAIRO_OPERATOR_SOFT_LIGHT,
-    CAIRO_OPERATOR_DIFFERENCE,
-    CAIRO_OPERATOR_EXCLUSION,
-    CAIRO_OPERATOR_HSL_HUE,
-    CAIRO_OPERATOR_HSL_SATURATION,
-    CAIRO_OPERATOR_HSL_COLOR,
-    CAIRO_OPERATOR_HSL_LUMINOSITY
-} cairo_operator_t;
 
-typedef enum _cairo_antialias {
-    CAIRO_ANTIALIAS_DEFAULT,
-    CAIRO_ANTIALIAS_NONE,
-    CAIRO_ANTIALIAS_GRAY,
-    CAIRO_ANTIALIAS_SUBPIXEL,
-    CAIRO_ANTIALIAS_FAST,
-    CAIRO_ANTIALIAS_GOOD,
-    CAIRO_ANTIALIAS_BEST
-} cairo_antialias_t;
 
-typedef enum _cairo_fill_rule {
-    CAIRO_FILL_RULE_WINDING,
-    CAIRO_FILL_RULE_EVEN_ODD
-} cairo_fill_rule_t;
 
-typedef enum _cairo_line_cap {
-    CAIRO_LINE_CAP_BUTT,
-    CAIRO_LINE_CAP_ROUND,
-    CAIRO_LINE_CAP_SQUARE
-} cairo_line_cap_t;
 
-typedef enum _cairo_line_join {
-    CAIRO_LINE_JOIN_MITER,
-    CAIRO_LINE_JOIN_ROUND,
-    CAIRO_LINE_JOIN_BEVEL
-} cairo_line_join_t;
+
+
+
+
+
 typedef struct _cairo_rectangle {
     double x, y, width, height;
 } cairo_rectangle_t;
@@ -8789,9 +7161,7 @@ typedef struct {
     int num_glyphs;
 } cairo_text_cluster_t;
  
-typedef enum _cairo_text_cluster_flags {
-    CAIRO_TEXT_CLUSTER_FLAG_BACKWARD = 0x00000001
-} cairo_text_cluster_flags_t;
+
 typedef struct {
     double x_bearing;
     double y_bearing;
@@ -8807,43 +7177,14 @@ typedef struct {
     double max_x_advance;
     double max_y_advance;
 } cairo_font_extents_t;
-typedef enum _cairo_font_slant {
-    CAIRO_FONT_SLANT_NORMAL,
-    CAIRO_FONT_SLANT_ITALIC,
-    CAIRO_FONT_SLANT_OBLIQUE
-} cairo_font_slant_t;
-typedef enum _cairo_font_weight {
-    CAIRO_FONT_WEIGHT_NORMAL,
-    CAIRO_FONT_WEIGHT_BOLD
-} cairo_font_weight_t;
-typedef enum _cairo_subpixel_order {
-    CAIRO_SUBPIXEL_ORDER_DEFAULT,
-    CAIRO_SUBPIXEL_ORDER_RGB,
-    CAIRO_SUBPIXEL_ORDER_BGR,
-    CAIRO_SUBPIXEL_ORDER_VRGB,
-    CAIRO_SUBPIXEL_ORDER_VBGR
-} cairo_subpixel_order_t;
-typedef enum _cairo_hint_style {
-    CAIRO_HINT_STYLE_DEFAULT,
-    CAIRO_HINT_STYLE_NONE,
-    CAIRO_HINT_STYLE_SLIGHT,
-    CAIRO_HINT_STYLE_MEDIUM,
-    CAIRO_HINT_STYLE_FULL
-} cairo_hint_style_t;
-typedef enum _cairo_hint_metrics {
-    CAIRO_HINT_METRICS_DEFAULT,
-    CAIRO_HINT_METRICS_OFF,
-    CAIRO_HINT_METRICS_ON
-} cairo_hint_metrics_t;
+
+
+
+
+
 typedef struct _cairo_font_options cairo_font_options_t;
  
-typedef enum _cairo_font_type {
-    CAIRO_FONT_TYPE_TOY,
-    CAIRO_FONT_TYPE_FT,
-    CAIRO_FONT_TYPE_WIN32,
-    CAIRO_FONT_TYPE_QUARTZ,
-    CAIRO_FONT_TYPE_USER
-} cairo_font_type_t;
+
 
 typedef cairo_status_t (*cairo_user_scaled_font_init_func_t) (cairo_scaled_font_t *scaled_font,
              cairo_t *cr,
@@ -8863,12 +7204,7 @@ typedef cairo_status_t (*cairo_user_scaled_font_text_to_glyphs_func_t) (cairo_sc
 typedef cairo_status_t (*cairo_user_scaled_font_unicode_to_glyph_func_t) (cairo_scaled_font_t *scaled_font,
            unsigned long unicode,
            unsigned long *glyph_index);
-typedef enum _cairo_path_data_type {
-    CAIRO_PATH_MOVE_TO,
-    CAIRO_PATH_LINE_TO,
-    CAIRO_PATH_CURVE_TO,
-    CAIRO_PATH_CLOSE_PATH
-} cairo_path_data_type_t;
+
 typedef union _cairo_path_data_t cairo_path_data_t;
 union _cairo_path_data_t {
     struct {
@@ -8885,54 +7221,15 @@ typedef struct cairo_path {
     int num_data;
 } cairo_path_t;
 
-typedef enum _cairo_device_type {
-    CAIRO_DEVICE_TYPE_DRM,
-    CAIRO_DEVICE_TYPE_GL,
-    CAIRO_DEVICE_TYPE_SCRIPT,
-    CAIRO_DEVICE_TYPE_XCB,
-    CAIRO_DEVICE_TYPE_XLIB,
-    CAIRO_DEVICE_TYPE_XML,
-    CAIRO_DEVICE_TYPE_COGL,
-    CAIRO_DEVICE_TYPE_WIN32,
-    CAIRO_DEVICE_TYPE_INVALID = -1
-} cairo_device_type_t;
 
-typedef enum {
- CAIRO_SURFACE_OBSERVER_NORMAL = 0,
- CAIRO_SURFACE_OBSERVER_RECORD_OPERATIONS = 0x1
-} cairo_surface_observer_mode_t;
+
+
 
 typedef void (*cairo_surface_observer_callback_t) (cairo_surface_t *observer,
          cairo_surface_t *target,
          void *data);
  
-typedef enum _cairo_surface_type {
-    CAIRO_SURFACE_TYPE_IMAGE,
-    CAIRO_SURFACE_TYPE_PDF,
-    CAIRO_SURFACE_TYPE_PS,
-    CAIRO_SURFACE_TYPE_XLIB,
-    CAIRO_SURFACE_TYPE_XCB,
-    CAIRO_SURFACE_TYPE_GLITZ,
-    CAIRO_SURFACE_TYPE_QUARTZ,
-    CAIRO_SURFACE_TYPE_WIN32,
-    CAIRO_SURFACE_TYPE_BEOS,
-    CAIRO_SURFACE_TYPE_DIRECTFB,
-    CAIRO_SURFACE_TYPE_SVG,
-    CAIRO_SURFACE_TYPE_OS2,
-    CAIRO_SURFACE_TYPE_WIN32_PRINTING,
-    CAIRO_SURFACE_TYPE_QUARTZ_IMAGE,
-    CAIRO_SURFACE_TYPE_SCRIPT,
-    CAIRO_SURFACE_TYPE_QT,
-    CAIRO_SURFACE_TYPE_RECORDING,
-    CAIRO_SURFACE_TYPE_VG,
-    CAIRO_SURFACE_TYPE_GL,
-    CAIRO_SURFACE_TYPE_DRM,
-    CAIRO_SURFACE_TYPE_TEE,
-    CAIRO_SURFACE_TYPE_XML,
-    CAIRO_SURFACE_TYPE_SKIA,
-    CAIRO_SURFACE_TYPE_SUBSURFACE,
-    CAIRO_SURFACE_TYPE_COGL
-} cairo_surface_type_t;
+
 
 typedef cairo_surface_t *
 (*cairo_raster_source_acquire_func_t) (cairo_pattern_t *pattern,
@@ -8954,37 +7251,14 @@ typedef void
 (*cairo_raster_source_finish_func_t) (cairo_pattern_t *pattern,
           void *callback_data);
 
-typedef enum _cairo_pattern_type {
-    CAIRO_PATTERN_TYPE_SOLID,
-    CAIRO_PATTERN_TYPE_SURFACE,
-    CAIRO_PATTERN_TYPE_LINEAR,
-    CAIRO_PATTERN_TYPE_RADIAL,
-    CAIRO_PATTERN_TYPE_MESH,
-    CAIRO_PATTERN_TYPE_RASTER_SOURCE
-} cairo_pattern_type_t;
 
-typedef enum _cairo_extend {
-    CAIRO_EXTEND_NONE,
-    CAIRO_EXTEND_REPEAT,
-    CAIRO_EXTEND_REFLECT,
-    CAIRO_EXTEND_PAD
-} cairo_extend_t;
 
-typedef enum _cairo_filter {
-    CAIRO_FILTER_FAST,
-    CAIRO_FILTER_GOOD,
-    CAIRO_FILTER_BEST,
-    CAIRO_FILTER_NEAREST,
-    CAIRO_FILTER_BILINEAR,
-    CAIRO_FILTER_GAUSSIAN
-} cairo_filter_t;
+
+
+
  
 typedef struct _cairo_region cairo_region_t;
-typedef enum _cairo_region_overlap {
-    CAIRO_REGION_OVERLAP_IN,
-    CAIRO_REGION_OVERLAP_OUT,
-    CAIRO_REGION_OVERLAP_PART
-} cairo_region_overlap_t;
+
 
 typedef struct _GdkPoint GdkPoint;
 typedef cairo_rectangle_int_t GdkRectangle;
@@ -9004,226 +7278,36 @@ typedef struct _GdkKeymap GdkKeymap;
 typedef struct _GdkAppLaunchContext GdkAppLaunchContext;
 typedef struct _GdkSeat GdkSeat;
 typedef struct _GdkGLContext GdkGLContext;
-typedef enum
-{
-  GDK_LSB_FIRST,
-  GDK_MSB_FIRST
-} GdkByteOrder;
-typedef enum
-{
-  GDK_SHIFT_MASK = 1 << 0,
-  GDK_LOCK_MASK = 1 << 1,
-  GDK_CONTROL_MASK = 1 << 2,
-  GDK_MOD1_MASK = 1 << 3,
-  GDK_MOD2_MASK = 1 << 4,
-  GDK_MOD3_MASK = 1 << 5,
-  GDK_MOD4_MASK = 1 << 6,
-  GDK_MOD5_MASK = 1 << 7,
-  GDK_BUTTON1_MASK = 1 << 8,
-  GDK_BUTTON2_MASK = 1 << 9,
-  GDK_BUTTON3_MASK = 1 << 10,
-  GDK_BUTTON4_MASK = 1 << 11,
-  GDK_BUTTON5_MASK = 1 << 12,
-  GDK_MODIFIER_RESERVED_13_MASK = 1 << 13,
-  GDK_MODIFIER_RESERVED_14_MASK = 1 << 14,
-  GDK_MODIFIER_RESERVED_15_MASK = 1 << 15,
-  GDK_MODIFIER_RESERVED_16_MASK = 1 << 16,
-  GDK_MODIFIER_RESERVED_17_MASK = 1 << 17,
-  GDK_MODIFIER_RESERVED_18_MASK = 1 << 18,
-  GDK_MODIFIER_RESERVED_19_MASK = 1 << 19,
-  GDK_MODIFIER_RESERVED_20_MASK = 1 << 20,
-  GDK_MODIFIER_RESERVED_21_MASK = 1 << 21,
-  GDK_MODIFIER_RESERVED_22_MASK = 1 << 22,
-  GDK_MODIFIER_RESERVED_23_MASK = 1 << 23,
-  GDK_MODIFIER_RESERVED_24_MASK = 1 << 24,
-  GDK_MODIFIER_RESERVED_25_MASK = 1 << 25,
-  GDK_SUPER_MASK = 1 << 26,
-  GDK_HYPER_MASK = 1 << 27,
-  GDK_META_MASK = 1 << 28,
-  GDK_MODIFIER_RESERVED_29_MASK = 1 << 29,
-  GDK_RELEASE_MASK = 1 << 30,
-  GDK_MODIFIER_MASK = 0x5c001fff
-} GdkModifierType;
-typedef enum
-{
-  GDK_MODIFIER_INTENT_PRIMARY_ACCELERATOR,
-  GDK_MODIFIER_INTENT_CONTEXT_MENU,
-  GDK_MODIFIER_INTENT_EXTEND_SELECTION,
-  GDK_MODIFIER_INTENT_MODIFY_SELECTION,
-  GDK_MODIFIER_INTENT_NO_TEXT_INPUT,
-  GDK_MODIFIER_INTENT_SHIFT_GROUP,
-  GDK_MODIFIER_INTENT_DEFAULT_MOD_MASK,
-} GdkModifierIntent;
-typedef enum
-{
-  GDK_OK = 0,
-  GDK_ERROR = -1,
-  GDK_ERROR_PARAM = -2,
-  GDK_ERROR_FILE = -3,
-  GDK_ERROR_MEM = -4
-} GdkStatus;
-typedef enum
-{
-  GDK_GRAB_SUCCESS = 0,
-  GDK_GRAB_ALREADY_GRABBED = 1,
-  GDK_GRAB_INVALID_TIME = 2,
-  GDK_GRAB_NOT_VIEWABLE = 3,
-  GDK_GRAB_FROZEN = 4,
-  GDK_GRAB_FAILED = 5
-} GdkGrabStatus;
-typedef enum
-{
-  GDK_OWNERSHIP_NONE,
-  GDK_OWNERSHIP_WINDOW,
-  GDK_OWNERSHIP_APPLICATION
-} GdkGrabOwnership;
-typedef enum
-{
-  GDK_EXPOSURE_MASK = 1 << 1,
-  GDK_POINTER_MOTION_MASK = 1 << 2,
-  GDK_POINTER_MOTION_HINT_MASK = 1 << 3,
-  GDK_BUTTON_MOTION_MASK = 1 << 4,
-  GDK_BUTTON1_MOTION_MASK = 1 << 5,
-  GDK_BUTTON2_MOTION_MASK = 1 << 6,
-  GDK_BUTTON3_MOTION_MASK = 1 << 7,
-  GDK_BUTTON_PRESS_MASK = 1 << 8,
-  GDK_BUTTON_RELEASE_MASK = 1 << 9,
-  GDK_KEY_PRESS_MASK = 1 << 10,
-  GDK_KEY_RELEASE_MASK = 1 << 11,
-  GDK_ENTER_NOTIFY_MASK = 1 << 12,
-  GDK_LEAVE_NOTIFY_MASK = 1 << 13,
-  GDK_FOCUS_CHANGE_MASK = 1 << 14,
-  GDK_STRUCTURE_MASK = 1 << 15,
-  GDK_PROPERTY_CHANGE_MASK = 1 << 16,
-  GDK_VISIBILITY_NOTIFY_MASK = 1 << 17,
-  GDK_PROXIMITY_IN_MASK = 1 << 18,
-  GDK_PROXIMITY_OUT_MASK = 1 << 19,
-  GDK_SUBSTRUCTURE_MASK = 1 << 20,
-  GDK_SCROLL_MASK = 1 << 21,
-  GDK_TOUCH_MASK = 1 << 22,
-  GDK_SMOOTH_SCROLL_MASK = 1 << 23,
-  GDK_TOUCHPAD_GESTURE_MASK = 1 << 24,
-  GDK_TABLET_PAD_MASK = 1 << 25,
-  GDK_ALL_EVENTS_MASK = 0x3FFFFFE
-} GdkEventMask;
+
+
+
+
+
+
+
 struct _GdkPoint
 {
   gint x;
   gint y;
 };
-typedef enum {
-  GDK_GL_ERROR_NOT_AVAILABLE,
-  GDK_GL_ERROR_UNSUPPORTED_FORMAT,
-  GDK_GL_ERROR_UNSUPPORTED_PROFILE
-} GdkGLError;
-typedef enum
-{
-  GDK_WINDOW_TYPE_HINT_NORMAL,
-  GDK_WINDOW_TYPE_HINT_DIALOG,
-  GDK_WINDOW_TYPE_HINT_MENU,
-  GDK_WINDOW_TYPE_HINT_TOOLBAR,
-  GDK_WINDOW_TYPE_HINT_SPLASHSCREEN,
-  GDK_WINDOW_TYPE_HINT_UTILITY,
-  GDK_WINDOW_TYPE_HINT_DOCK,
-  GDK_WINDOW_TYPE_HINT_DESKTOP,
-  GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU,
-  GDK_WINDOW_TYPE_HINT_POPUP_MENU,
-  GDK_WINDOW_TYPE_HINT_TOOLTIP,
-  GDK_WINDOW_TYPE_HINT_NOTIFICATION,
-  GDK_WINDOW_TYPE_HINT_COMBO,
-  GDK_WINDOW_TYPE_HINT_DND
-} GdkWindowTypeHint;
-typedef enum
-{
-  GDK_AXIS_IGNORE,
-  GDK_AXIS_X,
-  GDK_AXIS_Y,
-  GDK_AXIS_PRESSURE,
-  GDK_AXIS_XTILT,
-  GDK_AXIS_YTILT,
-  GDK_AXIS_WHEEL,
-  GDK_AXIS_DISTANCE,
-  GDK_AXIS_ROTATION,
-  GDK_AXIS_SLIDER,
-  GDK_AXIS_LAST
-} GdkAxisUse;
-typedef enum
-{
-  GDK_AXIS_FLAG_X = 1 << GDK_AXIS_X,
-  GDK_AXIS_FLAG_Y = 1 << GDK_AXIS_Y,
-  GDK_AXIS_FLAG_PRESSURE = 1 << GDK_AXIS_PRESSURE,
-  GDK_AXIS_FLAG_XTILT = 1 << GDK_AXIS_XTILT,
-  GDK_AXIS_FLAG_YTILT = 1 << GDK_AXIS_YTILT,
-  GDK_AXIS_FLAG_WHEEL = 1 << GDK_AXIS_WHEEL,
-  GDK_AXIS_FLAG_DISTANCE = 1 << GDK_AXIS_DISTANCE,
-  GDK_AXIS_FLAG_ROTATION = 1 << GDK_AXIS_ROTATION,
-  GDK_AXIS_FLAG_SLIDER = 1 << GDK_AXIS_SLIDER,
-} GdkAxisFlags;
+
+
+
+
 typedef struct _GdkTimeCoord GdkTimeCoord;
-typedef enum
-{
-  GDK_SOURCE_MOUSE,
-  GDK_SOURCE_PEN,
-  GDK_SOURCE_ERASER,
-  GDK_SOURCE_CURSOR,
-  GDK_SOURCE_KEYBOARD,
-  GDK_SOURCE_TOUCHSCREEN,
-  GDK_SOURCE_TOUCHPAD,
-  GDK_SOURCE_TRACKPOINT,
-  GDK_SOURCE_TABLET_PAD
-} GdkInputSource;
-typedef enum
-{
-  GDK_MODE_DISABLED,
-  GDK_MODE_SCREEN,
-  GDK_MODE_WINDOW
-} GdkInputMode;
-typedef enum {
-  GDK_DEVICE_TYPE_MASTER,
-  GDK_DEVICE_TYPE_SLAVE,
-  GDK_DEVICE_TYPE_FLOATING
-} GdkDeviceType;
+
+
+
 struct _GdkTimeCoord
 {
   guint32 time;
   gdouble axes[128];
 };
-typedef enum
-{
-  GDK_ACTION_DEFAULT = 1 << 0,
-  GDK_ACTION_COPY = 1 << 1,
-  GDK_ACTION_MOVE = 1 << 2,
-  GDK_ACTION_LINK = 1 << 3,
-  GDK_ACTION_PRIVATE = 1 << 4,
-  GDK_ACTION_ASK = 1 << 5
-} GdkDragAction;
-typedef enum {
-  GDK_DRAG_CANCEL_NO_TARGET,
-  GDK_DRAG_CANCEL_USER_CANCELLED,
-  GDK_DRAG_CANCEL_ERROR
-} GdkDragCancelReason;
-typedef enum
-{
-  GDK_DRAG_PROTO_NONE = 0,
-  GDK_DRAG_PROTO_MOTIF,
-  GDK_DRAG_PROTO_XDND,
-  GDK_DRAG_PROTO_ROOTWIN,
-  GDK_DRAG_PROTO_WIN32_DROPFILES,
-  GDK_DRAG_PROTO_OLE2,
-  GDK_DRAG_PROTO_LOCAL,
-  GDK_DRAG_PROTO_WAYLAND
-} GdkDragProtocol;
+
+
+
 typedef struct _GdkDeviceTool GdkDeviceTool;
-typedef enum {
-  GDK_DEVICE_TOOL_TYPE_UNKNOWN,
-  GDK_DEVICE_TOOL_TYPE_PEN,
-  GDK_DEVICE_TOOL_TYPE_ERASER,
-  GDK_DEVICE_TOOL_TYPE_BRUSH,
-  GDK_DEVICE_TOOL_TYPE_PENCIL,
-  GDK_DEVICE_TOOL_TYPE_AIRBRUSH,
-  GDK_DEVICE_TOOL_TYPE_MOUSE,
-  GDK_DEVICE_TOOL_TYPE_LENS,
-} GdkDeviceToolType;
+
 typedef struct _GdkEventAny GdkEventAny;
 typedef struct _GdkEventExpose GdkEventExpose;
 typedef struct _GdkEventVisibility GdkEventVisibility;
@@ -9253,147 +7337,20 @@ typedef union _GdkEvent GdkEvent;
 typedef void (*GdkEventFunc) (GdkEvent *event,
          gpointer data);
 typedef void GdkXEvent;
-typedef enum {
-  GDK_FILTER_CONTINUE,
-  GDK_FILTER_TRANSLATE,
-  GDK_FILTER_REMOVE
-} GdkFilterReturn;
+
 typedef GdkFilterReturn (*GdkFilterFunc) (GdkXEvent *xevent,
        GdkEvent *event,
        gpointer data);
-typedef enum
-{
-  GDK_NOTHING = -1,
-  GDK_DELETE = 0,
-  GDK_DESTROY = 1,
-  GDK_EXPOSE = 2,
-  GDK_MOTION_NOTIFY = 3,
-  GDK_BUTTON_PRESS = 4,
-  GDK_2BUTTON_PRESS = 5,
-  GDK_DOUBLE_BUTTON_PRESS = GDK_2BUTTON_PRESS,
-  GDK_3BUTTON_PRESS = 6,
-  GDK_TRIPLE_BUTTON_PRESS = GDK_3BUTTON_PRESS,
-  GDK_BUTTON_RELEASE = 7,
-  GDK_KEY_PRESS = 8,
-  GDK_KEY_RELEASE = 9,
-  GDK_ENTER_NOTIFY = 10,
-  GDK_LEAVE_NOTIFY = 11,
-  GDK_FOCUS_CHANGE = 12,
-  GDK_CONFIGURE = 13,
-  GDK_MAP = 14,
-  GDK_UNMAP = 15,
-  GDK_PROPERTY_NOTIFY = 16,
-  GDK_SELECTION_CLEAR = 17,
-  GDK_SELECTION_REQUEST = 18,
-  GDK_SELECTION_NOTIFY = 19,
-  GDK_PROXIMITY_IN = 20,
-  GDK_PROXIMITY_OUT = 21,
-  GDK_DRAG_ENTER = 22,
-  GDK_DRAG_LEAVE = 23,
-  GDK_DRAG_MOTION = 24,
-  GDK_DRAG_STATUS = 25,
-  GDK_DROP_START = 26,
-  GDK_DROP_FINISHED = 27,
-  GDK_CLIENT_EVENT = 28,
-  GDK_VISIBILITY_NOTIFY = 29,
-  GDK_SCROLL = 31,
-  GDK_WINDOW_STATE = 32,
-  GDK_SETTING = 33,
-  GDK_OWNER_CHANGE = 34,
-  GDK_GRAB_BROKEN = 35,
-  GDK_DAMAGE = 36,
-  GDK_TOUCH_BEGIN = 37,
-  GDK_TOUCH_UPDATE = 38,
-  GDK_TOUCH_END = 39,
-  GDK_TOUCH_CANCEL = 40,
-  GDK_TOUCHPAD_SWIPE = 41,
-  GDK_TOUCHPAD_PINCH = 42,
-  GDK_PAD_BUTTON_PRESS = 43,
-  GDK_PAD_BUTTON_RELEASE = 44,
-  GDK_PAD_RING = 45,
-  GDK_PAD_STRIP = 46,
-  GDK_PAD_GROUP_MODE = 47,
-  GDK_EVENT_LAST
-} GdkEventType;
-typedef enum
-{
-  GDK_VISIBILITY_UNOBSCURED,
-  GDK_VISIBILITY_PARTIAL,
-  GDK_VISIBILITY_FULLY_OBSCURED
-} GdkVisibilityState;
-typedef enum
-{
-  GDK_TOUCHPAD_GESTURE_PHASE_BEGIN,
-  GDK_TOUCHPAD_GESTURE_PHASE_UPDATE,
-  GDK_TOUCHPAD_GESTURE_PHASE_END,
-  GDK_TOUCHPAD_GESTURE_PHASE_CANCEL
-} GdkTouchpadGesturePhase;
-typedef enum
-{
-  GDK_SCROLL_UP,
-  GDK_SCROLL_DOWN,
-  GDK_SCROLL_LEFT,
-  GDK_SCROLL_RIGHT,
-  GDK_SCROLL_SMOOTH
-} GdkScrollDirection;
-typedef enum
-{
-  GDK_NOTIFY_ANCESTOR = 0,
-  GDK_NOTIFY_VIRTUAL = 1,
-  GDK_NOTIFY_INFERIOR = 2,
-  GDK_NOTIFY_NONLINEAR = 3,
-  GDK_NOTIFY_NONLINEAR_VIRTUAL = 4,
-  GDK_NOTIFY_UNKNOWN = 5
-} GdkNotifyType;
-typedef enum
-{
-  GDK_CROSSING_NORMAL,
-  GDK_CROSSING_GRAB,
-  GDK_CROSSING_UNGRAB,
-  GDK_CROSSING_GTK_GRAB,
-  GDK_CROSSING_GTK_UNGRAB,
-  GDK_CROSSING_STATE_CHANGED,
-  GDK_CROSSING_TOUCH_BEGIN,
-  GDK_CROSSING_TOUCH_END,
-  GDK_CROSSING_DEVICE_SWITCH
-} GdkCrossingMode;
-typedef enum
-{
-  GDK_PROPERTY_NEW_VALUE,
-  GDK_PROPERTY_DELETE
-} GdkPropertyState;
-typedef enum
-{
-  GDK_WINDOW_STATE_WITHDRAWN = 1 << 0,
-  GDK_WINDOW_STATE_ICONIFIED = 1 << 1,
-  GDK_WINDOW_STATE_MAXIMIZED = 1 << 2,
-  GDK_WINDOW_STATE_STICKY = 1 << 3,
-  GDK_WINDOW_STATE_FULLSCREEN = 1 << 4,
-  GDK_WINDOW_STATE_ABOVE = 1 << 5,
-  GDK_WINDOW_STATE_BELOW = 1 << 6,
-  GDK_WINDOW_STATE_FOCUSED = 1 << 7,
-  GDK_WINDOW_STATE_TILED = 1 << 8,
-  GDK_WINDOW_STATE_TOP_TILED = 1 << 9,
-  GDK_WINDOW_STATE_TOP_RESIZABLE = 1 << 10,
-  GDK_WINDOW_STATE_RIGHT_TILED = 1 << 11,
-  GDK_WINDOW_STATE_RIGHT_RESIZABLE = 1 << 12,
-  GDK_WINDOW_STATE_BOTTOM_TILED = 1 << 13,
-  GDK_WINDOW_STATE_BOTTOM_RESIZABLE = 1 << 14,
-  GDK_WINDOW_STATE_LEFT_TILED = 1 << 15,
-  GDK_WINDOW_STATE_LEFT_RESIZABLE = 1 << 16
-} GdkWindowState;
-typedef enum
-{
-  GDK_SETTING_ACTION_NEW,
-  GDK_SETTING_ACTION_CHANGED,
-  GDK_SETTING_ACTION_DELETED
-} GdkSettingAction;
-typedef enum
-{
-  GDK_OWNER_CHANGE_NEW_OWNER,
-  GDK_OWNER_CHANGE_DESTROY,
-  GDK_OWNER_CHANGE_CLOSE
-} GdkOwnerChange;
+
+
+
+
+
+
+
+
+
+
 struct _GdkEventAny
 {
   GdkEventType type;
@@ -9683,117 +7640,20 @@ typedef struct _GdkFrameTimings GdkFrameTimings;
 typedef struct _GdkFrameClock GdkFrameClock;
 typedef struct _GdkFrameClockPrivate GdkFrameClockPrivate;
 typedef struct _GdkFrameClockClass GdkFrameClockClass;
-typedef enum {
-  GDK_FRAME_CLOCK_PHASE_NONE = 0,
-  GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS = 1 << 0,
-  GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT = 1 << 1,
-  GDK_FRAME_CLOCK_PHASE_UPDATE = 1 << 2,
-  GDK_FRAME_CLOCK_PHASE_LAYOUT = 1 << 3,
-  GDK_FRAME_CLOCK_PHASE_PAINT = 1 << 4,
-  GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS = 1 << 5,
-  GDK_FRAME_CLOCK_PHASE_AFTER_PAINT = 1 << 6
-} GdkFrameClockPhase;
+
 typedef struct _GdkGeometry GdkGeometry;
 typedef struct _GdkWindowAttr GdkWindowAttr;
 typedef struct _GdkWindowRedirect GdkWindowRedirect;
-typedef enum
-{
-  GDK_INPUT_OUTPUT,
-  GDK_INPUT_ONLY
-} GdkWindowWindowClass;
-typedef enum
-{
-  GDK_WINDOW_ROOT,
-  GDK_WINDOW_TOPLEVEL,
-  GDK_WINDOW_CHILD,
-  GDK_WINDOW_TEMP,
-  GDK_WINDOW_FOREIGN,
-  GDK_WINDOW_OFFSCREEN,
-  GDK_WINDOW_SUBSURFACE
-} GdkWindowType;
-typedef enum
-{
-  GDK_WA_TITLE = 1 << 1,
-  GDK_WA_X = 1 << 2,
-  GDK_WA_Y = 1 << 3,
-  GDK_WA_CURSOR = 1 << 4,
-  GDK_WA_VISUAL = 1 << 5,
-  GDK_WA_WMCLASS = 1 << 6,
-  GDK_WA_NOREDIR = 1 << 7,
-  GDK_WA_TYPE_HINT = 1 << 8
-} GdkWindowAttributesType;
-typedef enum
-{
-  GDK_HINT_POS = 1 << 0,
-  GDK_HINT_MIN_SIZE = 1 << 1,
-  GDK_HINT_MAX_SIZE = 1 << 2,
-  GDK_HINT_BASE_SIZE = 1 << 3,
-  GDK_HINT_ASPECT = 1 << 4,
-  GDK_HINT_RESIZE_INC = 1 << 5,
-  GDK_HINT_WIN_GRAVITY = 1 << 6,
-  GDK_HINT_USER_POS = 1 << 7,
-  GDK_HINT_USER_SIZE = 1 << 8
-} GdkWindowHints;
-typedef enum
-{
-  GDK_DECOR_ALL = 1 << 0,
-  GDK_DECOR_BORDER = 1 << 1,
-  GDK_DECOR_RESIZEH = 1 << 2,
-  GDK_DECOR_TITLE = 1 << 3,
-  GDK_DECOR_MENU = 1 << 4,
-  GDK_DECOR_MINIMIZE = 1 << 5,
-  GDK_DECOR_MAXIMIZE = 1 << 6
-} GdkWMDecoration;
-typedef enum
-{
-  GDK_FUNC_ALL = 1 << 0,
-  GDK_FUNC_RESIZE = 1 << 1,
-  GDK_FUNC_MOVE = 1 << 2,
-  GDK_FUNC_MINIMIZE = 1 << 3,
-  GDK_FUNC_MAXIMIZE = 1 << 4,
-  GDK_FUNC_CLOSE = 1 << 5
-} GdkWMFunction;
-typedef enum
-{
-  GDK_GRAVITY_NORTH_WEST = 1,
-  GDK_GRAVITY_NORTH,
-  GDK_GRAVITY_NORTH_EAST,
-  GDK_GRAVITY_WEST,
-  GDK_GRAVITY_CENTER,
-  GDK_GRAVITY_EAST,
-  GDK_GRAVITY_SOUTH_WEST,
-  GDK_GRAVITY_SOUTH,
-  GDK_GRAVITY_SOUTH_EAST,
-  GDK_GRAVITY_STATIC
-} GdkGravity;
-typedef enum
-{
-  GDK_ANCHOR_FLIP_X = 1 << 0,
-  GDK_ANCHOR_FLIP_Y = 1 << 1,
-  GDK_ANCHOR_SLIDE_X = 1 << 2,
-  GDK_ANCHOR_SLIDE_Y = 1 << 3,
-  GDK_ANCHOR_RESIZE_X = 1 << 4,
-  GDK_ANCHOR_RESIZE_Y = 1 << 5,
-  GDK_ANCHOR_FLIP = GDK_ANCHOR_FLIP_X | GDK_ANCHOR_FLIP_Y,
-  GDK_ANCHOR_SLIDE = GDK_ANCHOR_SLIDE_X | GDK_ANCHOR_SLIDE_Y,
-  GDK_ANCHOR_RESIZE = GDK_ANCHOR_RESIZE_X | GDK_ANCHOR_RESIZE_Y
-} GdkAnchorHints;
-typedef enum
-{
-  GDK_WINDOW_EDGE_NORTH_WEST,
-  GDK_WINDOW_EDGE_NORTH,
-  GDK_WINDOW_EDGE_NORTH_EAST,
-  GDK_WINDOW_EDGE_WEST,
-  GDK_WINDOW_EDGE_EAST,
-  GDK_WINDOW_EDGE_SOUTH_WEST,
-  GDK_WINDOW_EDGE_SOUTH,
-  GDK_WINDOW_EDGE_SOUTH_EAST
-} GdkWindowEdge;
-typedef enum
-{
-  GDK_FULLSCREEN_ON_CURRENT_MONITOR,
-  GDK_FULLSCREEN_ON_ALL_MONITORS
-} GdkFullscreenMode;
+
+
+
+
+
+
+
+
+
+
 struct _GdkWindowAttr
 {
   gchar *title;
@@ -9857,15 +7717,7 @@ typedef void (*GdkWindowInvalidateHandlerFunc) (GdkWindow *window,
        cairo_region_t *region);
 typedef gboolean (*GdkWindowChildFunc) (GdkWindow *window,
                                                  gpointer user_data);
-typedef enum {
-  GDK_SEAT_CAPABILITY_NONE = 0,
-  GDK_SEAT_CAPABILITY_POINTER = 1 << 0,
-  GDK_SEAT_CAPABILITY_TOUCH = 1 << 1,
-  GDK_SEAT_CAPABILITY_TABLET_STYLUS = 1 << 2,
-  GDK_SEAT_CAPABILITY_KEYBOARD = 1 << 3,
-  GDK_SEAT_CAPABILITY_ALL_POINTING = (GDK_SEAT_CAPABILITY_POINTER | GDK_SEAT_CAPABILITY_TOUCH | GDK_SEAT_CAPABILITY_TABLET_STYLUS),
-  GDK_SEAT_CAPABILITY_ALL = (GDK_SEAT_CAPABILITY_ALL_POINTING | GDK_SEAT_CAPABILITY_KEYBOARD)
-} GdkSeatCapabilities;
+
 typedef void (* GdkSeatGrabPrepareFunc) (GdkSeat *seat,
                                          GdkWindow *window,
                                          gpointer user_data);
@@ -9875,14 +7727,7 @@ struct _GdkSeat
 };
 typedef struct _GdkMonitor GdkMonitor;
 typedef struct _GdkMonitorClass GdkMonitorClass;
-typedef enum {
-  GDK_SUBPIXEL_LAYOUT_UNKNOWN,
-  GDK_SUBPIXEL_LAYOUT_NONE,
-  GDK_SUBPIXEL_LAYOUT_HORIZONTAL_RGB,
-  GDK_SUBPIXEL_LAYOUT_HORIZONTAL_BGR,
-  GDK_SUBPIXEL_LAYOUT_VERTICAL_RGB,
-  GDK_SUBPIXEL_LAYOUT_VERTICAL_BGR
-} GdkSubpixelLayout;
+
 struct _GdkColor
 {
   guint32 pixel;
@@ -9897,41 +7742,17 @@ struct _GdkRGBA
   gdouble blue;
   gdouble alpha;
 };
-typedef enum
-{
-        GDK_PIXBUF_ALPHA_BILEVEL,
-        GDK_PIXBUF_ALPHA_FULL
-} GdkPixbufAlphaMode;
-typedef enum {
- GDK_COLORSPACE_RGB
-} GdkColorspace;
+
+
 typedef struct _GdkPixbuf GdkPixbuf;
 typedef void (* GdkPixbufDestroyNotify) (guchar *pixels, gpointer data);
-typedef enum {
-        GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-        GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-        GDK_PIXBUF_ERROR_BAD_OPTION,
-        GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-        GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
-        GDK_PIXBUF_ERROR_FAILED,
-        GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION
-} GdkPixbufError;
+
 typedef gboolean (*GdkPixbufSaveFunc) (const gchar *buf,
       gsize count,
       GError **error,
       gpointer data);
-typedef enum {
- GDK_INTERP_NEAREST,
- GDK_INTERP_TILES,
- GDK_INTERP_BILINEAR,
- GDK_INTERP_HYPER
-} GdkInterpType;
-typedef enum {
- GDK_PIXBUF_ROTATE_NONE = 0,
- GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE = 90,
- GDK_PIXBUF_ROTATE_UPSIDEDOWN = 180,
- GDK_PIXBUF_ROTATE_CLOCKWISE = 270
-} GdkPixbufRotation;
+
+
 typedef struct _GdkPixbufAnimation GdkPixbufAnimation;
 typedef struct _GdkPixbufAnimationIter GdkPixbufAnimationIter;
 typedef struct _GdkPixbufSimpleAnim GdkPixbufSimpleAnim;
@@ -9974,96 +7795,10 @@ typedef void (* PangoCairoShapeRendererFunc) (cairo_t *cr,
            PangoAttrShape *attr,
            gboolean do_path,
            gpointer data);
-typedef enum
-{
-  GDK_X_CURSOR = 0,
-  GDK_ARROW = 2,
-  GDK_BASED_ARROW_DOWN = 4,
-  GDK_BASED_ARROW_UP = 6,
-  GDK_BOAT = 8,
-  GDK_BOGOSITY = 10,
-  GDK_BOTTOM_LEFT_CORNER = 12,
-  GDK_BOTTOM_RIGHT_CORNER = 14,
-  GDK_BOTTOM_SIDE = 16,
-  GDK_BOTTOM_TEE = 18,
-  GDK_BOX_SPIRAL = 20,
-  GDK_CENTER_PTR = 22,
-  GDK_CIRCLE = 24,
-  GDK_CLOCK = 26,
-  GDK_COFFEE_MUG = 28,
-  GDK_CROSS = 30,
-  GDK_CROSS_REVERSE = 32,
-  GDK_CROSSHAIR = 34,
-  GDK_DIAMOND_CROSS = 36,
-  GDK_DOT = 38,
-  GDK_DOTBOX = 40,
-  GDK_DOUBLE_ARROW = 42,
-  GDK_DRAFT_LARGE = 44,
-  GDK_DRAFT_SMALL = 46,
-  GDK_DRAPED_BOX = 48,
-  GDK_EXCHANGE = 50,
-  GDK_FLEUR = 52,
-  GDK_GOBBLER = 54,
-  GDK_GUMBY = 56,
-  GDK_HAND1 = 58,
-  GDK_HAND2 = 60,
-  GDK_HEART = 62,
-  GDK_ICON = 64,
-  GDK_IRON_CROSS = 66,
-  GDK_LEFT_PTR = 68,
-  GDK_LEFT_SIDE = 70,
-  GDK_LEFT_TEE = 72,
-  GDK_LEFTBUTTON = 74,
-  GDK_LL_ANGLE = 76,
-  GDK_LR_ANGLE = 78,
-  GDK_MAN = 80,
-  GDK_MIDDLEBUTTON = 82,
-  GDK_MOUSE = 84,
-  GDK_PENCIL = 86,
-  GDK_PIRATE = 88,
-  GDK_PLUS = 90,
-  GDK_QUESTION_ARROW = 92,
-  GDK_RIGHT_PTR = 94,
-  GDK_RIGHT_SIDE = 96,
-  GDK_RIGHT_TEE = 98,
-  GDK_RIGHTBUTTON = 100,
-  GDK_RTL_LOGO = 102,
-  GDK_SAILBOAT = 104,
-  GDK_SB_DOWN_ARROW = 106,
-  GDK_SB_H_DOUBLE_ARROW = 108,
-  GDK_SB_LEFT_ARROW = 110,
-  GDK_SB_RIGHT_ARROW = 112,
-  GDK_SB_UP_ARROW = 114,
-  GDK_SB_V_DOUBLE_ARROW = 116,
-  GDK_SHUTTLE = 118,
-  GDK_SIZING = 120,
-  GDK_SPIDER = 122,
-  GDK_SPRAYCAN = 124,
-  GDK_STAR = 126,
-  GDK_TARGET = 128,
-  GDK_TCROSS = 130,
-  GDK_TOP_LEFT_ARROW = 132,
-  GDK_TOP_LEFT_CORNER = 134,
-  GDK_TOP_RIGHT_CORNER = 136,
-  GDK_TOP_SIDE = 138,
-  GDK_TOP_TEE = 140,
-  GDK_TREK = 142,
-  GDK_UL_ANGLE = 144,
-  GDK_UMBRELLA = 146,
-  GDK_UR_ANGLE = 148,
-  GDK_WATCH = 150,
-  GDK_XTERM = 152,
-  GDK_LAST_CURSOR,
-  GDK_BLANK_CURSOR = -2,
-  GDK_CURSOR_IS_PIXMAP = -1
-} GdkCursorType;
+
 typedef struct _GdkDevicePad GdkDevicePad;
 typedef struct _GdkDevicePadInterface GdkDevicePadInterface;
-typedef enum {
-  GDK_DEVICE_PAD_FEATURE_BUTTON,
-  GDK_DEVICE_PAD_FEATURE_RING,
-  GDK_DEVICE_PAD_FEATURE_STRIP
-} GdkDevicePadFeature;
+
 typedef struct _GdkKeymapKey GdkKeymapKey;
 struct _GdkKeymapKey
 {
@@ -10071,21 +7806,8 @@ struct _GdkKeymapKey
   gint group;
   gint level;
 };
-typedef enum
-{
-  GDK_PROP_MODE_REPLACE,
-  GDK_PROP_MODE_PREPEND,
-  GDK_PROP_MODE_APPEND
-} GdkPropMode;
-typedef enum
-{
-  GDK_VISUAL_STATIC_GRAY,
-  GDK_VISUAL_GRAYSCALE,
-  GDK_VISUAL_STATIC_COLOR,
-  GDK_VISUAL_PSEUDO_COLOR,
-  GDK_VISUAL_TRUE_COLOR,
-  GDK_VISUAL_DIRECT_COLOR
-} GdkVisualType;
+
+
 typedef GdkAppLaunchContext *GdkAppLaunchContext_autoptr; typedef GList *GdkAppLaunchContext_listautoptr; typedef GSList *GdkAppLaunchContext_slistautoptr; typedef GQueue *GdkAppLaunchContext_queueautoptr;
  
 typedef GdkCursor *GdkCursor_autoptr; typedef GList *GdkCursor_listautoptr; typedef GSList *GdkCursor_slistautoptr; typedef GQueue *GdkCursor_queueautoptr;
@@ -10118,414 +7840,57 @@ typedef GdkFrameTimings *GdkFrameTimings_autoptr; typedef GList *GdkFrameTimings
  
 typedef GdkRGBA *GdkRGBA_autoptr; typedef GList *GdkRGBA_listautoptr; typedef GSList *GdkRGBA_slistautoptr; typedef GQueue *GdkRGBA_queueautoptr;
  
-typedef enum
-{
-  GTK_ALIGN_FILL,
-  GTK_ALIGN_START,
-  GTK_ALIGN_END,
-  GTK_ALIGN_CENTER,
-  GTK_ALIGN_BASELINE
-} GtkAlign;
-typedef enum
-{
-  GTK_ARROW_UP,
-  GTK_ARROW_DOWN,
-  GTK_ARROW_LEFT,
-  GTK_ARROW_RIGHT,
-  GTK_ARROW_NONE
-} GtkArrowType;
-typedef enum
-{
-  GTK_BASELINE_POSITION_TOP,
-  GTK_BASELINE_POSITION_CENTER,
-  GTK_BASELINE_POSITION_BOTTOM
-} GtkBaselinePosition;
-typedef enum
-{
-  GTK_DELETE_CHARS,
-  GTK_DELETE_WORD_ENDS,
-  GTK_DELETE_WORDS,
-  GTK_DELETE_DISPLAY_LINES,
-  GTK_DELETE_DISPLAY_LINE_ENDS,
-  GTK_DELETE_PARAGRAPH_ENDS,
-  GTK_DELETE_PARAGRAPHS,
-  GTK_DELETE_WHITESPACE
-} GtkDeleteType;
-typedef enum
-{
-  GTK_DIR_TAB_FORWARD,
-  GTK_DIR_TAB_BACKWARD,
-  GTK_DIR_UP,
-  GTK_DIR_DOWN,
-  GTK_DIR_LEFT,
-  GTK_DIR_RIGHT
-} GtkDirectionType;
-typedef enum
-{
-  GTK_ICON_SIZE_INVALID,
-  GTK_ICON_SIZE_MENU,
-  GTK_ICON_SIZE_SMALL_TOOLBAR,
-  GTK_ICON_SIZE_LARGE_TOOLBAR,
-  GTK_ICON_SIZE_BUTTON,
-  GTK_ICON_SIZE_DND,
-  GTK_ICON_SIZE_DIALOG
-} GtkIconSize;
-typedef enum
-{
-  GTK_SENSITIVITY_AUTO,
-  GTK_SENSITIVITY_ON,
-  GTK_SENSITIVITY_OFF
-} GtkSensitivityType;
-typedef enum
-{
-  GTK_TEXT_DIR_NONE,
-  GTK_TEXT_DIR_LTR,
-  GTK_TEXT_DIR_RTL
-} GtkTextDirection;
-typedef enum
-{
-  GTK_JUSTIFY_LEFT,
-  GTK_JUSTIFY_RIGHT,
-  GTK_JUSTIFY_CENTER,
-  GTK_JUSTIFY_FILL
-} GtkJustification;
-typedef enum
-{
-  GTK_MENU_DIR_PARENT,
-  GTK_MENU_DIR_CHILD,
-  GTK_MENU_DIR_NEXT,
-  GTK_MENU_DIR_PREV
-} GtkMenuDirectionType;
-typedef enum
-{
-  GTK_MESSAGE_INFO,
-  GTK_MESSAGE_WARNING,
-  GTK_MESSAGE_QUESTION,
-  GTK_MESSAGE_ERROR,
-  GTK_MESSAGE_OTHER
-} GtkMessageType;
-typedef enum
-{
-  GTK_MOVEMENT_LOGICAL_POSITIONS,
-  GTK_MOVEMENT_VISUAL_POSITIONS,
-  GTK_MOVEMENT_WORDS,
-  GTK_MOVEMENT_DISPLAY_LINES,
-  GTK_MOVEMENT_DISPLAY_LINE_ENDS,
-  GTK_MOVEMENT_PARAGRAPHS,
-  GTK_MOVEMENT_PARAGRAPH_ENDS,
-  GTK_MOVEMENT_PAGES,
-  GTK_MOVEMENT_BUFFER_ENDS,
-  GTK_MOVEMENT_HORIZONTAL_PAGES
-} GtkMovementStep;
-typedef enum
-{
-  GTK_SCROLL_STEPS,
-  GTK_SCROLL_PAGES,
-  GTK_SCROLL_ENDS,
-  GTK_SCROLL_HORIZONTAL_STEPS,
-  GTK_SCROLL_HORIZONTAL_PAGES,
-  GTK_SCROLL_HORIZONTAL_ENDS
-} GtkScrollStep;
-typedef enum
-{
-  GTK_ORIENTATION_HORIZONTAL,
-  GTK_ORIENTATION_VERTICAL
-} GtkOrientation;
-typedef enum
-{
-  GTK_PACK_START,
-  GTK_PACK_END
-} GtkPackType;
-typedef enum
-{
-  GTK_POS_LEFT,
-  GTK_POS_RIGHT,
-  GTK_POS_TOP,
-  GTK_POS_BOTTOM
-} GtkPositionType;
-typedef enum
-{
-  GTK_RELIEF_NORMAL,
-  GTK_RELIEF_HALF,
-  GTK_RELIEF_NONE
-} GtkReliefStyle;
-typedef enum
-{
-  GTK_SCROLL_NONE,
-  GTK_SCROLL_JUMP,
-  GTK_SCROLL_STEP_BACKWARD,
-  GTK_SCROLL_STEP_FORWARD,
-  GTK_SCROLL_PAGE_BACKWARD,
-  GTK_SCROLL_PAGE_FORWARD,
-  GTK_SCROLL_STEP_UP,
-  GTK_SCROLL_STEP_DOWN,
-  GTK_SCROLL_PAGE_UP,
-  GTK_SCROLL_PAGE_DOWN,
-  GTK_SCROLL_STEP_LEFT,
-  GTK_SCROLL_STEP_RIGHT,
-  GTK_SCROLL_PAGE_LEFT,
-  GTK_SCROLL_PAGE_RIGHT,
-  GTK_SCROLL_START,
-  GTK_SCROLL_END
-} GtkScrollType;
-typedef enum
-{
-  GTK_SELECTION_NONE,
-  GTK_SELECTION_SINGLE,
-  GTK_SELECTION_BROWSE,
-  GTK_SELECTION_MULTIPLE
-} GtkSelectionMode;
-typedef enum
-{
-  GTK_SHADOW_NONE,
-  GTK_SHADOW_IN,
-  GTK_SHADOW_OUT,
-  GTK_SHADOW_ETCHED_IN,
-  GTK_SHADOW_ETCHED_OUT
-} GtkShadowType;
-typedef enum
-{
-  GTK_STATE_NORMAL,
-  GTK_STATE_ACTIVE,
-  GTK_STATE_PRELIGHT,
-  GTK_STATE_SELECTED,
-  GTK_STATE_INSENSITIVE,
-  GTK_STATE_INCONSISTENT,
-  GTK_STATE_FOCUSED
-} GtkStateType;
-typedef enum
-{
-  GTK_TOOLBAR_ICONS,
-  GTK_TOOLBAR_TEXT,
-  GTK_TOOLBAR_BOTH,
-  GTK_TOOLBAR_BOTH_HORIZ
-} GtkToolbarStyle;
-typedef enum
-{
-  GTK_WRAP_NONE,
-  GTK_WRAP_CHAR,
-  GTK_WRAP_WORD,
-  GTK_WRAP_WORD_CHAR
-} GtkWrapMode;
-typedef enum
-{
-  GTK_SORT_ASCENDING,
-  GTK_SORT_DESCENDING
-} GtkSortType;
-typedef enum
-{
-  GTK_IM_PREEDIT_NOTHING,
-  GTK_IM_PREEDIT_CALLBACK,
-  GTK_IM_PREEDIT_NONE
-} GtkIMPreeditStyle;
-typedef enum
-{
-  GTK_IM_STATUS_NOTHING,
-  GTK_IM_STATUS_CALLBACK,
-  GTK_IM_STATUS_NONE
-} GtkIMStatusStyle;
-typedef enum
-{
-  GTK_PACK_DIRECTION_LTR,
-  GTK_PACK_DIRECTION_RTL,
-  GTK_PACK_DIRECTION_TTB,
-  GTK_PACK_DIRECTION_BTT
-} GtkPackDirection;
-typedef enum
-{
-  GTK_PRINT_PAGES_ALL,
-  GTK_PRINT_PAGES_CURRENT,
-  GTK_PRINT_PAGES_RANGES,
-  GTK_PRINT_PAGES_SELECTION
-} GtkPrintPages;
-typedef enum
-{
-  GTK_PAGE_SET_ALL,
-  GTK_PAGE_SET_EVEN,
-  GTK_PAGE_SET_ODD
-} GtkPageSet;
-typedef enum
-{
-  GTK_NUMBER_UP_LAYOUT_LEFT_TO_RIGHT_TOP_TO_BOTTOM,
-  GTK_NUMBER_UP_LAYOUT_LEFT_TO_RIGHT_BOTTOM_TO_TOP,
-  GTK_NUMBER_UP_LAYOUT_RIGHT_TO_LEFT_TOP_TO_BOTTOM,
-  GTK_NUMBER_UP_LAYOUT_RIGHT_TO_LEFT_BOTTOM_TO_TOP,
-  GTK_NUMBER_UP_LAYOUT_TOP_TO_BOTTOM_LEFT_TO_RIGHT,
-  GTK_NUMBER_UP_LAYOUT_TOP_TO_BOTTOM_RIGHT_TO_LEFT,
-  GTK_NUMBER_UP_LAYOUT_BOTTOM_TO_TOP_LEFT_TO_RIGHT,
-  GTK_NUMBER_UP_LAYOUT_BOTTOM_TO_TOP_RIGHT_TO_LEFT
-} GtkNumberUpLayout;
-typedef enum
-{
-  GTK_PAGE_ORIENTATION_PORTRAIT,
-  GTK_PAGE_ORIENTATION_LANDSCAPE,
-  GTK_PAGE_ORIENTATION_REVERSE_PORTRAIT,
-  GTK_PAGE_ORIENTATION_REVERSE_LANDSCAPE
-} GtkPageOrientation;
-typedef enum
-{
-  GTK_PRINT_QUALITY_LOW,
-  GTK_PRINT_QUALITY_NORMAL,
-  GTK_PRINT_QUALITY_HIGH,
-  GTK_PRINT_QUALITY_DRAFT
-} GtkPrintQuality;
-typedef enum
-{
-  GTK_PRINT_DUPLEX_SIMPLEX,
-  GTK_PRINT_DUPLEX_HORIZONTAL,
-  GTK_PRINT_DUPLEX_VERTICAL
-} GtkPrintDuplex;
-typedef enum
-{
-  GTK_UNIT_NONE,
-  GTK_UNIT_POINTS,
-  GTK_UNIT_INCH,
-  GTK_UNIT_MM
-} GtkUnit;
-typedef enum
-{
-  GTK_TREE_VIEW_GRID_LINES_NONE,
-  GTK_TREE_VIEW_GRID_LINES_HORIZONTAL,
-  GTK_TREE_VIEW_GRID_LINES_VERTICAL,
-  GTK_TREE_VIEW_GRID_LINES_BOTH
-} GtkTreeViewGridLines;
-typedef enum
-{
-  GTK_DRAG_RESULT_SUCCESS,
-  GTK_DRAG_RESULT_NO_TARGET,
-  GTK_DRAG_RESULT_USER_CANCELLED,
-  GTK_DRAG_RESULT_TIMEOUT_EXPIRED,
-  GTK_DRAG_RESULT_GRAB_BROKEN,
-  GTK_DRAG_RESULT_ERROR
-} GtkDragResult;
-typedef enum {
-  GTK_SIZE_GROUP_NONE,
-  GTK_SIZE_GROUP_HORIZONTAL,
-  GTK_SIZE_GROUP_VERTICAL,
-  GTK_SIZE_GROUP_BOTH
-} GtkSizeGroupMode;
-typedef enum
-{
-  GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH = 0,
-  GTK_SIZE_REQUEST_WIDTH_FOR_HEIGHT,
-  GTK_SIZE_REQUEST_CONSTANT_SIZE
-} GtkSizeRequestMode;
-typedef enum
-{
-  GTK_SCROLL_MINIMUM = 0,
-  GTK_SCROLL_NATURAL
-} GtkScrollablePolicy;
-typedef enum
-{
-  GTK_STATE_FLAG_NORMAL = 0,
-  GTK_STATE_FLAG_ACTIVE = 1 << 0,
-  GTK_STATE_FLAG_PRELIGHT = 1 << 1,
-  GTK_STATE_FLAG_SELECTED = 1 << 2,
-  GTK_STATE_FLAG_INSENSITIVE = 1 << 3,
-  GTK_STATE_FLAG_INCONSISTENT = 1 << 4,
-  GTK_STATE_FLAG_FOCUSED = 1 << 5,
-  GTK_STATE_FLAG_BACKDROP = 1 << 6,
-  GTK_STATE_FLAG_DIR_LTR = 1 << 7,
-  GTK_STATE_FLAG_DIR_RTL = 1 << 8,
-  GTK_STATE_FLAG_LINK = 1 << 9,
-  GTK_STATE_FLAG_VISITED = 1 << 10,
-  GTK_STATE_FLAG_CHECKED = 1 << 11,
-  GTK_STATE_FLAG_DROP_ACTIVE = 1 << 12
-} GtkStateFlags;
-typedef enum {
-  GTK_REGION_EVEN = 1 << 0,
-  GTK_REGION_ODD = 1 << 1,
-  GTK_REGION_FIRST = 1 << 2,
-  GTK_REGION_LAST = 1 << 3,
-  GTK_REGION_ONLY = 1 << 4,
-  GTK_REGION_SORTED = 1 << 5
-} GtkRegionFlags;
-typedef enum {
-  GTK_JUNCTION_NONE = 0,
-  GTK_JUNCTION_CORNER_TOPLEFT = 1 << 0,
-  GTK_JUNCTION_CORNER_TOPRIGHT = 1 << 1,
-  GTK_JUNCTION_CORNER_BOTTOMLEFT = 1 << 2,
-  GTK_JUNCTION_CORNER_BOTTOMRIGHT = 1 << 3,
-  GTK_JUNCTION_TOP = (GTK_JUNCTION_CORNER_TOPLEFT | GTK_JUNCTION_CORNER_TOPRIGHT),
-  GTK_JUNCTION_BOTTOM = (GTK_JUNCTION_CORNER_BOTTOMLEFT | GTK_JUNCTION_CORNER_BOTTOMRIGHT),
-  GTK_JUNCTION_LEFT = (GTK_JUNCTION_CORNER_TOPLEFT | GTK_JUNCTION_CORNER_BOTTOMLEFT),
-  GTK_JUNCTION_RIGHT = (GTK_JUNCTION_CORNER_TOPRIGHT | GTK_JUNCTION_CORNER_BOTTOMRIGHT)
-} GtkJunctionSides;
-typedef enum {
-  GTK_BORDER_STYLE_NONE,
-  GTK_BORDER_STYLE_SOLID,
-  GTK_BORDER_STYLE_INSET,
-  GTK_BORDER_STYLE_OUTSET,
-  GTK_BORDER_STYLE_HIDDEN,
-  GTK_BORDER_STYLE_DOTTED,
-  GTK_BORDER_STYLE_DASHED,
-  GTK_BORDER_STYLE_DOUBLE,
-  GTK_BORDER_STYLE_GROOVE,
-  GTK_BORDER_STYLE_RIDGE
-} GtkBorderStyle;
-typedef enum {
-  GTK_LEVEL_BAR_MODE_CONTINUOUS,
-  GTK_LEVEL_BAR_MODE_DISCRETE
-} GtkLevelBarMode;
-typedef enum
-{
-  GTK_INPUT_PURPOSE_FREE_FORM,
-  GTK_INPUT_PURPOSE_ALPHA,
-  GTK_INPUT_PURPOSE_DIGITS,
-  GTK_INPUT_PURPOSE_NUMBER,
-  GTK_INPUT_PURPOSE_PHONE,
-  GTK_INPUT_PURPOSE_URL,
-  GTK_INPUT_PURPOSE_EMAIL,
-  GTK_INPUT_PURPOSE_NAME,
-  GTK_INPUT_PURPOSE_PASSWORD,
-  GTK_INPUT_PURPOSE_PIN
-} GtkInputPurpose;
-typedef enum
-{
-  GTK_INPUT_HINT_NONE = 0,
-  GTK_INPUT_HINT_SPELLCHECK = 1 << 0,
-  GTK_INPUT_HINT_NO_SPELLCHECK = 1 << 1,
-  GTK_INPUT_HINT_WORD_COMPLETION = 1 << 2,
-  GTK_INPUT_HINT_LOWERCASE = 1 << 3,
-  GTK_INPUT_HINT_UPPERCASE_CHARS = 1 << 4,
-  GTK_INPUT_HINT_UPPERCASE_WORDS = 1 << 5,
-  GTK_INPUT_HINT_UPPERCASE_SENTENCES = 1 << 6,
-  GTK_INPUT_HINT_INHIBIT_OSK = 1 << 7,
-  GTK_INPUT_HINT_VERTICAL_WRITING = 1 << 8,
-  GTK_INPUT_HINT_EMOJI = 1 << 9,
-  GTK_INPUT_HINT_NO_EMOJI = 1 << 10
-} GtkInputHints;
-typedef enum
-{
-  GTK_PHASE_NONE,
-  GTK_PHASE_CAPTURE,
-  GTK_PHASE_BUBBLE,
-  GTK_PHASE_TARGET
-} GtkPropagationPhase;
-typedef enum
-{
-  GTK_EVENT_SEQUENCE_NONE,
-  GTK_EVENT_SEQUENCE_CLAIMED,
-  GTK_EVENT_SEQUENCE_DENIED
-} GtkEventSequenceState;
-typedef enum
-{
-  GTK_PAN_DIRECTION_LEFT,
-  GTK_PAN_DIRECTION_RIGHT,
-  GTK_PAN_DIRECTION_UP,
-  GTK_PAN_DIRECTION_DOWN
-} GtkPanDirection;
-typedef enum
-{
-  GTK_POPOVER_CONSTRAINT_NONE,
-  GTK_POPOVER_CONSTRAINT_WINDOW
-} GtkPopoverConstraint;
-typedef enum
-{
-  GTK_ACCEL_VISIBLE = 1 << 0,
-  GTK_ACCEL_LOCKED = 1 << 1,
-  GTK_ACCEL_MASK = 0x07
-} GtkAccelFlags;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 typedef struct _GtkAccelGroup GtkAccelGroup;
 typedef struct _GtkAccelGroupClass GtkAccelGroupClass;
 typedef struct _GtkAccelGroupPrivate GtkAccelGroupPrivate;
@@ -10605,219 +7970,11 @@ typedef void (*GtkBuilderConnectFunc) (GtkBuilder *builder,
            GObject *connect_object,
            GConnectFlags flags,
            gpointer user_data);
-typedef enum
-{
-  ATK_STATE_INVALID,
-  ATK_STATE_ACTIVE,
-  ATK_STATE_ARMED,
-  ATK_STATE_BUSY,
-  ATK_STATE_CHECKED,
-  ATK_STATE_DEFUNCT,
-  ATK_STATE_EDITABLE,
-  ATK_STATE_ENABLED,
-  ATK_STATE_EXPANDABLE,
-  ATK_STATE_EXPANDED,
-  ATK_STATE_FOCUSABLE,
-  ATK_STATE_FOCUSED,
-  ATK_STATE_HORIZONTAL,
-  ATK_STATE_ICONIFIED,
-  ATK_STATE_MODAL,
-  ATK_STATE_MULTI_LINE,
-  ATK_STATE_MULTISELECTABLE,
-  ATK_STATE_OPAQUE,
-  ATK_STATE_PRESSED,
-  ATK_STATE_RESIZABLE,
-  ATK_STATE_SELECTABLE,
-  ATK_STATE_SELECTED,
-  ATK_STATE_SENSITIVE,
-  ATK_STATE_SHOWING,
-  ATK_STATE_SINGLE_LINE,
-  ATK_STATE_STALE,
-  ATK_STATE_TRANSIENT,
-  ATK_STATE_VERTICAL,
-  ATK_STATE_VISIBLE,
-  ATK_STATE_MANAGES_DESCENDANTS,
-  ATK_STATE_INDETERMINATE,
-  ATK_STATE_TRUNCATED,
-  ATK_STATE_REQUIRED,
-  ATK_STATE_INVALID_ENTRY,
-  ATK_STATE_SUPPORTS_AUTOCOMPLETION,
-  ATK_STATE_SELECTABLE_TEXT,
-  ATK_STATE_DEFAULT,
-  ATK_STATE_ANIMATED,
-  ATK_STATE_VISITED,
-  ATK_STATE_CHECKABLE,
-  ATK_STATE_HAS_POPUP,
-  ATK_STATE_HAS_TOOLTIP,
-  ATK_STATE_READ_ONLY,
-  ATK_STATE_LAST_DEFINED
-} AtkStateType;
+
 typedef guint64 AtkState;
-typedef enum
-{
-  ATK_RELATION_NULL = 0,
-  ATK_RELATION_CONTROLLED_BY,
-  ATK_RELATION_CONTROLLER_FOR,
-  ATK_RELATION_LABEL_FOR,
-  ATK_RELATION_LABELLED_BY,
-  ATK_RELATION_MEMBER_OF,
-  ATK_RELATION_NODE_CHILD_OF,
-  ATK_RELATION_FLOWS_TO,
-  ATK_RELATION_FLOWS_FROM,
-  ATK_RELATION_SUBWINDOW_OF,
-  ATK_RELATION_EMBEDS,
-  ATK_RELATION_EMBEDDED_BY,
-  ATK_RELATION_POPUP_FOR,
-  ATK_RELATION_PARENT_WINDOW_OF,
-  ATK_RELATION_DESCRIBED_BY,
-  ATK_RELATION_DESCRIPTION_FOR,
-  ATK_RELATION_NODE_PARENT_OF,
-  ATK_RELATION_DETAILS,
-  ATK_RELATION_DETAILS_FOR,
-  ATK_RELATION_ERROR_MESSAGE,
-  ATK_RELATION_ERROR_FOR,
-  ATK_RELATION_LAST_DEFINED
-} AtkRelationType;
-typedef enum
-{
-  ATK_ROLE_INVALID = 0,
-  ATK_ROLE_ACCEL_LABEL,
-  ATK_ROLE_ALERT,
-  ATK_ROLE_ANIMATION,
-  ATK_ROLE_ARROW,
-  ATK_ROLE_CALENDAR,
-  ATK_ROLE_CANVAS,
-  ATK_ROLE_CHECK_BOX,
-  ATK_ROLE_CHECK_MENU_ITEM,
-  ATK_ROLE_COLOR_CHOOSER,
-  ATK_ROLE_COLUMN_HEADER,
-  ATK_ROLE_COMBO_BOX,
-  ATK_ROLE_DATE_EDITOR,
-  ATK_ROLE_DESKTOP_ICON,
-  ATK_ROLE_DESKTOP_FRAME,
-  ATK_ROLE_DIAL,
-  ATK_ROLE_DIALOG,
-  ATK_ROLE_DIRECTORY_PANE,
-  ATK_ROLE_DRAWING_AREA,
-  ATK_ROLE_FILE_CHOOSER,
-  ATK_ROLE_FILLER,
-  ATK_ROLE_FONT_CHOOSER,
-  ATK_ROLE_FRAME,
-  ATK_ROLE_GLASS_PANE,
-  ATK_ROLE_HTML_CONTAINER,
-  ATK_ROLE_ICON,
-  ATK_ROLE_IMAGE,
-  ATK_ROLE_INTERNAL_FRAME,
-  ATK_ROLE_LABEL,
-  ATK_ROLE_LAYERED_PANE,
-  ATK_ROLE_LIST,
-  ATK_ROLE_LIST_ITEM,
-  ATK_ROLE_MENU,
-  ATK_ROLE_MENU_BAR,
-  ATK_ROLE_MENU_ITEM,
-  ATK_ROLE_OPTION_PANE,
-  ATK_ROLE_PAGE_TAB,
-  ATK_ROLE_PAGE_TAB_LIST,
-  ATK_ROLE_PANEL,
-  ATK_ROLE_PASSWORD_TEXT,
-  ATK_ROLE_POPUP_MENU,
-  ATK_ROLE_PROGRESS_BAR,
-  ATK_ROLE_PUSH_BUTTON,
-  ATK_ROLE_RADIO_BUTTON,
-  ATK_ROLE_RADIO_MENU_ITEM,
-  ATK_ROLE_ROOT_PANE,
-  ATK_ROLE_ROW_HEADER,
-  ATK_ROLE_SCROLL_BAR,
-  ATK_ROLE_SCROLL_PANE,
-  ATK_ROLE_SEPARATOR,
-  ATK_ROLE_SLIDER,
-  ATK_ROLE_SPLIT_PANE,
-  ATK_ROLE_SPIN_BUTTON,
-  ATK_ROLE_STATUSBAR,
-  ATK_ROLE_TABLE,
-  ATK_ROLE_TABLE_CELL,
-  ATK_ROLE_TABLE_COLUMN_HEADER,
-  ATK_ROLE_TABLE_ROW_HEADER,
-  ATK_ROLE_TEAR_OFF_MENU_ITEM,
-  ATK_ROLE_TERMINAL,
-  ATK_ROLE_TEXT,
-  ATK_ROLE_TOGGLE_BUTTON,
-  ATK_ROLE_TOOL_BAR,
-  ATK_ROLE_TOOL_TIP,
-  ATK_ROLE_TREE,
-  ATK_ROLE_TREE_TABLE,
-  ATK_ROLE_UNKNOWN,
-  ATK_ROLE_VIEWPORT,
-  ATK_ROLE_WINDOW,
-  ATK_ROLE_HEADER,
-  ATK_ROLE_FOOTER,
-  ATK_ROLE_PARAGRAPH,
-  ATK_ROLE_RULER,
-  ATK_ROLE_APPLICATION,
-  ATK_ROLE_AUTOCOMPLETE,
-  ATK_ROLE_EDITBAR,
-  ATK_ROLE_EMBEDDED,
-  ATK_ROLE_ENTRY,
-  ATK_ROLE_CHART,
-  ATK_ROLE_CAPTION,
-  ATK_ROLE_DOCUMENT_FRAME,
-  ATK_ROLE_HEADING,
-  ATK_ROLE_PAGE,
-  ATK_ROLE_SECTION,
-  ATK_ROLE_REDUNDANT_OBJECT,
-  ATK_ROLE_FORM,
-  ATK_ROLE_LINK,
-  ATK_ROLE_INPUT_METHOD_WINDOW,
-  ATK_ROLE_TABLE_ROW,
-  ATK_ROLE_TREE_ITEM,
-  ATK_ROLE_DOCUMENT_SPREADSHEET,
-  ATK_ROLE_DOCUMENT_PRESENTATION,
-  ATK_ROLE_DOCUMENT_TEXT,
-  ATK_ROLE_DOCUMENT_WEB,
-  ATK_ROLE_DOCUMENT_EMAIL,
-  ATK_ROLE_COMMENT,
-  ATK_ROLE_LIST_BOX,
-  ATK_ROLE_GROUPING,
-  ATK_ROLE_IMAGE_MAP,
-  ATK_ROLE_NOTIFICATION,
-  ATK_ROLE_INFO_BAR,
-  ATK_ROLE_LEVEL_BAR,
-  ATK_ROLE_TITLE_BAR,
-  ATK_ROLE_BLOCK_QUOTE,
-  ATK_ROLE_AUDIO,
-  ATK_ROLE_VIDEO,
-  ATK_ROLE_DEFINITION,
-  ATK_ROLE_ARTICLE,
-  ATK_ROLE_LANDMARK,
-  ATK_ROLE_LOG,
-  ATK_ROLE_MARQUEE,
-  ATK_ROLE_MATH,
-  ATK_ROLE_RATING,
-  ATK_ROLE_TIMER,
-  ATK_ROLE_DESCRIPTION_LIST,
-  ATK_ROLE_DESCRIPTION_TERM,
-  ATK_ROLE_DESCRIPTION_VALUE,
-  ATK_ROLE_STATIC,
-  ATK_ROLE_MATH_FRACTION,
-  ATK_ROLE_MATH_ROOT,
-  ATK_ROLE_SUBSCRIPT,
-  ATK_ROLE_SUPERSCRIPT,
-  ATK_ROLE_FOOTNOTE,
-  ATK_ROLE_CONTENT_DELETION,
-  ATK_ROLE_CONTENT_INSERTION,
-  ATK_ROLE_LAST_DEFINED
-} AtkRole;
-typedef enum
-{
-  ATK_LAYER_INVALID,
-  ATK_LAYER_BACKGROUND,
-  ATK_LAYER_CANVAS,
-  ATK_LAYER_WIDGET,
-  ATK_LAYER_MDI,
-  ATK_LAYER_POPUP,
-  ATK_LAYER_OVERLAY,
-  ATK_LAYER_WINDOW
-} AtkLayer;
+
+
+
 typedef GSList AtkAttributeSet;
 typedef struct _AtkAttribute AtkAttribute;
 struct _AtkAttribute {
@@ -10939,12 +8096,7 @@ struct _AtkKeyEventStruct {
   guint16 keycode;
   guint32 timestamp;
 };
-typedef enum
-{
-  ATK_KEY_EVENT_PRESS,
-  ATK_KEY_EVENT_RELEASE,
-  ATK_KEY_EVENT_LAST_DEFINED
-} AtkKeyEventType;
+
 struct _AtkUtil
 {
   GObject parent;
@@ -10962,20 +8114,8 @@ struct _AtkUtilClass
    const gchar* (* get_toolkit_name) (void);
    const gchar* (* get_toolkit_version) (void);
 };
-typedef enum {
-  ATK_XY_SCREEN,
-  ATK_XY_WINDOW,
-  ATK_XY_PARENT
-}AtkCoordType;
-typedef enum {
-  ATK_SCROLL_TOP_LEFT,
-  ATK_SCROLL_BOTTOM_RIGHT,
-  ATK_SCROLL_TOP_EDGE,
-  ATK_SCROLL_BOTTOM_EDGE,
-  ATK_SCROLL_LEFT_EDGE,
-  ATK_SCROLL_RIGHT_EDGE,
-  ATK_SCROLL_ANYWHERE
-} AtkScrollType;
+
+
 typedef struct _AtkComponent AtkComponent;
 typedef struct _AtkComponentIface AtkComponentIface;
 typedef void (*AtkFocusHandler) (AtkObject* object, gboolean focus_in);
@@ -11058,56 +8198,11 @@ struct _AtkDocumentIface
   gint ( *get_current_page_number) (AtkDocument *document);
   gint ( *get_page_count) (AtkDocument *document);
 };
-typedef enum
-{
-  ATK_TEXT_ATTR_INVALID = 0,
-  ATK_TEXT_ATTR_LEFT_MARGIN,
-  ATK_TEXT_ATTR_RIGHT_MARGIN,
-  ATK_TEXT_ATTR_INDENT,
-  ATK_TEXT_ATTR_INVISIBLE,
-  ATK_TEXT_ATTR_EDITABLE,
-  ATK_TEXT_ATTR_PIXELS_ABOVE_LINES,
-  ATK_TEXT_ATTR_PIXELS_BELOW_LINES,
-  ATK_TEXT_ATTR_PIXELS_INSIDE_WRAP,
-  ATK_TEXT_ATTR_BG_FULL_HEIGHT,
-  ATK_TEXT_ATTR_RISE,
-  ATK_TEXT_ATTR_UNDERLINE,
-  ATK_TEXT_ATTR_STRIKETHROUGH,
-  ATK_TEXT_ATTR_SIZE,
-  ATK_TEXT_ATTR_SCALE,
-  ATK_TEXT_ATTR_WEIGHT,
-  ATK_TEXT_ATTR_LANGUAGE,
-  ATK_TEXT_ATTR_FAMILY_NAME,
-  ATK_TEXT_ATTR_BG_COLOR,
-  ATK_TEXT_ATTR_FG_COLOR,
-  ATK_TEXT_ATTR_BG_STIPPLE,
-  ATK_TEXT_ATTR_FG_STIPPLE,
-  ATK_TEXT_ATTR_WRAP_MODE,
-  ATK_TEXT_ATTR_DIRECTION,
-  ATK_TEXT_ATTR_JUSTIFICATION,
-  ATK_TEXT_ATTR_STRETCH,
-  ATK_TEXT_ATTR_VARIANT,
-  ATK_TEXT_ATTR_STYLE,
-  ATK_TEXT_ATTR_LAST_DEFINED
-} AtkTextAttribute;
+
 typedef struct _AtkText AtkText;
 typedef struct _AtkTextIface AtkTextIface;
-typedef enum {
-  ATK_TEXT_BOUNDARY_CHAR,
-  ATK_TEXT_BOUNDARY_WORD_START,
-  ATK_TEXT_BOUNDARY_WORD_END,
-  ATK_TEXT_BOUNDARY_SENTENCE_START,
-  ATK_TEXT_BOUNDARY_SENTENCE_END,
-  ATK_TEXT_BOUNDARY_LINE_START,
-  ATK_TEXT_BOUNDARY_LINE_END
-} AtkTextBoundary;
-typedef enum {
-  ATK_TEXT_GRANULARITY_CHAR,
-  ATK_TEXT_GRANULARITY_WORD,
-  ATK_TEXT_GRANULARITY_SENTENCE,
-  ATK_TEXT_GRANULARITY_LINE,
-  ATK_TEXT_GRANULARITY_PARAGRAPH
-} AtkTextGranularity;
+
+
 typedef struct _AtkTextRectangle AtkTextRectangle;
 struct _AtkTextRectangle {
   gint x;
@@ -11122,12 +8217,7 @@ struct _AtkTextRange {
   gint end_offset;
   gchar* content;
 };
-typedef enum {
-    ATK_TEXT_CLIP_NONE,
-    ATK_TEXT_CLIP_MIN,
-    ATK_TEXT_CLIP_MAX,
-    ATK_TEXT_CLIP_BOTH
-} AtkTextClipType;
+
 struct _AtkTextIface
 {
   GTypeInterface parent;
@@ -11257,10 +8347,7 @@ struct _AtkGObjectAccessibleClass
   AtkFunction pad1;
   AtkFunction pad2;
 };
-typedef enum
-{
-  ATK_HYPERLINK_IS_INLINE = 1 << 0
-} AtkHyperlinkStateFlags;
+
 typedef struct _AtkHyperlink AtkHyperlink;
 typedef struct _AtkHyperlinkClass AtkHyperlinkClass;
 struct _AtkHyperlink
@@ -11577,25 +8664,7 @@ struct _AtkMiscClass
 };
 typedef struct _AtkValue AtkValue;
 typedef struct _AtkValueIface AtkValueIface;
-typedef enum
-{
-  ATK_VALUE_VERY_WEAK,
-  ATK_VALUE_WEAK,
-  ATK_VALUE_ACCEPTABLE,
-  ATK_VALUE_STRONG,
-  ATK_VALUE_VERY_STRONG,
-  ATK_VALUE_VERY_LOW,
-  ATK_VALUE_LOW,
-  ATK_VALUE_MEDIUM,
-  ATK_VALUE_HIGH,
-  ATK_VALUE_VERY_HIGH,
-  ATK_VALUE_VERY_BAD,
-  ATK_VALUE_BAD,
-  ATK_VALUE_GOOD,
-  ATK_VALUE_VERY_GOOD,
-  ATK_VALUE_BEST,
-  ATK_VALUE_LAST_DEFINED
-}AtkValueType;
+
 struct _AtkValueIface
 {
   GTypeInterface parent;
@@ -11624,11 +8693,7 @@ struct _AtkWindowIface
 {
   GTypeInterface parent;
 };
-typedef enum
-{
-  GTK_WIDGET_HELP_TOOLTIP,
-  GTK_WIDGET_HELP_WHATS_THIS
-} GtkWidgetHelpType;
+
 typedef struct _GtkWidgetPrivate GtkWidgetPrivate;
 typedef struct _GtkWidgetClass GtkWidgetClass;
 typedef struct _GtkWidgetClassPrivate GtkWidgetClassPrivate;
@@ -11868,13 +8933,7 @@ struct _GtkApplicationClass
                           GtkWindow *window);
   gpointer padding[12];
 };
-typedef enum
-{
-  GTK_APPLICATION_INHIBIT_LOGOUT = (1 << 0),
-  GTK_APPLICATION_INHIBIT_SWITCH = (1 << 1),
-  GTK_APPLICATION_INHIBIT_SUSPEND = (1 << 2),
-  GTK_APPLICATION_INHIBIT_IDLE = (1 << 3)
-} GtkApplicationInhibitFlags;
+
 typedef GtkApplication *GtkApplication_autoptr; typedef GList *GtkApplication_listautoptr; typedef GSList *GtkApplication_slistautoptr; typedef GQueue *GtkApplication_queueautoptr;
  
 typedef struct _GtkContainer GtkContainer;
@@ -11924,12 +8983,7 @@ struct _GtkContainerClass
   void (*_gtk_reserved7) (void);
   void (*_gtk_reserved8) (void);
 };
-typedef enum
-{
-  GTK_RESIZE_PARENT,
-  GTK_RESIZE_QUEUE,
-  GTK_RESIZE_IMMEDIATE
-} GtkResizeMode;
+
 typedef GtkContainer *GtkContainer_autoptr; typedef GList *GtkContainer_listautoptr; typedef GSList *GtkContainer_slistautoptr; typedef GQueue *GtkContainer_queueautoptr;
  
 typedef struct _GtkBin GtkBin;
@@ -11976,43 +9030,14 @@ struct _GtkWindowClass
   void (*_gtk_reserved2) (void);
   void (*_gtk_reserved3) (void);
 };
-typedef enum
-{
-  GTK_WINDOW_TOPLEVEL,
-  GTK_WINDOW_POPUP
-} GtkWindowType;
-typedef enum
-{
-  GTK_WIN_POS_NONE,
-  GTK_WIN_POS_CENTER,
-  GTK_WIN_POS_MOUSE,
-  GTK_WIN_POS_CENTER_ALWAYS,
-  GTK_WIN_POS_CENTER_ON_PARENT
-} GtkWindowPosition;
+
+
 typedef GtkWindow *GtkWindow_autoptr; typedef GList *GtkWindow_listautoptr; typedef GSList *GtkWindow_slistautoptr; typedef GQueue *GtkWindow_queueautoptr;
  
 typedef GtkWindowGroup *GtkWindowGroup_autoptr; typedef GList *GtkWindowGroup_listautoptr; typedef GSList *GtkWindowGroup_slistautoptr; typedef GQueue *GtkWindowGroup_queueautoptr;
  
-typedef enum
-{
-  GTK_DIALOG_MODAL = 1 << 0,
-  GTK_DIALOG_DESTROY_WITH_PARENT = 1 << 1,
-  GTK_DIALOG_USE_HEADER_BAR = 1 << 2
-} GtkDialogFlags;
-typedef enum
-{
-  GTK_RESPONSE_NONE = -1,
-  GTK_RESPONSE_REJECT = -2,
-  GTK_RESPONSE_ACCEPT = -3,
-  GTK_RESPONSE_DELETE_EVENT = -4,
-  GTK_RESPONSE_OK = -5,
-  GTK_RESPONSE_CANCEL = -6,
-  GTK_RESPONSE_CLOSE = -7,
-  GTK_RESPONSE_YES = -8,
-  GTK_RESPONSE_NO = -9,
-  GTK_RESPONSE_APPLY = -10,
-  GTK_RESPONSE_HELP = -11
-} GtkResponseType;
+
+
 typedef struct _GtkDialog GtkDialog;
 typedef struct _GtkDialogPrivate GtkDialogPrivate;
 typedef struct _GtkDialogClass GtkDialogClass;
@@ -12036,23 +9061,7 @@ typedef GtkDialog *GtkDialog_autoptr; typedef GList *GtkDialog_listautoptr; type
 typedef struct _GtkAboutDialog GtkAboutDialog;
 typedef struct _GtkAboutDialogClass GtkAboutDialogClass;
 typedef struct _GtkAboutDialogPrivate GtkAboutDialogPrivate;
-typedef enum {
-  GTK_LICENSE_UNKNOWN,
-  GTK_LICENSE_CUSTOM,
-  GTK_LICENSE_GPL_2_0,
-  GTK_LICENSE_GPL_3_0,
-  GTK_LICENSE_LGPL_2_1,
-  GTK_LICENSE_LGPL_3_0,
-  GTK_LICENSE_BSD,
-  GTK_LICENSE_MIT_X11,
-  GTK_LICENSE_ARTISTIC,
-  GTK_LICENSE_GPL_2_0_ONLY,
-  GTK_LICENSE_GPL_3_0_ONLY,
-  GTK_LICENSE_LGPL_2_1_ONLY,
-  GTK_LICENSE_LGPL_3_0_ONLY,
-  GTK_LICENSE_AGPL_3_0,
-  GTK_LICENSE_AGPL_3_0_ONLY
-} GtkLicense;
+
 struct _GtkAboutDialog
 {
   GtkDialog parent_instance;
@@ -12124,12 +9133,7 @@ typedef GtkMenuShell *GtkMenuShell_autoptr; typedef GList *GtkMenuShell_listauto
 typedef struct _GtkMenu GtkMenu;
 typedef struct _GtkMenuClass GtkMenuClass;
 typedef struct _GtkMenuPrivate GtkMenuPrivate;
-typedef enum
-{
-  GTK_ARROWS_BOTH,
-  GTK_ARROWS_START,
-  GTK_ARROWS_END
-} GtkArrowPlacement;
+
 typedef void (*GtkMenuPositionFunc) (GtkMenu *menu,
          gint *x,
          gint *y,
@@ -12331,11 +9335,7 @@ typedef struct _GtkTreeRowReference GtkTreeRowReference;
 typedef struct _GtkTreeModel GtkTreeModel;
 typedef struct _GtkTreeModelIface GtkTreeModelIface;
 typedef gboolean (* GtkTreeModelForeachFunc) (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data);
-typedef enum
-{
-  GTK_TREE_MODEL_ITERS_PERSIST = 1 << 0,
-  GTK_TREE_MODEL_LIST_ONLY = 1 << 1
-} GtkTreeModelFlags;
+
 struct _GtkTreeIter
 {
   gint stamp;
@@ -12407,22 +9407,8 @@ struct _GtkCellEditableIface
   void (* start_editing) (GtkCellEditable *cell_editable,
      GdkEvent *event);
 };
-typedef enum
-{
-  GTK_CELL_RENDERER_SELECTED = 1 << 0,
-  GTK_CELL_RENDERER_PRELIT = 1 << 1,
-  GTK_CELL_RENDERER_INSENSITIVE = 1 << 2,
-  GTK_CELL_RENDERER_SORTED = 1 << 3,
-  GTK_CELL_RENDERER_FOCUSED = 1 << 4,
-  GTK_CELL_RENDERER_EXPANDABLE = 1 << 5,
-  GTK_CELL_RENDERER_EXPANDED = 1 << 6
-} GtkCellRendererState;
-typedef enum
-{
-  GTK_CELL_RENDERER_MODE_INERT,
-  GTK_CELL_RENDERER_MODE_ACTIVATABLE,
-  GTK_CELL_RENDERER_MODE_EDITABLE
-} GtkCellRendererMode;
+
+
 typedef struct _GtkCellRenderer GtkCellRenderer;
 typedef struct _GtkCellRendererPrivate GtkCellRendererPrivate;
 typedef struct _GtkCellRendererClass GtkCellRendererClass;
@@ -12632,12 +9618,7 @@ struct _GtkCellAreaClass
 typedef struct _GtkTreeViewColumn GtkTreeViewColumn;
 typedef struct _GtkTreeViewColumnClass GtkTreeViewColumnClass;
 typedef struct _GtkTreeViewColumnPrivate GtkTreeViewColumnPrivate;
-typedef enum
-{
-  GTK_TREE_VIEW_COLUMN_GROW_ONLY,
-  GTK_TREE_VIEW_COLUMN_AUTOSIZE,
-  GTK_TREE_VIEW_COLUMN_FIXED
-} GtkTreeViewColumnSizing;
+
 typedef void (* GtkTreeCellDataFunc) (GtkTreeViewColumn *tree_column,
           GtkCellRenderer *cell,
           GtkTreeModel *tree_model,
@@ -12734,11 +9715,7 @@ struct _GtkTextTagClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum {
-  GTK_TEXT_SEARCH_VISIBLE_ONLY = 1 << 0,
-  GTK_TEXT_SEARCH_TEXT_ONLY = 1 << 1,
-  GTK_TEXT_SEARCH_CASE_INSENSITIVE = 1 << 2
-} GtkTextSearchFlags;
+
 typedef struct _GtkTextBuffer GtkTextBuffer;
 struct _GtkTextIter {
   gpointer dummy1;
@@ -12766,12 +9743,7 @@ struct _GtkTargetPair
 };
 typedef struct _GtkTargetList GtkTargetList;
 typedef struct _GtkTargetEntry GtkTargetEntry;
-typedef enum {
-  GTK_TARGET_SAME_APP = 1 << 0,
-  GTK_TARGET_SAME_WIDGET = 1 << 1,
-  GTK_TARGET_OTHER_APP = 1 << 2,
-  GTK_TARGET_OTHER_WIDGET = 1 << 3
-} GtkTargetFlags;
+
 struct _GtkTargetEntry
 {
   gchar *target;
@@ -12975,17 +9947,7 @@ struct _GtkEntryCompletionClass
 typedef struct _GtkImage GtkImage;
 typedef struct _GtkImagePrivate GtkImagePrivate;
 typedef struct _GtkImageClass GtkImageClass;
-typedef enum
-{
-  GTK_IMAGE_EMPTY,
-  GTK_IMAGE_PIXBUF,
-  GTK_IMAGE_STOCK,
-  GTK_IMAGE_ICON_SET,
-  GTK_IMAGE_ANIMATION,
-  GTK_IMAGE_ICON_NAME,
-  GTK_IMAGE_GICON,
-  GTK_IMAGE_SURFACE
-} GtkImageType;
+
 struct _GtkImage
 {
   GtkMisc misc;
@@ -12999,11 +9961,7 @@ struct _GtkImageClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_ENTRY_ICON_PRIMARY,
-  GTK_ENTRY_ICON_SECONDARY
-} GtkEntryIconPosition;
+
 typedef struct _GtkEntry GtkEntry;
 typedef struct _GtkEntryPrivate GtkEntryPrivate;
 typedef struct _GtkEntryClass GtkEntryClass;
@@ -13050,13 +10008,7 @@ struct _GtkEntryClass
   void (*_gtk_reserved5) (void);
   void (*_gtk_reserved6) (void);
 };
-typedef enum
-{
-  GTK_TREE_VIEW_DROP_BEFORE,
-  GTK_TREE_VIEW_DROP_AFTER,
-  GTK_TREE_VIEW_DROP_INTO_OR_BEFORE,
-  GTK_TREE_VIEW_DROP_INTO_OR_AFTER
-} GtkTreeViewDropPosition;
+
 typedef struct _GtkTreeView GtkTreeView;
 typedef struct _GtkTreeViewClass GtkTreeViewClass;
 typedef struct _GtkTreeViewPrivate GtkTreeViewPrivate;
@@ -13225,15 +10177,7 @@ struct _GtkAspectFrameClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_ASSISTANT_PAGE_CONTENT,
-  GTK_ASSISTANT_PAGE_INTRO,
-  GTK_ASSISTANT_PAGE_CONFIRM,
-  GTK_ASSISTANT_PAGE_SUMMARY,
-  GTK_ASSISTANT_PAGE_PROGRESS,
-  GTK_ASSISTANT_PAGE_CUSTOM
-} GtkAssistantPageType;
+
 typedef struct _GtkAssistant GtkAssistant;
 typedef struct _GtkAssistantPrivate GtkAssistantPrivate;
 typedef struct _GtkAssistantClass GtkAssistantClass;
@@ -13272,15 +10216,7 @@ struct _GtkButtonBoxClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_BUTTONBOX_SPREAD = 1,
-  GTK_BUTTONBOX_EDGE,
-  GTK_BUTTONBOX_START,
-  GTK_BUTTONBOX_END,
-  GTK_BUTTONBOX_CENTER,
-  GTK_BUTTONBOX_EXPAND
-} GtkButtonBoxStyle;
+
 typedef struct _GtkBindingSet GtkBindingSet;
 typedef struct _GtkBindingEntry GtkBindingEntry;
 typedef struct _GtkBindingSignal GtkBindingSignal;
@@ -13326,23 +10262,7 @@ struct _GtkBindingSignal
 };
 typedef struct _GtkBuilderClass GtkBuilderClass;
 typedef struct _GtkBuilderPrivate GtkBuilderPrivate;
-typedef enum
-{
-  GTK_BUILDER_ERROR_INVALID_TYPE_FUNCTION,
-  GTK_BUILDER_ERROR_UNHANDLED_TAG,
-  GTK_BUILDER_ERROR_MISSING_ATTRIBUTE,
-  GTK_BUILDER_ERROR_INVALID_ATTRIBUTE,
-  GTK_BUILDER_ERROR_INVALID_TAG,
-  GTK_BUILDER_ERROR_MISSING_PROPERTY_VALUE,
-  GTK_BUILDER_ERROR_INVALID_VALUE,
-  GTK_BUILDER_ERROR_VERSION_MISMATCH,
-  GTK_BUILDER_ERROR_DUPLICATE_ID,
-  GTK_BUILDER_ERROR_OBJECT_TYPE_REFUSED,
-  GTK_BUILDER_ERROR_TEMPLATE_MISMATCH,
-  GTK_BUILDER_ERROR_INVALID_PROPERTY,
-  GTK_BUILDER_ERROR_INVALID_SIGNAL,
-  GTK_BUILDER_ERROR_INVALID_ID
-} GtkBuilderError;
+
 struct _GtkBuilder
 {
   GObject parent_instance;
@@ -13428,14 +10348,7 @@ struct _GtkButtonClass
 typedef struct _GtkCalendar GtkCalendar;
 typedef struct _GtkCalendarClass GtkCalendarClass;
 typedef struct _GtkCalendarPrivate GtkCalendarPrivate;
-typedef enum
-{
-  GTK_CALENDAR_SHOW_HEADING = 1 << 0,
-  GTK_CALENDAR_SHOW_DAY_NAMES = 1 << 1,
-  GTK_CALENDAR_NO_MONTH_CHANGE = 1 << 2,
-  GTK_CALENDAR_SHOW_WEEK_NUMBERS = 1 << 3,
-  GTK_CALENDAR_SHOW_DETAILS = 1 << 5
-} GtkCalendarDisplayOptions;
+
 typedef gchar* (*GtkCalendarDetailFunc) (GtkCalendar *calendar,
                                          guint year,
                                          guint month,
@@ -13564,11 +10477,7 @@ struct _GtkCellRendererTextClass
 typedef struct _GtkCellRendererAccel GtkCellRendererAccel;
 typedef struct _GtkCellRendererAccelPrivate GtkCellRendererAccelPrivate;
 typedef struct _GtkCellRendererAccelClass GtkCellRendererAccelClass;
-typedef enum
-{
-  GTK_CELL_RENDERER_ACCEL_MODE_GTK,
-  GTK_CELL_RENDERER_ACCEL_MODE_OTHER
-} GtkCellRendererAccelMode;
+
 struct _GtkCellRendererAccel
 {
   GtkCellRendererText parent;
@@ -13897,28 +10806,9 @@ struct _GtkComboBoxTextClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_CSS_SECTION_DOCUMENT,
-  GTK_CSS_SECTION_IMPORT,
-  GTK_CSS_SECTION_COLOR_DEFINITION,
-  GTK_CSS_SECTION_BINDING_SET,
-  GTK_CSS_SECTION_RULESET,
-  GTK_CSS_SECTION_SELECTOR,
-  GTK_CSS_SECTION_DECLARATION,
-  GTK_CSS_SECTION_VALUE,
-  GTK_CSS_SECTION_KEYFRAMES
-} GtkCssSectionType;
+
 typedef struct _GtkCssSection GtkCssSection;
-typedef enum
-{
-  GTK_CSS_PROVIDER_ERROR_FAILED,
-  GTK_CSS_PROVIDER_ERROR_SYNTAX,
-  GTK_CSS_PROVIDER_ERROR_IMPORT,
-  GTK_CSS_PROVIDER_ERROR_NAME,
-  GTK_CSS_PROVIDER_ERROR_DEPRECATED,
-  GTK_CSS_PROVIDER_ERROR_UNKNOWN_VALUE
-} GtkCssProviderError;
+
 typedef struct _GtkCssProvider GtkCssProvider;
 typedef struct _GtkCssProviderClass GtkCssProviderClass;
 typedef struct _GtkCssProviderPrivate GtkCssProviderPrivate;
@@ -13937,36 +10827,8 @@ struct _GtkCssProviderClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum {
-  GTK_DEBUG_MISC = 1 << 0,
-  GTK_DEBUG_PLUGSOCKET = 1 << 1,
-  GTK_DEBUG_TEXT = 1 << 2,
-  GTK_DEBUG_TREE = 1 << 3,
-  GTK_DEBUG_UPDATES = 1 << 4,
-  GTK_DEBUG_KEYBINDINGS = 1 << 5,
-  GTK_DEBUG_MULTIHEAD = 1 << 6,
-  GTK_DEBUG_MODULES = 1 << 7,
-  GTK_DEBUG_GEOMETRY = 1 << 8,
-  GTK_DEBUG_ICONTHEME = 1 << 9,
-  GTK_DEBUG_PRINTING = 1 << 10,
-  GTK_DEBUG_BUILDER = 1 << 11,
-  GTK_DEBUG_SIZE_REQUEST = 1 << 12,
-  GTK_DEBUG_NO_CSS_CACHE = 1 << 13,
-  GTK_DEBUG_BASELINES = 1 << 14,
-  GTK_DEBUG_PIXEL_CACHE = 1 << 15,
-  GTK_DEBUG_NO_PIXEL_CACHE = 1 << 16,
-  GTK_DEBUG_INTERACTIVE = 1 << 17,
-  GTK_DEBUG_TOUCHSCREEN = 1 << 18,
-  GTK_DEBUG_ACTIONS = 1 << 19,
-  GTK_DEBUG_RESIZE = 1 << 20,
-  GTK_DEBUG_LAYOUT = 1 << 21
-} GtkDebugFlag;
-typedef enum {
-  GTK_DEST_DEFAULT_MOTION = 1 << 0,
-  GTK_DEST_DEFAULT_HIGHLIGHT = 1 << 1,
-  GTK_DEST_DEFAULT_DROP = 1 << 2,
-  GTK_DEST_DEFAULT_ALL = 0x07
-} GtkDestDefaults;
+
+
 typedef struct _GtkDrawingArea GtkDrawingArea;
 typedef struct _GtkDrawingAreaClass GtkDrawingAreaClass;
 struct _GtkDrawingArea
@@ -14006,14 +10868,7 @@ typedef struct _GtkEventControllerMotion GtkEventControllerMotion;
 typedef struct _GtkEventControllerMotionClass GtkEventControllerMotionClass;
 typedef struct _GtkEventControllerScroll GtkEventControllerScroll;
 typedef struct _GtkEventControllerScrollClass GtkEventControllerScrollClass;
-typedef enum {
-  GTK_EVENT_CONTROLLER_SCROLL_NONE = 0,
-  GTK_EVENT_CONTROLLER_SCROLL_VERTICAL = 1 << 0,
-  GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL = 1 << 1,
-  GTK_EVENT_CONTROLLER_SCROLL_DISCRETE = 1 << 2,
-  GTK_EVENT_CONTROLLER_SCROLL_KINETIC = 1 << 3,
-  GTK_EVENT_CONTROLLER_SCROLL_BOTH_AXES = (GTK_EVENT_CONTROLLER_SCROLL_VERTICAL | GTK_EVENT_CONTROLLER_SCROLL_HORIZONTAL),
-} GtkEventControllerScrollFlags;
+
 typedef struct _GtkExpander GtkExpander;
 typedef struct _GtkExpanderClass GtkExpanderClass;
 typedef struct _GtkExpanderPrivate GtkExpanderPrivate;
@@ -14056,12 +10911,7 @@ struct _GtkFixedChild
 };
 typedef struct _GtkFileFilter GtkFileFilter;
 typedef struct _GtkFileFilterInfo GtkFileFilterInfo;
-typedef enum {
-  GTK_FILE_FILTER_FILENAME = 1 << 0,
-  GTK_FILE_FILTER_URI = 1 << 1,
-  GTK_FILE_FILTER_DISPLAY_NAME = 1 << 2,
-  GTK_FILE_FILTER_MIME_TYPE = 1 << 3
-} GtkFileFilterFlags;
+
 typedef gboolean (*GtkFileFilterFunc) (const GtkFileFilterInfo *filter_info,
            gpointer data);
 struct _GtkFileFilterInfo
@@ -14073,25 +10923,9 @@ struct _GtkFileFilterInfo
   const gchar *mime_type;
 };
 typedef struct _GtkFileChooser GtkFileChooser;
-typedef enum
-{
-  GTK_FILE_CHOOSER_ACTION_OPEN,
-  GTK_FILE_CHOOSER_ACTION_SAVE,
-  GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
-  GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER
-} GtkFileChooserAction;
-typedef enum
-{
-  GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM,
-  GTK_FILE_CHOOSER_CONFIRMATION_ACCEPT_FILENAME,
-  GTK_FILE_CHOOSER_CONFIRMATION_SELECT_AGAIN
-} GtkFileChooserConfirmation;
-typedef enum {
-  GTK_FILE_CHOOSER_ERROR_NONEXISTENT,
-  GTK_FILE_CHOOSER_ERROR_BAD_FILENAME,
-  GTK_FILE_CHOOSER_ERROR_ALREADY_EXISTS,
-  GTK_FILE_CHOOSER_ERROR_INCOMPLETE_HOSTNAME
-} GtkFileChooserError;
+
+
+
 typedef struct _GtkFileChooserButton GtkFileChooserButton;
 typedef struct _GtkFileChooserButtonPrivate GtkFileChooserButtonPrivate;
 typedef struct _GtkFileChooserButtonClass GtkFileChooserButtonClass;
@@ -14224,13 +11058,7 @@ struct _GtkFontButtonClass {
 typedef gboolean (*GtkFontFilterFunc) (const PangoFontFamily *family,
                                        const PangoFontFace *face,
                                        gpointer data);
-typedef enum {
-  GTK_FONT_CHOOSER_LEVEL_FAMILY = 0,
-  GTK_FONT_CHOOSER_LEVEL_STYLE = 1 << 0,
-  GTK_FONT_CHOOSER_LEVEL_SIZE = 1 << 1,
-  GTK_FONT_CHOOSER_LEVEL_VARIATIONS = 1 << 2,
-  GTK_FONT_CHOOSER_LEVEL_FEATURES = 1 << 3
-} GtkFontChooserLevel;
+
 typedef struct _GtkFontChooser GtkFontChooser;
 typedef struct _GtkFontChooserIface GtkFontChooserIface;
 struct _GtkFontChooserIface
@@ -14426,11 +11254,7 @@ struct _GtkStyleContextClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum {
-  GTK_STYLE_CONTEXT_PRINT_NONE = 0,
-  GTK_STYLE_CONTEXT_PRINT_RECURSE = 1 << 0,
-  GTK_STYLE_CONTEXT_PRINT_SHOW_STYLE = 1 << 1
-} GtkStyleContextPrintFlags;
+
 typedef struct _GtkIconInfo GtkIconInfo;
 typedef struct _GtkIconInfoClass GtkIconInfoClass;
 typedef struct _GtkIconTheme GtkIconTheme;
@@ -14450,37 +11274,15 @@ struct _GtkIconThemeClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_ICON_LOOKUP_NO_SVG = 1 << 0,
-  GTK_ICON_LOOKUP_FORCE_SVG = 1 << 1,
-  GTK_ICON_LOOKUP_USE_BUILTIN = 1 << 2,
-  GTK_ICON_LOOKUP_GENERIC_FALLBACK = 1 << 3,
-  GTK_ICON_LOOKUP_FORCE_SIZE = 1 << 4,
-  GTK_ICON_LOOKUP_FORCE_REGULAR = 1 << 5,
-  GTK_ICON_LOOKUP_FORCE_SYMBOLIC = 1 << 6,
-  GTK_ICON_LOOKUP_DIR_LTR = 1 << 7,
-  GTK_ICON_LOOKUP_DIR_RTL = 1 << 8
-} GtkIconLookupFlags;
-typedef enum {
-  GTK_ICON_THEME_NOT_FOUND,
-  GTK_ICON_THEME_FAILED
-} GtkIconThemeError;
+
+
 typedef struct _GtkIconView GtkIconView;
 typedef struct _GtkIconViewClass GtkIconViewClass;
 typedef struct _GtkIconViewPrivate GtkIconViewPrivate;
 typedef void (* GtkIconViewForeachFunc) (GtkIconView *icon_view,
           GtkTreePath *path,
           gpointer data);
-typedef enum
-{
-  GTK_ICON_VIEW_NO_DROP,
-  GTK_ICON_VIEW_DROP_INTO,
-  GTK_ICON_VIEW_DROP_LEFT,
-  GTK_ICON_VIEW_DROP_RIGHT,
-  GTK_ICON_VIEW_DROP_ABOVE,
-  GTK_ICON_VIEW_DROP_BELOW
-} GtkIconViewDropPosition;
+
 struct _GtkIconView
 {
   GtkContainer parent;
@@ -14834,21 +11636,9 @@ struct _GtkMessageDialogClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_BUTTONS_NONE,
-  GTK_BUTTONS_OK,
-  GTK_BUTTONS_CLOSE,
-  GTK_BUTTONS_CANCEL,
-  GTK_BUTTONS_YES_NO,
-  GTK_BUTTONS_OK_CANCEL
-} GtkButtonsType;
+
 typedef struct _GtkModelButton GtkModelButton;
-typedef enum {
-  GTK_BUTTON_ROLE_NORMAL,
-  GTK_BUTTON_ROLE_CHECK,
-  GTK_BUTTON_ROLE_RADIO
-} GtkButtonRole;
+
 typedef void (*GtkModuleInitFunc) (gint *argc,
                                               gchar ***argv);
 typedef void (*GtkModuleDisplayInitFunc) (GdkDisplay *display);
@@ -14868,11 +11658,7 @@ struct _GtkMountOperationClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_NOTEBOOK_TAB_FIRST,
-  GTK_NOTEBOOK_TAB_LAST
-} GtkNotebookTab;
+
 typedef struct _GtkNotebook GtkNotebook;
 typedef struct _GtkNotebookPrivate GtkNotebookPrivate;
 typedef struct _GtkNotebookClass GtkNotebookClass;
@@ -14971,11 +11757,7 @@ struct _GtkOverlayClass
 typedef struct _GtkPadController GtkPadController;
 typedef struct _GtkPadControllerClass GtkPadControllerClass;
 typedef struct _GtkPadActionEntry GtkPadActionEntry;
-typedef enum {
-  GTK_PAD_ACTION_BUTTON,
-  GTK_PAD_ACTION_RING,
-  GTK_PAD_ACTION_STRIP
-} GtkPadActionType;
+
 struct _GtkPadActionEntry {
   GtkPadActionType type;
   gint index;
@@ -15012,11 +11794,7 @@ struct _GtkPanedClass
 };
 typedef struct _GtkPlacesSidebar GtkPlacesSidebar;
 typedef struct _GtkPlacesSidebarClass GtkPlacesSidebarClass;
-typedef enum {
-  GTK_PLACES_OPEN_NORMAL = 1 << 0,
-  GTK_PLACES_OPEN_NEW_TAB = 1 << 1,
-  GTK_PLACES_OPEN_NEW_WINDOW = 1 << 2
-} GtkPlacesOpenFlags;
+
 typedef struct _GtkPopoverMenu GtkPopoverMenu;
 typedef struct _GtkPopoverMenuClass GtkPopoverMenuClass;
 struct _GtkPopoverMenuClass
@@ -15062,29 +11840,9 @@ struct _GtkPrintOperationPreviewIface
 typedef struct _GtkPrintOperationClass GtkPrintOperationClass;
 typedef struct _GtkPrintOperationPrivate GtkPrintOperationPrivate;
 typedef struct _GtkPrintOperation GtkPrintOperation;
-typedef enum {
-  GTK_PRINT_STATUS_INITIAL,
-  GTK_PRINT_STATUS_PREPARING,
-  GTK_PRINT_STATUS_GENERATING_DATA,
-  GTK_PRINT_STATUS_SENDING_DATA,
-  GTK_PRINT_STATUS_PENDING,
-  GTK_PRINT_STATUS_PENDING_ISSUE,
-  GTK_PRINT_STATUS_PRINTING,
-  GTK_PRINT_STATUS_FINISHED,
-  GTK_PRINT_STATUS_FINISHED_ABORTED
-} GtkPrintStatus;
-typedef enum {
-  GTK_PRINT_OPERATION_RESULT_ERROR,
-  GTK_PRINT_OPERATION_RESULT_APPLY,
-  GTK_PRINT_OPERATION_RESULT_CANCEL,
-  GTK_PRINT_OPERATION_RESULT_IN_PROGRESS
-} GtkPrintOperationResult;
-typedef enum {
-  GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
-  GTK_PRINT_OPERATION_ACTION_PRINT,
-  GTK_PRINT_OPERATION_ACTION_PREVIEW,
-  GTK_PRINT_OPERATION_ACTION_EXPORT
-} GtkPrintOperationAction;
+
+
+
 struct _GtkPrintOperation
 {
   GObject parent_instance;
@@ -15129,13 +11887,7 @@ struct _GtkPrintOperationClass
   void (*_gtk_reserved7) (void);
   void (*_gtk_reserved8) (void);
 };
-typedef enum
-{
-  GTK_PRINT_ERROR_GENERAL,
-  GTK_PRINT_ERROR_INTERNAL_ERROR,
-  GTK_PRINT_ERROR_NOMEM,
-  GTK_PRINT_ERROR_INVALID_FILE
-} GtkPrintError;
+
 typedef void (* GtkPageSetupDoneFunc) (GtkPageSetup *page_setup,
                                         gpointer data);
 typedef struct _GtkProgressBar GtkProgressBar;
@@ -15279,27 +12031,11 @@ struct _GtkRecentManagerClass
   void (*_gtk_recent3) (void);
   void (*_gtk_recent4) (void);
 };
-typedef enum
-{
-  GTK_RECENT_MANAGER_ERROR_NOT_FOUND,
-  GTK_RECENT_MANAGER_ERROR_INVALID_URI,
-  GTK_RECENT_MANAGER_ERROR_INVALID_ENCODING,
-  GTK_RECENT_MANAGER_ERROR_NOT_REGISTERED,
-  GTK_RECENT_MANAGER_ERROR_READ,
-  GTK_RECENT_MANAGER_ERROR_WRITE,
-  GTK_RECENT_MANAGER_ERROR_UNKNOWN
-} GtkRecentManagerError;
+
 
 typedef struct _GtkRecentFilter GtkRecentFilter;
 typedef struct _GtkRecentFilterInfo GtkRecentFilterInfo;
-typedef enum {
-  GTK_RECENT_FILTER_URI = 1 << 0,
-  GTK_RECENT_FILTER_DISPLAY_NAME = 1 << 1,
-  GTK_RECENT_FILTER_MIME_TYPE = 1 << 2,
-  GTK_RECENT_FILTER_APPLICATION = 1 << 3,
-  GTK_RECENT_FILTER_GROUP = 1 << 4,
-  GTK_RECENT_FILTER_AGE = 1 << 5
-} GtkRecentFilterFlags;
+
 typedef gboolean (*GtkRecentFilterFunc) (const GtkRecentFilterInfo *filter_info,
       gpointer user_data);
 struct _GtkRecentFilterInfo
@@ -15312,23 +12048,13 @@ struct _GtkRecentFilterInfo
   const gchar **groups;
   gint age;
 };
-typedef enum
-{
-  GTK_RECENT_SORT_NONE = 0,
-  GTK_RECENT_SORT_MRU,
-  GTK_RECENT_SORT_LRU,
-  GTK_RECENT_SORT_CUSTOM
-} GtkRecentSortType;
+
 typedef gint (*GtkRecentSortFunc) (GtkRecentInfo *a,
        GtkRecentInfo *b,
        gpointer user_data);
 typedef struct _GtkRecentChooser GtkRecentChooser;
 typedef struct _GtkRecentChooserIface GtkRecentChooserIface;
-typedef enum
-{
-  GTK_RECENT_CHOOSER_ERROR_NOT_FOUND,
-  GTK_RECENT_CHOOSER_ERROR_INVALID_URI
-} GtkRecentChooserError;
+
 struct _GtkRecentChooserIface
 {
   GTypeInterface base_iface;
@@ -15407,14 +12133,7 @@ struct _GtkRecentChooserWidgetClass
 };
 typedef struct _GtkRevealer GtkRevealer;
 typedef struct _GtkRevealerClass GtkRevealerClass;
-typedef enum {
-  GTK_REVEALER_TRANSITION_TYPE_NONE,
-  GTK_REVEALER_TRANSITION_TYPE_CROSSFADE,
-  GTK_REVEALER_TRANSITION_TYPE_SLIDE_RIGHT,
-  GTK_REVEALER_TRANSITION_TYPE_SLIDE_LEFT,
-  GTK_REVEALER_TRANSITION_TYPE_SLIDE_UP,
-  GTK_REVEALER_TRANSITION_TYPE_SLIDE_DOWN
-} GtkRevealerTransitionType;
+
 struct _GtkRevealer {
   GtkBin parent_instance;
 };
@@ -15505,20 +12224,8 @@ struct _GtkScrolledWindowClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_CORNER_TOP_LEFT,
-  GTK_CORNER_BOTTOM_LEFT,
-  GTK_CORNER_TOP_RIGHT,
-  GTK_CORNER_BOTTOM_RIGHT
-} GtkCornerType;
-typedef enum
-{
-  GTK_POLICY_ALWAYS,
-  GTK_POLICY_AUTOMATIC,
-  GTK_POLICY_NEVER,
-  GTK_POLICY_EXTERNAL
-} GtkPolicyType;
+
+
 typedef struct _GtkSearchBar GtkSearchBar;
 typedef struct _GtkSearchBarClass GtkSearchBarClass;
 struct _GtkSearchBar
@@ -15622,40 +12329,10 @@ typedef struct _GtkShortcutsSection GtkShortcutsSection;
 typedef struct _GtkShortcutsSectionClass GtkShortcutsSectionClass;
 typedef struct _GtkShortcutsShortcut GtkShortcutsShortcut;
 typedef struct _GtkShortcutsShortcutClass GtkShortcutsShortcutClass;
-typedef enum {
-  GTK_SHORTCUT_ACCELERATOR,
-  GTK_SHORTCUT_GESTURE_PINCH,
-  GTK_SHORTCUT_GESTURE_STRETCH,
-  GTK_SHORTCUT_GESTURE_ROTATE_CLOCKWISE,
-  GTK_SHORTCUT_GESTURE_ROTATE_COUNTERCLOCKWISE,
-  GTK_SHORTCUT_GESTURE_TWO_FINGER_SWIPE_LEFT,
-  GTK_SHORTCUT_GESTURE_TWO_FINGER_SWIPE_RIGHT,
-  GTK_SHORTCUT_GESTURE
-} GtkShortcutType;
+
 typedef struct _GtkStack GtkStack;
 typedef struct _GtkStackClass GtkStackClass;
-typedef enum {
-  GTK_STACK_TRANSITION_TYPE_NONE,
-  GTK_STACK_TRANSITION_TYPE_CROSSFADE,
-  GTK_STACK_TRANSITION_TYPE_SLIDE_RIGHT,
-  GTK_STACK_TRANSITION_TYPE_SLIDE_LEFT,
-  GTK_STACK_TRANSITION_TYPE_SLIDE_UP,
-  GTK_STACK_TRANSITION_TYPE_SLIDE_DOWN,
-  GTK_STACK_TRANSITION_TYPE_SLIDE_LEFT_RIGHT,
-  GTK_STACK_TRANSITION_TYPE_SLIDE_UP_DOWN,
-  GTK_STACK_TRANSITION_TYPE_OVER_UP,
-  GTK_STACK_TRANSITION_TYPE_OVER_DOWN,
-  GTK_STACK_TRANSITION_TYPE_OVER_LEFT,
-  GTK_STACK_TRANSITION_TYPE_OVER_RIGHT,
-  GTK_STACK_TRANSITION_TYPE_UNDER_UP,
-  GTK_STACK_TRANSITION_TYPE_UNDER_DOWN,
-  GTK_STACK_TRANSITION_TYPE_UNDER_LEFT,
-  GTK_STACK_TRANSITION_TYPE_UNDER_RIGHT,
-  GTK_STACK_TRANSITION_TYPE_OVER_UP_DOWN,
-  GTK_STACK_TRANSITION_TYPE_OVER_DOWN_UP,
-  GTK_STACK_TRANSITION_TYPE_OVER_LEFT_RIGHT,
-  GTK_STACK_TRANSITION_TYPE_OVER_RIGHT_LEFT
-} GtkStackTransitionType;
+
 struct _GtkStack {
   GtkContainer parent_instance;
 };
@@ -15684,21 +12361,8 @@ struct _GtkRequestedSize
   gint minimum_size;
   gint natural_size;
 };
-typedef enum
-{
-  GTK_UPDATE_ALWAYS,
-  GTK_UPDATE_IF_VALID
-} GtkSpinButtonUpdatePolicy;
-typedef enum
-{
-  GTK_SPIN_STEP_FORWARD,
-  GTK_SPIN_STEP_BACKWARD,
-  GTK_SPIN_PAGE_FORWARD,
-  GTK_SPIN_PAGE_BACKWARD,
-  GTK_SPIN_HOME,
-  GTK_SPIN_END,
-  GTK_SPIN_USER_DEFINED
-} GtkSpinType;
+
+
 typedef struct _GtkSpinButton GtkSpinButton;
 typedef struct _GtkSpinButtonPrivate GtkSpinButtonPrivate;
 typedef struct _GtkSpinButtonClass GtkSpinButtonClass;
@@ -15830,12 +12494,7 @@ struct _GtkTextMarkClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_TEXT_BUFFER_TARGET_INFO_BUFFER_CONTENTS = - 1,
-  GTK_TEXT_BUFFER_TARGET_INFO_RICH_TEXT = - 2,
-  GTK_TEXT_BUFFER_TARGET_INFO_TEXT = - 3
-} GtkTextBufferTargetInfo;
+
 typedef struct _GtkTextBTree GtkTextBTree;
 typedef struct _GtkTextBufferPrivate GtkTextBufferPrivate;
 typedef struct _GtkTextBufferClass GtkTextBufferClass;
@@ -15898,28 +12557,9 @@ typedef gboolean (* GtkTextBufferDeserializeFunc) (GtkTextBuffer *register_buffe
                                                    gboolean create_tags,
                                                    gpointer user_data,
                                                    GError **error);
-typedef enum
-{
-  GTK_TEXT_WINDOW_PRIVATE,
-  GTK_TEXT_WINDOW_WIDGET,
-  GTK_TEXT_WINDOW_TEXT,
-  GTK_TEXT_WINDOW_LEFT,
-  GTK_TEXT_WINDOW_RIGHT,
-  GTK_TEXT_WINDOW_TOP,
-  GTK_TEXT_WINDOW_BOTTOM
-} GtkTextWindowType;
-typedef enum
-{
-  GTK_TEXT_VIEW_LAYER_BELOW,
-  GTK_TEXT_VIEW_LAYER_ABOVE,
-  GTK_TEXT_VIEW_LAYER_BELOW_TEXT,
-  GTK_TEXT_VIEW_LAYER_ABOVE_TEXT
-} GtkTextViewLayer;
-typedef enum
-{
-  GTK_TEXT_EXTEND_SELECTION_WORD,
-  GTK_TEXT_EXTEND_SELECTION_LINE
-} GtkTextExtendSelection;
+
+
+
 typedef struct _GtkTextView GtkTextView;
 typedef struct _GtkTextViewPrivate GtkTextViewPrivate;
 typedef struct _GtkTextViewClass GtkTextViewClass;
@@ -15963,11 +12603,7 @@ struct _GtkTextViewClass
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum
-{
-  GTK_TOOLBAR_SPACE_EMPTY,
-  GTK_TOOLBAR_SPACE_LINE
-} GtkToolbarSpaceStyle;
+
 typedef struct _GtkToolbar GtkToolbar;
 typedef struct _GtkToolbarPrivate GtkToolbarPrivate;
 typedef struct _GtkToolbarClass GtkToolbarClass;
@@ -16011,12 +12647,7 @@ struct _GtkToolItemGroupClass
 typedef struct _GtkToolPalette GtkToolPalette;
 typedef struct _GtkToolPaletteClass GtkToolPaletteClass;
 typedef struct _GtkToolPalettePrivate GtkToolPalettePrivate;
-typedef enum
-{
-  GTK_TOOL_PALETTE_DRAG_ITEMS = (1 << 0),
-  GTK_TOOL_PALETTE_DRAG_GROUPS = (1 << 1)
-}
-GtkToolPaletteDragTargets;
+
 struct _GtkToolPalette
 {
   GtkContainer parent_instance;
@@ -16534,13 +13165,7 @@ struct _GtkRadioActionClass
 };
 typedef struct _GtkRcContext GtkRcContext;
 typedef struct _GtkRcStyleClass GtkRcStyleClass;
-typedef enum
-{
-  GTK_RC_FG = 1 << 0,
-  GTK_RC_BG = 1 << 1,
-  GTK_RC_TEXT = 1 << 2,
-  GTK_RC_BASE = 1 << 3
-} GtkRcFlags;
+
 struct _GtkRcStyle
 {
   GObject parent_instance;
@@ -16575,63 +13200,9 @@ struct _GtkRcStyleClass
   void (*_gtk_reserved4) (void);
 };
 
-typedef enum {
-  GTK_RC_TOKEN_INVALID = G_TOKEN_LAST,
-  GTK_RC_TOKEN_INCLUDE,
-  GTK_RC_TOKEN_NORMAL,
-  GTK_RC_TOKEN_ACTIVE,
-  GTK_RC_TOKEN_PRELIGHT,
-  GTK_RC_TOKEN_SELECTED,
-  GTK_RC_TOKEN_INSENSITIVE,
-  GTK_RC_TOKEN_FG,
-  GTK_RC_TOKEN_BG,
-  GTK_RC_TOKEN_TEXT,
-  GTK_RC_TOKEN_BASE,
-  GTK_RC_TOKEN_XTHICKNESS,
-  GTK_RC_TOKEN_YTHICKNESS,
-  GTK_RC_TOKEN_FONT,
-  GTK_RC_TOKEN_FONTSET,
-  GTK_RC_TOKEN_FONT_NAME,
-  GTK_RC_TOKEN_BG_PIXMAP,
-  GTK_RC_TOKEN_PIXMAP_PATH,
-  GTK_RC_TOKEN_STYLE,
-  GTK_RC_TOKEN_BINDING,
-  GTK_RC_TOKEN_BIND,
-  GTK_RC_TOKEN_WIDGET,
-  GTK_RC_TOKEN_WIDGET_CLASS,
-  GTK_RC_TOKEN_CLASS,
-  GTK_RC_TOKEN_LOWEST,
-  GTK_RC_TOKEN_GTK,
-  GTK_RC_TOKEN_APPLICATION,
-  GTK_RC_TOKEN_THEME,
-  GTK_RC_TOKEN_RC,
-  GTK_RC_TOKEN_HIGHEST,
-  GTK_RC_TOKEN_ENGINE,
-  GTK_RC_TOKEN_MODULE_PATH,
-  GTK_RC_TOKEN_IM_MODULE_PATH,
-  GTK_RC_TOKEN_IM_MODULE_FILE,
-  GTK_RC_TOKEN_STOCK,
-  GTK_RC_TOKEN_LTR,
-  GTK_RC_TOKEN_RTL,
-  GTK_RC_TOKEN_COLOR,
-  GTK_RC_TOKEN_UNBIND,
-  GTK_RC_TOKEN_LAST
-} GtkRcTokenType;
-typedef enum
-{
-  GTK_PATH_PRIO_LOWEST = 0,
-  GTK_PATH_PRIO_GTK = 4,
-  GTK_PATH_PRIO_APPLICATION = 8,
-  GTK_PATH_PRIO_THEME = 10,
-  GTK_PATH_PRIO_RC = 12,
-  GTK_PATH_PRIO_HIGHEST = 15
-} GtkPathPriorityType;
-typedef enum
-{
-  GTK_PATH_WIDGET,
-  GTK_PATH_WIDGET_CLASS,
-  GTK_PATH_CLASS
-} GtkPathType;
+
+
+
 struct _GtkRcProperty
 {
   GQuark type_name;
@@ -16691,13 +13262,7 @@ struct _GtkStatusIconClass
 typedef struct _GtkStyleClass GtkStyleClass;
 typedef struct _GtkThemeEngine GtkThemeEngine;
 typedef struct _GtkRcProperty GtkRcProperty;
-typedef enum
-{
-  GTK_EXPANDER_COLLAPSED,
-  GTK_EXPANDER_SEMI_COLLAPSED,
-  GTK_EXPANDER_SEMI_EXPANDED,
-  GTK_EXPANDER_EXPANDED
-} GtkExpanderStyle;
+
 struct _GtkStyle
 {
   GObject parent_instance;
@@ -17004,12 +13569,7 @@ struct _GtkTableRowCol
   guint shrink : 1;
   guint empty : 1;
 };
-typedef enum
-{
-  GTK_EXPAND = 1 << 0,
-  GTK_SHRINK = 1 << 1,
-  GTK_FILL = 1 << 2
-} GtkAttachOptions;
+
 typedef struct _GtkTearoffMenuItem GtkTearoffMenuItem;
 typedef struct _GtkTearoffMenuItemPrivate GtkTearoffMenuItemPrivate;
 typedef struct _GtkTearoffMenuItemClass GtkTearoffMenuItemClass;
@@ -17171,19 +13731,7 @@ struct _GtkUIManagerClass {
   void (*_gtk_reserved3) (void);
   void (*_gtk_reserved4) (void);
 };
-typedef enum {
-  GTK_UI_MANAGER_AUTO = 0,
-  GTK_UI_MANAGER_MENUBAR = 1 << 0,
-  GTK_UI_MANAGER_MENU = 1 << 1,
-  GTK_UI_MANAGER_TOOLBAR = 1 << 2,
-  GTK_UI_MANAGER_PLACEHOLDER = 1 << 3,
-  GTK_UI_MANAGER_POPUP = 1 << 4,
-  GTK_UI_MANAGER_MENUITEM = 1 << 5,
-  GTK_UI_MANAGER_TOOLITEM = 1 << 6,
-  GTK_UI_MANAGER_SEPARATOR = 1 << 7,
-  GTK_UI_MANAGER_ACCELERATOR = 1 << 8,
-  GTK_UI_MANAGER_POPUP_WITH_ACCELS = 1 << 9
-} GtkUIManagerItemType;
+
 typedef struct _GtkVButtonBox GtkVButtonBox;
 typedef struct _GtkVButtonBoxClass GtkVButtonBoxClass;
 struct _GtkVButtonBox
