@@ -1,10 +1,8 @@
 <?php
+
 use GTK\Gtk;
-include dirname(__DIR__) . '/src/Gtk.php';
 
-$gtk = new Gtk();
-
-function activate($app, $user_data)
+function activate_func($app = null, $user_data = null)
 {
     global $gtk;
     $window = $gtk->gtk_application_window_new($app);
@@ -13,7 +11,22 @@ function activate($app, $user_data)
     $gtk->gtk_widget_show_all($window);
 }
 
-$app = $gtk->gtk_application_new("org.gtk.example", 0);
-$gtk->g_signal_connect($app, "activate", 'activate', NULL);
-$status = $gtk->g_application_run($gtk->G_APPLICATION($app), $argc, $argv);
-$gtk->g_object_unref($app);
+include dirname(__DIR__) . '/src/Gtk.php';
+
+$gtk = new Gtk();
+
+function main($argc, $argv)
+{
+    global $gtk;
+    $app = $gtk->gtk_application_new("org.gtk.example", 0);
+
+    $gtk->g_signal_connect($app, "activate", 'activate_func');
+    $argv = $gtk->gio->new('char**', false);
+    
+    $gapp = $gtk->G_APPLICATION($app);
+    var_dump($gapp);
+    $status = $gtk->g_application_run($gapp, 0, $argv);
+    //var_dump($status);
+    //$gtk->g_object_unref($app);
+}
+main($argc, $argv);
