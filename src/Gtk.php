@@ -18,11 +18,12 @@ class Gtk
         $include = __DIR__ . '/include';
         $struct = file_get_contents("$include/struct.h");
         $libdir = $libdir ?? (PHP_INT_SIZE === 4 ? '/usr/lib' : '/usr/lib64');
+
         if (self::$gtk === null) {
             $gtklib = "$libdir/libgtk-3." . PHP_SHLIB_SUFFIX;
             self::$gtk = FFI::cdef(
                 $struct .
-                    file_get_contents("$include/gtkfunc.h"),
+                file_get_contents("$include/gtkfunc.h"),
                 $gtklib
             );
         }
@@ -30,7 +31,7 @@ class Gtk
             $gobjectlib = "$libdir/libgobject-2.0." . PHP_SHLIB_SUFFIX;
             self::$gobject = FFI::cdef(
                 $struct .
-                    file_get_contents("$include/gobject.h") .
+                file_get_contents("$include/gobject.h") .
                     file_get_contents("$include/gtype.h"),
                 $gobjectlib
             );
@@ -38,7 +39,8 @@ class Gtk
         if (self::$gio === null) {
             $giolib = "$libdir/libgio-2.0." . PHP_SHLIB_SUFFIX;
             self::$gio = FFI::cdef(
-                $struct . file_get_contents("$include/appliaction.h"),
+                $struct .
+                file_get_contents("$include/appliaction.h"),
                 $giolib
             );
         }
@@ -51,16 +53,15 @@ class Gtk
     public function G_APPLICATION($app)
     {
         $gtype = self::$gobject->cast('GTypeInstance*', $app);
-        $gapp = self::$gobject->g_type_check_instance_cast($gtype, self::$gio->g_application_get_type());
-        $gapplication = self::$gio->new('GApplication', false, true);
-        FFI::memcpy($gapplication, $gapp[0], FFI::sizeof($gapp[0]));
-        return FFI::addr($gapplication);
+        $gtypeCast = self::$gobject->g_type_check_instance_cast($gtype, self::$gio->g_application_get_type());
+        return self::$gobject->cast('GApplication*', $gtypeCast);
     }
 
     public function GTK_WINDOW($window)
     {
         $gtype = self::$gtk->cast('GTypeInstance*', $window);
-        return self::$gtk->cast('GtkWindow*', $this->g_type_check_instance_cast($gtype, $this->gtk_window_get_type()));
+        $gtypeCast = $this->g_type_check_instance_cast($gtype, $this->gtk_window_get_type());
+        return self::$gobject->cast('GtkWindow*', $gtypeCast);
     }
     public function __call($name, $arguments)
     {

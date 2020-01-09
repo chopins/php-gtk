@@ -196,3 +196,6 @@ gboolean g_signal_accumulator_first_wins (GSignalInvocationHint *ihint,
                                             gpointer dummy);
 extern
 void g_signal_handlers_destroy (gpointer instance);
+
+extern
+void g_object_unref (gpointer object);
