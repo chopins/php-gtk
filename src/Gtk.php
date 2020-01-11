@@ -1,95 +1,176 @@
 <?php
 
-namespace GTK;
+/**
+ * php-gtk (http://toknot.com)
+ *
+ * @copyright  Copyright (c) 2019 Szopen Xiao (Toknot.com)
+ * @license    http://toknot.com/LICENSE.txt New BSD License
+ * @link       https://github.com/chopins/php-gtk
+ * @version    0.1
+ */
 
-use Closure;
+namespace Gtk;
+
 use FFI;
 use FFI\CData;
 use InvalidArgumentException;
+use SplObjectStorage;
 
 class Gtk
 {
-    private static $gtk = null;
-    private static $gobject = null;
-    private static $gio = null;
+    private static $instance = null;
+    private static $unmanagedCData = null;
     public function __construct($libdir = null)
     {
-        self::autoload();
-        $include = __DIR__ . '/include';
-        $struct = file_get_contents("$include/struct.h");
-        $libdir = $libdir ?? (PHP_INT_SIZE === 4 ? '/usr/lib' : '/usr/lib64');
+        static $enable = false;
+        if ($enable) {
+            return;
+        }
+        $enable = true;
+        $this->complieDefineValue();
+        $this->autoload();
+        self::$unmanagedCData = new SplObjectStorage;
+        self::$instance = new GtkFFI($this, $libdir);
+    }
 
-        if (self::$gtk === null) {
-            $gtklib = "$libdir/libgtk-3." . PHP_SHLIB_SUFFIX;
-            self::$gtk = FFI::cdef(
-                $struct .
-                file_get_contents("$include/gtkfunc.h"),
-                $gtklib
-            );
-        }
-        if (self::$gobject === null) {
-            $gobjectlib = "$libdir/libgobject-2.0." . PHP_SHLIB_SUFFIX;
-            self::$gobject = FFI::cdef(
-                $struct .
-                file_get_contents("$include/gobject.h") .
-                    file_get_contents("$include/gtype.h"),
-                $gobjectlib
-            );
-        }
-        if (self::$gio === null) {
-            $giolib = "$libdir/libgio-2.0." . PHP_SHLIB_SUFFIX;
-            self::$gio = FFI::cdef(
-                $struct .
-                file_get_contents("$include/appliaction.h"),
-                $giolib
-            );
+    private function complieDefineValue()
+    {
+        if (!defined('PHP_OS_WIN') && strcasecmp(PHP_OS_FAMILY, 'Windows') === 0) {
+            define('PHP_OS_WIN', true);
+        } else {
+            define('PHP_OS_WIN', false);
         }
     }
 
-    public function g_signal_connect($instance, $detailed_signal, $c_handler, $data = null)
+    public function str0(string $str, string $begin): bool
     {
-        return self::$gobject->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
-    }
-    public function G_APPLICATION($app)
-    {
-        $gtype = self::$gobject->cast('GTypeInstance*', $app);
-        $gtypeCast = self::$gobject->g_type_check_instance_cast($gtype, self::$gio->g_application_get_type());
-        return self::$gobject->cast('GApplication*', $gtypeCast);
+        return strpos($str, $begin) === 0;
     }
 
-    public function GTK_WINDOW($window)
+    public function new($type, $owned = true, $persistent = false, FFI $ffi = null): CData
     {
-        $gtype = self::$gtk->cast('GTypeInstance*', $window);
-        $gtypeCast = $this->g_type_check_instance_cast($gtype, $this->gtk_window_get_type());
-        return self::$gobject->cast('GtkWindow*', $gtypeCast);
-    }
-    public function __call($name, $arguments)
-    {
-        if (strpos($name, 'g_application_') === 0) {
-            return self::$gio->$name(...$arguments);
-        } elseif (strpos($name, 'g_') === 0) {
-            return self::$gobject->$name(...$arguments);
-        } elseif (strpos($name, 'gtk_') === 0) {
-            return self::$gtk->$name(...$arguments);
+        if ($ffi) {
+            $cdata = $ffi->new($type, $owned, $persistent);
+        } else {
+            $cdata = FFI::new($type, $owned, $persistent);
         }
+        if (!$owned) {
+            self::$unmanagedCData->attach($cdata);
+        }
+        return $cdata;
+    }
+
+    public function free($cdata = null): bool
+    {
+        if ($cdata) {
+            FFI::free($cdata);
+            if (self::$unmanagedCData->contains($cdata)) {
+                self::$unmanagedCData->detach($cdata);
+            }
+            return true;
+        }
+        foreach (self::$unmanagedCData  as $cdata) {
+            FFI::free($cdata);
+            self::$unmanagedCData->detach($cdata);
+        }
+        return true;
+    }
+
+    /**
+     * PHP array to C Data of char*[] type
+     *
+     * @param integer $argc   number of elements in given array
+     * @param array $argv   given array
+     * @return CData
+     */
+    public function argArrPtr(int $argc, array $argv): CData
+    {
+        $p = $this->new("char *[$argc]", false);
+        self::$unmanagedCData->attach($p);
+        foreach ($argv as $i => $arg) {
+            $a = $this->strToCharPtr($arg);
+            $p[0] = $a;
+        }
+        return FFI::addr($p[0]);
+    }
+
+    /**
+     * PHP string to C pointer of char** type
+     *
+     * @param string $string
+     * @return CData
+     */
+    public function strToCharPtr(string $string): CData
+    {
+        $charArr = $this->strToCharArr($string);
+        return FFI::addr($charArr[0]);
+    }
+
+    /**
+     * PHP string to  C Data of char[] type
+     *
+     * @param string $string
+     * @return CData
+     */
+    public function strToCharArr(string $string): CData
+    {
+        $len = strlen($string);
+        $charArr = $this->new("char[$len]", false);
+        FFI::memcpy($charArr, $string, $len);
+        return $charArr;
+    }
+
+    public function trunCast(CData $i, array $type, $ffi = null)
+    {
+        if(count($type) < 1) {
+            throw new InvalidArgumentException(__METHOD__ . "() paramter 2 can not empty");
+        }
+        foreach ($type as $t) {
+            $i = $this->cast($t, $i, $ffi);
+        }
+        return $i;
+    }
+
+    public function cast($type, CData $i, $ffi = null)
+    {
+        return $ffi ? $ffi->cast($type, $i) : FFI::cast($type, $i);
     }
 
     public function __get($name)
     {
-        return self::$$name;
+        return self::$instance->$name;
     }
 
-    public static function autoload()
+    public function __set($name, $v)
+    {
+        return self::$instance->$name = $v;
+    }
+
+    public function __call($name, $arguments)
+    {
+        return self::$instance->$name(...$arguments);
+    }
+
+    public static function __callStatic($name, $arguments)
+    {
+        return self::$instance::$name(...$arguments);
+    }
+
+    public function autoload()
     {
         spl_autoload_register(function ($class) {
             $classInfo = explode('\\', $class);
             array_shift($classInfo);
             array_unshift($classInfo, __DIR__);
             $path = join(DIRECTORY_SEPARATOR, $classInfo) . '.php';
-            echo $path;
             if (file_exists($path)) {
                 include_once $path;
             }
         });
+    }
+
+    public function __destruct()
+    {
+        $this->free();
     }
 }

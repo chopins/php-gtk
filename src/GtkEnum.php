@@ -1,6 +1,6 @@
 <?php
 
-namespace GTK;
+namespace Gtk;
 
 class GtkEnum
 {
