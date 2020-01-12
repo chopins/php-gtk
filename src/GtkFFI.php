@@ -14,86 +14,84 @@ namespace Gtk;
 use BadMethodCallException;
 use FFI;
 use FFI\CData;
-use Gtk\Gtk;
-use GtK\GLib\DefineValue;
-use Gtk\GLib\Version;
-use Gtk\GLib\Define as GLibDefine;
-use Gtk\GObject\Define as GObjectDefine;
-use Gtk\Gtk\Define as GtkDefine;
+use FFI\ParserException;
+use Gtk\App;
 
-
-class GtkFFI implements DefineValue
+abstract class GtkFFI
 {
-    use Version, GLibDefine, GObjectDefine, GtkDefine;
-    private static $gtk = null;
-    private static $gobject = null;
-    private static $gio = null;
-    private static $main = null;
-    public function __construct(Gtk $main, string $libdir = null)
+    use  Builtin;
+
+    protected static $main = null;
+    protected static $headerDir = '';
+    protected static $struct = '';
+    protected static $libdir = '';
+    private static $callMap = [];
+
+    public function __construct(App $main, $libdir = null)
     {
         self::$main = $main;
-        $include = __DIR__ . '/include';
-        $struct = file_get_contents("$include/struct.h");
-        $libdir = $libdir ?? (PHP_INT_SIZE === 4 ? '/usr/lib' : '/usr/lib64');
+        self::$headerDir = __DIR__ . '/include';
+        self::$struct = file_get_contents(self::$headerDir . '/struct.h');
+        self::$libdir = $libdir ?? (PHP_INT_SIZE === 4 ? '/usr/lib' : '/usr/lib64');
+    }
 
-        if (self::$gtk === null) {
-            $gtklib = "$libdir/libgtk-3." . PHP_SHLIB_SUFFIX;
-            self::$gtk = FFI::cdef(
-                $struct .
-                    file_get_contents("$include/gtkfunc.h"),
-                $gtklib
-            );
-            $this->compileVersion();
+    protected function cdef($lib)
+    {
+        $config = self::$main::$gtkDllMap[$lib];
+        if (is_array(self::$libdir)) {
+            $libpath = self::$libdir[$config['name']];
+        } else {
+            $libpath = self::$libdir . "/{$config['name']}." . PHP_SHLIB_SUFFIX;
         }
-        if (self::$gobject === null) {
-            $gobjectlib = "$libdir/libgobject-2.0." . PHP_SHLIB_SUFFIX;
-            self::$gobject = FFI::cdef(
-                $struct .
-                    file_get_contents("$include/gobject.h") .
-                    file_get_contents("$include/gtype.h"),
-                $gobjectlib
-            );
+
+        $code = '';
+        foreach ($config['header'] as $h) {
+            $code .= file_get_contents(self::$headerDir . "/$h.h");
         }
-        if (self::$gio === null) {
-            $giolib = "$libdir/libgio-2.0." . PHP_SHLIB_SUFFIX;
-            self::$gio = FFI::cdef(
-                $struct .
-                    file_get_contents("$include/appliaction.h"),
-                $giolib
+
+        try {
+            return FFI::cdef(
+                self::$struct . $code,
+                $libpath
             );
+        } catch (ParserException $e) {
+            preg_match('(\d+)', $e->getMessage(), $m);
+            var_dump($m[0] - 14154);
+            throw $e;
         }
     }
 
-    public function gtk_init(int $argc = 0, array $argv = [])
+    protected function unimplement($name)
     {
-        $argcPtr = $this->new("int32_t", true, false);
-        $argcPtr->cdata = $argc;
-        $ptr3 = FFI::addr(self::$main->argArrPtr($argc, $argv));
-        return self::$gtk->gtk_init(FFI::addr($argcPtr), $ptr3);
     }
 
-    public function g_application_run($gapp, $argc = 0, $argv = [])
+    public function new($type, bool $owned = true, bool $persistent = false, GtkFFI $obj = null)
     {
-        $argvPtr = self::$main->argArrPtr($argc, $argv);
-        return self::$gio->g_application_run($gapp, $argc, $argvPtr);
-    }
-
-    public function new($type, bool $owned = true, bool $persistent = false, string $ffi = 'gtk')
-    {
-        $ffi = $ffi ? self::$$ffi : null;
+        $ffi = $this->currentFFI($obj);
         return self::$main->new($type, $owned, $persistent, $ffi);
     }
 
-    public function cast($type, CData $cdata, string $ffi = 'gtk')
+    public function currentFFI($obj = null)
     {
-        return self::$main->cast($type, $cdata, $ffi ? self::$$ffi : null);
+        if ($obj) {
+            $ffi = $obj->getFFI();
+        } elseif ($obj === null) {
+            $ffi = $this->getFFI();
+        } else {
+            $ffi = null;
+        }
+        return $ffi;
     }
 
-    public function trunCast(CData $i, array $type, string $ffi = 'gtk')
+    public function cast($type, CData $cdata, GtkFFI $obj = null)
     {
-        if ($ffi) {
-            $ffi = self::$$ffi;
-        }
+        $ffi = $this->currentFFI($obj);
+        return self::$main->cast($type, $cdata, $ffi);
+    }
+
+    public function trunCast(CData $i, array $type, GtkFFI $obj = null)
+    {
+        $ffi = $this->currentFFI($obj);
         return self::$main->trunCast($i, $type, $ffi);
     }
 
@@ -102,29 +100,50 @@ class GtkFFI implements DefineValue
         return self::$main->free($cdata);
     }
 
-    public function g_signal_connect($instance, $detailed_signal, $c_handler, $data = null)
+    abstract public function getFFI();
+    abstract public function bindMethod();
+
+    public function registerCall(string $id, FFI $obj, array $prefix = [], array $full = [])
     {
-        return self::$gobject->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
+        self::$callMap[$id] = ['ffi' => $obj, 'prefix' => $prefix, 'full' => $full];
     }
 
-    public function __call($name, $arguments)
+
+    final public function __call($name, $arguments)
     {
         if (function_exists($name)) {
             return $name(...$arguments);
         }
-        if (self::$main->str0($name, 'g_application_')) {
-            return self::$gio->$name(...$arguments);
-        } elseif (self::$main->str0($name, 'g_')) {
-            return self::$gobject->$name(...$arguments);
-        } elseif (self::$main->str0($name, 'gtk_')) {
-            return self::$gtk->$name(...$arguments);
+        $this->unimplement($name);
+        $this->bindMethod();
+
+        $prefixIdx = false;
+        foreach (self::$callMap as $i => $a) {
+            if (in_array($name, $a['full'])) {
+                return $a['ffi']->$name(...$arguments);
+            } else {
+                foreach ($a['prefix'] as $p) {
+                    if (self::$main->str0($name, $p)) {
+                        $prefixIdx = $i;
+                        break;
+                    }
+                }
+            }
         }
+
+        if ($prefixIdx !== false) {
+            return self::$callMap[$prefixIdx]['ffi']->$name(...$arguments);
+        }
+
         $class = get_called_class();
         throw new BadMethodCallException("Call to undefined method $class::$name()");
     }
 
     public function __get($name)
     {
+        if ($name === 'ffi') {
+            return $this;
+        }
         return self::$$name;
     }
 }

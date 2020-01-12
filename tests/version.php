@@ -1,6 +1,6 @@
 <?php
 
-include './load.php';
+include __DIR__.'/load.php';
 
 printf("marjor version: %d\n", $gtk->GTK_MAJOR_VERSION);
 printf("minor version: %d\n", $gtk->GTK_MINOR_VERSION);

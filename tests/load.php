@@ -1,5 +1,5 @@
 <?php
-use GTK\Gtk;
+use GTK\App;
 
-include dirname(__DIR__) . '/src/Gtk.php';
-$gtk = new Gtk();
+include dirname(__DIR__) . '/src/App.php';
+$gtk = new App();

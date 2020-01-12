@@ -199,3 +199,283 @@ void g_signal_handlers_destroy (gpointer instance);
 
 extern
 void g_object_unref (gpointer object);
+
+extern
+GType g_initially_unowned_get_type (void);
+extern
+void g_object_class_install_property (GObjectClass *oclass,
+            guint property_id,
+            GParamSpec *pspec);
+extern
+GParamSpec* g_object_class_find_property (GObjectClass *oclass,
+            const gchar *property_name);
+extern
+GParamSpec**g_object_class_list_properties (GObjectClass *oclass,
+            guint *n_properties);
+extern
+void g_object_class_override_property (GObjectClass *oclass,
+            guint property_id,
+            const gchar *name);
+extern
+void g_object_class_install_properties (GObjectClass *oclass,
+                                               guint n_pspecs,
+                                               GParamSpec **pspecs);
+extern
+void g_object_interface_install_property (gpointer g_iface,
+       GParamSpec *pspec);
+extern
+GParamSpec* g_object_interface_find_property (gpointer g_iface,
+       const gchar *property_name);
+extern
+GParamSpec**g_object_interface_list_properties (gpointer g_iface,
+       guint *n_properties_p);
+extern
+GType g_object_get_type (void);
+extern
+gpointer g_object_new (GType object_type,
+            const gchar *first_property_name,
+            ...);
+extern
+GObject* g_object_new_with_properties (GType object_type,
+                                               guint n_properties,
+                                               const char *names[],
+                                               const GValue values[]);
+extern
+gpointer g_object_newv (GType object_type,
+            guint n_parameters,
+            GParameter *parameters);
+extern
+GObject* g_object_new_valist (GType object_type,
+            const gchar *first_property_name,
+            va_list var_args);
+extern
+void g_object_set (gpointer object,
+            const gchar *first_property_name,
+            ...) ;
+extern
+void g_object_get (gpointer object,
+            const gchar *first_property_name,
+            ...) ;
+extern
+gpointer g_object_connect (gpointer object,
+            const gchar *signal_spec,
+            ...) ;
+extern
+void g_object_disconnect (gpointer object,
+            const gchar *signal_spec,
+            ...) ;
+extern
+void g_object_setv (GObject *object,
+                                               guint n_properties,
+                                               const gchar *names[],
+                                               const GValue values[]);
+extern
+void g_object_set_valist (GObject *object,
+            const gchar *first_property_name,
+            va_list var_args);
+extern
+void g_object_getv (GObject *object,
+                                               guint n_properties,
+                                               const gchar *names[],
+                                               GValue values[]);
+extern
+void g_object_get_valist (GObject *object,
+            const gchar *first_property_name,
+            va_list var_args);
+extern
+void g_object_set_property (GObject *object,
+            const gchar *property_name,
+            const GValue *value);
+extern
+void g_object_get_property (GObject *object,
+            const gchar *property_name,
+            GValue *value);
+extern
+void g_object_freeze_notify (GObject *object);
+extern
+void g_object_notify (GObject *object,
+            const gchar *property_name);
+extern
+void g_object_notify_by_pspec (GObject *object,
+            GParamSpec *pspec);
+extern
+void g_object_thaw_notify (GObject *object);
+extern
+gboolean g_object_is_floating (gpointer object);
+extern
+gpointer g_object_ref_sink (gpointer object);
+extern
+gpointer g_object_ref (gpointer object);
+
+
+extern
+void g_object_weak_ref (GObject *object,
+            GWeakNotify notify,
+            gpointer data);
+extern
+void g_object_weak_unref (GObject *object,
+            GWeakNotify notify,
+            gpointer data);
+extern
+void g_object_add_weak_pointer (GObject *object,
+                                               gpointer *weak_pointer_location);
+extern
+void g_object_remove_weak_pointer (GObject *object,
+                                               gpointer *weak_pointer_location);
+
+extern
+void g_object_add_toggle_ref (GObject *object,
+     GToggleNotify notify,
+     gpointer data);
+extern
+void g_object_remove_toggle_ref (GObject *object,
+     GToggleNotify notify,
+     gpointer data);
+extern
+gpointer g_object_get_qdata (GObject *object,
+            GQuark quark);
+extern
+void g_object_set_qdata (GObject *object,
+            GQuark quark,
+            gpointer data);
+extern
+void g_object_set_qdata_full (GObject *object,
+            GQuark quark,
+            gpointer data,
+            GDestroyNotify destroy);
+extern
+gpointer g_object_steal_qdata (GObject *object,
+            GQuark quark);
+extern
+gpointer g_object_dup_qdata (GObject *object,
+                                               GQuark quark,
+                                               GDuplicateFunc dup_func,
+            gpointer user_data);
+extern
+gboolean g_object_replace_qdata (GObject *object,
+                                               GQuark quark,
+                                               gpointer oldval,
+                                               gpointer newval,
+                                               GDestroyNotify destroy,
+            GDestroyNotify *old_destroy);
+extern
+gpointer g_object_get_data (GObject *object,
+            const gchar *key);
+extern
+void g_object_set_data (GObject *object,
+            const gchar *key,
+            gpointer data);
+extern
+void g_object_set_data_full (GObject *object,
+            const gchar *key,
+            gpointer data,
+            GDestroyNotify destroy);
+extern
+gpointer g_object_steal_data (GObject *object,
+            const gchar *key);
+extern
+gpointer g_object_dup_data (GObject *object,
+                                               const gchar *key,
+                                               GDuplicateFunc dup_func,
+            gpointer user_data);
+extern
+gboolean g_object_replace_data (GObject *object,
+                                               const gchar *key,
+                                               gpointer oldval,
+                                               gpointer newval,
+                                               GDestroyNotify destroy,
+            GDestroyNotify *old_destroy);
+extern
+void g_object_watch_closure (GObject *object,
+            GClosure *closure);
+extern
+GClosure* g_cclosure_new_object (GCallback callback_func,
+            GObject *object);
+extern
+GClosure* g_cclosure_new_object_swap (GCallback callback_func,
+            GObject *object);
+extern
+GClosure* g_closure_new_object (guint sizeof_closure,
+            GObject *object);
+extern
+void g_value_set_object (GValue *value,
+            gpointer v_object);
+extern
+gpointer g_value_get_object (const GValue *value);
+extern
+gpointer g_value_dup_object (const GValue *value);
+extern
+gulong g_signal_connect_object (gpointer instance,
+            const gchar *detailed_signal,
+            GCallback c_handler,
+            gpointer gobject,
+            GConnectFlags connect_flags);
+extern
+void g_object_force_floating (GObject *object);
+extern
+void g_object_run_dispose (GObject *object);
+extern
+void g_value_take_object (GValue *value,
+            gpointer v_object);
+extern
+void g_value_set_object_take_ownership (GValue *value,
+                                               gpointer v_object);
+extern
+gsize g_object_compat_control (gsize what,
+            gpointer data);
+extern
+void g_clear_object (GObject **object_ptr);
+extern
+void g_weak_ref_init (GWeakRef *weak_ref,
+                                gpointer object);
+extern
+void g_weak_ref_clear (GWeakRef *weak_ref);
+extern
+gpointer g_weak_ref_get (GWeakRef *weak_ref);
+extern
+void g_weak_ref_set (GWeakRef *weak_ref,
+                                gpointer object);
+
+
+extern
+GType g_binding_flags_get_type (void);
+extern
+GType g_binding_get_type (void);
+extern
+GBindingFlags g_binding_get_flags (GBinding *binding);
+extern
+GObject * g_binding_get_source (GBinding *binding);
+extern
+GObject * g_binding_get_target (GBinding *binding);
+extern
+const gchar * g_binding_get_source_property (GBinding *binding);
+extern
+const gchar * g_binding_get_target_property (GBinding *binding);
+extern
+void g_binding_unbind (GBinding *binding);
+extern
+GBinding *g_object_bind_property (gpointer source,
+                                                const gchar *source_property,
+                                                gpointer target,
+                                                const gchar *target_property,
+                                                GBindingFlags flags);
+extern
+GBinding *g_object_bind_property_full (gpointer source,
+                                                const gchar *source_property,
+                                                gpointer target,
+                                                const gchar *target_property,
+                                                GBindingFlags flags,
+                                                GBindingTransformFunc transform_to,
+                                                GBindingTransformFunc transform_from,
+                                                gpointer user_data,
+                                                GDestroyNotify notify);
+extern
+GBinding *g_object_bind_property_with_closures (gpointer source,
+                                                const gchar *source_property,
+                                                gpointer target,
+                                                const gchar *target_property,
+                                                GBindingFlags flags,
+                                                GClosure *transform_to,
+                                                GClosure *transform_from);
+
+

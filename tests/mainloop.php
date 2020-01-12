@@ -1,6 +1,6 @@
 <?php
 
-include './load.php';
+include __DIR__ . '/load.php';
 
 use Gtk\GtkEnum;
 

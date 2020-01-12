@@ -9,7 +9,7 @@
  * @version    0.1
  */
 
-namespace GTK\GLib;
+namespace GTK\Gtk;
 
 trait Version
 {

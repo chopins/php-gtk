@@ -15,11 +15,37 @@ use FFI;
 use FFI\CData;
 use InvalidArgumentException;
 use SplObjectStorage;
+use Gtk\Gtk\Gtk;
 
-class Gtk
+(function () {
+    foreach ([
+        'PHP_GTK_ID_GLIB' => 'glib',
+        'PHP_GTK_ID_GIO' => 'gio',
+        'PHP_GTK_ID_GOBJECT' => 'gobject',
+        'PHP_GTK_ID_GTK' => 'gtk',
+    ] as $k => $n) {
+        if (!defined($k)) {
+            define($k, $n);
+        }
+    }
+})();
+
+class App
 {
-    private static $instance = null;
+    private static $ffi = null;
     private static $unmanagedCData = null;
+
+    const GLIB_ID = PHP_GTK_ID_GLIB;
+    const GIO_ID = PHP_GTK_ID_GIO;
+    const GOBJECT_ID = PHP_GTK_ID_GOBJECT;
+    const GTK_ID = PHP_GTK_ID_GTK;
+    public static $gtkDllMap  = [
+        self::GLIB_ID => ['name' => 'libglib-2.0', 'header' => ['glib']],
+        self::GIO_ID => ['name' => 'libgio-2.0', 'header' => ['gio']],
+        self::GOBJECT_ID => ['name' => 'libgobject-2.0', 'header' => ['gtype', 'gobject']],
+        self::GTK_ID => ['name' => 'libgtk-3', 'header' => ['gtkfunc']]
+    ];
+
     public function __construct($libdir = null)
     {
         static $enable = false;
@@ -30,7 +56,7 @@ class Gtk
         $this->complieDefineValue();
         $this->autoload();
         self::$unmanagedCData = new SplObjectStorage;
-        self::$instance = new GtkFFI($this, $libdir);
+        self::$ffi = new Gtk($this, $libdir);
     }
 
     private function complieDefineValue()
@@ -122,8 +148,8 @@ class Gtk
 
     public function trunCast(CData $i, array $type, $ffi = null)
     {
-        if(count($type) < 1) {
-            throw new InvalidArgumentException(__METHOD__ . "() paramter 2 can not empty");
+        if (count($type) < 1) {
+            throw new InvalidArgumentException(__METHOD__ . "() paramter 2 can not empty array");
         }
         foreach ($type as $t) {
             $i = $this->cast($t, $i, $ffi);
@@ -138,22 +164,22 @@ class Gtk
 
     public function __get($name)
     {
-        return self::$instance->$name;
+        return self::$ffi->$name;
     }
 
     public function __set($name, $v)
     {
-        return self::$instance->$name = $v;
+        return self::$ffi->$name = $v;
     }
 
     public function __call($name, $arguments)
     {
-        return self::$instance->$name(...$arguments);
+        return self::$ffi->$name(...$arguments);
     }
 
     public static function __callStatic($name, $arguments)
     {
-        return self::$instance::$name(...$arguments);
+        return self::$ffi::$name(...$arguments);
     }
 
     public function autoload()

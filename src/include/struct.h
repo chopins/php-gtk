@@ -14151,4 +14151,3 @@ typedef GtkTreePath *GtkTreePath_autoptr; typedef GList *GtkTreePath_listautoptr
 typedef GtkTreeRowReference *GtkTreeRowReference_autoptr; typedef GList *GtkTreeRowReference_listautoptr; typedef GSList *GtkTreeRowReference_slistautoptr; typedef GQueue *GtkTreeRowReference_queueautoptr;
  
 typedef GtkWidgetPath *GtkWidgetPath_autoptr; typedef GList *GtkWidgetPath_listautoptr; typedef GSList *GtkWidgetPath_slistautoptr; typedef GQueue *GtkWidgetPath_queueautoptr;
- 

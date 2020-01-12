@@ -1,9 +1,6 @@
 <?php
 
-use GTK\Gtk;
-
-include dirname(__DIR__) . '/src/Gtk.php';
-$gtk = new Gtk();
+include __DIR__ .'/load.php';
 function activate()
 {
     global $gtk, $app;
