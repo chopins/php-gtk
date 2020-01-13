@@ -48,8 +48,6 @@ class Gio extends GObject
     }
     public function G_APPLICATION($app)
     {
-        $gtype = $this->cast('GTypeInstance*', $app);
-        $gtypeCast = $this->g_type_check_instance_cast($gtype, $this->g_application_get_type());
-        return $this->cast('GApplication*', $gtypeCast);
+        return $this->G_TYPE_CHECK_INSTANCE_CAST($app, $this->g_application_get_type(), 'GApplication');
     }
 }

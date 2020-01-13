@@ -103,3 +103,10 @@ class App {
   * `App::atk()` return `Gtk\Atk`, can be call `GLib`,`GObject`,`ATK` function
   * `App::gdk()` return `Gtk\Pixbuf`, can be call `GLib`,`GObject`,`GDK`,`gdk-pixbuf` function
   * `App::pango()` return `Gtk\Pango`, can be call `GLib`,`GObject`,`Pango` function
+  * All enum value defined in `Gtk\GtkEnum`
+
+### Note:
+
+* The number of callback function argument must less than 8
+* do not use C function for callback, use php function call C function instead
+* if new C variable be used occur segfault, try new unmanaged variable

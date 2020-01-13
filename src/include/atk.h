@@ -578,3 +578,4 @@ extern
 const gchar* atk_value_type_get_localized_name (AtkValueType value_type);
 extern
 GType atk_window_get_type (void);
+extern AtkMisc *atk_misc_instance;

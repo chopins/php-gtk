@@ -37,6 +37,7 @@ abstract class GtkFFI
     const MATCH_FULL = [];
     const MATCH_PREFIX = [];
     const UNIMPLEMENT = [];
+    const GLOBAL_VAL = [];
 
     final public function __construct(App $main, $libdir = null)
     {
@@ -85,7 +86,7 @@ abstract class GtkFFI
             $this->callMap[$class::ID] = [
                 'ffi' => $class::$ffi,
                 'prefix' => $class::MATCH_PREFIX,
-                'full' => $class::MATCH_FULL
+                'full' => $class::MATCH_FULL,
             ];
             self::$unimplement = array_merge(self::$unimplement, $class::UNIMPLEMENT);
         }
@@ -114,7 +115,7 @@ abstract class GtkFFI
 
         $code = ['struct' => $this->struct];
         foreach ($config['header'] as $h) {
-            $code [$h] = file_get_contents($this->headerDir . "/$h.h");
+            $code[$h] = file_get_contents($this->headerDir . "/$h.h");
         }
 
         try {
@@ -126,9 +127,9 @@ abstract class GtkFFI
             if (self::$isDebug) {
                 $message = $e->getMessage();
                 preg_match('(\d+)', $e->getMessage(), $m);
-                foreach($code as $f => $c) {
+                foreach ($code as $f => $c) {
                     $fl = substr_count($c, "\n") + 1;
-                    if($m[0] > $fl) {
+                    if ($m[0] > $fl) {
                         $m[0] = $m[0] - $fl + 1;
                     } else {
                         break;
@@ -203,12 +204,26 @@ abstract class GtkFFI
             return $this->callMap[$prefixIdx]['ffi']->$name(...$arguments);
         }
 
+        $macroFunc = "_MACRO_$name";
+        if (strtoupper($name) === $name && \method_exists($this, $macroFunc)) {
+            return $this->$macroFunc(...$arguments);
+        }
+
         $class = get_class($this);
         throw new BadMethodCallException("Call to undefined method $class::$name()");
     }
 
     public function __get($name)
     {
+        if ($name === 'atk_misc_instance') {
+            return Atk::$ffi->atk_misc_instance;
+        } elseif ($name === 'g_param_spec_types') {
+            return GObject::$ffi->g_param_spec_types;
+        } elseif ($this->main->str0($name, 'gdk_')) {
+            return Pixbuf::$ffi->$name;
+        } elseif ($this->main->str0($name, 'g_') || $this->main->str0($name, 'glib_')) {
+            return GLib::$ffi->$name;
+        }
         return self::$$name;
     }
 }

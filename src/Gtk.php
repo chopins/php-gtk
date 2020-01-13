@@ -83,4 +83,12 @@ class Gtk extends Gio
     {
         return $this->gtk_get_interface_age();
     }
+    public function GTK_CONTAINER($obj)
+    {
+        return $this->G_TYPE_CHECK_INSTANCE_CAST($obj, $this->GTK_TYPE_CONTAINER(), 'GtkContainer');
+    }
+    public function GTK_TYPE_CONTAINER()
+    {
+        return $this->gtk_container_get_type();
+    }
 }

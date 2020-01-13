@@ -1,9 +1,9 @@
 <?php
 
 include __DIR__ .'/load.php';
-function activate()
+function activate($app)
 {
-    global $gtk, $app;
+    global $gtk;
     try {
     $window = $gtk->gtk_application_window_new($app);
     $gtk->gtk_window_set_title($gtk->GTK_WINDOW($window), "Window");
@@ -17,7 +17,7 @@ function activate()
 
 function main($argc, $argv) : int
 {
-    global $gtk, $app;
+    global $gtk;
 
     $app = $gtk->gtk_application_new("org.gtk.example", 0);
 
