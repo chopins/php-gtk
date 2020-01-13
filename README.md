@@ -1,6 +1,7 @@
 ## php-gtk
 PHP bindings to the [gtk+3](https://www.gtk.org/) C library.
-Then project only expose GTK API by FFI
+
+The project only expose GTK API by FFI
 
 **Requirements**
 * PHP >= 7.4
