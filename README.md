@@ -107,6 +107,6 @@ class App {
 
 ### Note:
 
-* The number of callback function argument must less than 8
+* Default, The number of callback function argument must less than 10, otherwise extra argument value always  `NULL`, only when `Gtk\GtkFFI::$gCallbackArgNum` be changed to other value
 * do not use C function for callback, use php function call C function instead
 * if new C variable be used occur segfault, try new unmanaged variable

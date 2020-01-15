@@ -24,7 +24,8 @@ abstract class GtkFFI
 {
     use  Builtin;
 
-    public static $isDebug = false;
+    public static bool $isDebug = false;
+    public static int $gCallbackArgNum = 10;
     protected $main = null;
     protected $headerDir = '';
     protected $struct = '';
@@ -44,7 +45,7 @@ abstract class GtkFFI
         $this->initDebugStatus();
         $this->main = $main;
         $this->headerDir = __DIR__ . '/include';
-        $this->struct = file_get_contents($this->headerDir . '/struct.h');
+        $this->struct();
         $this->libdir = $libdir ?? (PHP_INT_SIZE === 4 ? '/usr/lib' : '/usr/lib64');
         $this->upperCDef();
     }
@@ -52,6 +53,13 @@ abstract class GtkFFI
     final public function initDebugStatus()
     {
         self::$isDebug = defined('DEV_DEBUG') && constant('DEV_DEBUG');
+    }
+
+    private function struct()
+    {
+        $this->struct = file_get_contents($this->headerDir . '/struct.h');
+        $args = trim(str_repeat('void*,', self::$gCallbackArgNum), ',');
+        $this->struct = str_replace('##GCallbackArgListString##', $args, $this->struct);
     }
 
     private function upperCDef()

@@ -21,7 +21,7 @@ function activate($app, $user_data)
 {
     global $gtk;
     try {
-   
+
     $window = $gtk->gtk_application_window_new($app);
     $gtk->gtk_window_set_title($gtk->GTK_WINDOW($window), "Window");
     $gtk->gtk_window_set_default_size($gtk->GTK_WINDOW($window), 200, 200);
