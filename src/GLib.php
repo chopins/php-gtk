@@ -21,6 +21,9 @@ use RuntimeException;
 class GLib extends GtkFFI implements DefineValue
 {
 
+    public static $GETTEXT_PACKAGE = null;
+    public static $gettextDll = '';
+    private static $gettextFFI = null;
     protected static ?FFI $ffi = null;
 
     protected const ID = App::GLIB_ID;
@@ -76,17 +79,90 @@ class GLib extends GtkFFI implements DefineValue
         'G_LOCK_DEFINE',
         'G_LOCK_DEFINE_STATIC',
         'G_LOCK_EXTERN',
+        'G_BREAKPOINT',
         'ABS',
         'g_alloca',
         'g_assert_',
+        'g_autoptr',
+        'g_autolist',
+        'g_autoslist',
+        'g_autoqueue',
+        'g_auto',
+        'g_autofree',
+        'G_BEGIN_DECLS',
+        'G_END_DECLS',
     ];
     protected const GLOBAL_VAL = ['g_' => 1, 'glib_' => 1];
     const G_PRIORITY_HIGH_IDLE = 100;
     const G_ASCII_DTOSTR_BUF_SIZE = 29 + 10;
+    const G_ATOMIC_LOCK_FREE = 1;
+    const G_CSET_A_2_Z = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const G_CSET_a_2_z = 'abcdefghijklmnopqrstuvwxyz';
+    const G_CSET_DIGITS = '0123456789';
+    const G_CSET_LATINC = '\300\301\302\303\304\305\306\307\310\311\312\313\314'
+        . '\315\316\317\320\321\322\323\324\325\326\330\331\332\333\334\335\336';
+    const G_CSET_LATINS = '\337\340\341\342\343\344\345\346\347\350\351\352\353'
+        . '\354\355\356\357\360\361\362\363\364\365\366\370\371\372\373\374\375\376\377';
 
     protected static function compileVersion()
     {
         
+    }
+
+    public function gettext($string)
+    {
+        if (function_exists('gettext')) {
+            return gettext($string);
+        } else {
+            if (self::$gettextFFI) {
+                self::$gettextFFI = FFI::cdef('extern char *gettext (const char *__msgid);', self::$gettextDll);
+            }
+            return self::$gettextFFI->gettext($string);
+        }
+    }
+
+    public function C_($Context, $String)
+    {
+        return self::$ffi->g_dpgettext(self::$GETTEXT_PACKAGE, "{$Context}\004{$String}", strlen($Context) + 1);
+    }
+
+    public function _($String)
+    {
+        if (self::$GETTEXT_PACKAGE) {
+            return $this->cast('char *', self::$ffi->g_dgettext(self::$GETTEXT_PACKAGE, $String));
+        }
+        return $this->gettext($String);
+    }
+
+    public function Q_($String)
+    {
+
+        return self::$ffi->g_dpgettext(self::$GETTEXT_PACKAGE, $String, 0);
+    }
+
+    public function N_($String)
+    {
+        return $String;
+    }
+
+    public function NC_($Context, $String)
+    {
+        return $String;
+    }
+
+    public function g_bit_nth_lsf($mask, $nth_bit)
+    {
+        return self::$ffi->g_bit_nth_lsf_impl($mask, $nth_bit);
+    }
+
+    public function g_bit_nth_msf($mask, $nth_bit)
+    {
+        return self::$ffi->g_bit_nth_msf_impl($mask, $nth_bit);
+    }
+
+    public function g_bit_storage($number)
+    {
+        return self::$ffi->g_bit_storage_impl($number);
     }
 
     public function g_array_append_val($a, $v)
@@ -139,6 +215,11 @@ class GLib extends GtkFFI implements DefineValue
         $p = $this->new('guint8');
         $p->cdata = $this->cast('guint8*', $structPtr) + $structOffset;
         return $this->cast('gpointer', $p);
+    }
+
+    public function G_BOOKMARK_FILE_ERROR()
+    {
+        return self::$ffi->g_bookmark_file_error_quark();
     }
 
     public function G_STRUCT_MEMBER(string $type, CData $structPtr, int $structOffset)
