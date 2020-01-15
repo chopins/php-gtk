@@ -19,8 +19,10 @@ use Gtk\GObject;
 class Gdk extends GObject
 {
     protected static $ffi = null;
-    const ID = App::GDK_ID;
-    const MATCH_FULL = [];
-    const MATCH_PREFIX = ['gdk_'];
-    const UNIMPLEMENT = [];
+    protected const ID = App::GDK_ID;
+    protected const MATCH_FULL = [];
+    protected const MATCH_PREFIX = ['gdk_'];
+    protected const UNIMPLEMENT = [];
+    protected const GLOBAL_VAL = [];
+    
 }

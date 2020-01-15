@@ -7570,3 +7570,4 @@ GType gtk_vscrollbar_get_type (void) ;extern
 GtkWidget* gtk_vscrollbar_new (GtkAdjustment *adjustment);extern
 GType gtk_vseparator_get_type (void) ;extern
 GtkWidget* gtk_vseparator_new (void);
+GQuark gtk_builder_error_quark (void);

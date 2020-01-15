@@ -20,20 +20,21 @@ use RuntimeException;
 
 class GLib extends GtkFFI implements DefineValue
 {
+
     protected static $ffi = null;
-    const ID = App::GLIB_ID;
-    const MATCH_FULL = [
+
+    protected const ID = App::GLIB_ID;
+    protected const MATCH_FULL = [
         'g_unix_fd_add', 'g_unix_fd_add_full', 'g_unix_fd_source_new', 'g_unix_open_pipe',
         'g_unix_set_fd_nonblocking', 'g_unix_signal_add', 'g_unix_signal_add_full',
         'g_unix_signal_source_news', 'g_unlink', 'g_unsetenv', 'g_usleep', 'g_utime',
-        'g_vasprintf', 'g_vfprintf', 'g_vprintf', 'g_vsnprintf', 'g_vsprintf','g_rmdir',
+        'g_vasprintf', 'g_vfprintf', 'g_vprintf', 'g_vsnprintf', 'g_vsprintf', 'g_rmdir',
         'g_win32_check_windows_version', 'g_win32_error_message', 'g_win32_locale_filename_from_utf8',
         'g_basename', 'g_file_get_contents', 'g_file_open_tmp', 'g_file_error_from_errno',
         'g_file_read_link', 'g_file_set_contents', 'g_file_test', 'g_find_program_in_path',
         'g_fopen', 'g_io_create_watch', 'g_listenv', 'g_list_delete_link', 'g_remove',
     ];
-
-    const MATCH_PREFIX = [
+    protected const MATCH_PREFIX = [
         'g_array_', 'g_ascii_', 'g_async_queue_', 'g_base64_',
         'g_lib_', 'g_atomic_', 'g_bit_', 'g_bookmark_', 'g_build_',
         'g_bytes_', 'g_cache_', 'g_chdir', 'g_checksum_', 'g_child_', 'g_chmod',
@@ -56,8 +57,7 @@ class GLib extends GtkFFI implements DefineValue
         'g_st', 'g_test_', 'g_thread_', 'g_time', 'g_tr', 'g_tuples_', 'g_ucs4_to_', 'guint',
         'g_unic', 'g_uri_', 'g_utf', 'g_variant_', 'g_uuid_string_', 'g_warn', 'g_win32_get'
     ];
-
-    const UNIMPLEMENT = [
+    protected const UNIMPLEMENT = [
         'G_DEFINE_AUTOPTR_CLEANUP_FUNC',
         'G_DEFINE_AUTO_CLEANUP_CLEAR_FUNC',
         'G_DEFINE_AUTO_CLEANUP_FREE_FUNC',
@@ -77,6 +77,12 @@ class GLib extends GtkFFI implements DefineValue
         'G_LOCK_DEFINE_STATIC',
         'G_LOCK_EXTERN',
     ];
+    protected const GLOBAL_VAL = ['g_' => 1, 'glib_'=> 1];
+
+    protected static function compileVersion()
+    {
+        
+    }
 
     public function G_GINT64_CONSTANT($val)
     {
@@ -87,6 +93,7 @@ class GLib extends GtkFFI implements DefineValue
     {
         return "$val##UL";
     }
+
     public function G_GOFFSET_CONSTANT($val)
     {
         return $this->G_GINT64_CONSTANT($val);
@@ -105,7 +112,7 @@ class GLib extends GtkFFI implements DefineValue
     public function G_STRUCT_MEMBER_P(CData $structPtr, int $structOffset)
     {
         $p = $this->new('guint8');
-        $p->cdata = $this->cast('guint8*', $structPtr) +  $structOffset;
+        $p->cdata = $this->cast('guint8*', $structPtr) + $structOffset;
         return $this->cast('gpointer', $p);
     }
 
@@ -123,6 +130,7 @@ class GLib extends GtkFFI implements DefineValue
     {
         return FFI::sizeof($arr) / FFI::sizeof($arr[0]);
     }
+
     public function GINT_TO_POINTER(CData $i)
     {
         return $this->trunCast($i, ['glong', 'gpointer']);
@@ -132,22 +140,27 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->trunCast($p, ['glong', 'gint']);
     }
+
     public function GUINT_TO_POINTER(CData $p)
     {
         return $this->trunCast($p, ['gulong', 'gpointer']);
     }
+
     public function GPOINTER_TO_UINT(CData $p)
     {
         return $this->trunCast($p, ['guint', 'gulong']);
     }
+
     public function GSIZE_TO_POINTER(CData $p)
     {
         return $this->trunCast($p, ['gsize', 'gpointer']);
     }
+
     public function GPOINTER_TO_SIZE(CData $p)
     {
         return $this->cast('gsize', $p);
     }
+
     public function g_htonl($val)
     {
         return $this->GUINT32_TO_BE($val);
@@ -157,6 +170,7 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->GUINT16_TO_BE($val);
     }
+
     public function g_ntohl($val)
     {
         return $this->GUINT32_FROM_BE($val);
@@ -181,6 +195,7 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->cast('gint', $this->GINT32_TO_BE($val));
     }
+
     public function GINT_TO_LE($val)
     {
         return $this->cast('gint', $this->GINT32_TO_LE($val));
@@ -190,10 +205,12 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->GUINT_TO_BE($val);
     }
+
     public function GUINT_FROM_LE($val)
     {
         return $this->GUINT_TO_LE($val);
     }
+
     public function GUINT_TO_BE($val)
     {
         return $this->cast('guint', $this->GUINT32_TO_BE($val));
@@ -203,6 +220,7 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->cast('guint', $this->GUINT32_TO_LE($val));
     }
+
     public function GLONG_FROM_BE($val)
     {
         return $this->GLONG_TO_BE($val);
@@ -212,18 +230,22 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->GLONG_TO_LE($val);
     }
+
     public function GLONG_TO_BE($val)
     {
         return $this->cast('glong', $this->GINT64_TO_BE($val));
     }
+
     public function GLONG_TO_LE($val)
     {
         return $this->cast('glong', $this->GINT64_TO_LE($val));
     }
+
     public function GULONG_FROM_BE($val)
     {
         return $this->GULONG_TO_BE($val);
     }
+
     public function GULONG_FROM_LE($val)
     {
         return $this->GULONG_TO_LE($val);
@@ -238,38 +260,47 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->cast('gulong', $this->GUINT64_TO_LE($val));
     }
+
     public function GSIZE_FROM_BE($val)
     {
         return $this->GSIZE_TO_BE($val);
     }
+
     public function GSIZE_FROM_LE($val)
     {
         return $this->GSIZE_TO_LE($val);
     }
+
     public function GSIZE_TO_BE($val)
     {
         return $this->cast('gsize', $this->GUINT64_TO_BE($val));
     }
+
     public function GSIZE_TO_LE($val)
     {
         return $this->cast('gsize', $this->GUINT64_TO_LE($val));
     }
+
     public function GSSIZE_FROM_BE($val)
     {
         return $this->GSSIZE_TO_BE($val);
     }
+
     public function GSSIZE_FROM_LE($val)
     {
         return $this->GSSIZE_TO_LE($val);
     }
+
     public function GSSIZE_TO_BE($val)
     {
         return $this->cast('gssize', $this->GINT64_TO_BE($val));
     }
+
     public function GSSIZE_TO_LE($val)
     {
         return $this->cast('gssize', $this->GINT64_TO_LE($val));
     }
+
     public function GINT16_FROM_BE($val)
     {
         return $this->GINT16_TO_BE($val);
@@ -279,34 +310,42 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->GINT16_TO_LE($val);
     }
+
     public function GINT16_TO_BE($val)
     {
         return $this->cast('gint16', $this->GUINT16_SWAP_LE_BE($val));
     }
+
     public function GINT16_TO_LE($val)
     {
         return $this->cast('gint16', $val);
     }
+
     public function GUINT16_FROM_BE($val)
     {
         return $this->GUINT16_TO_BE($val);
     }
+
     public function GUINT16_FROM_LE($val)
     {
         return $this->GUINT16_TO_LE($val);
     }
+
     public function GUINT16_TO_BE($val)
     {
         return $this->GUINT16_SWAP_LE_BE($val);
     }
+
     public function GUINT16_TO_LE($val)
     {
         return $this->cast('guint16', $val);
     }
+
     public function GINT32_FROM_BE($val)
     {
         return $this->GINT32_TO_BE($val);
     }
+
     public function GINT32_FROM_LE($val)
     {
         return $this->GINT32_TO_LE($val);
@@ -321,34 +360,42 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->cast('gint32', $val);
     }
+
     public function GUINT32_FROM_BE($val)
     {
         return $this->GUINT32_TO_BE($val);
     }
+
     public function GUINT32_FROM_LE($val)
     {
         return $this->GUINT32_TO_LE($val);
     }
+
     public function GUINT32_TO_BE($val)
     {
         return $this->GUINT32_SWAP_LE_BE($val);
     }
+
     public function GUINT32_TO_LE($val)
     {
         return $this->cast('guint32', $val);
     }
+
     public function GINT64_FROM_BE($val)
     {
         return $this->GINT64_TO_BE($val);
     }
+
     public function GINT64_FROM_LE($val)
     {
         return $this->GINT64_TO_LE($val);
     }
+
     public function GINT64_TO_BE($val)
     {
         return $this->cast('gint64', $this->GUINT64_SWAP_LE_BE($val));
     }
+
     public function GINT64_TO_LE($val)
     {
         return $this->cast('gint64', $val);
@@ -358,22 +405,27 @@ class GLib extends GtkFFI implements DefineValue
     {
         return $this->GUINT64_TO_BE($val);
     }
+
     public function GUINT64_FROM_LE($val)
     {
         return $this->GUINT64_TO_LE($val);
     }
+
     public function GUINT64_TO_BE($val)
     {
         return $this->GUINT64_SWAP_LE_BE($val);
     }
+
     public function GUINT64_TO_LE($val)
     {
         return $this->cast('guint64', $val);
     }
+
     public function GUINT16_SWAP_BE_PDP($val)
     {
         return $this->GUINT16_SWAP_LE_BE($val);
     }
+
     public function GUINT16_SWAP_LE_BE($val)
     {
         return $this->GUINT16_SWAP_LE_BE_IA32($val);
@@ -386,11 +438,13 @@ class GLib extends GtkFFI implements DefineValue
         $r->cdata = $v >> 8 | $v << 8;
         return $r;
     }
+
     public function GUINT16_SWAP_LE_PDP($val)
     {
         return $this->cast('guint16', $val);
     }
-    public function  GUINT32_SWAP_BE_PDP($val)
+
+    public function GUINT32_SWAP_BE_PDP($val)
     {
         if ($val instanceof FFI) {
             $v = $val->cdata;
@@ -399,10 +453,12 @@ class GLib extends GtkFFI implements DefineValue
         $r->cdata = ((($v & 0x00ff00ff) << 8) | (($v & 0xff00ff00) >> 8));
         return $r;
     }
+
     public function GUINT32_SWAP_LE_BE($val)
     {
         return $this->cast('guint32', $this->__builtin_bswap32($this->cast('guint32', $val)));
     }
+
     public function GUINT32_SWAP_LE_PDP($val)
     {
         if ($val instanceof FFI) {
@@ -412,6 +468,7 @@ class GLib extends GtkFFI implements DefineValue
         $r->cdata = ((($v & 0x0000ffff) << 16) | (($v & 0xffff0000) >> 16));
         return $r;
     }
+
     public function GUINT64_SWAP_LE_BE($val)
     {
         return $this->cast('guint64', $this->__builtin_bswap64($this->cast('guint64', $val)));
@@ -428,6 +485,7 @@ class GLib extends GtkFFI implements DefineValue
         $dest[0]->cdata = $a->cdata * $b->cdata;
         return !$a->cdata || $dest[0]->cdaa / $a->cdata == $b->cdata;
     }
+
     public function g_uint64_checked_add(CData $dest, CData $a, CData $b)
     {
         $dest[0]->cdata = $a->cdata + $b->cdata;
@@ -439,10 +497,12 @@ class GLib extends GtkFFI implements DefineValue
         $dest[0]->cdata = $a->cdata * $b->cdata;
         return !$a->cdata || $dest->cdata / $a->cdata == $b->cdata;
     }
+
     public function g_size_checked_add(CData $dest, CData $a, CData $b)
     {
         return $this->g_uint_checked_add($dest, $a, $b);
     }
+
     public function g_size_checked_mul(CData $dest, CData $a, CData $b)
     {
         return $this->g_uint_checked_mul($dest, $a, $b);
@@ -455,8 +515,9 @@ class GLib extends GtkFFI implements DefineValue
 
     public function g_autoptr($type)
     {
-        return  "{$type}_autoptr";
+        return "{$type}_autoptr";
     }
+
     public function g_autolist($type)
     {
         return "{$type}_listautoptr";
@@ -466,7 +527,6 @@ class GLib extends GtkFFI implements DefineValue
     {
         return "{$type}_slistautoptr";
     }
-
 
     public function G_VA_COPY($a, $b)
     {
@@ -517,6 +577,7 @@ class GLib extends GtkFFI implements DefineValue
         $f = $this->new($this->G_LOCK_NAME($name));
         return $this->g_mutex_lock($f);
     }
+
     public function G_TRYLOCK($name)
     {
         $f = $this->new($this->G_LOCK_NAME($name));
@@ -528,4 +589,5 @@ class GLib extends GtkFFI implements DefineValue
         $f = $this->new($this->G_LOCK_NAME($name));
         return $this->g_mutex_lock($f);
     }
+
 }

@@ -17,16 +17,24 @@ use Gtk\GLib;
 
 class GObject extends GLib
 {
+
     protected static $ffi = null;
-    const ID = App::GOBJECT_ID;
-    const MATCH_FULL = ['g_source_set_closure', 'g_source_set_dummy_callback'];
-    const MATCH_PREFIX = [
+
+    protected const ID = App::GOBJECT_ID;
+    protected const MATCH_FULL = ['g_source_set_closure', 'g_source_set_dummy_callback'];
+    protected const MATCH_PREFIX = [
         'g_binding_', 'GBinding', 'g_cclosure_', 'GClass', 'GClosure', 'g_closure_',
         'g_object_', 'g_signal_', 'GSignal', 'g_flags_',
         'g_param_', 'g_type_', 'g_strdup_', 'g_value_', 'GValue',
         'g_weak_', 'GWeak'
     ];
-    const UNIMPLEMENT = [];
+    protected const UNIMPLEMENT = [];
+    protected const GLOBAL_VAL = ['g_param_spec_types' => 0];
+
+    protected static function compileVersion()
+    {
+        
+    }
 
     public function g_signal_connect($instance, $detailed_signal, $c_handler, $data = null)
     {
@@ -59,12 +67,14 @@ class GObject extends GLib
         $sig->cdata = (GtkEnum::G_SIGNAL_MATCH_FUNC | GtkEnum::G_SIGNAL_MATCH_DATA);
         return $this->g_signal_handlers_block_matched($instance, $sig, 0, 0, NULL, $func, $data);
     }
+
     public function g_signal_handlers_unblock_by_func($instance, $func, $data)
     {
         $sig = $this->new('GSignalMatchType');
         $sig->cdata = (GtkEnum::G_SIGNAL_MATCH_FUNC | GtkEnum::G_SIGNAL_MATCH_DATA);
         return $this->g_signal_handlers_unblock_matched($instance, $sig, 0, 0, NULL, $func, $data);
     }
+
     public function g_signal_handlers_disconnect_by_func($instance, $func, $data)
     {
         $sig = $this->new('GSignalMatchType');
@@ -84,12 +94,13 @@ class GObject extends GLib
         return $this->cast("$ct*", $this->g_type_check_class_cast($p, $gt));
     }
 
-    public function G_TYPE_CHECK_INSTANCE_TYPE($cp, $gt) {
+    public function G_TYPE_CHECK_INSTANCE_TYPE($cp, $gt)
+    {
         $p = $this->cast('GTypeInstance*', $cp);
         return $this->g_type_check_class_is_a($p, $gt);
     }
 
-    public function  G_TYPE_CHECK_CLASS_TYPE($cp, $gt)
+    public function G_TYPE_CHECK_CLASS_TYPE($cp, $gt)
     {
         $p = $this->cast('GTypeClass*', $cp);
         return $this->g_type_check_class_is_a($p, $gt);
@@ -106,30 +117,36 @@ class GObject extends GLib
         $p = $this->cast('GTypeInstance*', $cp);
         return $this->cast("$ct*", $p[0]->g_class);
     }
+
     public function G_TYPE_INSTANCE_GET_INTERFACE($cp, $gt, $ct)
     {
         $p = $this->cast('GTypeInstance*', $cp);
         return $this->cast("$ct*", $this->g_type_interface_peek($p, $gt));
     }
+
     public function G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE($cp, $gt)
     {
         $p = $this->cast('GTypeInstance*', $cp);
         return $this->g_type_check_instance_is_fundamentally_a($p, $gt);
     }
+
     public function G_TYPE_CHECK_VALUE_TYPE($v, $gt)
     {
         $p = $this->cast('GValue*', $v);
         return $this->g_type_check_value_holds($p, $gt);
     }
+
     public function G_TYPE_FROM_INSTANCE($cp)
     {
         $p = $this->cast('GTypeInstance*', $cp);
         return $p[0]->g_class;
     }
+
     public function G_TYPE_FROM_CLASS($cp)
     {
         return $this->cast('GTypeClass*', $cp)[0]->g_type;
     }
+
     public function G_TYPE_FROM_INTERFACE($gi)
     {
         return $this->cast('GTypeInterface*', $gi)[0]->g_type;
@@ -137,7 +154,7 @@ class GObject extends GLib
 
     public function G_TYPE_INSTANCE_GET_PRIVATE($v, $gt, $ct)
     {
-        trigger_error('G_TYPE_INSTANCE_GET_PRIVATE() macro is deprecated since 2.58 of gobject', E_DEPRECATED);   
+        trigger_error('G_TYPE_INSTANCE_GET_PRIVATE() macro is deprecated since 2.58 of gobject', E_DEPRECATED);
         $p = $this->cast('GTypeInstance*', $v);
         $gp = $this->g_type_instance_get_private($p, $gt);
         return $this->cast("$ct*", $gp);
@@ -146,7 +163,7 @@ class GObject extends GLib
     public function G_TYPE_CLASS_GET_PRIVATE($v, $gt, $ct)
     {
         $p = $this->cast('GTypeClass*', $v);
-        return  $this->cast("$ct*", $this->g_type_class_get_private($p, $gt));
+        return $this->cast("$ct*", $this->g_type_class_get_private($p, $gt));
     }
 
 }

@@ -12,15 +12,23 @@
 namespace Gtk;
 
 use FFI;
-
 use Gtk\App;
 use Gtk\GObject;
 
 class Pango extends GObject
 {
+
     protected static $ffi = null;
-    const ID = App::PANGO_ID;
-    const MATCH_FULL = [];
-    const MATCH_PREFIX = ['pango_'];
-    const UNIMPLEMENT = [];
+
+    protected const ID = App::PANGO_ID;
+    protected const MATCH_FULL = [];
+    protected const MATCH_PREFIX = ['pango_'];
+    protected const UNIMPLEMENT = [];
+    protected const GLOBAL_VAL = [];
+
+    protected static function compileVersion()
+    {
+        
+    }
+
 }

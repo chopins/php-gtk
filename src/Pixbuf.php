@@ -12,12 +12,19 @@
 namespace Gtk;
 
 use Gtk\App;
-use Gtk\GObject;
 
 class Pixbuf extends Gdk
 {
-    const ID = App::PIXBUF_ID;
-    const MATCH_FULL = [];
-    const MATCH_PREFIX = ['gdk_pixbuf_', 'xlib_'];
-    const UNIMPLEMENT = [];
+
+    protected const ID = App::PIXBUF_ID;
+    protected const MATCH_FULL = [];
+    protected const MATCH_PREFIX = ['gdk_pixbuf_', 'xlib_'];
+    protected const UNIMPLEMENT = [];
+    protected const GLOBAL_VAL = ['gdk_' => 1];
+
+    protected static function compileVersion()
+    {
+        
+    }
+
 }

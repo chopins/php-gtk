@@ -17,16 +17,12 @@ use Gtk\App;
 
 class Gtk extends Gio
 {
-    private static int $GTK_MAJOR_VERSION = 0;
-    private static int $GTK_MINOR_VERSION = 0;
-    private static int $GTK_MICRO_VERSION = 0;
-    private static int $GTK_BINARY_AGE = 0;
-    private static int $GTK_INTERFACE_AGE = 0;
     protected static $ffi = null;
-    const ID = App::GTK_ID;
-    const MATCH_FULL = [];
-    const MATCH_PREFIX = ['gtk_'];
-    const UNIMPLEMENT = [];
+    protected const ID = App::GTK_ID;
+    protected const MATCH_FULL = [];
+    protected const MATCH_PREFIX = ['gtk_'];
+    protected const UNIMPLEMENT = [];
+    protected const GLOBAL_VAL = [];
 
     public function GTK_WINDOW($window)
     {
@@ -43,13 +39,13 @@ class Gtk extends Gio
         return self::$ffi->gtk_init(FFI::addr($argcPtr), $ptr3);
     }
 
-    private function compileVersion()
+    protected static function compileVersion()
     {
-        self::$GTK_MAJOR_VERSION = $this->gtk_get_major_version();
-        self::$GTK_MINOR_VERSION = $this->gtk_get_minor_version();
-        self::$GTK_MICRO_VERSION = $this->gtk_get_micro_version();
-        self::$GTK_BINARY_AGE = $this->gtk_get_binary_age();
-        self::$GTK_INTERFACE_AGE = $this->gtk_get_interface_age();
+        define('GTK_MAJOR_VERSION', self::$ffi->gtk_get_major_version());
+        define('GTK_MINOR_VERSION', self::$ffi->gtk_get_minor_version());
+        define('GTK_MICRO_VERSION', self::$ffi->gtk_get_micro_version());
+        define('GTK_BINARY_AGE', self::$ffi->gtk_get_binary_age());
+        define('GTK_INTERFACE_AGE', self::$ffi->gtk_get_interface_age());
     }
     public function GTK_CHECK_VERSION($major, $minor, $micro)
     {
