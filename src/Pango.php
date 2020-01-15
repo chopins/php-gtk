@@ -18,7 +18,7 @@ use Gtk\GObject;
 class Pango extends GObject
 {
 
-    protected static $ffi = null;
+    protected static ?FFI $ffi = null;
 
     protected const ID = App::PANGO_ID;
     protected const MATCH_FULL = [];

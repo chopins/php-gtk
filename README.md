@@ -99,9 +99,9 @@ class App {
     return main($argc, $argv);
     ```
 * C Lib API call 
-  * `App` class can be call `Gtk`,`GLib`,`GObject`,`Gio` function
+  * `App` class can be call `Gtk`,`GLib`,`GObject`,`Gio`,`Gdk` function
   * `App::atk()` return `Gtk\Atk`, can be call `GLib`,`GObject`,`ATK` function
-  * `App::gdk()` return `Gtk\Pixbuf`, can be call `GLib`,`GObject`,`GDK`,`gdk-pixbuf` function
+  * `App::gdk()` return `Gtk\Pixbuf`, can be call `GLib`,`GObject, `GIO``,`GDK`,`gdk-pixbuf` function
   * `App::pango()` return `Gtk\Pango`, can be call `GLib`,`GObject`,`Pango` function
   * All enum value defined in `Gtk\GtkEnum`
 

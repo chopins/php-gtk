@@ -18,8 +18,8 @@ use Gtk\GObject;
 class Atk extends GObject
 {
 
-    protected static $ffi = null;
-    private $defineTypeFunc = [];
+    protected static ?FFI $ffi = null;
+    private array $defineTypeFunc = [];
 
     protected const ID = App::ATK_ID;
     protected const MATCH_FULL = [];

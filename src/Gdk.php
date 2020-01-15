@@ -14,15 +14,22 @@ namespace Gtk;
 use FFI;
 
 use Gtk\App;
-use Gtk\GObject;
+use Gtk\Gio;
 
-class Gdk extends GObject
+class Gdk extends Gio
 {
-    protected static $ffi = null;
+    protected static ?FFI $ffi = null;
     protected const ID = App::GDK_ID;
     protected const MATCH_FULL = [];
     protected const MATCH_PREFIX = ['gdk_'];
     protected const UNIMPLEMENT = [];
     protected const GLOBAL_VAL = [];
+    
+    const GDK_PRIORITY_REDRAW = self::G_PRIORITY_HIGH_IDLE + 20;
+    protected static function compileVersion()
+    {
+        
+    }
+    
     
 }

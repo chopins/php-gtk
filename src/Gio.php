@@ -18,7 +18,7 @@ use Gtk\GObject;
 class Gio extends GObject
 {
 
-    protected static $ffi = null;
+    protected static ?FFI $ffi = null;
 
     protected const ID = App::GIO_ID;
     protected const MATCH_FULL = [

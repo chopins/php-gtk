@@ -28,14 +28,14 @@ abstract class GtkFFI
 
     public static bool $isDebug = false;
     public static int $gCallbackArgNum = 10;
-    protected $main = null;
-    protected $headerDir = '';
-    protected $struct = '';
+    protected ?App $main = null;
+    protected string $headerDir = '';
+    protected string $struct = '';
     protected $libdir = '';
-    protected static $ffi = null;
-    private $callMap = [];
-    private $firstDir = '';
-    private static $unimplement = [];
+    protected static ?FFI $ffi = null;
+    private array $callMap = [];
+    private string $firstDir = '';
+    private static array $unimplement = [];
 
     protected const ID = null;
     protected const MATCH_FULL = [];
@@ -184,6 +184,12 @@ abstract class GtkFFI
         }
     }
 
+    public function type($type, GtkFFI $obj)
+    {
+        $ffi = $this->currentFFI($obj);
+        return $this->main->new($type, $ffi);
+    }
+
     public function new($type, bool $owned = true, bool $persistent = false, GtkFFI $obj = null)
     {
         $ffi = $this->currentFFI($obj);
@@ -237,8 +243,10 @@ abstract class GtkFFI
             return $dynReturn;
         }
 
-        if (in_array($name, self::$unimplement)) {
-            throw new RuntimeException("C macro $name() not implement");
+        foreach (self::$unimplement as $ps) {
+            if ($this->main->str0($name, $ps)) {
+                throw new RuntimeException("C macro '$name' can not implemented or deprecated");
+            }
         }
 
         $prefixIdx = null;

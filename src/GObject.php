@@ -18,7 +18,7 @@ use Gtk\GLib;
 class GObject extends GLib
 {
 
-    protected static $ffi = null;
+    protected static ?FFI $ffi = null;
 
     protected const ID = App::GOBJECT_ID;
     protected const MATCH_FULL = ['g_source_set_closure', 'g_source_set_dummy_callback'];

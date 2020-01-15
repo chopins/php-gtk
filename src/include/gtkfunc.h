@@ -2890,7 +2890,8 @@ GTokenType gtk_binding_entry_add_signal_from_string(GtkBindingSet *binding_set,c
 extern
 void gtk_binding_entry_remove (GtkBindingSet *binding_set,guint keyval,GdkModifierType modifiers);
 extern
-GQuark gtk_builder_error_quark (void);extern
+GQuark gtk_builder_error_quark (void);
+extern
 GType gtk_builder_get_type (void) ;
 extern
 GtkBuilder* gtk_builder_new (void);
@@ -7570,4 +7571,3 @@ GType gtk_vscrollbar_get_type (void) ;extern
 GtkWidget* gtk_vscrollbar_new (GtkAdjustment *adjustment);extern
 GType gtk_vseparator_get_type (void) ;extern
 GtkWidget* gtk_vseparator_new (void);
-GQuark gtk_builder_error_quark (void);

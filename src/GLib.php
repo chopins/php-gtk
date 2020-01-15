@@ -21,7 +21,7 @@ use RuntimeException;
 class GLib extends GtkFFI implements DefineValue
 {
 
-    protected static $ffi = null;
+    protected static ?FFI $ffi = null;
 
     protected const ID = App::GLIB_ID;
     protected const MATCH_FULL = [
@@ -76,12 +76,37 @@ class GLib extends GtkFFI implements DefineValue
         'G_LOCK_DEFINE',
         'G_LOCK_DEFINE_STATIC',
         'G_LOCK_EXTERN',
+        'ABS',
+        'g_alloca',
+        'g_assert_',
     ];
-    protected const GLOBAL_VAL = ['g_' => 1, 'glib_'=> 1];
+    protected const GLOBAL_VAL = ['g_' => 1, 'glib_' => 1];
+    const G_PRIORITY_HIGH_IDLE = 100;
+    const G_ASCII_DTOSTR_BUF_SIZE = 29 + 10;
 
     protected static function compileVersion()
     {
         
+    }
+
+    public function g_array_append_val($a, $v)
+    {
+        return self::$ffi->g_array_append_vals($a, FFI::addr($v), 1);
+    }
+
+    public function g_array_prepend_val($a, $v)
+    {
+        return self::$ffi->g_array_prepend_vals($a, FFI::addr($v), 1);
+    }
+
+    public function g_array_insert_val($a, $i, $v)
+    {
+        return self::$ffi->g_array_insert_vals($a, $i, FFI::addr($v), 1);
+    }
+
+    public function g_array_index($a, $t, $i)
+    {
+        return $this->cast("$t*", $this->cast('void*', $a[0]->data))[$i];
     }
 
     public function G_GINT64_CONSTANT($val)
