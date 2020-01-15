@@ -104,6 +104,12 @@ class App {
   * `App::gdk()` return `Gtk\Pixbuf`, can be call `GLib`,`GObject, `GIO``,`GDK`,`gdk-pixbuf` function
   * `App::pango()` return `Gtk\Pango`, can be call `GLib`,`GObject`,`Pango` function
   * All enum value defined in `Gtk\GtkEnum`
+  * macro value get by same name constant of class
+  * macro function call by same name method of class
+  * lib version value defined by macro get by global same name  constant
+  * About gettext of `glib`:
+    * `Gtk\Glib::$GETTEXT_PACKAGE`  name of `GETTEXT_PACKAGE` when compile `Glib`, default is null
+    * `Gtk\Glib::$gettextDll`       path of gettext shared library, default is empty, if php eanble gettext, will use php gettext() function instead and the property invaild
 
 ### Note:
 
