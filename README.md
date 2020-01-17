@@ -68,7 +68,7 @@ class App {
         App::GTK_ID => '/usr/local/lib64/libgtk-3.0.so.0',
     ]
     ```
-    if only given one lib path, other lib will find in the first lib directory
+    if only given one lib path in array, other lib will find in the first lib directory
 * specify lib name through set `name` value of specify lib row of `Gtk\APP::$gtkDllMap`
 
 ### Usage
