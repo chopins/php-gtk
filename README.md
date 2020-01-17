@@ -6,7 +6,7 @@ The project only expose GTK API by FFI
 **Requirements**
 * PHP >= 7.4
 * PHP FFI extension available
-* FFI need merged [php-src request #5070](https://github.com/php/php-src/pull/5070)
+* FFI need merged [php-src request #5070](https://github.com/php/php-src/pull/5070),see [Note](#note) 4
 
 **Status**
 * support C function call of `GLib`, `GObject`, `Gio`, `Gtk`, `Atk`, `Gdk`, `Gdk-Pixbuf`, `Pango`
@@ -56,8 +56,19 @@ class App {
 `Gtk\APP::$gtkDllMap` determine load dynamic library path and header file.
 
 **Load Dynamic Library**
-* In Linux, default, according to `PHP_INT_SIZE` value to determine find in `/usr/lib` or `/usr/lib64`
-* specify lib path by self through `new Gtk\App($libpath)`, if `$libpath` is array, value must be lib file path,key is `name` value must be `Gtk\App::XXX_ID` constant. if `$libpath` is string, value must be lib directory path
+* In Linux, default find:
+  * when `PHP_INT_SIZE` equal 4, OS is 32bit, find `/usr/lib`
+  * when `PHP_INT_SIZE` equal 8, OS is 64bit, find `/usr/lib64`
+* specify lib path by self through `new Gtk\App($libpath)`, 
+  * if `$libpath` is string, value must be lib directory path
+  * if `$libpath` is array, value must be lib file path, key value must be equal `Gtk\App::XXX_ID` constant.
+    ```php
+    [
+        App::GIB_ID => '/usr/local/lib64/libglib-2.0.so.0',
+        App::GTK_ID => '/usr/local/lib64/libgtk-3.0.so.0',
+    ]
+    ```
+    if only given one lib path, other lib will find in the first lib directory
 * specify lib name through set `name` value of specify lib row of `Gtk\APP::$gtkDllMap`
 
 ### Usage
@@ -101,7 +112,7 @@ class App {
 * C Lib API call 
   * `App` class can be call `Gtk`,`GLib`,`GObject`,`Gio`,`Gdk` function
   * `App::atk()` return `Gtk\Atk`, can be call `GLib`,`GObject`,`ATK` function
-  * `App::gdk()` return `Gtk\Pixbuf`, can be call `GLib`,`GObject, `GIO``,`GDK`,`gdk-pixbuf` function
+  * `App::gdk()` return `Gtk\Pixbuf`, can be call `GLib`, `GObject`, `GIO`, `GDK`,`gdk-pixbuf` function
   * `App::pango()` return `Gtk\Pango`, can be call `GLib`,`GObject`,`Pango` function
   * All enum value defined in `Gtk\GtkEnum`
   * macro value get by same name constant of class
