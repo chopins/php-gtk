@@ -76,7 +76,6 @@ abstract class GtkFFI
 
     protected static function compileVersion()
     {
-        
     }
 
     private function declareException($class, $msg)
@@ -163,8 +162,8 @@ abstract class GtkFFI
 
         try {
             return FFI::cdef(
-                    join($code),
-                    $libpath
+                join($code),
+                $libpath
             );
         } catch (ParserException $e) {
             if (self::$isDebug) {
@@ -227,12 +226,10 @@ abstract class GtkFFI
 
     protected function dynCall($name, &$ret = null)
     {
-        
     }
 
     protected function dynGet($name, &$ret = null)
     {
-        
     }
 
     final public function __call($name, $arguments)
@@ -297,18 +294,17 @@ abstract class GtkFFI
         if ($prefixIdx !== null) {
             return $this->callMap[$prefixIdx]['ffi']->$name;
         }
+        $class = get_class($this);
         try {
             $ref = new ReflectionProperty($this, $name);
             if ($ref->isStatic()) {
-                return self::$$name;
+                return $class::$$name;
             } else {
                 return $this->$$name;
             }
         } catch (ReflectionException $e) {
-            
         }
-        $class = get_class($this);
+
         throw new RuntimeException("Get undefined property $class::\$$name");
     }
-
 }

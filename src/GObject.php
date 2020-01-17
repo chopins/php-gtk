@@ -38,7 +38,7 @@ class GObject extends GLib
 
     public function g_signal_connect($instance, $detailed_signal, $c_handler, $data = null)
     {
-        return self::$ffi->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
+        return $this->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
     }
 
     public function G_CALLBACK($fn)
