@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ .'/load.php';
-function activate($app)
+function activate($app, $data)
 {
     global $gtk;
     try {

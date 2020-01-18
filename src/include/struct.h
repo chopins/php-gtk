@@ -2072,7 +2072,7 @@ const GValue *value2);
 };
 typedef struct _GClosure GClosure;
 typedef struct _GClosureNotifyData GClosureNotifyData;
-typedef void* (*GCallback) (##GCallbackArgListString##);
+typedef void* (*GCallback) (...);
 typedef void (*GClosureNotify) (gpointer data,
 GClosure *closure);
 typedef void (*GClosureMarshal) (GClosure *closure,

@@ -10,10 +10,9 @@ function print_hello($widget, $data)
     
 }
 
-function hide($w = null)
+function hide($w,$d = null)
 {
-    global $gtk;
-    
+    global $gtk; 
     $gtk->gtk_widget_destroy($w);
 }
 
@@ -31,8 +30,11 @@ function activate($app, $user_data)
     $gtk->gtk_container_add($gtk->GTK_CONTAINER($window), $button_box);
 
     $button = $gtk->gtk_button_new_with_label("Hello World");
+
     $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('print_hello'), NULL);
-    $gtk->g_signal_connect_swapped($button, "clicked", $gtk->G_CALLBACK('hide'), $window);
+
+    $gtk->g_signal_connect_swapped($button, "clicked", 'hide', $window);
+
     $gtk->gtk_container_add($gtk->GTK_CONTAINER($button_box), $button);
 
     $gtk->gtk_widget_show_all($window);
