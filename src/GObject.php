@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use FFI;
+use Gtk\FFI;
 use Gtk\App;
 use Gtk\GLib;
 
@@ -43,6 +43,10 @@ class GObject extends GLib
 
     public function G_CALLBACK($fn)
     {
+        if(is_callable($fn)) {
+            $ref = new \ReflectionFunction($fn);
+            $argc = count($ref->getParameters());
+        }
         return $fn;
     }
 
@@ -84,7 +88,7 @@ class GObject extends GLib
 
     public function _MACRO_G_TYPE_CHECK_INSTANCE_CAST($ins, $gtype, $ctype)
     {
-        $p = $this->cast('GTypeInstance*', $ins);
+        $p = self::$ffi->cast('GTypeInstance*', $ins);
         return $this->cast("$ctype*", $this->g_type_check_instance_cast($p, $gtype));
     }
 

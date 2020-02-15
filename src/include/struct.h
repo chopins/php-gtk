@@ -134,25 +134,16 @@ typedef float gfloat;
 typedef double gdouble;
 typedef void* gpointer;
 typedef const void *gconstpointer;
-typedef gint (*GCompareFunc) (gconstpointer a,
-gconstpointer b);
-typedef gint (*GCompareDataFunc) (gconstpointer a,
-gconstpointer b,
-gpointer user_data);
-typedef gboolean (*GEqualFunc) (gconstpointer a,
-gconstpointer b);
+typedef gint (*GCompareFunc) (gconstpointer a,gconstpointer b);
+typedef gint (*GCompareDataFunc) (gconstpointer a,gconstpointer b,gpointer user_data);
+typedef gboolean (*GEqualFunc) (gconstpointer a,gconstpointer b);
 typedef void (*GDestroyNotify) (gpointer data);
-typedef void (*GFunc) (gpointer data,
-gpointer user_data);
+typedef void (*GFunc) (gpointer data,gpointer user_data);
 typedef guint (*GHashFunc) (gconstpointer key);
-typedef void (*GHFunc) (gpointer key,
-gpointer value,
-gpointer user_data);
-typedef gpointer (*GCopyFunc) (gconstpointer src,
-gpointer data);
+typedef void (*GHFunc) (gpointer key,gpointer value,gpointer user_data);
+typedef gpointer (*GCopyFunc) (gconstpointer src,gpointer data);
 typedef void (*GFreeFunc) (gpointer data);
-typedef const gchar * (*GTranslateFunc) (const gchar *str,
-gpointer data);
+typedef const gchar * (*GTranslateFunc) (const gchar *str,gpointer data);
 typedef union _GDoubleIEEE754 GDoubleIEEE754;
 typedef union _GFloatIEEE754 GFloatIEEE754;
 union _GFloatIEEE754
@@ -2072,7 +2063,7 @@ const GValue *value2);
 };
 typedef struct _GClosure GClosure;
 typedef struct _GClosureNotifyData GClosureNotifyData;
-typedef void* (*GCallback) (...);
+typedef void* (*GCallback) (void*, void*, void*, void*, void*, void*);
 typedef void (*GClosureNotify) (gpointer data,
 GClosure *closure);
 typedef void (*GClosureMarshal) (GClosure *closure,

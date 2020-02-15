@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use FFI;
+use Gtk\FFI;
 use FFI\CData;
 use InvalidArgumentException;
 use SplObjectStorage;
@@ -21,18 +21,18 @@ use Gtk\Pixbuf;
 use Gtk\Pango;
 
 (function () {
-    foreach ([
-        'PHP_GTK_ID_GLIB' => 'glib',
-        'PHP_GTK_ID_GIO' => 'gio',
-        'PHP_GTK_ID_GOBJECT' => 'gobject',
-        'PHP_GTK_ID_GTK' => 'gtk',
-        'PHP_GTK_ID_PANGO' => 'pango',
-        'PHP_GTK_ID_GDK' => 'gdk',
-        'PHP_GTK_ID_PIXBUF' => 'pixbuf',
-        'PHP_GTK_ID_ATK' => 'atk',
-        'DEV_DEBUG' =>  1,
+    foreach([
+    'PHP_GTK_ID_GLIB' => 'glib',
+    'PHP_GTK_ID_GIO' => 'gio',
+    'PHP_GTK_ID_GOBJECT' => 'gobject',
+    'PHP_GTK_ID_GTK' => 'gtk',
+    'PHP_GTK_ID_PANGO' => 'pango',
+    'PHP_GTK_ID_GDK' => 'gdk',
+    'PHP_GTK_ID_PIXBUF' => 'pixbuf',
+    'PHP_GTK_ID_ATK' => 'atk',
+    'DEV_DEBUG' => 1,
     ] as $k => $n) {
-        if (!defined($k)) {
+        if(!defined($k)) {
             define($k, $n);
         }
     }
@@ -40,6 +40,7 @@ use Gtk\Pango;
 
 class App
 {
+
     private $ffi = null;
     private static $unmanagedCData = null;
     private $libdir = '';
@@ -52,7 +53,8 @@ class App
     const PANGO_ID = PHP_GTK_ID_PANGO;
     const PIXBUF_ID = PHP_GTK_ID_PIXBUF;
     const ATK_ID = PHP_GTK_ID_ATK;
-    public static $gtkDllMap  = [
+
+    public static $gtkDllMap = [
         self::GLIB_ID => ['name' => 'libglib-2.0', 'header' => ['glib']],
         self::GIO_ID => ['name' => 'libgio-2.0', 'header' => ['gio']],
         self::GOBJECT_ID => ['name' => 'libgobject-2.0', 'header' => ['gtype', 'gobject']],
@@ -66,7 +68,7 @@ class App
     public function __construct($libdir = null)
     {
         static $enable = false;
-        if ($enable) {
+        if($enable) {
             return;
         }
         $enable = true;
@@ -79,7 +81,7 @@ class App
 
     private function complieDefineValue()
     {
-        if (!defined('PHP_OS_WIN') && strcasecmp(PHP_OS_FAMILY, 'Windows') === 0) {
+        if(!defined('PHP_OS_WIN') && strcasecmp(PHP_OS_FAMILY, 'Windows') === 0) {
             define('PHP_OS_WIN', true);
         } else {
             define('PHP_OS_WIN', false);
@@ -93,12 +95,12 @@ class App
 
     public function new($type, $owned = true, $persistent = false, FFI $ffi = null): CData
     {
-        if ($ffi) {
+        if($ffi) {
             $cdata = $ffi->new($type, $owned, $persistent);
         } else {
             $cdata = FFI::new($type, $owned, $persistent);
         }
-        if (!$owned) {
+        if(!$owned) {
             self::$unmanagedCData->attach($cdata);
         }
         return $cdata;
@@ -106,14 +108,14 @@ class App
 
     public function free($cdata = null): bool
     {
-        if ($cdata) {
+        if($cdata) {
             FFI::free($cdata);
-            if (self::$unmanagedCData->contains($cdata)) {
+            if(self::$unmanagedCData->contains($cdata)) {
                 self::$unmanagedCData->detach($cdata);
             }
             return true;
         }
-        foreach (self::$unmanagedCData  as $cdata) {
+        foreach(self::$unmanagedCData as $cdata) {
             FFI::free($cdata);
             self::$unmanagedCData->detach($cdata);
         }
@@ -131,11 +133,11 @@ class App
     {
         $p = $this->new("char *[$argc]", false);
         self::$unmanagedCData->attach($p);
-        foreach ($argv as $i => $arg) {
-            $a = $this->strToCharPtr($arg);
-            $p[0] = $a;
+        foreach($argv as $i => $arg) {
+            $p[$i] = $this->strToCharPtr($arg);
         }
-        return FFI::addr($p[0]);
+        $a = FFI::addr($p);
+        return FFI::cast('char**', $a);
     }
 
     /**
@@ -147,7 +149,8 @@ class App
     public function strToCharPtr(string $string): CData
     {
         $charArr = $this->strToCharArr($string);
-        return FFI::addr($charArr[0]);
+        $charPtr = FFI::cast('char*', FFI::addr($charArr));
+        return $charPtr;
     }
 
     /**
@@ -160,16 +163,20 @@ class App
     {
         $len = strlen($string);
         $charArr = $this->new("char[$len]", false);
-        FFI::memcpy($charArr, $string, $len);
+        for($i = 0; $i < $len; $i++) {
+            $char = $this->new('char', false);
+            $char->cdata = $string[$i];
+            $charArr[$i] = $char;
+        }
         return $charArr;
     }
 
     public function trunCast(CData $i, array $type, $ffi = null)
     {
-        if (count($type) < 1) {
+        if(count($type) < 1) {
             throw new InvalidArgumentException(__METHOD__ . "() paramter 2 can not empty array");
         }
-        foreach ($type as $t) {
+        foreach($type as $t) {
             $i = $this->cast($t, $i, $ffi);
         }
         return $i;
@@ -180,7 +187,7 @@ class App
         return $ffi ? $ffi->cast($type, $i) : FFI::cast($type, $i);
     }
 
-    public function  atk()
+    public function atk()
     {
         return new Atk($this, $this->libdir);
     }
@@ -217,7 +224,7 @@ class App
             array_shift($classInfo);
             array_unshift($classInfo, __DIR__);
             $path = join(DIRECTORY_SEPARATOR, $classInfo) . '.php';
-            if (file_exists($path)) {
+            if(file_exists($path)) {
                 include_once $path;
             }
         });
@@ -227,4 +234,5 @@ class App
     {
         $this->free();
     }
+
 }

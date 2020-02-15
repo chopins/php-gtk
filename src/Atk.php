@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use FFI;
+use Gtk\FFI;
 use Gtk\App;
 use Gtk\GObject;
 
@@ -37,7 +37,7 @@ class Atk extends GObject
 
     protected function dynCall($name, $arguments, &$ret = false)
     {
-        if (isset($this->defineTypeFunc[$name])) {
+        if(isset($this->defineTypeFunc[$name])) {
             $ret = true;
             $func = $this->defineTypeFunc[$name];
             return $func($name, ...$arguments);
@@ -58,7 +58,7 @@ class Atk extends GObject
     {
         return self::$ffi->atk_range_get_type();
     }
-    
+
     public function ATK_DEFINE_TYPE($TN, $tuN, $TP)
     {
         return $this->ATK_DEFINE_TYPE_EXTENDED($TN, $tuN, $TP, 0, '');

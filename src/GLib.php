@@ -12,7 +12,7 @@
 namespace Gtk;
 
 use FFI\CData;
-use FFI;
+use Gtk\FFI;
 use Gtk\DefineValue;
 use Gtk\GtkFFI;
 use Gtk\App;
@@ -111,10 +111,10 @@ class GLib extends GtkFFI implements DefineValue
 
     public function gettext($string)
     {
-        if (function_exists('gettext')) {
+        if(function_exists('gettext')) {
             return gettext($string);
         } else {
-            if (self::$gettextFFI) {
+            if(self::$gettextFFI) {
                 self::$gettextFFI = FFI::cdef('extern char *gettext (const char *__msgid);', self::$gettextDll);
             }
             return self::$gettextFFI->gettext($string);
@@ -128,7 +128,7 @@ class GLib extends GtkFFI implements DefineValue
 
     public function _($String)
     {
-        if (self::$GETTEXT_PACKAGE) {
+        if(self::$GETTEXT_PACKAGE) {
             return $this->cast('char *', self::$ffi->g_dgettext(self::$GETTEXT_PACKAGE, $String));
         }
         return $this->gettext($String);
@@ -552,7 +552,7 @@ class GLib extends GtkFFI implements DefineValue
 
     public function GUINT32_SWAP_BE_PDP($val)
     {
-        if ($val instanceof FFI) {
+        if($val instanceof FFI) {
             $v = $val->cdata;
         }
         $r = $this->new('guint32');
@@ -567,7 +567,7 @@ class GLib extends GtkFFI implements DefineValue
 
     public function GUINT32_SWAP_LE_PDP($val)
     {
-        if ($val instanceof FFI) {
+        if($val instanceof FFI) {
             $v = $val->cdata;
         }
         $r = $this->new('guint32');
@@ -638,10 +638,10 @@ class GLib extends GtkFFI implements DefineValue
     {
         try {
             count($a);
-        } catch (\FFI\Exception $e) {
+        } catch(\FFI\Exception $e) {
             throw new RuntimeException("C macro G_DEFINE_AUTO_CLEANUP_FREE_FUNC() copy array not implement");
         }
-        if (isset($a[0])) {
+        if(isset($a[0])) {
             return $a[0] = $b[0];
         } else {
             return $a->cdata = $b->cdata;

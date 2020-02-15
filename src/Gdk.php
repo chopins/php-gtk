@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use FFI;
+use Gtk\FFI;
 
 use Gtk\App;
 use Gtk\Gio;

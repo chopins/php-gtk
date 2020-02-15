@@ -12,14 +12,14 @@
 namespace Gtk;
 
 use BadMethodCallException;
-use FFI;
 use FFI\CData;
 use FFI\ParserException;
+use Gtk\FFI;
 use Gtk\App;
 use ReflectionClass;
 use ReflectionException;
-use RuntimeException;
 use ReflectionProperty;
+use RuntimeException;
 
 abstract class GtkFFI
 {
@@ -69,13 +69,14 @@ abstract class GtkFFI
     {
         $class = get_class($this);
         $this->initCDef($class);
-        while ($class = get_parent_class($class)) {
+        while($class = get_parent_class($class)) {
             $this->initCDef($class);
         }
     }
 
     protected static function compileVersion()
     {
+        
     }
 
     private function declareException($class, $msg)
@@ -89,7 +90,7 @@ abstract class GtkFFI
         try {
             $msg = 'protected static \$ffi';
             $ffiRef = $classRef->getProperty('ffi');
-            if (
+            if(
                 $ffiRef->getDeclaringClass()->name !== $class ||
                 !$ffiRef->isStatic() ||
                 !$ffiRef->isProtected()
@@ -97,10 +98,10 @@ abstract class GtkFFI
                 $this->declareException($class, $msg);
             }
 
-            foreach (['ID', 'MATCH_PREFIX', 'MATCH_FULL', 'UNIMPLEMENT', 'GLOBAL_VAL'] as $c) {
+            foreach(['ID', 'MATCH_PREFIX', 'MATCH_FULL', 'UNIMPLEMENT', 'GLOBAL_VAL'] as $c) {
                 $msg = "protected const $c";
                 $cr = $classRef->getReflectionConstant($c);
-                if (($cr->getDeclaringClass()->name !== $class || !$cr->isProtected())) {
+                if(($cr->getDeclaringClass()->name !== $class || !$cr->isProtected())) {
                     $this->declareException($class, $msg);
                 }
             }
@@ -108,20 +109,20 @@ abstract class GtkFFI
             $msg = 'protected static compileVersion()';
             $m = $classRef->getMethod('compileVersion');
 
-            if ($m->getDeclaringClass()->name !== $class || !$m->isStatic() || !$m->isProtected()) {
+            if($m->getDeclaringClass()->name !== $class || !$m->isStatic() || !$m->isProtected()) {
                 $this->declareException($class, $msg);
             }
-        } catch (ReflectionException $e) {
+        } catch(ReflectionException $e) {
             $this->declareException($class, $msg);
         }
     }
 
     private function initCDef($class)
     {
-        if (self::$isDebug) {
+        if(self::$isDebug) {
             $this->checkDeclare($class);
         }
-        if ($class::$ffi === null && $class::ID) {
+        if($class::$ffi === null && $class::ID) {
             $class::$ffi = $this->cdef($class::ID);
             $class::compileVersion();
             $this->callMap[$class::ID] = [
@@ -134,16 +135,16 @@ abstract class GtkFFI
         }
     }
 
-    private function cdef($lib)
+    private function cdef($libId)
     {
-        $config = $this->main::$gtkDllMap[$lib];
+        $config = $this->main::$gtkDllMap[$libId];
         do {
-            if (is_array($this->libdir)) {
-                if (isset($this->libdir[$lib])) {
-                    $libpath = $this->libdir[$lib];
+            if(is_array($this->libdir)) {
+                if(isset($this->libdir[$libId])) {
+                    $libpath = $this->libdir[$libId];
                     break;
                 }
-                if (!$this->firstDir) {
+                if(!$this->firstDir) {
                     reset($this->libdir);
                     $first = current($this->libdir);
                     $this->firstDir = dirname($first);
@@ -153,25 +154,27 @@ abstract class GtkFFI
                 $this->firstDir = $this->libdir;
                 $libpath = $this->libdir . "/{$config['name']}." . PHP_SHLIB_SUFFIX;
             }
-        } while (0);
+        } while(0);
 
         $code = ['struct' => $this->struct];
-        foreach ($config['header'] as $h) {
+        foreach($config['header'] as $h) {
             $code[$h] = file_get_contents($this->headerDir . "/$h.h");
         }
 
         try {
-            return FFI::cdef(
-                join($code),
-                $libpath
+            $ffiObj = FFI::cdef(
+                    join($code),
+                    $libpath
             );
-        } catch (ParserException $e) {
-            if (self::$isDebug) {
+            $ffiObj->id($libId);
+            return $ffiObj;
+        } catch(ParserException $e) {
+            if(self::$isDebug) {
                 $message = $e->getMessage();
                 preg_match('(\d+)', $e->getMessage(), $m);
-                foreach ($code as $f => $c) {
+                foreach($code as $f => $c) {
                     $fl = substr_count($c, "\n") + 1;
-                    if ($m[0] > $fl) {
+                    if($m[0] > $fl) {
                         $m[0] = $m[0] - $fl + 1;
                     } else {
                         break;
@@ -197,9 +200,9 @@ abstract class GtkFFI
 
     public function currentFFI($obj = null)
     {
-        if ($obj) {
+        if($obj) {
             $ffi = $obj::$ffi;
-        } elseif ($obj === null) {
+        } elseif($obj === null) {
             $ffi = $this::$ffi;
         } else {
             $ffi = null;
@@ -226,45 +229,47 @@ abstract class GtkFFI
 
     protected function dynCall($name, &$ret = null)
     {
+        
     }
 
     protected function dynGet($name, &$ret = null)
     {
+        
     }
 
     final public function __call($name, $arguments)
     {
         $ret = false;
         $dynReturn = $this->dynCall($name, $arguments, $ret);
-        if ($ret) {
+        if($ret) {
             return $dynReturn;
         }
 
-        foreach (self::$unimplement as $ps) {
-            if ($this->main->str0($name, $ps)) {
+        foreach(self::$unimplement as $ps) {
+            if($this->main->str0($name, $ps)) {
                 throw new RuntimeException("C macro '$name' can not implemented or deprecated");
             }
         }
 
         $prefixIdx = null;
-        foreach ($this->callMap as $i => $a) {
-            if (in_array($name, $a['full'])) {
+        foreach($this->callMap as $i => $a) {
+            if(in_array($name, $a['full'])) {
                 return $a['ffi']->$name(...$arguments);
             }
-            foreach ($a['prefix'] as $p) {
-                if ($this->main->str0($name, $p)) {
+            foreach($a['prefix'] as $p) {
+                if($this->main->str0($name, $p)) {
                     $prefixIdx = $i;
                     break;
                 }
             }
         }
 
-        if ($prefixIdx !== null) {
+        if($prefixIdx !== null) {
             return $this->callMap[$prefixIdx]['ffi']->$name(...$arguments);
         }
 
         $macroFunc = "_MACRO_$name";
-        if (strtoupper($name) === $name && \method_exists($this, $macroFunc)) {
+        if(strtoupper($name) === $name && \method_exists($this, $macroFunc)) {
             return $this->$macroFunc(...$arguments);
         }
 
@@ -276,35 +281,37 @@ abstract class GtkFFI
     {
         $ret = false;
         $dynReturn = $this->dynGet($name, $ret);
-        if ($ret) {
+        if($ret) {
             return $dynReturn;
         }
 
         $prefixIdx = null;
-        foreach ($this->callMap as $i => $a) {
-            if (isset($a['var'][$name]) && $a['var'][$name] === 0) {
+        foreach($this->callMap as $i => $a) {
+            if(isset($a['var'][$name]) && $a['var'][$name] === 0) {
                 return $a['ffi']->$name;
             }
-            foreach ($a['var'] as $p) {
-                if ($this->main->str0($name, $p)) {
+            foreach($a['var'] as $p) {
+                if($this->main->str0($name, $p)) {
                     $prefixIdx = $i;
                 }
             }
         }
-        if ($prefixIdx !== null) {
+        if($prefixIdx !== null) {
             return $this->callMap[$prefixIdx]['ffi']->$name;
         }
         $class = get_class($this);
         try {
             $ref = new ReflectionProperty($this, $name);
-            if ($ref->isStatic()) {
+            if($ref->isStatic()) {
                 return $class::$$name;
             } else {
                 return $this->$$name;
             }
-        } catch (ReflectionException $e) {
+        } catch(ReflectionException $e) {
+            
         }
 
         throw new RuntimeException("Get undefined property $class::\$$name");
     }
+
 }

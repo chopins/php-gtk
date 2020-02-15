@@ -12,6 +12,7 @@
 namespace Gtk;
 
 use Gtk\App;
+use Gtk\FFI;
 
 class Pixbuf extends Gdk
 {

@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use FFI;
+use Gtk\FFI;
 use Gtk\Gdk;
 use Gtk\App;
 use Gtk\GtkEnum;
@@ -200,8 +200,9 @@ class Gtk extends Gdk
     {
         $argcPtr = $this->new("int32_t", true, false);
         $argcPtr->cdata = $argc;
-        $ptr3 = FFI::addr($this->main->argArrPtr($argc, $argv));
-        return self::$ffi->gtk_init(FFI::addr($argcPtr), $ptr3);
+        $ptr3 = $this->main->argArrPtr($argc, $argv);
+        $ptr4 = FFI::addr($ptr3);
+        return self::$ffi->gtk_init(FFI::addr($argcPtr), $ptr4);
     }
 
     protected static function compileVersion()
@@ -248,7 +249,7 @@ class Gtk extends Gdk
         return (GTK_MAJOR_VERSION > ($major) ||
             (GTK_MAJOR_VERSION == ($major) && GTK_MINOR_VERSION > ($minor)) ||
             (GTK_MAJOR_VERSION == ($major) && GTK_MINOR_VERSION == ($minor) &&
-                GTK_MICRO_VERSION >= ($micro)));
+            GTK_MICRO_VERSION >= ($micro)));
     }
 
     public function gtk_major_version()
@@ -279,49 +280,49 @@ class Gtk extends Gdk
     public function gtk_widget_class_bind_template_callback($widget_class, $callback)
     {
         return self::$ffi->gtk_widget_class_bind_template_callback_full(
-            GTK_WIDGET_CLASS($widget_class),
-            $callback,
-            $this->G_CALLBACK($callback)
+                GTK_WIDGET_CLASS($widget_class),
+                $callback,
+                $this->G_CALLBACK($callback)
         );
     }
 
     public function gtk_widget_class_bind_template_child($widget_class, $TypeName, $member_name)
     {
         return self::$ffi->gtk_widget_class_bind_template_child_full(
-            $widget_class,
-            $member_name,
-            FALSE,
-            $this->G_STRUCT_OFFSET($TypeName, $member_name)
+                $widget_class,
+                $member_name,
+                FALSE,
+                $this->G_STRUCT_OFFSET($TypeName, $member_name)
         );
     }
 
     public function gtk_widget_class_bind_template_child_internal($widget_class, $TypeName, $member_name)
     {
         return self::$ffi->gtk_widget_class_bind_template_child_full(
-            $widget_class,
-            $member_name,
-            TRUE,
-            $this->G_STRUCT_OFFSET($TypeName, $member_name)
+                $widget_class,
+                $member_name,
+                TRUE,
+                $this->G_STRUCT_OFFSET($TypeName, $member_name)
         );
     }
 
     public function gtk_widget_class_bind_template_child_private($widget_class, $TypeName, $member_name)
     {
         return self::$ffi->gtk_widget_class_bind_template_child_full(
-            $widget_class,
-            $member_name,
-            FALSE,
-            $this->G_PRIVATE_OFFSET($TypeName, $member_name)
+                $widget_class,
+                $member_name,
+                FALSE,
+                $this->G_PRIVATE_OFFSET($TypeName, $member_name)
         );
     }
 
     public function gtk_widget_class_bind_template_child_internal_private($widget_class, $TypeName, $member_name)
     {
         return self::$ffi->gtk_widget_class_bind_template_child_full(
-            $widget_class,
-            $member_name,
-            TRUE,
-            $this->G_PRIVATE_OFFSET($TypeName, $member_name)
+                $widget_class,
+                $member_name,
+                TRUE,
+                $this->G_PRIVATE_OFFSET($TypeName, $member_name)
         );
     }
 
@@ -385,24 +386,30 @@ class Gtk extends Gdk
     {
         return self::$ffi->gtk_grid_get_type();
     }
+
     public function GTK_GRID($obj)
     {
         return $this->G_TYPE_CHECK_INSTANCE_CAST($obj, $this->GTK_TYPE_GRID(), 'GtkGrid');
     }
+
     public function GTK_GRID_CLASS($klass)
     {
         return $this->G_TYPE_CHECK_CLASS_CAST($klass, $this->GTK_TYPE_GRID(), 'GtkGridClass');
     }
+
     public function GTK_IS_GRID($obj)
     {
         return $this->G_TYPE_CHECK_INSTANCE_TYPE($obj, $this->GTK_TYPE_GRID());
     }
+
     public function GTK_IS_GRID_CLASS($klass)
     {
         return $this->G_TYPE_CHECK_CLASS_TYPE($klass, $this->GTK_TYPE_GRID());
     }
+
     public function GTK_GRID_GET_CLASS($obj)
     {
         return $this->G_TYPE_INSTANCE_GET_CLASS($obj, $this->GTK_TYPE_GRID(), 'GtkGridClass');
     }
+
 }
