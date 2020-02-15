@@ -6,7 +6,6 @@ The project only expose GTK API by FFI
 **Requirements**
 * PHP >= 7.4
 * PHP FFI extension available
-* FFI need merged [php-src request #5070](https://github.com/php/php-src/pull/5070),see [Note](#note) 4
 
 **Status**
 * support C function call of `GLib`, `GObject`, `Gio`, `Gtk`, `Atk`, `Gdk`, `Gdk-Pixbuf`, `Pango`
@@ -127,4 +126,3 @@ class App {
 * Default, The number of callback function argument must less than 10, otherwise extra argument value always  `NULL`, only when `Gtk\GtkFFI::$gCallbackArgNum` be changed to other value
 * do not use C function for callback, use php function call C function instead
 * if new C variable be used occur segfault, try new unmanaged variable
-* if not merged [php-src request #5070](https://github.com/php/php-src/pull/5070), must be self cast C type and do not call macro function
