@@ -6,7 +6,7 @@
         "php",
         "ffi",
         "gtk",
-        "gtk+3"
+        "gtk3"
     ],
     "homepage": "http://toknot.com",
     "license": "BSD-3-Clause",
