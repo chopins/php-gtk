@@ -37,11 +37,12 @@ class FFI
     {
         foreach ($args as &$v) {
             if($v instanceof CData) {
+                $typeStruct = \FFI::typeof($v);
                 ob_start();
-                var_dump(\FFI::typeof($v));
-                $type = ob_get_contents();
-                ob_end_clean();
-                $typeString = substr(explode('#', explode(':', $type, 2)[1], 2)[0], 0, -1);
+                var_dump($typeStruct);
+                $type = ob_get_clean();
+                strtok($type, ':');
+                $typeString = strtok(')#');
                 $v = $this->instance->cast($typeString, $v);
             }
         }
