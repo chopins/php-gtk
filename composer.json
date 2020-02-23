@@ -1,5 +1,5 @@
 {
-    "name": "php/gtk",
+    "name": "toknot/gtk",
     "description": "PHP bindings to the GTK+3.",
     "keywords": [
         "ui",
