@@ -12,6 +12,7 @@
 namespace Gtk;
 
 use FFI\CData;
+use PhpApi;
 
 class FFI
 {

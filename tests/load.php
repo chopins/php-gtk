@@ -1,7 +1,7 @@
 <?php
-use GTK\App;
+use Gtk\App;
 
-include dirname(__DIR__) . '/src/App.php';
+include __DIR__ .'/../vendor/autoload.php';
 $gtk = new App();
 
 function step()
