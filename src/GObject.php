@@ -43,9 +43,8 @@ class GObject extends GLib
 
     public function G_CALLBACK($fn)
     {
-        if(is_callable($fn)) {
-            $ref = new \ReflectionFunction($fn);
-            $argc = count($ref->getParameters());
+        if(is_callable($fn) && is_array($fn)) {
+           return  \Closure::fromCallable($fn);
         }
         return $fn;
     }
