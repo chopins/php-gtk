@@ -14,6 +14,8 @@ namespace Gtk;
 use Gtk\FFI;
 use Gtk\App;
 use Gtk\GLib;
+use ReflectionCFunction;
+use ReflectionException;
 
 class GObject extends GLib
 {
@@ -43,8 +45,17 @@ class GObject extends GLib
 
     public function G_CALLBACK($fn)
     {
-        if(is_callable($fn) && is_array($fn)) {
-           return  \Closure::fromCallable($fn);
+        if(is_callable($fn) && is_array($fn) && ($fn[0] === $this->main || $fn[0] === $this)) {
+            try {
+                $ref = new ReflectionCFunction(self::$ffi, $fn[1]);
+                $argc = $ref->cfuncNumArgs();
+                return function (...$p) use($argc, $fn) {
+                    $p = array_splice($p, $argc - 1);
+                    return $fn[0]->$fn[1](...$p);
+                };
+            } catch(ReflectionException $e) {
+                
+            }
         }
         return $fn;
     }

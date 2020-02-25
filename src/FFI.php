@@ -19,6 +19,12 @@ class FFI
     private $libId = '';
     private $instance = null;
     private $autoCast = true;
+    private $api = null;
+
+    private function __construct()
+    {
+        $this->api = new PhpApi;
+    }
 
     public function autoCast($enable = true)
     {
@@ -33,25 +39,10 @@ class FFI
         $this->libId = $id;
     }
 
-    public function castArgsType(&$args)
-    {
-        foreach ($args as &$v) {
-            if($v instanceof CData) {
-                $typeStruct = \FFI::typeof($v);
-                ob_start();
-                var_dump($typeStruct);
-                $type = ob_get_clean();
-                strtok($type, ':');
-                $typeString = strtok(')#');
-                $v = $this->instance->cast($typeString, $v);
-            }
-        }
-    }
-
     public function __call($name, $args = [])
     {
         if($this->autoCast) {
-            $this->castArgsType($args);
+            $this->api->castAllSameType($this->instance, $args);
         }
         return $this->instance->$name(...$args);
     }
