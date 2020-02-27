@@ -21,7 +21,6 @@ class Pixbuf extends Gdk
 
     protected const ID = App::PIXBUF_ID;
     protected const UNIMPLEMENT = [];
-    protected const GLOBAL_VAL = ['gdk_' => 1];
 
     protected static function compileVersion()
     {

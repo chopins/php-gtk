@@ -23,7 +23,6 @@ class Atk extends GObject
 
     protected const ID = App::ATK_ID;
     protected const UNIMPLEMENT = [];
-    protected const GLOBAL_VAL = ['atk_misc_instance' => 0];
 
     public function ATK_CHECK_VERSION($major, $minor, $micro)
     {

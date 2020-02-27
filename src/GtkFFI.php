@@ -39,7 +39,6 @@ abstract class GtkFFI
 
     protected const ID = null;
     protected const UNIMPLEMENT = [];
-    protected const GLOBAL_VAL = [];
 
     final public function __construct(App $main, $libdir = null)
     {
@@ -96,7 +95,7 @@ abstract class GtkFFI
                 $this->declareException($class, $msg);
             }
 
-            foreach(['ID', 'UNIMPLEMENT', 'GLOBAL_VAL'] as $c) {
+            foreach(['ID', 'UNIMPLEMENT'] as $c) {
                 $msg = "protected const $c";
                 $cr = $classRef->getReflectionConstant($c);
                 if(($cr->getDeclaringClass()->name !== $class || !$cr->isProtected())) {
@@ -123,10 +122,7 @@ abstract class GtkFFI
         if($class::$ffi === null && $class::ID) {
             $class::$ffi = $this->cdef($class::ID);
             $class::compileVersion();
-            $this->callMap[$class::ID] = [
-                'ffi' => $class::$ffi,
-                'var' => $class::GLOBAL_VAL,
-            ];
+            $this->callMap[$class::ID] =  $class::$ffi;
             self::$unimplement = array_merge(self::$unimplement, $class::UNIMPLEMENT);
         }
     }
@@ -236,8 +232,8 @@ abstract class GtkFFI
     final public function getFFIOfFunc($func)
     {
         foreach($this->callMap as $a) {
-            if($a['ffi']->phpApi()->hasCFunc($a['ffi']->getFFI(), $func)) {
-                return $a['ffi'];
+            if($a->phpApi()->hasCFunc($a->getFFI(), $func)) {
+                return $a;
             }
         }
         return null;
@@ -280,20 +276,12 @@ abstract class GtkFFI
             return $dynReturn;
         }
 
-        $prefixIdx = null;
-        foreach($this->callMap as $i => $a) {
-            if(isset($a['var'][$name]) && $a['var'][$name] === 0) {
-                return $a['ffi']->$name;
-            }
-            foreach($a['var'] as $p) {
-                if($this->main->str0($name, $p)) {
-                    $prefixIdx = $i;
-                }
+        foreach($this->callMap as $a) {
+            if($a->phpApi()->hasCVariable($a->getFFI(), $name)) {
+                return $a->$name;
             }
         }
-        if($prefixIdx !== null) {
-            return $this->callMap[$prefixIdx]['ffi']->$name;
-        }
+
         $class = get_class($this);
         try {
             $ref = new ReflectionProperty($this, $name);

@@ -22,7 +22,6 @@ class Pango extends GObject
 
     protected const ID = App::PANGO_ID;
     protected const UNIMPLEMENT = [];
-    protected const GLOBAL_VAL = [];
 
     protected static function compileVersion()
     {

@@ -24,7 +24,6 @@ class GObject extends GLib
 
     protected const ID = App::GOBJECT_ID;
     protected const UNIMPLEMENT = [];
-    protected const GLOBAL_VAL = ['g_param_spec_types' => 0];
 
     protected static function compileVersion()
     {

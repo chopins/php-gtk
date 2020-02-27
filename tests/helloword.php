@@ -10,12 +10,6 @@ function print_hello($widget, $data)
     
 }
 
-function hide($w,$d = null)
-{
-    global $gtk; 
-    $gtk->gtk_widget_destroy($w);
-}
-
 function activate($app, $user_data)
 {
     global $gtk;

@@ -23,7 +23,6 @@ class Gtk extends Gdk
 
     protected const ID = App::GTK_ID;
     protected const UNIMPLEMENT = ['GTK_STOCK_'];
-    protected const GLOBAL_VAL = [];
     const GTK_INPUT_ERROR = -1;
     const GTK_LEVEL_BAR_OFFSET_FULL = 'full';
     const GTK_LEVEL_BAR_OFFSET_HIGH = 'high';

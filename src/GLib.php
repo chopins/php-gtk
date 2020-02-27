@@ -59,7 +59,6 @@ class GLib extends GtkFFI implements DefineValue
         'G_BEGIN_DECLS',
         'G_END_DECLS',
     ];
-    protected const GLOBAL_VAL = ['g_' => 1, 'glib_' => 1];
     const G_PRIORITY_HIGH_IDLE = 100;
     const G_ASCII_DTOSTR_BUF_SIZE = 29 + 10;
     const G_ATOMIC_LOCK_FREE = 1;

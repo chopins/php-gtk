@@ -6,12 +6,7 @@ function print_hello($widget, $data)
     global $gtk;
     $gtk->g_print("Hello World\n");
 }
-function hide($w = null)
-{
-    global $gtk;
-    
-    $gtk->gtk_widget_destroy($w);
-}
+
 function activate($app, $user_data)
 {
     global $gtk;
@@ -44,7 +39,7 @@ function activate($app, $user_data)
     $gtk->gtk_grid_attach($gtk->GTK_GRID($grid), $button, 1, 0, 1, 1);
 
     $button = $gtk->gtk_button_new_with_label("Quit");
-    $gtk->g_signal_connect_swapped($button, "clicked", $gtk->G_CALLBACK('hide'), $window);
+    $gtk->g_signal_connect_swapped($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_widget_destroy'], true), $window);
 
     /* Place the Quit button in the grid cell (0, 1), and make it
    * span 2 columns.

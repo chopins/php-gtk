@@ -22,7 +22,6 @@ class Gio extends GObject
 
     protected const ID = App::GIO_ID;
     protected const UNIMPLEMENT = [];
-    protected const GLOBAL_VAL = [];
 
     protected static function compileVersion()
     {

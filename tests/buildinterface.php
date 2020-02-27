@@ -8,12 +8,6 @@ function print_hello($widget, $data)
     $gtk->g_print("Hello World\n");
 }
 
-function quit() 
-{
-    global $gtk;
-    $gtk->gtk_main_quit();
-}
-
 function main($argc, $argv)
 {
     global $gtk;
@@ -34,7 +28,7 @@ function main($argc, $argv)
     $button = $gtk->gtk_builder_get_object($builder, "button2");
     $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('print_hello'), NULL);
     $button = $gtk->gtk_builder_get_object($builder, "quit");
-    $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('quit'), NULL);
+    $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_main_quit'], true), NULL);
 
     $gtk->gtk_main();
 
