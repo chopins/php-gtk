@@ -200,7 +200,7 @@ class Gtk extends Gdk
     {
         $argcPtr = $this->new("int32_t", true, false);
         $argcPtr->cdata = $argc;
-        $ptr3 = $this->main->argArrPtr($argc, $argv);
+        $ptr3 = self::$ffi->phpApi()->argsPtr($argc, $argv);
         $ptr4 = FFI::addr($ptr3);
         return self::$ffi->gtk_init(FFI::addr($argcPtr), $ptr4);
     }

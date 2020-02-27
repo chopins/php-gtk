@@ -25,6 +25,11 @@ class FFI
     {
         $this->api = new PhpApi;
     }
+    
+    public function phpApi()
+    {
+        return $this->api;
+    }
 
     public function autoCast($enable = true)
     {

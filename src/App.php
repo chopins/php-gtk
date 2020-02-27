@@ -122,54 +122,6 @@ class App
         return true;
     }
 
-    /**
-     * PHP array to C Data of char*[] type
-     *
-     * @param integer $argc   number of elements in given array
-     * @param array $argv   given array
-     * @return CData
-     */
-    public function argArrPtr(int $argc, array $argv): CData
-    {
-        $p = $this->new("char *[$argc]", false);
-        self::$unmanagedCData->attach($p);
-        foreach($argv as $i => $arg) {
-            $p[$i] = $this->strToCharPtr($arg);
-        }
-        $a = FFI::addr($p);
-        return FFI::cast('char**', $a);
-    }
-
-    /**
-     * PHP string to C pointer of char** type
-     *
-     * @param string $string
-     * @return CData
-     */
-    public function strToCharPtr(string $string): CData
-    {
-        $charArr = $this->strToCharArr($string);
-        $charPtr = FFI::cast('char*', FFI::addr($charArr));
-        return $charPtr;
-    }
-
-    /**
-     * PHP string to  C Data of char[] type
-     *
-     * @param string $string
-     * @return CData
-     */
-    public function strToCharArr(string $string): CData
-    {
-        $len = strlen($string);
-        $charArr = $this->new("char[$len]", false);
-        for($i = 0; $i < $len; $i++) {
-            $char = $this->new('char', false);
-            $char->cdata = $string[$i];
-            $charArr[$i] = $char;
-        }
-        return $charArr;
-    }
 
     public function trunCast(CData $i, array $type, $ffi = null)
     {
