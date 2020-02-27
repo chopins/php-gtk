@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use Toknot\PhpApi;
+use Toknot\FFIExtend;
 
 class FFI
 {
@@ -24,7 +24,7 @@ class FFI
     private function __construct()
     {
         if(self::$api === null) {
-            self::$api = new PhpApi;
+            self::$api = new FFIExtend;
         }
     }
 
