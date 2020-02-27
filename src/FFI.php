@@ -11,8 +11,7 @@
 
 namespace Gtk;
 
-use FFI\CData;
-use PhpApi;
+use Toknot\PhpApi;
 
 class FFI
 {
