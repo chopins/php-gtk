@@ -22,8 +22,6 @@ class Atk extends GObject
     private array $defineTypeFunc = [];
 
     protected const ID = App::ATK_ID;
-    protected const MATCH_FULL = [];
-    protected const MATCH_PREFIX = ['atk_'];
     protected const UNIMPLEMENT = [];
     protected const GLOBAL_VAL = ['atk_misc_instance' => 0];
 

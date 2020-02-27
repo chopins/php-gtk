@@ -38,8 +38,6 @@ abstract class GtkFFI
     private static array $unimplement = [];
 
     protected const ID = null;
-    protected const MATCH_FULL = [];
-    protected const MATCH_PREFIX = [];
     protected const UNIMPLEMENT = [];
     protected const GLOBAL_VAL = [];
 
@@ -98,7 +96,7 @@ abstract class GtkFFI
                 $this->declareException($class, $msg);
             }
 
-            foreach(['ID', 'MATCH_PREFIX', 'MATCH_FULL', 'UNIMPLEMENT', 'GLOBAL_VAL'] as $c) {
+            foreach(['ID', 'UNIMPLEMENT', 'GLOBAL_VAL'] as $c) {
                 $msg = "protected const $c";
                 $cr = $classRef->getReflectionConstant($c);
                 if(($cr->getDeclaringClass()->name !== $class || !$cr->isProtected())) {
@@ -127,8 +125,6 @@ abstract class GtkFFI
             $class::compileVersion();
             $this->callMap[$class::ID] = [
                 'ffi' => $class::$ffi,
-                'prefix' => $class::MATCH_PREFIX,
-                'full' => $class::MATCH_FULL,
                 'var' => $class::GLOBAL_VAL,
             ];
             self::$unimplement = array_merge(self::$unimplement, $class::UNIMPLEMENT);
@@ -237,6 +233,16 @@ abstract class GtkFFI
         
     }
 
+    final public function getFFIOfFunc($func)
+    {
+        foreach($this->callMap as $a) {
+            if($a['ffi']->phpApi()->hasCFunc($a['ffi']->getFFI(), $func)) {
+                return $a['ffi'];
+            }
+        }
+        return null;
+    }
+
     final public function __call($name, $arguments)
     {
         $ret = false;
@@ -251,21 +257,10 @@ abstract class GtkFFI
             }
         }
 
-        $prefixIdx = null;
-        foreach($this->callMap as $i => $a) {
-            if(in_array($name, $a['full'])) {
-                return $a['ffi']->$name(...$arguments);
-            }
-            foreach($a['prefix'] as $p) {
-                if($this->main->str0($name, $p)) {
-                    $prefixIdx = $i;
-                    break;
-                }
-            }
-        }
+        $ffi = $this->getFFIOfFunc($name);
 
-        if($prefixIdx !== null) {
-            return $this->callMap[$prefixIdx]['ffi']->$name(...$arguments);
+        if($ffi !== null) {
+            return $ffi->$name(...$arguments);
         }
 
         $macroFunc = "_MACRO_$name";

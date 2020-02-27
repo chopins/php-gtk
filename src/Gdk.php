@@ -20,8 +20,6 @@ class Gdk extends Gio
 {
     protected static ?FFI $ffi = null;
     protected const ID = App::GDK_ID;
-    protected const MATCH_FULL = [];
-    protected const MATCH_PREFIX = ['gdk_'];
     protected const UNIMPLEMENT = [];
     protected const GLOBAL_VAL = [];
     

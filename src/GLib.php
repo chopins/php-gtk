@@ -27,39 +27,6 @@ class GLib extends GtkFFI implements DefineValue
     protected static ?FFI $ffi = null;
 
     protected const ID = App::GLIB_ID;
-    protected const MATCH_FULL = [
-        'g_unix_fd_add', 'g_unix_fd_add_full', 'g_unix_fd_source_new', 'g_unix_open_pipe',
-        'g_unix_set_fd_nonblocking', 'g_unix_signal_add', 'g_unix_signal_add_full',
-        'g_unix_signal_source_news', 'g_unlink', 'g_unsetenv', 'g_usleep', 'g_utime',
-        'g_vasprintf', 'g_vfprintf', 'g_vprintf', 'g_vsnprintf', 'g_vsprintf', 'g_rmdir',
-        'g_win32_check_windows_version', 'g_win32_error_message', 'g_win32_locale_filename_from_utf8',
-        'g_basename', 'g_file_get_contents', 'g_file_open_tmp', 'g_file_error_from_errno',
-        'g_file_read_link', 'g_file_set_contents', 'g_file_test', 'g_find_program_in_path',
-        'g_fopen', 'g_io_create_watch', 'g_listenv', 'g_list_delete_link', 'g_remove',
-    ];
-    protected const MATCH_PREFIX = [
-        'g_array_', 'g_ascii_', 'g_async_queue_', 'g_base64_',
-        'g_lib_', 'g_atomic_', 'g_bit_', 'g_bookmark_', 'g_build_',
-        'g_bytes_', 'g_cache_', 'g_chdir', 'g_checksum_', 'g_child_', 'g_chmod',
-        'g_clear_', 'g_close', 'g_completion_', 'g_compute_', 'g_cond_', 'g_convert',
-        'g_creat', 'g_datalist_', 'g_date_', 'g_dcgettext', 'g_dgettext', 'g_direct_',
-        'g_dir', 'g_double_', 'g_dpgettext', 'g_environ_', 'g_error_', 'g_filename_display_',
-        'g_filename_from_', 'g_filename_to_', 'g_format_', 'g_fprintf', 'g_free', 'g_list_sort',
-        'g_freopen', 'g_get', 'g_hash_', 'g_hmac_', 'g_hook_', 'g_hostname_', 'g_iconv',
-        'g_idle_', 'gint', 'g_int_', 'g_io_channel_', 'g_key_', 'g_list_a', 'g_list_co',
-        'g_log', 'g_locale_', 'g_list_f', 'g_list_in', 'g_list_l', 'g_list_n', 'g_list_p',
-        'g_lstat', 'g_main_', 'g_malloc', 'g_mapped_file_', 'g_io_add_watch', 'g_list_re',
-        'g_markup_', 'g_match_info_', 'g_memdup', 'g_memmove', 'g_mem_', 'g_mk', 'g_module_',
-        'g_mutex_', 'g_node_', 'g_nullify_pointer', 'g_once_init_', 'g_on_error_', 'g_open',
-        'g_option_', 'g_parse_debug_string', 'g_path_', 'g_pattern_', 'g_pointer_bit_',
-        'g_poll', 'g_prefix_error', 'g_print', 'g_private_', 'g_propagate_', 'g_ptr_array_',
-        'g_qsort_with_data', 'g_quark_', 'g_queue_', 'g_random_', 'g_rand_', 'g_rec_',
-        'g_regex_', 'g_rel', 'g_ren', 'g_return_',
-        'g_rw_lock_', 'g_scanner_', 'g_sequence_', 'g_setenv', 'g_set_', 'g_shell_', 'g_slice_',
-        'g_slist_', 'g_snprintf', 'g_source_', 'g_spaced_primes_closest', 'g_spawn_', 'g_sprintf',
-        'g_st', 'g_test_', 'g_thread_', 'g_time', 'g_tr', 'g_tuples_', 'g_ucs4_to_', 'guint',
-        'g_unic', 'g_uri_', 'g_utf', 'g_variant_', 'g_uuid_string_', 'g_warn', 'g_win32_get'
-    ];
     protected const UNIMPLEMENT = [
         'G_DEFINE_AUTOPTR_CLEANUP_FUNC',
         'G_DEFINE_AUTO_CLEANUP_CLEAR_FUNC',

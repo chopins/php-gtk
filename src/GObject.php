@@ -23,13 +23,6 @@ class GObject extends GLib
     protected static ?FFI $ffi = null;
 
     protected const ID = App::GOBJECT_ID;
-    protected const MATCH_FULL = ['g_source_set_closure', 'g_source_set_dummy_callback'];
-    protected const MATCH_PREFIX = [
-        'g_binding_', 'GBinding', 'g_cclosure_', 'GClass', 'GClosure', 'g_closure_',
-        'g_object_', 'g_signal_', 'GSignal', 'g_flags_',
-        'g_param_', 'g_type_', 'g_strdup_', 'g_value_', 'GValue',
-        'g_weak_', 'GWeak'
-    ];
     protected const UNIMPLEMENT = [];
     protected const GLOBAL_VAL = ['g_param_spec_types' => 0];
 
@@ -43,15 +36,15 @@ class GObject extends GLib
         return $this->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
     }
 
-    public function G_CALLBACK($fn)
+    public function G_CALLBACK($fn, $cfunc = false)
     {
-        if(is_callable($fn) && is_array($fn) && ($fn[0] === $this->main || $fn[0] === $this)) {
-            try {
-                $ref = new ReflectionCFunction(self::$ffi, $fn[1]);
-                return $ref->getClosure();
-            } catch(ReflectionException $e) {
-                
+        if($cfunc) {
+            $ffi = $fn[0]->getFFIOfFunc($fn[1]);
+            if(!$ffi) {
+                return $fn;
             }
+            $ref = new ReflectionCFunction($ffi->getFFI(), $fn[1]);
+            return $ref->getClosure();
         }
         return $fn;
     }

@@ -33,7 +33,7 @@ function activate($app, $user_data)
 
     $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('print_hello'), NULL);
 
-    $gtk->g_signal_connect_swapped($button, "clicked", 'hide', $window);
+    $gtk->g_signal_connect_swapped($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_widget_destroy'], true), $window);
 
     $gtk->gtk_container_add($gtk->GTK_CONTAINER($button_box), $button);
 

@@ -19,16 +19,23 @@ class FFI
     private $libId = '';
     private $instance = null;
     private $autoCast = true;
-    private $api = null;
+    private static $api = null;
 
     private function __construct()
     {
-        $this->api = new PhpApi;
+        if(self::$api === null) {
+            self::$api = new PhpApi;
+        }
     }
-    
+
     public function phpApi()
     {
-        return $this->api;
+        return self::$api;
+    }
+
+    public function getFFI()
+    {
+        return $this->instance;
     }
 
     public function autoCast($enable = true)
@@ -47,7 +54,7 @@ class FFI
     public function __call($name, $args = [])
     {
         if($this->autoCast) {
-            $this->api->castAllSameType($this->instance, $args);
+            self::$api->castAllSameType($this->instance, $args);
         }
         return $this->instance->$name(...$args);
     }
