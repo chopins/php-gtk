@@ -98,7 +98,7 @@ class App
         if($ffi) {
             $cdata = $ffi->new($type, $owned, $persistent);
         } elseif($this->ffi) {
-            $this->ffi->new($type, $owned, $persistent);
+            $cdata = $this->ffi->new($type, $owned, $persistent);
         } else {
             $cdata = FFI::new($type, $owned, $persistent);
         }
