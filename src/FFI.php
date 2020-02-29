@@ -19,18 +19,18 @@ class FFI
     private $libId = '';
     private $instance = null;
     private $autoCast = true;
-    private static $api = null;
+    private static $ffiExt = null;
 
     private function __construct()
     {
-        if(self::$api === null) {
-            self::$api = new FFIExtend;
+        if(self::$ffiExt === null) {
+            self::$ffiExt = new FFIExtend;
         }
     }
 
-    public function phpApi()
+    public function ffiExt()
     {
-        return self::$api;
+        return self::$ffiExt;
     }
 
     public function getFFI()

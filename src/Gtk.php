@@ -176,11 +176,28 @@ class Gtk extends Gdk
         return self::$ffi->gtk_native_dialog_get_type();
     }
 
-    public function GTK_WINDOW($window)
+    protected function dynCall($name, $args, &$hasRet = false)
     {
-        $gtype = $this->cast('GTypeInstance*', $window);
-        $gtypeCast = $this->g_type_check_instance_cast($gtype, $this->gtk_window_get_type());
-        return $this->cast('GtkWindow*', $gtypeCast);
+        if(strpos($name, 'GTK_') !== 0) {
+            return;
+        }
+        if(!preg_match('/^[A-Z0-9_]+$/', $name)) {
+            return;
+        }
+        $hasRet = true;
+        $type = strtolower($name);
+        $typeFunc = "{$type}_get_type";
+        if(strpos($name, 'GTK_TYPE_') === 0) {
+            return $this->$typeFunc();
+        }
+        $typeStruct = str_replace(ucwords($type, '_'), '_', '');
+        $castFunc = (strrpos($name, '_CLASS') === (strlen($name) - 6)) ?
+            'G_TYPE_CHECK_CLASS_CAST' :
+            'G_TYPE_CHECK_INSTANCE_CAST';
+        if(self::$ffi->ffiExt()->hasCType(self::$ffi->getFFI(), $typeStruct)) {
+            return $this->$castFunc($args[0], $this->$typeFunc(), $typeStruct);
+        }
+        $hasRet = false;
     }
 
     public function GTK_RECENT_MANAGER_ERROR()
@@ -377,16 +394,6 @@ class Gtk extends Gdk
     public function GTK_PRINT_ERROR()
     {
         return self::$ffi->gtk_print_error_quark();
-    }
-
-    public function GTK_TYPE_GRID()
-    {
-        return self::$ffi->gtk_grid_get_type();
-    }
-
-    public function GTK_GRID($obj)
-    {
-        return $this->G_TYPE_CHECK_INSTANCE_CAST($obj, $this->GTK_TYPE_GRID(), 'GtkGrid');
     }
 
     public function GTK_GRID_CLASS($klass)

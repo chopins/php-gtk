@@ -15,7 +15,6 @@ use Gtk\FFI;
 use Gtk\App;
 use Gtk\GLib;
 use Toknot\ReflectionCFunction;
-use ReflectionException;
 
 class GObject extends GLib
 {

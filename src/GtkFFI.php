@@ -224,7 +224,7 @@ abstract class GtkFFI
         
     }
 
-    protected function dynGet($name, &$ret = null)
+    protected function dynGet($name, $arguments, &$hasRet = null)
     {
         
     }
@@ -232,7 +232,7 @@ abstract class GtkFFI
     final public function getFFIOfFunc($func)
     {
         foreach($this->callMap as $a) {
-            if($a->phpApi()->hasCFunc($a->getFFI(), $func)) {
+            if($a->ffiExt()->hasCFunc($a->getFFI(), $func)) {
                 return $a;
             }
         }
