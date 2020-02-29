@@ -97,6 +97,8 @@ class App
     {
         if($ffi) {
             $cdata = $ffi->new($type, $owned, $persistent);
+        } elseif($this->ffi) {
+            $this->ffi->new($type, $owned, $persistent);
         } else {
             $cdata = FFI::new($type, $owned, $persistent);
         }
@@ -122,7 +124,6 @@ class App
         return true;
     }
 
-
     public function trunCast(CData $i, array $type, $ffi = null)
     {
         if(count($type) < 1) {
@@ -136,7 +137,12 @@ class App
 
     public function cast($type, CData $i, $ffi = null)
     {
-        return $ffi ? $ffi->cast($type, $i) : FFI::cast($type, $i);
+        return $ffi ? $ffi->cast($type, $i) : ($this->ffi ? $this->ffi->cast($type, $i) : FFI::cast($type, $i));
+    }
+
+    public function addr($v)
+    {
+        return FFI::addr($v);
     }
 
     public function atk()
