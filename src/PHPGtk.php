@@ -41,7 +41,7 @@ use Gtk\Pango;
 class PHPGtk
 {
 
-    private $ffi = null;
+    private $gtkLib = null;
     private static $unmanagedCData = null;
     private $libdir = '';
 
@@ -76,7 +76,7 @@ class PHPGtk
         $this->autoload();
         self::$unmanagedCData = new SplObjectStorage;
         $this->libdir = $libdir;
-        $this->ffi = new Gtk($this, $libdir);
+        $this->gtkLib = new Gtk($this, $libdir);
     }
 
     private function complieDefineValue()
@@ -97,8 +97,8 @@ class PHPGtk
     {
         if($ffi) {
             $cdata = $ffi->new($type, $owned, $persistent);
-        } elseif($this->ffi) {
-            $cdata = $this->ffi->new($type, $owned, $persistent);
+        } elseif($this->gtkLib) {
+            $cdata = $this->gtkLib->new($type, $owned, $persistent);
         } else {
             $cdata = FFI::new($type, $owned, $persistent);
         }
@@ -137,7 +137,7 @@ class PHPGtk
 
     public function cast($type, CData $i, $ffi = null)
     {
-        return $ffi ? $ffi->cast($type, $i) : ($this->ffi ? $this->ffi->cast($type, $i) : FFI::cast($type, $i));
+        return $ffi ? $ffi->cast($type, $i) : ($this->gtkLib ? $this->gtkLib->cast($type, $i) : FFI::cast($type, $i));
     }
 
     public function addr($v)
@@ -162,17 +162,17 @@ class PHPGtk
 
     public function __get($name)
     {
-        return $this->ffi->$name;
+        return $this->gtkLib->$name;
     }
 
     public function __set($name, $v)
     {
-        return $this->ffi->$name = $v;
+        return $this->gtkLib->$name = $v;
     }
 
     public function __call($name, $arguments)
     {
-        return $this->ffi->$name(...$arguments);
+        return $this->gtkLib->$name(...$arguments);
     }
 
     public function autoload()
