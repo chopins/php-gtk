@@ -94,7 +94,7 @@ class GtkWidget
             $struct = self::$gtkApp->currentFFI()->ffiExt()->getCTypeName($type);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
                 $w = new static($res);
-                $w->type = explode('_new', $name, 1)[0];
+                $w->type = explode('_new', $name, 2)[0];
                 return $w;
             }
             return $res;
