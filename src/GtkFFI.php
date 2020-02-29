@@ -52,7 +52,7 @@ abstract class GtkFFI
 
     final public function initDebugStatus()
     {
-        self::$isDebug = defined('DEV_DEBUG') && constant('DEV_DEBUG');
+        self::$isDebug = (defined('PHP_GTK_DEV_DEBUG') && constant('PHP_GTK_DEV_DEBUG'));
     }
 
     private function struct()

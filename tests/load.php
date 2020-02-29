@@ -2,6 +2,7 @@
 use Gtk\App;
 
 include __DIR__ .'/../vendor/autoload.php';
+const PHP_GTK_DEV_DEBUG = true;
 $gtk = new App();
 
 function step()
