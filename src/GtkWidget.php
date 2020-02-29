@@ -27,10 +27,8 @@ class GtkWidget
         }
     }
 
-    private function __construct($widget, $name)
+    private function __construct($widget)
     {
-        $this->type = strtok($name, '_');
-        $this->type .= '_' . strtok('_');
         $this->widget = $widget;
     }
 
@@ -42,6 +40,11 @@ class GtkWidget
     public function __invoke()
     {
         return $this->widget;
+    }
+    
+    public function setCastFunc($type)
+    {
+        $this->type = strtolower($type);
     }
 
     public static function castWidget(&$args)
@@ -76,7 +79,9 @@ class GtkWidget
             $type = \FFI::typeof($res);
             $struct = self::$gtkApp->currentFFI()->ffiExt()->getCTypeName($type);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
-                return new static($res, $name, $args);
+                $w = new static($res);
+                $w->type = strtok($name, '_new');
+                return $w;
             }
             return $res;
         }
