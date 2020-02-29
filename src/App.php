@@ -33,7 +33,6 @@ use Gtk\Pango;
     'PHP_GTK_DEV_DEBUG' => false,
     ] as $k => $n) {
         if(!defined($k)) {
-            var_dump($k);
             define($k, $n);
         }
     }
