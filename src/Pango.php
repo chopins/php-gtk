@@ -12,7 +12,7 @@
 namespace Gtk;
 
 use Gtk\FFI;
-use Gtk\App;
+use Gtk\PHPGtk;
 use Gtk\GObject;
 
 class Pango extends GObject
@@ -20,7 +20,7 @@ class Pango extends GObject
 
     protected static ?FFI $ffi = null;
 
-    protected const ID = App::PANGO_ID;
+    protected const ID = PHPGtk::PANGO_ID;
     protected const UNIMPLEMENT = [];
 
     protected static function compileVersion()

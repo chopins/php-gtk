@@ -11,7 +11,7 @@
 
 namespace Gtk;
 
-use Gtk\App;
+use Gtk\PHPGtk;
 use Gtk\FFI;
 
 class Pixbuf extends Gdk
@@ -19,7 +19,7 @@ class Pixbuf extends Gdk
 
     protected static ?FFI $ffi = null;
 
-    protected const ID = App::PIXBUF_ID;
+    protected const ID = PHPGtk::PIXBUF_ID;
     protected const UNIMPLEMENT = [];
 
     protected static function compileVersion()

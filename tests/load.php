@@ -1,9 +1,9 @@
 <?php
-use Gtk\App;
+use Gtk\PHPGtk;
 
 include __DIR__ .'/../vendor/autoload.php';
 const PHP_GTK_DEV_DEBUG = true;
-$gtk = new App();
+$gtk = new PHPGtk();
 
 function step()
 {

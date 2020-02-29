@@ -13,7 +13,7 @@ namespace Gtk;
 
 use Gtk\FFI;
 use Gtk\Gdk;
-use Gtk\App;
+use Gtk\PHPGtk;
 use Gtk\GtkEnum;
 
 class Gtk extends Gdk
@@ -21,7 +21,7 @@ class Gtk extends Gdk
 
     protected static ?FFI $ffi = null;
 
-    protected const ID = App::GTK_ID;
+    protected const ID = PHPGtk::GTK_ID;
     protected const UNIMPLEMENT = ['GTK_STOCK_'];
     const GTK_INPUT_ERROR = -1;
     const GTK_LEVEL_BAR_OFFSET_FULL = 'full';

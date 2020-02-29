@@ -38,7 +38,7 @@ use Gtk\Pango;
     }
 })();
 
-class App
+class PHPGtk
 {
 
     private $ffi = null;

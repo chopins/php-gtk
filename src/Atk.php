@@ -12,7 +12,7 @@
 namespace Gtk;
 
 use Gtk\FFI;
-use Gtk\App;
+use Gtk\PHPGtk;
 use Gtk\GObject;
 
 class Atk extends GObject
@@ -21,7 +21,7 @@ class Atk extends GObject
     protected static ?FFI $ffi = null;
     private array $defineTypeFunc = [];
 
-    protected const ID = App::ATK_ID;
+    protected const ID = PHPGtk::ATK_ID;
     protected const UNIMPLEMENT = [];
 
     public function ATK_CHECK_VERSION($major, $minor, $micro)

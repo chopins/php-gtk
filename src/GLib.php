@@ -14,11 +14,11 @@ namespace Gtk;
 use FFI\CData;
 use Gtk\FFI;
 use Gtk\DefineValue;
-use Gtk\GtkFFI;
-use Gtk\App;
+use Gtk\GtkAbstract;
+use Gtk\PHPGtk;
 use RuntimeException;
 
-class GLib extends GtkFFI implements DefineValue
+class GLib extends GtkAbstract implements DefineValue
 {
 
     public static $GETTEXT_PACKAGE = null;
@@ -26,7 +26,7 @@ class GLib extends GtkFFI implements DefineValue
     private static $gettextFFI = null;
     protected static ?FFI $ffi = null;
 
-    protected const ID = App::GLIB_ID;
+    protected const ID = PHPGtk::GLIB_ID;
     protected const UNIMPLEMENT = [
         'G_DEFINE_AUTOPTR_CLEANUP_FUNC',
         'G_DEFINE_AUTO_CLEANUP_CLEAR_FUNC',

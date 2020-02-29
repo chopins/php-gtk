@@ -15,20 +15,20 @@ use BadMethodCallException;
 use FFI\CData;
 use FFI\ParserException;
 use Gtk\FFI;
-use Gtk\App;
+use Gtk\PHPGtk;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionProperty;
 use RuntimeException;
 
-abstract class GtkFFI
+abstract class GtkAbstract
 {
 
     use Builtin;
 
     public static bool $isDebug = false;
     public static int $gCallbackArgNum = 10;
-    protected ?App $main = null;
+    protected ?PHPGtk $main = null;
     protected string $headerDir = '';
     protected string $struct = '';
     protected $libdir = '';
@@ -40,7 +40,7 @@ abstract class GtkFFI
     protected const ID = null;
     protected const UNIMPLEMENT = [];
 
-    final public function __construct(App $main, $libdir = null)
+    final public function __construct(PHPGtk $main, $libdir = null)
     {
         $this->initDebugStatus();
         $this->main = $main;
@@ -178,13 +178,13 @@ abstract class GtkFFI
         }
     }
 
-    public function type($type, GtkFFI $obj)
+    public function type($type, GtkAbstract $obj)
     {
         $ffi = $this->currentFFI($obj);
         return $this->main->new($type, $ffi);
     }
 
-    public function new($type, bool $owned = true, bool $persistent = false, GtkFFI $obj = null)
+    public function new($type, bool $owned = true, bool $persistent = false, GtkAbstract $obj = null)
     {
         $ffi = $this->currentFFI($obj);
         return $this->main->new($type, $owned, $persistent, $ffi);
@@ -202,13 +202,13 @@ abstract class GtkFFI
         return $ffi;
     }
 
-    public function cast($type, CData $cdata, GtkFFI $obj = null)
+    public function cast($type, CData $cdata, GtkAbstract $obj = null)
     {
         $ffi = $this->currentFFI($obj);
         return $this->main->cast($type, $cdata, $ffi);
     }
 
-    public function trunCast(CData $i, array $type, GtkFFI $obj = null)
+    public function trunCast(CData $i, array $type, GtkAbstract $obj = null)
     {
         $ffi = $this->currentFFI($obj);
         return $this->main->trunCast($i, $type, $ffi);

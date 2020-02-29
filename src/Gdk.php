@@ -13,13 +13,13 @@ namespace Gtk;
 
 use Gtk\FFI;
 
-use Gtk\App;
+use Gtk\PHPGtk;
 use Gtk\Gio;
 
 class Gdk extends Gio
 {
     protected static ?FFI $ffi = null;
-    protected const ID = App::GDK_ID;
+    protected const ID = PHPGtk::GDK_ID;
     protected const UNIMPLEMENT = [];
     
     const GDK_PRIORITY_REDRAW = self::G_PRIORITY_HIGH_IDLE + 20;

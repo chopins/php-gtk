@@ -12,7 +12,7 @@
 namespace Gtk;
 
 use Gtk\FFI;
-use Gtk\App;
+use Gtk\PHPGtk;
 use Gtk\GLib;
 use Toknot\ReflectionCFunction;
 
@@ -21,7 +21,7 @@ class GObject extends GLib
 
     protected static ?FFI $ffi = null;
 
-    protected const ID = App::GOBJECT_ID;
+    protected const ID = PHPGtk::GOBJECT_ID;
     protected const UNIMPLEMENT = [];
 
     protected static function compileVersion()
