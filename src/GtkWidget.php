@@ -53,11 +53,19 @@ class GtkWidget
         return self::$gtkApp->GTK_CONTAINER($this->widget);
     }
 
+    public function containerAdd($child)
+    {
+        if($child instanceof GtkWidget) {
+            $child = $child->getCData();
+        }
+        return self::$gtkApp->gtk_container_add($this->toContainer(), $child);
+    }
+
     public static function castWidget(&$args)
     {
         foreach($args as &$arg) {
             if($arg instanceof GtkWidget) {
-                $arg = $arg->getWidgetCData();
+                $arg = $arg->getCData();
             }
         }
     }
