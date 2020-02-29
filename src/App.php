@@ -30,7 +30,7 @@ use Gtk\Pango;
     'PHP_GTK_ID_GDK' => 'gdk',
     'PHP_GTK_ID_PIXBUF' => 'pixbuf',
     'PHP_GTK_ID_ATK' => 'atk',
-    'DEV_DEBUG' => 1,
+    'PHP_GTK_DEV_DEBUG' => false,
     ] as $k => $n) {
         if(!defined($k)) {
             define($k, $n);
