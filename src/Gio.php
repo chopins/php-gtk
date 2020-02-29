@@ -30,7 +30,7 @@ class Gio extends GObject
 
     public function g_application_run($gapp, $argc = 0, $argv = [])
     {
-        $argvPtr = self::$ffi->phpApi()->argsPtr($argc, $argv);
+        $argvPtr = self::$ffi->ffiExt()->argsPtr($argc, $argv);
         return self::$ffi->g_application_run($gapp, $argc, $argvPtr);
     }
 

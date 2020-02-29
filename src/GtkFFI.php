@@ -219,12 +219,12 @@ abstract class GtkFFI
         return $this->main->free($cdata);
     }
 
-    protected function dynCall($name, &$ret = null)
+    protected function dynCall($name, $arguments, &$ret = null)
     {
         
     }
 
-    protected function dynGet($name, $arguments, &$hasRet = null)
+    protected function dynGet($name, &$hasRet = false)
     {
         
     }
@@ -277,7 +277,7 @@ abstract class GtkFFI
         }
 
         foreach($this->callMap as $a) {
-            if($a->phpApi()->hasCVariable($a->getFFI(), $name)) {
+            if($a->ffiExt()->hasCVariable($a->getFFI(), $name)) {
                 return $a->$name;
             }
         }

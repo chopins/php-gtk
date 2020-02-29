@@ -54,7 +54,7 @@ class FFI
     public function __call($name, $args = [])
     {
         if($this->autoCast) {
-            self::$api->castAllSameType($this->instance, $args);
+            self::$ffiExt->castAllSameType($this->instance, $args);
         }
         return $this->instance->$name(...$args);
     }

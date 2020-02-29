@@ -39,7 +39,7 @@ class Atk extends GObject
             $func = $this->defineTypeFunc[$name];
             return $func($name, ...$arguments);
         }
-        parent::dynCall($name, $ret);
+        parent::dynCall($name, $arguments, $ret);
     }
 
     protected static function complieVersion()

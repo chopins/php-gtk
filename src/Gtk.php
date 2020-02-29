@@ -178,10 +178,8 @@ class Gtk extends Gdk
 
     protected function dynCall($name, $args, &$hasRet = false)
     {
-        if(strpos($name, 'GTK_') !== 0) {
-            return;
-        }
-        if(!preg_match('/^[A-Z0-9_]+$/', $name)) {
+        if(strpos($name, 'GTK_') !== 0 || !preg_match('/^[A-Z0-9_]+$/', $name)) {
+            $hasRet = false;
             return;
         }
         $hasRet = true;
@@ -190,7 +188,8 @@ class Gtk extends Gdk
         if(strpos($name, 'GTK_TYPE_') === 0) {
             return $this->$typeFunc();
         }
-        $typeStruct = str_replace(ucwords($type, '_'), '_', '');
+
+        $typeStruct = str_replace('_', '', ucwords($type, '_'));
         $castFunc = (strrpos($name, '_CLASS') === (strlen($name) - 6)) ?
             'G_TYPE_CHECK_CLASS_CAST' :
             'G_TYPE_CHECK_INSTANCE_CAST';
@@ -198,6 +197,7 @@ class Gtk extends Gdk
             return $this->$castFunc($args[0], $this->$typeFunc(), $typeStruct);
         }
         $hasRet = false;
+        return parent::dynGet($name, $args, $hasRet);
     }
 
     public function GTK_RECENT_MANAGER_ERROR()
@@ -214,7 +214,7 @@ class Gtk extends Gdk
     {
         $argcPtr = $this->new("int32_t", true, false);
         $argcPtr->cdata = $argc;
-        $ptr3 = self::$ffi->phpApi()->argsPtr($argc, $argv);
+        $ptr3 = self::$ffi->ffiExt()->argsPtr($argc, $argv);
         $ptr4 = FFI::addr($ptr3);
         return self::$ffi->gtk_init(FFI::addr($argcPtr), $ptr4);
     }
