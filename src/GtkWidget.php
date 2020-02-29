@@ -41,11 +41,16 @@ class GtkWidget
     {
         return $this->widget;
     }
-    
+
     public function setType($type)
     {
         $type = substr(preg_replace('/([A-Z])/', '_$1', $type), 1);
         $this->type = strtolower($type);
+    }
+
+    public function toContainer()
+    {
+        return self::$gtkApp->GTK_CONTAINER($this->widget);
     }
 
     public static function castWidget(&$args)
