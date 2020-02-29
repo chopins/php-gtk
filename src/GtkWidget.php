@@ -32,7 +32,7 @@ class GtkWidget
         $this->widget = $widget;
     }
 
-    public function getWidgetCData()
+    public function getCData()
     {
         return $this->widget;
     }
@@ -42,8 +42,9 @@ class GtkWidget
         return $this->widget;
     }
     
-    public function setCastFunc($type)
+    public function setType($type)
     {
+        $type = substr(preg_replace('/([A-Z])/', '_$1', $type), 1);
         $this->type = strtolower($type);
     }
 
@@ -80,7 +81,7 @@ class GtkWidget
             $struct = self::$gtkApp->currentFFI()->ffiExt()->getCTypeName($type);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
                 $w = new static($res);
-                $w->type = explode('_new', $name)[0];
+                $w->type = explode('_new', $name, 1)[0];
                 return $w;
             }
             return $res;
