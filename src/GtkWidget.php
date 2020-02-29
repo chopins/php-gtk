@@ -53,6 +53,12 @@ class GtkWidget
         }
     }
 
+    /**
+     * 
+     * @param string $name
+     * @param array $arguments
+     * @return FFI\CData
+     */
     public function __call($name, $arguments = [])
     {
         self::castWidget($arguments);
