@@ -20,6 +20,7 @@ class GtkWidget
     private $widget = null;
     private $type = '';
     private $gtkTypeCast = '';
+    private $typeInstance = null;
 
     public static function init(PHPGtk $gtk)
     {
@@ -43,10 +44,13 @@ class GtkWidget
         return $this->widget;
     }
 
-    public function getParentInstance()
+    public function parent($type)
     {
-        $typeInstance = $this->getTypeInstance();
-        return $typeInstance[0]->parent_instance;
+        $w = new static($this->widget);
+        $w->type = $type;
+        $w->gtkTypeCast = $w->getTypeCast();
+        $w->typeInstance = $w->castTypeInstance();
+        return $w;
     }
 
     public function toContainer()
@@ -69,14 +73,25 @@ class GtkWidget
 
     public function getTypeInstance()
     {
+        return $this->typeInstance;
+    }
+
+    public function getTypeCast()
+    {
+        return strtolower(substr(preg_replace('/([A-Z])/', '_$1', $this->type), 1));
+    }
+
+    protected function castTypeInstance()
+    {
         $typeCast = strtoupper($this->gtkTypeCast);
         return self::$gtkApp->$typeCast($this->widget);
     }
 
     protected function setTypeClass()
     {
-        $this->type = self::$gtkApp->G_TYPE_FROM_CLASS($this->widget->parent_instance->g_type_instance);
-        $this->gtkTypeCast = substr(preg_replace('/([A-Z])/', '_$1', $this->type), 1);
+        $this->type = self::$gtkApp->G_OBJECT_CLASS_NAME($this->widget->parent_instance->g_type_instance);
+        $this->gtkTypeCast = $this->getTypeCast();
+        $this->typeInstance = $this->castTypeInstance();
     }
 
     public static function castWidget(&$args)
@@ -97,18 +112,23 @@ class GtkWidget
     public function __call($name, $arguments = [])
     {
         self::castWidget($arguments);
-        $w = $this->getTypeInstance();
         $fn = "{$this->gtkTypeCast}_{$name}";
-        return self::$gtkApp->$fn($w, ...$arguments);
+        return self::$gtkApp->$fn($this->typeInstance, ...$arguments);
     }
 
+    /**
+     * 
+     * @param sttring $name
+     * @param array $args
+     * @return \static|\FFI\CData
+     */
     public static function __callStatic($name, $args = [])
     {
         self::castWidget($args);
         $res = self::$gtkApp->$name(...$args);
         if($res instanceof \FFI\CData) {
             $type = \FFI::typeof($res);
-            $struct = self::$gtkApp->currentFFI()->ffiExt()->getCTypeName($type);
+            $struct = self::$gtkApp->ffi->ffiExt()->getCTypeName($type);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
                 $w = new static($res);
                 $w->setTypeClass();

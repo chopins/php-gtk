@@ -178,10 +178,10 @@ abstract class GtkAbstract
         }
     }
 
-    public function type($type, GtkAbstract $obj)
+    public function type($type, ?GtkAbstract $obj = null)
     {
         $ffi = $this->currentFFI($obj);
-        return $this->main->new($type, $ffi);
+        return $ffi->type($type);
     }
 
     public function new($type, bool $owned = true, bool $persistent = false, GtkAbstract $obj = null)

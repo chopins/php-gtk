@@ -23,6 +23,8 @@ class GObject extends GLib
 
     protected const ID = PHPGtk::GOBJECT_ID;
     protected const UNIMPLEMENT = [];
+    const G_TYPE_FUNDAMENTAL_SHIFT = 2;
+    const G_TYPE_RESERVED_GLIB_FIRST = 22;
 
     protected static function compileVersion()
     {
@@ -131,6 +133,31 @@ class GObject extends GLib
         return $this->g_type_check_instance_is_fundamentally_a($p, $gt);
     }
 
+    public function G_TYPE_MAKE_FUNDAMENTAL($x)
+    {
+        return $x << self::G_TYPE_FUNDAMENTAL_SHIFT;
+    }
+
+    public function G_TYPE_OBJECT()
+    {
+        return $this->G_TYPE_MAKE_FUNDAMENTAL(20);
+    }
+
+    public function G_TYPE_GTYPE()
+    {
+        return $this->g_gtype_get_type();
+    }
+
+    public function G_IS_OBJECT($obj)
+    {
+        return $this->G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE($obj, $this->G_TYPE_OBJECT());
+    }
+
+    public function G_IS_OBJECT_CLASS($class)
+    {
+        return $this->G_TYPE_CHECK_CLASS_TYPE($class, $this->G_TYPE_OBJECT());
+    }
+
     public function G_TYPE_CHECK_VALUE_TYPE($v, $gt)
     {
         $p = $this->cast('GValue*', $v);
@@ -146,6 +173,28 @@ class GObject extends GLib
     public function G_TYPE_FROM_CLASS($cp)
     {
         return $this->cast('GTypeClass*', $cp)[0]->g_type;
+    }
+
+    public function G_OBJECT_CLASS_TYPE($class)
+    {
+        return $this->G_TYPE_FROM_CLASS($class);
+    }
+
+    public function G_OBJECT_TYPE($o)
+    {
+        return $this->G_TYPE_FROM_INSTANCE($o);
+    }
+
+    public function G_OBJECT_TYPE_NAME($obj)
+    {
+        $id = $this->G_OBJECT_TYPE($obj);
+        return $this->g_type_name($id[0]->g_type);
+    }
+
+    public function G_OBJECT_CLASS_NAME($obj)
+    {
+        $id = $this->G_OBJECT_CLASS_TYPE($obj);
+        return $this->g_type_name($id);
     }
 
     public function G_TYPE_FROM_INTERFACE($gi)
