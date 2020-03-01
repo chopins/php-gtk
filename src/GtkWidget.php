@@ -53,17 +53,6 @@ class GtkWidget
         return $w;
     }
 
-    public function toContainer()
-    {
-        return self::$gtkApp->GTK_CONTAINER($this->widget);
-    }
-
-    public function containerAdd($child)
-    {
-        self::castWidget($child);
-        return self::$gtkApp->gtk_container_add($this->toContainer(), $child);
-    }
-
     public function getTypeClass()
     {
         return $this->type;
@@ -95,7 +84,7 @@ class GtkWidget
         self::castWidget($data);
         return self::$gtkApp->g_signal_connect_swapped($this->widget, $sig, self::$gtkApp->G_CALLBACK($callable), $data);
     }
-    
+
     public function sConnectA($sig, $callable, $data)
     {
         self::castWidget($data);
