@@ -24,7 +24,7 @@ function activate($app, $user_data)
     $window->set_title("Window");
     $window->set_default_size(200, 200);
 
-    $button_box = $gtk->gtk_button_box_new(GtkEnum::GTK_ORIENTATION_HORIZONTAL);
+    $button_box = GtkWidget::gtk_button_box_new(GtkEnum::GTK_ORIENTATION_HORIZONTAL);
 
     $window->containerAdd($button_box);
 
@@ -34,7 +34,7 @@ function activate($app, $user_data)
 
     $gtk->g_signal_connect_swapped($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_widget_destroy'], true), $window->getCData());
 
-    $gtk->gtk_container_add($gtk->GTK_CONTAINER($button_box), $button);
+    $button_box->containerAdd($button);
 
     GtkWidget::gtk_widget_show_all($window);
     
