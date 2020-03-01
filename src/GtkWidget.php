@@ -19,6 +19,7 @@ class GtkWidget
     private static $gtkApp = null;
     private $widget = null;
     private $type = '';
+    private $gtkTypeCast = '';
 
     public static function init(PHPGtk $gtk)
     {
@@ -42,10 +43,9 @@ class GtkWidget
         return $this->widget;
     }
 
-    public function setType($type)
+    public function getParentInstance()
     {
-        $type = substr(preg_replace('/([A-Z])/', '_$1', $type), 1);
-        $this->type = strtolower($type);
+        return $this->widget->parent_instance;
     }
 
     public function toContainer()
@@ -59,6 +59,23 @@ class GtkWidget
             $child = $child->getCData();
         }
         return self::$gtkApp->gtk_container_add($this->toContainer(), $child);
+    }
+
+    public function getTypeClass()
+    {
+        return $this->type;
+    }
+
+    public function getTypeInstance()
+    {
+        $typeCast = strtoupper($this->gtkTypeCast);
+        return self::$gtkApp->$typeCast($this->widget);
+    }
+
+    protected function setTypeClass()
+    {
+        $this->type = self::$gtkApp->G_TYPE_FROM_CLASS($this->widget->parent_instance->g_type_instance);
+        $this->gtkTypeCast = substr(preg_replace('/([A-Z])/', '_$1', $this->type), 1);
     }
 
     public static function castWidget(&$args)
@@ -79,9 +96,8 @@ class GtkWidget
     public function __call($name, $arguments = [])
     {
         self::castWidget($arguments);
-        $typeCast = strtoupper($this->type);
-        $w = self::$gtkApp->$typeCast($this->widget);
-        $fn = "{$this->type}_{$name}";
+        $w = $this->getTypeInstance();
+        $fn = "{$this->gtkTypeCast}_{$name}";
         return self::$gtkApp->$fn($w, ...$arguments);
     }
 
@@ -94,7 +110,7 @@ class GtkWidget
             $struct = self::$gtkApp->currentFFI()->ffiExt()->getCTypeName($type);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
                 $w = new static($res);
-                $w->type = explode('_new', $name, 2)[0];
+                $w->setTypeClass();
                 return $w;
             }
             return $res;
