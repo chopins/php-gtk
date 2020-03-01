@@ -53,6 +53,11 @@ class GtkWidget
         return $w;
     }
 
+    public function container()
+    {
+        return $this->parent('GtkContainer');
+    }
+
     public function getTypeClass()
     {
         return $this->type;
@@ -134,7 +139,7 @@ class GtkWidget
      * 
      * @param sttring $name
      * @param array $args
-     * @return \static|\FFI\CData
+     * @return GtkWidget
      */
     public static function __callStatic($name, $args = [])
     {
