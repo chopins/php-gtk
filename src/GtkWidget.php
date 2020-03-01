@@ -60,9 +60,7 @@ class GtkWidget
 
     public function containerAdd($child)
     {
-        if($child instanceof GtkWidget) {
-            $child = $child->getCData();
-        }
+        self::castWidget($child);
         return self::$gtkApp->gtk_container_add($this->toContainer(), $child);
     }
 
@@ -81,6 +79,29 @@ class GtkWidget
         return strtolower(substr(preg_replace('/([A-Z])/', '_$1', $this->type), 1));
     }
 
+    /**
+     * 
+     * @param string $sig
+     * @param callable $callable
+     * @param mix $data
+     */
+    public function sConnect($sig, $callable, $data = null)
+    {
+        return self::$gtkApp->g_signal_connect($this->widget, $sig, self::$gtkApp->G_CALLBACK($callable), $data);
+    }
+
+    public function sConnectS($sig, $callable, $data)
+    {
+        self::castWidget($data);
+        return self::$gtkApp->g_signal_connect_swapped($this->widget, $sig, self::$gtkApp->G_CALLBACK($callable), $data);
+    }
+    
+    public function sConnectA($sig, $callable, $data)
+    {
+        self::castWidget($data);
+        return self::$gtkApp->g_signal_connect_after($this->widget, $sig, self::$gtkApp->G_CALLBACK($callable), $data);
+    }
+
     protected function castTypeInstance()
     {
         $typeCast = strtoupper($this->gtkTypeCast);
@@ -96,9 +117,13 @@ class GtkWidget
 
     public static function castWidget(&$args)
     {
-        foreach($args as &$arg) {
-            if($arg instanceof GtkWidget) {
-                $arg = $arg->getCData();
+        if(is_array($args)) {
+            foreach($args as &$arg) {
+                self::castWidget($arg);
+            }
+        } else {
+            if($args instanceof GtkWidget) {
+                $args = $args->getCData();
             }
         }
     }

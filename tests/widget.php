@@ -28,11 +28,11 @@ function activate($app, $user_data)
 
     $window->containerAdd($button_box);
 
-    $button = $gtk->gtk_button_new_with_label("Hello World");
+    $button = GtkWidget::gtk_button_new_with_label("Hello World");
 
-    $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('print_hello'), NULL);
+    $button->sConnect("clicked", 'print_hello');
 
-    $gtk->g_signal_connect_swapped($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_widget_destroy'], true), $window->getCData());
+    $button->sConnectS("clicked", [$gtk, 'gtk_widget_destroy', true], $window);
 
     $button_box->containerAdd($button);
 

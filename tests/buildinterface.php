@@ -22,13 +22,13 @@ function main($argc, $argv)
     }
     /* Connect signal handlers to the constructed widgets. */
     $window = $gtk->gtk_builder_get_object($builder, "window");
-    $gtk->g_signal_connect($window, "destroy", $gtk->G_CALLBACK([$gtk, 'gtk_main_quit'], true), NULL);
+    $gtk->g_signal_connect($window, "destroy", $gtk->G_CALLBACK([$gtk, 'gtk_main_quit', true]), NULL);
     $button = $gtk->gtk_builder_get_object($builder, "button1");
     $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('print_hello'), NULL);
     $button = $gtk->gtk_builder_get_object($builder, "button2");
     $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK('print_hello'), NULL);
     $button = $gtk->gtk_builder_get_object($builder, "quit");
-    $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_main_quit'], true), NULL);
+    $gtk->g_signal_connect($button, "clicked", $gtk->G_CALLBACK([$gtk, 'gtk_main_quit', true]), NULL);
 
     $gtk->gtk_main();
 

@@ -36,9 +36,14 @@ class GObject extends GLib
         return $this->g_signal_connect_data($instance, $detailed_signal, $c_handler, $data, null, null);
     }
 
-    public function G_CALLBACK($fn, $cfunc = false)
+    /**
+     * 
+     * @param callable $fn  if is array, 3rd element is C function flag
+     * @return callable
+     */
+    public function G_CALLBACK($fn)
     {
-        if($cfunc) {
+        if(is_array($fn) && isset($fn[2])) {
             $ffi = $fn[0]->getFFIOfFunc($fn[1]);
             if(!$ffi) {
                 return $fn;
