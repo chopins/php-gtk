@@ -45,7 +45,8 @@ class GtkWidget
 
     public function getParentInstance()
     {
-        return $this->widget->parent_instance;
+        $typeInstance = $this->getTypeInstance();
+        return $typeInstance[0]->parent_instance;
     }
 
     public function toContainer()
