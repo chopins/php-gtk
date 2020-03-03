@@ -136,7 +136,7 @@ class GtkWidget
         if(self::$gtkApp->ffi->hasCFunc($fn)) {
             $res = self::$gtkApp->$fn($this->typeInstance, ...$arguments);
         } elseif(self::$gtkApp->ffi->hasCFunc($wfn)) {
-            $res = self::$gtkApp->$wfn($this->typeInstance, ...$arguments);
+            $res = self::$gtkApp->$wfn($this->widget, ...$arguments);
         }
         if($res instanceof \FFI\CData) {
             $struct = self::$gtkApp->ffi->getCDataType($res);
