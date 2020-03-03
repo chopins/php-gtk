@@ -133,13 +133,13 @@ class GtkWidget
         self::castWidget($arguments);
         $fn = "{$this->gtkTypeCast}_{$name}";
         $wfn = "gtk_widget_{$name}";
-        if(self::$gtkApp->hasCFunc($fn)) {
+        if(self::$gtkApp->ffi->hasCFunc($fn)) {
             $res = self::$gtkApp->$fn($this->typeInstance, ...$arguments);
-        } elseif(self::$gtkApp->hasCFunc($wfn)) {
+        } elseif(self::$gtkApp->ffi->hasCFunc($wfn)) {
             $res = self::$gtkApp->$wfn($this->typeInstance, ...$arguments);
         }
         if($res instanceof \FFI\CData) {
-            $struct = self::$gtkApp->getCDataType($res);
+            $struct = self::$gtkApp->ffi->getCDataType($res);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
                 $w = new static($res);
                 $w->setTypeClass();
@@ -160,8 +160,7 @@ class GtkWidget
         self::castWidget($args);
         $res = self::$gtkApp->$name(...$args);
         if($res instanceof \FFI\CData) {
-            $type = \FFI::typeof($res);
-            $struct = self::$gtkApp->getCDataType($type);
+            $struct = self::$gtkApp->ffi->getCDataType($res);
             if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
                 $w = new static($res);
                 $w->setTypeClass();
