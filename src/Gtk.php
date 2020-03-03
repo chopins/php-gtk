@@ -176,7 +176,7 @@ class Gtk extends Gdk
         return self::$ffi->gtk_native_dialog_get_type();
     }
 
-    protected function dynCall($name, $args, &$hasRet = false)
+    protected function dynCall($name, $args = [], &$hasRet = false)
     {
         if(strpos($name, 'GTK_') !== 0 || !preg_match('/^[A-Z0-9_]+$/', $name)) {
             $hasRet = false;
@@ -189,7 +189,7 @@ class Gtk extends Gdk
             return $this->$typeFunc();
         }
 
-        $typeStruct = str_replace('_', '', ucwords($type, '_'));
+        $typeStruct = isset($args[1]) ? $args[1] : str_replace('_', '', ucwords($type, '_'));
         $castFunc = (strrpos($name, '_CLASS') === (strlen($name) - 6)) ?
             'G_TYPE_CHECK_CLASS_CAST' :
             'G_TYPE_CHECK_INSTANCE_CAST';
@@ -197,7 +197,7 @@ class Gtk extends Gdk
             return $this->$castFunc($args[0], $this->$typeFunc(), $typeStruct);
         }
         $hasRet = false;
-        return parent::dynGet($name, $args, $hasRet);
+        return parent::dynCall($name, $args, $hasRet);
     }
 
     public function GTK_RECENT_MANAGER_ERROR()

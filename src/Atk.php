@@ -32,7 +32,7 @@ class Atk extends GObject
             ATK_MICRO_VERSION >= $micro);
     }
 
-    protected function dynCall($name, $arguments, &$ret = false)
+    protected function dynCall($name, $arguments = [], &$ret = false)
     {
         if(isset($this->defineTypeFunc[$name])) {
             $ret = true;

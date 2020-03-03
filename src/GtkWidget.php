@@ -104,7 +104,7 @@ class GtkWidget
     protected function castTypeInstance()
     {
         $typeCast = strtoupper($this->gtkTypeCast);
-        return self::$gtkApp->$typeCast($this->widget);
+        return self::$gtkApp->$typeCast($this->widget, $this->type);
     }
 
     protected function setTypeClass()

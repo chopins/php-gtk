@@ -219,7 +219,7 @@ abstract class GtkAbstract
         return $this->main->free($cdata);
     }
 
-    protected function dynCall($name, $arguments, &$ret = null)
+    protected function dynCall($name, $arguments = [], &$ret = null)
     {
         
     }
