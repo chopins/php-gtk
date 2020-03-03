@@ -73,11 +73,6 @@ class GtkWidget
         return strtolower(substr(preg_replace('/([A-Z]{1,2})/', '_$1', $this->type), 1));
     }
 
-    public function destroy()
-    {
-        return self::$gtkApp->gtk_widget_destroy($this->widget);
-    }
-
     /**
      * 
      * @param string $sig
@@ -137,7 +132,12 @@ class GtkWidget
     {
         self::castWidget($arguments);
         $fn = "{$this->gtkTypeCast}_{$name}";
-        $res = self::$gtkApp->$fn($this->typeInstance, ...$arguments);
+        $wfn = "gtk_widget_{$name}";
+        if(self::$gtkApp->ffi->ffiExt()->hasCFunc($fn)) {
+            $res = self::$gtkApp->$fn($this->typeInstance, ...$arguments);
+        } elseif(self::$gtkApp->ffi->ffiExt()->hasCFunc($wfn)) {
+            $res = self::$gtkApp->$wfn($this->typeInstance, ...$arguments);
+        }
         if($res instanceof \FFI\CData) {
             $type = \FFI::typeof($res);
             $struct = self::$gtkApp->ffi->ffiExt()->getCTypeName($type);
