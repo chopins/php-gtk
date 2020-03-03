@@ -12,6 +12,8 @@
 namespace Gtk;
 
 use Toknot\FFIExtend;
+use FFI\CType;
+use FFI\CData;
 
 class FFI
 {
@@ -36,6 +38,32 @@ class FFI
     public function getFFI()
     {
         return $this->instance;
+    }
+
+    public function hasCFunc($fname)
+    {
+        return self::$ffiExt->hasCFunc($this->instance, $fname);
+    }
+
+    public function hasCType($type)
+    {
+        return self::$ffiExt->hasCType($this->instance, $type);
+    }
+
+    public function hasCVar($var)
+    {
+        return self::$ffiExt->hasCVariable($this->instance, $var);
+    }
+
+    public function getCTypeName(CType $type)
+    {
+        return self::$ffiExt->getCTypeName($type);
+    }
+
+    public function getCDataType(CData $data)
+    {
+        $type = \FFI::typeof($data);
+        return $this->getCTypeName($type);
     }
 
     public function autoCast($enable = true)

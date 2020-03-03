@@ -193,7 +193,7 @@ class Gtk extends Gdk
         $castFunc = (strrpos($name, '_CLASS') === (strlen($name) - 6)) ?
             'G_TYPE_CHECK_CLASS_CAST' :
             'G_TYPE_CHECK_INSTANCE_CAST';
-        if(self::$ffi->ffiExt()->hasCType(self::$ffi->getFFI(), $typeStruct)) {
+        if(self::$ffi->hasCType($typeStruct)) {
             return $this->$castFunc($args[0], $this->$typeFunc(), $typeStruct);
         }
         $hasRet = false;
