@@ -73,6 +73,11 @@ class GtkWidget
         return strtolower(substr(preg_replace('/([A-Z])/', '_$1', $this->type), 1));
     }
 
+    public function destroy()
+    {
+        return self::$gtkApp->gtk_widget_destroy($this->widget);
+    }
+
     /**
      * 
      * @param string $sig
