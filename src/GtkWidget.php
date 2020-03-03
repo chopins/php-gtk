@@ -70,7 +70,7 @@ class GtkWidget
 
     public function getTypeCast()
     {
-        return strtolower(substr(preg_replace('/([A-Z])/', '_$1', $this->type), 1));
+        return strtolower(substr(preg_replace('/([A-Z]{1,2})/', '_$1', $this->type), 1));
     }
 
     public function destroy()
