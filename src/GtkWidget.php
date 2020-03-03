@@ -132,7 +132,17 @@ class GtkWidget
     {
         self::castWidget($arguments);
         $fn = "{$this->gtkTypeCast}_{$name}";
-        return self::$gtkApp->$fn($this->typeInstance, ...$arguments);
+        $res = self::$gtkApp->$fn($this->typeInstance, ...$arguments);
+        if($res instanceof \FFI\CData) {
+            $type = \FFI::typeof($res);
+            $struct = self::$gtkApp->ffi->ffiExt()->getCTypeName($type);
+            if($struct === 'struct _GtkWidget' || $struct === 'struct _GtkWidget*') {
+                $w = new static($res);
+                $w->setTypeClass();
+                return $w;
+            }
+        }
+        return $res;
     }
 
     /**
@@ -153,8 +163,8 @@ class GtkWidget
                 $w->setTypeClass();
                 return $w;
             }
-            return $res;
         }
+        return $res;
     }
 
 }
