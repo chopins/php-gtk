@@ -60,6 +60,22 @@ abstract class GtkAbstract
         $this->struct = file_get_contents($this->headerDir . '/struct.h');
         $args = trim(str_repeat('void*,', self::$gCallbackArgNum), ',');
         $this->struct = str_replace('##GCallbackArgListString##', $args, $this->struct);
+        if(!defined('PHP_GDK_VERSION')) {
+            trigger_error('Undefined constant PHP_GDK_VERSION for gdk version, use 3.20', E_USER_WARNING);
+            define('PHP_GDK_VERSION', '3.20');
+        } elseif(version_compare(PHP_GDK_VERSION, '3.20') < 0) {
+            throw new RuntimeException('GDK version must >= 3.20');
+        }
+    }
+
+    protected function gdkAvailableIn(&$code, $version)
+    {
+        $v = str_replace('.', '_', $version);
+        if(version_compare(PHP_GDK_VERSION, $version) >= 0) {
+            $code = str_replace("GDK_AVAILABLE_IN_{$v} ", 'extern ', $code);
+        } else {
+            $code = str_replace("GDK_AVAILABLE_IN_{$v} ", '// ', $code);
+        }
     }
 
     private function recursiveCDef()
@@ -122,7 +138,7 @@ abstract class GtkAbstract
         if($class::$ffi === null && $class::ID) {
             $class::$ffi = $this->cdef($class::ID);
             $class::compileVersion();
-            $this->callMap[$class::ID] =  $class::$ffi;
+            $this->callMap[$class::ID] = $class::$ffi;
             self::$unimplement = array_merge(self::$unimplement, $class::UNIMPLEMENT);
         }
     }
@@ -151,6 +167,8 @@ abstract class GtkAbstract
         $code = ['struct' => $this->struct];
         foreach($config['header'] as $h) {
             $code[$h] = file_get_contents($this->headerDir . "/$h.h");
+            $this->gdkAvailableIn($code[$h], '3.24');
+            $this->gdkAvailableIn($code[$h], '3.22');
         }
 
         try {

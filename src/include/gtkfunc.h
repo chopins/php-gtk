@@ -992,12 +992,9 @@ extern
 GtkWidget* gtk_menu_new_from_model (GMenuModel *model);extern
 void gtk_menu_popup (GtkMenu *menu,GtkWidget *parent_menu_shell,GtkWidget *parent_menu_item,GtkMenuPositionFunc func,gpointer data,guint button,guint32 activate_time);extern
 void gtk_menu_popup_for_device (GtkMenu *menu,GdkDevice *device,GtkWidget *parent_menu_shell,GtkWidget *parent_menu_item,GtkMenuPositionFunc func,gpointer data,GDestroyNotify destroy,guint button,guint32 activate_time);
-extern
-void gtk_menu_popup_at_rect (GtkMenu *menu,GdkWindow *rect_window,const GdkRectangle *rect,GdkGravity rect_anchor,GdkGravity menu_anchor,const GdkEvent *trigger_event);
-extern
-void gtk_menu_popup_at_widget (GtkMenu *menu,GtkWidget *widget,GdkGravity widget_anchor,GdkGravity menu_anchor,const GdkEvent *trigger_event);
-extern
-void gtk_menu_popup_at_pointer (GtkMenu *menu,const GdkEvent *trigger_event);
+GDK_AVAILABLE_IN_3_22 void gtk_menu_popup_at_rect (GtkMenu *menu,GdkWindow *rect_window,const GdkRectangle *rect,GdkGravity rect_anchor,GdkGravity menu_anchor,const GdkEvent *trigger_event);
+GDK_AVAILABLE_IN_3_22 void gtk_menu_popup_at_widget (GtkMenu *menu,GtkWidget *widget,GdkGravity widget_anchor,GdkGravity menu_anchor,const GdkEvent *trigger_event);
+GDK_AVAILABLE_IN_3_22 void gtk_menu_popup_at_pointer (GtkMenu *menu,const GdkEvent *trigger_event);
 extern
 void gtk_menu_reposition (GtkMenu *menu);
 extern
@@ -1034,8 +1031,7 @@ extern
 void gtk_menu_set_monitor (GtkMenu *menu,gint monitor_num);
 extern
 gint gtk_menu_get_monitor (GtkMenu *menu);
-extern
-void gtk_menu_place_on_monitor (GtkMenu *menu,GdkMonitor *monitor);
+GDK_AVAILABLE_IN_3_22 void gtk_menu_place_on_monitor (GtkMenu *menu,GdkMonitor *monitor);
 extern
 GList* gtk_menu_get_for_attach_widget (GtkWidget *widget);
 extern
@@ -3315,8 +3311,7 @@ extern
 void gtk_clipboard_set_can_store (GtkClipboard *clipboard,const GtkTargetEntry *targets,gint n_targets);
 extern
 void gtk_clipboard_store (GtkClipboard *clipboard);
-extern
-GdkAtom gtk_clipboard_get_selection (GtkClipboard *clipboard);extern
+GDK_AVAILABLE_IN_3_22 GdkAtom gtk_clipboard_get_selection (GtkClipboard *clipboard);extern
 GType gtk_color_button_get_type (void) ;
 extern
 GtkWidget * gtk_color_button_new (void);
@@ -3477,42 +3472,25 @@ extern
 gboolean gtk_event_box_get_above_child (GtkEventBox *event_box);
 extern
 void gtk_event_box_set_above_child (GtkEventBox *event_box,gboolean above_child);
+extern GType gtk_event_controller_get_type (void) ;
+extern GtkWidget * gtk_event_controller_get_widget (GtkEventController *controller);
+extern gboolean gtk_event_controller_handle_event (GtkEventController *controller,const GdkEvent *event);
+extern void gtk_event_controller_reset (GtkEventController *controller);
+extern GtkPropagationPhase gtk_event_controller_get_propagation_phase (GtkEventController *controller);
+extern void gtk_event_controller_set_propagation_phase (GtkEventController *controller,GtkPropagationPhase phase);
+GDK_AVAILABLE_IN_3_24 GType gtk_event_controller_key_get_type (void) ;
+GDK_AVAILABLE_IN_3_24 GtkEventController *gtk_event_controller_key_new (GtkWidget *widget);
+GDK_AVAILABLE_IN_3_24 void gtk_event_controller_key_set_im_context (GtkEventControllerKey *controller,GtkIMContext *im_context);
+GDK_AVAILABLE_IN_3_24 GtkIMContext * gtk_event_controller_key_get_im_context (GtkEventControllerKey *controller);
+GDK_AVAILABLE_IN_3_24 gboolean gtk_event_controller_key_forward (GtkEventControllerKey *controller,GtkWidget *widget);
+GDK_AVAILABLE_IN_3_24 guint gtk_event_controller_key_get_group (GtkEventControllerKey *controller);
+GDK_AVAILABLE_IN_3_24 GType gtk_event_controller_motion_get_type (void) ;
+GDK_AVAILABLE_IN_3_24 GtkEventController *gtk_event_controller_motion_new (GtkWidget *widget);
+GDK_AVAILABLE_IN_3_24 GType gtk_event_controller_scroll_get_type (void) ;
+GDK_AVAILABLE_IN_3_24 GtkEventController *gtk_event_controller_scroll_new (GtkWidget *widget,GtkEventControllerScrollFlags flags);
+GDK_AVAILABLE_IN_3_24 void gtk_event_controller_scroll_set_flags (GtkEventControllerScroll *controller,GtkEventControllerScrollFlags flags);
+GDK_AVAILABLE_IN_3_24 GtkEventControllerScrollFlags gtk_event_controller_scroll_get_flags (GtkEventControllerScroll *controller);
 extern
-GType gtk_event_controller_get_type (void) ;
-extern
-GtkWidget * gtk_event_controller_get_widget (GtkEventController *controller);
-extern
-gboolean gtk_event_controller_handle_event (GtkEventController *controller,const GdkEvent *event);
-extern
-void gtk_event_controller_reset (GtkEventController *controller);
-extern
-GtkPropagationPhase gtk_event_controller_get_propagation_phase (GtkEventController *controller);
-extern
-void gtk_event_controller_set_propagation_phase (GtkEventController *controller,GtkPropagationPhase phase);
-extern
-GType gtk_event_controller_key_get_type (void) ;
-extern
-GtkEventController *gtk_event_controller_key_new (GtkWidget *widget);
-extern
-void gtk_event_controller_key_set_im_context (GtkEventControllerKey *controller,GtkIMContext *im_context);
-extern
-GtkIMContext * gtk_event_controller_key_get_im_context (GtkEventControllerKey *controller);
-extern
-gboolean gtk_event_controller_key_forward (GtkEventControllerKey *controller,GtkWidget *widget);
-extern
-guint gtk_event_controller_key_get_group (GtkEventControllerKey *controller);
-extern
-GType gtk_event_controller_motion_get_type (void) ;
-extern
-GtkEventController *gtk_event_controller_motion_new (GtkWidget *widget);
-extern
-GType gtk_event_controller_scroll_get_type (void) ;
-extern
-GtkEventController *gtk_event_controller_scroll_new (GtkWidget *widget,GtkEventControllerScrollFlags flags);
-extern
-void gtk_event_controller_scroll_set_flags (GtkEventControllerScroll *controller,GtkEventControllerScrollFlags flags);
-extern
-GtkEventControllerScrollFlags gtk_event_controller_scroll_get_flags (GtkEventControllerScroll *controller);extern
 GType gtk_expander_get_type (void) ;
 extern
 GtkWidget *gtk_expander_new (const gchar *label);
@@ -3576,10 +3554,8 @@ extern
 GtkFileFilterFlags gtk_file_filter_get_needed (GtkFileFilter *filter);
 extern
 gboolean gtk_file_filter_filter (GtkFileFilter *filter,const GtkFileFilterInfo *filter_info);
-extern
-GVariant *gtk_file_filter_to_gvariant (GtkFileFilter *filter);
-extern
-GtkFileFilter *gtk_file_filter_new_from_gvariant (GVariant *variant);
+GDK_AVAILABLE_IN_3_22 GVariant *gtk_file_filter_to_gvariant (GtkFileFilter *filter);
+GDK_AVAILABLE_IN_3_22 GtkFileFilter *gtk_file_filter_new_from_gvariant (GVariant *variant);
 extern
 GType gtk_file_chooser_get_type (void) ;
 extern
@@ -3702,15 +3678,11 @@ extern
 gboolean gtk_file_chooser_remove_shortcut_folder_uri (GtkFileChooser *chooser,const char *uri,GError **error);
 extern
 GSList *gtk_file_chooser_list_shortcut_folder_uris (GtkFileChooser *chooser);
-extern
-void gtk_file_chooser_add_choice (GtkFileChooser *chooser,const char *id,const char *label,const char **options,const char **option_labels);
-extern
-void gtk_file_chooser_remove_choice (GtkFileChooser *chooser,const char *id);
-extern
-void gtk_file_chooser_set_choice (GtkFileChooser *chooser,const char *id,const char *option);
-extern
-const char *gtk_file_chooser_get_choice (GtkFileChooser *chooser,const char *id);extern
-GType gtk_file_chooser_button_get_type (void) ;
+GDK_AVAILABLE_IN_3_22 void gtk_file_chooser_add_choice (GtkFileChooser *chooser,const char *id,const char *label,const char **options,const char **option_labels);
+GDK_AVAILABLE_IN_3_22 void gtk_file_chooser_remove_choice (GtkFileChooser *chooser,const char *id);
+GDK_AVAILABLE_IN_3_22 void gtk_file_chooser_set_choice (GtkFileChooser *chooser,const char *id,const char *option);
+GDK_AVAILABLE_IN_3_22 const char *gtk_file_chooser_get_choice (GtkFileChooser *chooser,const char *id);
+extern GType gtk_file_chooser_button_get_type (void) ;
 extern
 GtkWidget * gtk_file_chooser_button_new (const gchar *title,GtkFileChooserAction action);
 extern
@@ -3808,8 +3780,7 @@ extern
 void gtk_flow_box_insert (GtkFlowBox *box,GtkWidget *widget,gint position);
 extern
 GtkFlowBoxChild *gtk_flow_box_get_child_at_index (GtkFlowBox *box,gint idx);
-extern
-GtkFlowBoxChild *gtk_flow_box_get_child_at_pos (GtkFlowBox *box,gint x,gint y);
+GDK_AVAILABLE_IN_3_22 GtkFlowBoxChild *gtk_flow_box_get_child_at_pos (GtkFlowBox *box,gint x,gint y);
 extern
 void gtk_flow_box_selected_foreach (GtkFlowBox *box,GtkFlowBoxForeachFunc func,gpointer data);
 extern
@@ -3894,16 +3865,12 @@ extern
 void gtk_font_chooser_set_font_map (GtkFontChooser *fontchooser,PangoFontMap *fontmap);
 extern
 PangoFontMap * gtk_font_chooser_get_font_map (GtkFontChooser *fontchooser);
+GDK_AVAILABLE_IN_3_24 void gtk_font_chooser_set_level (GtkFontChooser *fontchooser,GtkFontChooserLevel level);
+GDK_AVAILABLE_IN_3_24 GtkFontChooserLevel gtk_font_chooser_get_level (GtkFontChooser *fontchooser);
+GDK_AVAILABLE_IN_3_24 char * gtk_font_chooser_get_font_features (GtkFontChooser *fontchooser);
+GDK_AVAILABLE_IN_3_24 char * gtk_font_chooser_get_language (GtkFontChooser *fontchooser);
+GDK_AVAILABLE_IN_3_24 void gtk_font_chooser_set_language (GtkFontChooser *fontchooser,const char *language);
 extern
-void gtk_font_chooser_set_level (GtkFontChooser *fontchooser,GtkFontChooserLevel level);
-extern
-GtkFontChooserLevel gtk_font_chooser_get_level (GtkFontChooser *fontchooser);
-extern
-char * gtk_font_chooser_get_font_features (GtkFontChooser *fontchooser);
-extern
-char * gtk_font_chooser_get_language (GtkFontChooser *fontchooser);
-extern
-void gtk_font_chooser_set_language (GtkFontChooser *fontchooser,const char *language);extern
 GType gtk_font_chooser_dialog_get_type (void) ;
 extern
 GtkWidget* gtk_font_chooser_dialog_new (const gchar *title,GtkWindow *parent);extern
@@ -4002,14 +3969,10 @@ extern
 GtkGesture * gtk_gesture_rotate_new (GtkWidget *widget);
 extern
 gdouble gtk_gesture_rotate_get_angle_delta (GtkGestureRotate *gesture);
-extern
-GType gtk_gesture_stylus_get_type (void) ;
-extern
-GtkGesture * gtk_gesture_stylus_new (GtkWidget *widget);
-extern
-gboolean gtk_gesture_stylus_get_axis (GtkGestureStylus *gesture,GdkAxisUse axis,gdouble *value);
-extern
-gboolean gtk_gesture_stylus_get_axes (GtkGestureStylus *gesture,GdkAxisUse axes[],gdouble **values);
+GDK_AVAILABLE_IN_3_24 GType gtk_gesture_stylus_get_type (void) ;
+GDK_AVAILABLE_IN_3_24 GtkGesture * gtk_gesture_stylus_new (GtkWidget *widget);
+GDK_AVAILABLE_IN_3_24 gboolean gtk_gesture_stylus_get_axis (GtkGestureStylus *gesture,GdkAxisUse axis,gdouble *value);
+GDK_AVAILABLE_IN_3_24 gboolean gtk_gesture_stylus_get_axes (GtkGestureStylus *gesture,GdkAxisUse axes[],gdouble **values);
 extern
 GdkDeviceTool * gtk_gesture_stylus_get_device_tool (GtkGestureStylus *gesture);
 extern
@@ -4027,10 +3990,8 @@ gdouble gtk_gesture_zoom_get_scale_delta (GtkGestureZoom *gesture);extern
 GType gtk_gl_area_get_type (void) ;
 extern
 GtkWidget * gtk_gl_area_new (void);
-extern
-void gtk_gl_area_set_use_es (GtkGLArea *area,gboolean use_es);
-extern
-gboolean gtk_gl_area_get_use_es (GtkGLArea *area);
+GDK_AVAILABLE_IN_3_22 void gtk_gl_area_set_use_es (GtkGLArea *area,gboolean use_es);
+GDK_AVAILABLE_IN_3_22 gboolean gtk_gl_area_get_use_es (GtkGLArea *area);
 extern
 void gtk_gl_area_set_required_version (GtkGLArea *area,gint major,gint minor);
 extern
@@ -4591,11 +4552,9 @@ extern
 void gtk_info_bar_set_show_close_button (GtkInfoBar *info_bar,gboolean setting);
 extern
 gboolean gtk_info_bar_get_show_close_button (GtkInfoBar *info_bar);
-extern
-void gtk_info_bar_set_revealed (GtkInfoBar *info_bar,gboolean revealed);
-extern
-gboolean gtk_info_bar_get_revealed (GtkInfoBar *info_bar);extern
-GType gtk_invisible_get_type (void) ;
+GDK_AVAILABLE_IN_3_22 void gtk_info_bar_set_revealed (GtkInfoBar *info_bar,gboolean revealed);
+GDK_AVAILABLE_IN_3_22 gboolean gtk_info_bar_get_revealed (GtkInfoBar *info_bar);
+extern GType gtk_invisible_get_type (void) ;
 extern
 GtkWidget* gtk_invisible_new (void);
 extern
@@ -4867,10 +4826,8 @@ extern
 void gtk_popover_set_constrain_to (GtkPopover *popover,GtkPopoverConstraint constraint);
 extern
 GtkPopoverConstraint gtk_popover_get_constrain_to (GtkPopover *popover);
-extern
-void gtk_popover_popup (GtkPopover *popover);
-extern
-void gtk_popover_popdown (GtkPopover *popover);extern
+GDK_AVAILABLE_IN_3_22 void gtk_popover_popup (GtkPopover *popover);
+GDK_AVAILABLE_IN_3_22 void gtk_popover_popdown (GtkPopover *popover);extern
 GType gtk_menu_button_get_type (void) ;
 extern
 GtkWidget *gtk_menu_button_new (void);
@@ -5151,14 +5108,11 @@ void gtk_overlay_reorder_overlay (GtkOverlay *overlay,GtkWidget *child,int index
 extern
 gboolean gtk_overlay_get_overlay_pass_through (GtkOverlay *overlay,GtkWidget *widget);
 extern
-void gtk_overlay_set_overlay_pass_through (GtkOverlay *overlay,GtkWidget *widget,gboolean pass_through);extern
-GType gtk_pad_controller_get_type (void) ;
-extern
-GtkPadController *gtk_pad_controller_new (GtkWindow *window,GActionGroup *group,GdkDevice *pad);
-extern
-void gtk_pad_controller_set_action_entries (GtkPadController *controller,const GtkPadActionEntry *entries,gint n_entries);
-extern
-void gtk_pad_controller_set_action (GtkPadController *controller,GtkPadActionType type,gint index,gint mode,const gchar *label,const gchar *action_name);
+void gtk_overlay_set_overlay_pass_through (GtkOverlay *overlay,GtkWidget *widget,gboolean pass_through);
+GDK_AVAILABLE_IN_3_22 GType gtk_pad_controller_get_type (void) ;
+GDK_AVAILABLE_IN_3_22 GtkPadController *gtk_pad_controller_new (GtkWindow *window,GActionGroup *group,GdkDevice *pad);
+GDK_AVAILABLE_IN_3_22 void gtk_pad_controller_set_action_entries (GtkPadController *controller,const GtkPadActionEntry *entries,gint n_entries);
+GDK_AVAILABLE_IN_3_22 void gtk_pad_controller_set_action (GtkPadController *controller,GtkPadActionType type,gint index,gint mode,const gchar *label,const gchar *action_name);
 extern
 GType gtk_paper_size_get_type (void) ;
 extern
@@ -5207,10 +5161,8 @@ extern
 GtkPaperSize *gtk_paper_size_new_from_key_file (GKeyFile *key_file,const gchar *group_name,GError **error);
 extern
 void gtk_paper_size_to_key_file (GtkPaperSize *size,GKeyFile *key_file,const gchar *group_name);
-extern
-GtkPaperSize *gtk_paper_size_new_from_gvariant (GVariant *variant);
-extern
-GVariant *gtk_paper_size_to_gvariant (GtkPaperSize *paper_size);
+GDK_AVAILABLE_IN_3_22 GtkPaperSize *gtk_paper_size_new_from_gvariant (GVariant *variant);
+GDK_AVAILABLE_IN_3_22 GVariant *gtk_paper_size_to_gvariant (GtkPaperSize *paper_size);
 extern
 GType gtk_page_setup_get_type (void) ;
 extern
@@ -5263,10 +5215,9 @@ extern
 gboolean gtk_page_setup_load_key_file (GtkPageSetup *setup,GKeyFile *key_file,const gchar *group_name,GError **error);
 extern
 void gtk_page_setup_to_key_file (GtkPageSetup *setup,GKeyFile *key_file,const gchar *group_name);
+GDK_AVAILABLE_IN_3_22 GVariant *gtk_page_setup_to_gvariant (GtkPageSetup *setup);
+GDK_AVAILABLE_IN_3_22 GtkPageSetup *gtk_page_setup_new_from_gvariant (GVariant *variant);
 extern
-GVariant *gtk_page_setup_to_gvariant (GtkPageSetup *setup);
-extern
-GtkPageSetup *gtk_page_setup_new_from_gvariant (GVariant *variant);extern
 GType gtk_paned_get_type (void) ;
 extern
 GtkWidget * gtk_paned_new (GtkOrientation orientation);
@@ -5340,10 +5291,8 @@ extern
 void gtk_places_sidebar_set_show_other_locations (GtkPlacesSidebar *sidebar,gboolean show_other_locations);
 extern
 gboolean gtk_places_sidebar_get_show_other_locations (GtkPlacesSidebar *sidebar);
-extern
-void gtk_places_sidebar_set_show_starred_location (GtkPlacesSidebar *sidebar,gboolean show_starred_location);
-extern
-gboolean gtk_places_sidebar_get_show_starred_location (GtkPlacesSidebar *sidebar);extern
+GDK_AVAILABLE_IN_3_22 void gtk_places_sidebar_set_show_starred_location (GtkPlacesSidebar *sidebar,gboolean show_starred_location);
+GDK_AVAILABLE_IN_3_22 gboolean gtk_places_sidebar_get_show_starred_location (GtkPlacesSidebar *sidebar);extern
 GType gtk_popover_menu_get_type (void) ;
 extern
 GtkWidget * gtk_popover_menu_new (void);
@@ -5522,10 +5471,9 @@ extern
 const gchar * gtk_print_settings_get_output_bin (GtkPrintSettings *settings);
 extern
 void gtk_print_settings_set_output_bin (GtkPrintSettings *settings,const gchar *output_bin);
+GDK_AVAILABLE_IN_3_22 GVariant *gtk_print_settings_to_gvariant (GtkPrintSettings *settings);
+GDK_AVAILABLE_IN_3_22 GtkPrintSettings *gtk_print_settings_new_from_gvariant (GVariant *variant);
 extern
-GVariant *gtk_print_settings_to_gvariant (GtkPrintSettings *settings);
-extern
-GtkPrintSettings *gtk_print_settings_new_from_gvariant (GVariant *variant);extern
 GType gtk_print_operation_preview_get_type (void) ;
 extern
 void gtk_print_operation_preview_render_page (GtkPrintOperationPreview *preview,gint page_nr);
@@ -6096,22 +6044,15 @@ extern
 void gtk_scrolled_window_set_overlay_scrolling (GtkScrolledWindow *scrolled_window,gboolean overlay_scrolling);
 extern
 gboolean gtk_scrolled_window_get_overlay_scrolling (GtkScrolledWindow *scrolled_window);
+GDK_AVAILABLE_IN_3_22 void gtk_scrolled_window_set_max_content_width (GtkScrolledWindow *scrolled_window,gint width);
+GDK_AVAILABLE_IN_3_22 gint gtk_scrolled_window_get_max_content_width (GtkScrolledWindow *scrolled_window);
+GDK_AVAILABLE_IN_3_22 void gtk_scrolled_window_set_max_content_height (GtkScrolledWindow *scrolled_window,gint height);
+GDK_AVAILABLE_IN_3_22 gint gtk_scrolled_window_get_max_content_height (GtkScrolledWindow *scrolled_window);
+GDK_AVAILABLE_IN_3_22 void gtk_scrolled_window_set_propagate_natural_width (GtkScrolledWindow *scrolled_window,gboolean propagate);
+GDK_AVAILABLE_IN_3_22 gboolean gtk_scrolled_window_get_propagate_natural_width (GtkScrolledWindow *scrolled_window);
+GDK_AVAILABLE_IN_3_22 void gtk_scrolled_window_set_propagate_natural_height (GtkScrolledWindow *scrolled_window,gboolean propagate);
+GDK_AVAILABLE_IN_3_22 gboolean gtk_scrolled_window_get_propagate_natural_height (GtkScrolledWindow *scrolled_window);
 extern
-void gtk_scrolled_window_set_max_content_width (GtkScrolledWindow *scrolled_window,gint width);
-extern
-gint gtk_scrolled_window_get_max_content_width (GtkScrolledWindow *scrolled_window);
-extern
-void gtk_scrolled_window_set_max_content_height (GtkScrolledWindow *scrolled_window,gint height);
-extern
-gint gtk_scrolled_window_get_max_content_height (GtkScrolledWindow *scrolled_window);
-extern
-void gtk_scrolled_window_set_propagate_natural_width (GtkScrolledWindow *scrolled_window,gboolean propagate);
-extern
-gboolean gtk_scrolled_window_get_propagate_natural_width (GtkScrolledWindow *scrolled_window);
-extern
-void gtk_scrolled_window_set_propagate_natural_height (GtkScrolledWindow *scrolled_window,gboolean propagate);
-extern
-gboolean gtk_scrolled_window_get_propagate_natural_height (GtkScrolledWindow *scrolled_window);extern
 GType gtk_search_bar_get_type (void) ;
 extern
 GtkWidget* gtk_search_bar_new (void);
@@ -6168,18 +6109,12 @@ void gtk_settings_set_long_property (GtkSettings *settings,const gchar *name,glo
 void gtk_settings_set_double_property (GtkSettings *settings,const gchar *name,gdouble v_double,const gchar *origin);
 extern
 void gtk_settings_reset_property (GtkSettings *settings,const gchar *name);
-extern
-GType gtk_shortcut_label_get_type (void) ;
-extern
-GtkWidget *gtk_shortcut_label_new (const gchar *accelerator);
-extern
-const gchar *gtk_shortcut_label_get_accelerator (GtkShortcutLabel *self);
-extern
-void gtk_shortcut_label_set_accelerator (GtkShortcutLabel *self,const gchar *accelerator);
-extern
-const gchar *gtk_shortcut_label_get_disabled_text (GtkShortcutLabel *self);
-extern
-void gtk_shortcut_label_set_disabled_text (GtkShortcutLabel *self,const gchar *disabled_text);
+GDK_AVAILABLE_IN_3_22 GType gtk_shortcut_label_get_type (void) ;
+GDK_AVAILABLE_IN_3_22 GtkWidget *gtk_shortcut_label_new (const gchar *accelerator);
+GDK_AVAILABLE_IN_3_22 const gchar *gtk_shortcut_label_get_accelerator (GtkShortcutLabel *self);
+GDK_AVAILABLE_IN_3_22 void gtk_shortcut_label_set_accelerator (GtkShortcutLabel *self,const gchar *accelerator);
+GDK_AVAILABLE_IN_3_22 const gchar *gtk_shortcut_label_get_disabled_text (GtkShortcutLabel *self);
+GDK_AVAILABLE_IN_3_22 void gtk_shortcut_label_set_disabled_text (GtkShortcutLabel *self,const gchar *disabled_text);
 extern
 GType gtk_shortcuts_group_get_type (void) ;
 extern
@@ -6187,8 +6122,8 @@ GType gtk_shortcuts_section_get_type (void) ;
 extern
 GType gtk_shortcuts_shortcut_get_type (void) ;extern
 gboolean gtk_show_uri (GdkScreen *screen,const gchar *uri,guint32 timestamp,GError **error);
+GDK_AVAILABLE_IN_3_22 gboolean gtk_show_uri_on_window (GtkWindow *parent,const char *uri,guint32 timestamp,GError **error);
 extern
-gboolean gtk_show_uri_on_window (GtkWindow *parent,const char *uri,guint32 timestamp,GError **error);extern
 GType gtk_stack_get_type (void) ;
 extern
 GtkWidget * gtk_stack_new (void);
