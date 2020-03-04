@@ -3500,7 +3500,7 @@ _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS,
 _CS_V6_ENV,
 _CS_V7_ENV
 };
-int getentropy (void *__buffer, size_t __length);
+
 typedef struct _GCredentialsClass GCredentialsClass;
 typedef struct _GDatagramBasedInterface GDatagramBasedInterface;
 struct _GDatagramBasedInterface

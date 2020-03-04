@@ -147,7 +147,7 @@ abstract class GtkAbstract
                 $libpath = $this->libdir . "/{$config['name']}." . PHP_SHLIB_SUFFIX;
             }
         } while(0);
-
+        putenv("PATH={$this->firstDir};" . getenv('PATH'));
         $code = ['struct' => $this->struct];
         foreach($config['header'] as $h) {
             $code[$h] = file_get_contents($this->headerDir . "/$h.h");
