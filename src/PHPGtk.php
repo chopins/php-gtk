@@ -55,14 +55,14 @@ class PHPGtk
     const ATK_ID = PHP_GTK_ID_ATK;
 
     public static $gtkDllMap = [
-        self::GLIB_ID => ['name' => 'libglib-2.0', 'header' => ['glib']],
-        self::GIO_ID => ['name' => 'libgio-2.0', 'header' => ['gio']],
-        self::GOBJECT_ID => ['name' => 'libgobject-2.0', 'header' => ['gtype', 'gobject']],
-        self::GTK_ID => ['name' => 'libgtk-3', 'header' => ['gtkfunc']],
-        self::GDK_ID => ['name' => 'libgdk-3', 'header' => ['gdk']],
-        self::PIXBUF_ID => ['name' => 'libgdk_pixbuf-2.0', 'header' => ['pixbuf']],
-        self::PANGO_ID => ['name' => 'libpango-1.0', 'header' => ['pango']],
-        self::ATK_ID => ['name' => 'libatk-1.0', 'header' => ['atk']],
+        self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib']],
+        self::GIO_ID => ['name' => 'libgio', 'header' => ['gio']],
+        self::GOBJECT_ID => ['name' => 'libgobject', 'header' => ['gtype', 'gobject']],
+        self::GTK_ID => ['name' => 'libgtk', 'header' => ['gtkfunc']],
+        self::GDK_ID => ['name' => 'libgdk', 'header' => ['gdk']],
+        self::PIXBUF_ID => ['name' => 'libgdk_pixbuf', 'header' => ['pixbuf']],
+        self::PANGO_ID => ['name' => 'libpango', 'header' => ['pango']],
+        self::ATK_ID => ['name' => 'libatk', 'header' => ['atk']],
     ];
 
     public function __construct($libdir = null)

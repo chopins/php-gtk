@@ -34,13 +34,12 @@ abstract class GtkAbstract
     protected $libdir = '';
     protected static ?FFI $ffi = null;
     private array $callMap = [];
-    private string $firstDir = '';
     private static array $unimplement = [];
 
     protected const ID = null;
     protected const UNIMPLEMENT = [];
 
-    final public function __construct(PHPGtk $main, $libdir = null)
+    final public function __construct(PHPGtk $main, string $libdir = null)
     {
         $this->initDebugStatus();
         $this->main = $main;
@@ -143,27 +142,20 @@ abstract class GtkAbstract
         }
     }
 
+    protected function findDll($name)
+    {
+        $r = glob($this->libdir . "/{$name}*." . PHP_SHLIB_SUFFIX, GLOB_NOSORT | GLOB_NOESCAPE | GLOB_ERR);
+        if($r) {
+            return $r[0];
+        }
+        throw new RuntimeException($this->libdir . "/{$name}*." . PHP_SHLIB_SUFFIX . ' not found');
+    }
+
     private function cdef($libId)
     {
         $config = $this->main::$gtkDllMap[$libId];
-        do {
-            if(is_array($this->libdir)) {
-                if(isset($this->libdir[$libId])) {
-                    $libpath = $this->libdir[$libId];
-                    break;
-                }
-                if(!$this->firstDir) {
-                    reset($this->libdir);
-                    $first = current($this->libdir);
-                    $this->firstDir = dirname($first);
-                }
-                $libpath = $this->firstDir . "/{$config['name']}." . PHP_SHLIB_SUFFIX;
-            } else {
-                $this->firstDir = $this->libdir;
-                $libpath = $this->libdir . "/{$config['name']}." . PHP_SHLIB_SUFFIX;
-            }
-        } while(0);
-        putenv("PATH={$this->firstDir};" . getenv('PATH'));
+        $libpath = $this->findDll($config['name']);
+        putenv("PATH={$this->libdir};" . getenv('PATH'));
         $code = ['struct' => $this->struct];
         foreach($config['header'] as $h) {
             $code[$h] = file_get_contents($this->headerDir . "/$h.h");
