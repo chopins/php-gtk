@@ -6,6 +6,9 @@ include __DIR__ . '/../vendor/autoload.php';
 const PHP_GTK_DEV_DEBUG = true;
 $gtk = new PHPGtk();
 
+$pango = $gtk->pango();
+$atk = $gtk->atk();
+$pixbuf = $gtk->pixbuf();
 function step()
 {
     static $i = 0;

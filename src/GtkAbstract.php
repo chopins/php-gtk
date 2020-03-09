@@ -159,33 +159,41 @@ abstract class GtkAbstract
         $code = ['struct' => $this->struct];
         foreach($config['header'] as $h) {
             $code[$h] = file_get_contents($this->headerDir . "/$h.h");
-            $this->gdkAvailableIn($code[$h], '3.24');
-            $this->gdkAvailableIn($code[$h], '3.22');
         }
 
         try {
-            $ffiObj = FFI::cdef(
-                    join($code),
-                    $libpath
-            );
+            $codeStr = join($code);
+            $this->gdkAvailableIn($codeStr, '3.24');
+            $this->gdkAvailableIn($codeStr, '3.22');
+            $ffiObj = FFI::cdef($codeStr, $libpath);
             $ffiObj->id($libId);
             return $ffiObj;
         } catch(ParserException $e) {
-            if(self::$isDebug) {
-                $message = $e->getMessage();
-                preg_match('(\d+)', $e->getMessage(), $m);
-                foreach($code as $f => $c) {
-                    $fl = substr_count($c, "\n") + 1;
-                    if($m[0] > $fl) {
-                        $m[0] = $m[0] - $fl + 1;
-                    } else {
-                        break;
-                    }
-                }
-                $message .= "; Actual at line {$m[0]} in file $f.h";
-            }
-            throw new ParserException($message, $e->getCode(), $e);
+            $this->debugException($e, $code);
+        } catch(\FFI\Exception $e) {
+            $this->debugException($e, $libpath);
         }
+    }
+
+    private function debugException($e, &$code)
+    {
+        $message = $e->getMessage();
+        if(self::$isDebug && is_array($code)) {
+            $m = [];
+            preg_match('(\d+)', $e->getMessage(), $m);
+            foreach($code as $f => $c) {
+                $fl = substr_count($c, "\n") + 1;
+                if($m[0] > $fl) {
+                    $m[0] = $m[0] - $fl + 1;
+                } else {
+                    break;
+                }
+            }
+            $message .= "; Actual at line {$m[0]} in file $f.h";
+        } else {
+            $message .= "; load $code";
+        }
+        throw new ParserException($message, $e->getCode());
     }
 
     public function type($type, ?GtkAbstract $obj = null)

@@ -42,7 +42,7 @@ class Atk extends GObject
         parent::dynCall($name, $arguments, $ret);
     }
 
-    protected static function complieVersion()
+    protected static function compileVersion()
     {
         define('ATK_MAJOR_VERSION', self::$ffi->atk_get_major_version());
         define('ATK_MINOR_VERSION', self::$ffi->atk_get_minor_version());

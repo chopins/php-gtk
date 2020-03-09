@@ -20,24 +20,6 @@ use Gtk\Atk;
 use Gtk\Pixbuf;
 use Gtk\Pango;
 
-(function () {
-    foreach([
-    'PHP_GTK_ID_GLIB' => 'glib',
-    'PHP_GTK_ID_GIO' => 'gio',
-    'PHP_GTK_ID_GOBJECT' => 'gobject',
-    'PHP_GTK_ID_GTK' => 'gtk',
-    'PHP_GTK_ID_PANGO' => 'pango',
-    'PHP_GTK_ID_GDK' => 'gdk',
-    'PHP_GTK_ID_PIXBUF' => 'pixbuf',
-    'PHP_GTK_ID_ATK' => 'atk',
-    'PHP_GTK_DEV_DEBUG' => false,
-    ] as $k => $n) {
-        if(!defined($k)) {
-            define($k, $n);
-        }
-    }
-})();
-
 class PHPGtk
 {
 
@@ -45,14 +27,15 @@ class PHPGtk
     private static $unmanagedCData = null;
     private $libdir = '';
 
-    const GLIB_ID = PHP_GTK_ID_GLIB;
-    const GIO_ID = PHP_GTK_ID_GIO;
-    const GOBJECT_ID = PHP_GTK_ID_GOBJECT;
-    const GTK_ID = PHP_GTK_ID_GTK;
-    const GDK_ID = PHP_GTK_ID_GDK;
-    const PANGO_ID = PHP_GTK_ID_PANGO;
-    const PIXBUF_ID = PHP_GTK_ID_PIXBUF;
-    const ATK_ID = PHP_GTK_ID_ATK;
+    const GLIB_ID = 'PHP_GTK_ID_GLIB';
+    const GIO_ID = 'PHP_GTK_ID_GIO';
+    const GOBJECT_ID = 'PHP_GTK_ID_GOBJECT';
+    const GTK_ID = 'PHP_GTK_ID_GTK';
+    const GDK_ID = 'PHP_GTK_ID_GDK';
+    const PANGO_ID = 'PHP_GTK_ID_PANGO';
+    const PANGO_CAIRO_ID = 'PHP_GTK_ID_PANGO_CAIRO';
+    const PIXBUF_ID = 'PHP_GTK_ID_PIXBUF';
+    const ATK_ID = 'PHP_GTK_ID_ATK';
 
     public static $gtkDllMap = [
         self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib']],
@@ -62,11 +45,15 @@ class PHPGtk
         self::GDK_ID => ['name' => 'libgdk', 'header' => ['gdk']],
         self::PIXBUF_ID => ['name' => 'libgdk_pixbuf', 'header' => ['pixbuf']],
         self::PANGO_ID => ['name' => 'libpango', 'header' => ['pango']],
+        self::PANGO_CAIRO_ID => ['name' => 'libpangocairo', 'header' => ['pango_cairo']],
         self::ATK_ID => ['name' => 'libatk', 'header' => ['atk']],
     ];
 
     public function __construct(?string $libdir = null)
     {
+        if(!defined('PHP_GTK_DEV_DEBUG')) {
+            define('PHP_GTK_DEV_DEBUG', false);
+        }
         static $enable = false;
         if($enable) {
             return;
@@ -150,7 +137,7 @@ class PHPGtk
         return new Atk($this, $this->libdir);
     }
 
-    public function gdk()
+    public function pixbuf()
     {
         return new Pixbuf($this, $this->libdir);
     }

@@ -13,14 +13,14 @@ namespace Gtk;
 
 use Gtk\FFI;
 use Gtk\PHPGtk;
-use Gtk\PangoCairo;
+use Gtk\GObject;
 
-class Pango extends PangoCairo
+class PangoCairo extends GObject
 {
 
     protected static ?FFI $ffi = null;
 
-    protected const ID = PHPGtk::PANGO_ID;
+    protected const ID = PHPGtk::PANGO_CAIRO_ID;
     protected const UNIMPLEMENT = [];
 
     protected static function compileVersion()
