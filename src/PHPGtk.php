@@ -65,7 +65,7 @@ class PHPGtk
         self::ATK_ID => ['name' => 'libatk', 'header' => ['atk']],
     ];
 
-    public function __construct($libdir = null)
+    public function __construct(?string $libdir = null)
     {
         static $enable = false;
         if($enable) {

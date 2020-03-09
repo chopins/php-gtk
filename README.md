@@ -39,14 +39,14 @@ class App {
     const PIXBUF_ID = PHP_GTK_ID_PIXBUF;
     const ATK_ID = PHP_GTK_ID_ATK;
     public static $gtkDllMap  = [
-        self::GLIB_ID => ['name' => 'libglib-2.0', 'header' => ['glib']],
-        self::GIO_ID => ['name' => 'libgio-2.0', 'header' => ['gio']],
-        self::GOBJECT_ID => ['name' => 'libgobject-2.0', 'header' => ['gtype', 'gobject']],
-        self::GTK_ID => ['name' => 'libgtk-3', 'header' => ['gtkfunc']],
-        self::GDK_ID => ['name' => 'libgdk-3', 'header' => ['gdk']],
-        self::PIXBUF_ID => ['name' => 'libgdk_pixbuf-2.0', 'header' => ['pixbuf']],
-        self::PANGO_ID => ['name' => 'libpango-1.0', 'header' => ['pango']],
-        self::ATK_ID => ['name' => 'libatk-1.0', 'header' => ['atk']],
+        self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib']],
+        self::GIO_ID => ['name' => 'libgio', 'header' => ['gio']],
+        self::GOBJECT_ID => ['name' => 'libgobject', 'header' => ['gtype', 'gobject']],
+        self::GTK_ID => ['name' => 'libgtk', 'header' => ['gtkfunc']],
+        self::GDK_ID => ['name' => 'libgdk', 'header' => ['gdk']],
+        self::PIXBUF_ID => ['name' => 'libgdk_pixbuf', 'header' => ['pixbuf']],
+        self::PANGO_ID => ['name' => 'libpango', 'header' => ['pango']],
+        self::ATK_ID => ['name' => 'libatk', 'header' => ['atk']],
     ];
 ......
 }
@@ -60,12 +60,6 @@ class App {
   * when `PHP_INT_SIZE` equal 8, OS is 64bit, find `/usr/lib64`
 * specify lib path by self through `new Gtk\App($libpath)`, 
   * if `$libpath` is string, value must be lib directory path
-  * if `$libpath` is array, value must be lib file path, key value must be equal `Gtk\App::XXX_ID` constant.
-    ```php
-    [
-        App::GIB_ID => '/usr/local/lib64/libglib-2.0.so.0',
-        App::GTK_ID => '/usr/local/lib64/libgtk-3.0.so.0',
-    ]
     ```
     if given some lib path in array, other lib will find in the first lib directory
 * specify lib name through set `name` value of specify lib row of `Gtk\APP::$gtkDllMap`

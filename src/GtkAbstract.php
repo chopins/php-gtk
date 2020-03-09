@@ -39,7 +39,7 @@ abstract class GtkAbstract
     protected const ID = null;
     protected const UNIMPLEMENT = [];
 
-    final public function __construct(PHPGtk $main, string $libdir = null)
+    final public function __construct(PHPGtk $main, ?string $libdir = null)
     {
         $this->initDebugStatus();
         $this->main = $main;
