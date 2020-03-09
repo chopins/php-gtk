@@ -14,30 +14,10 @@ The project only expose GTK API by FFI
   
 **Defined Constants**
 
-if not specify below constants, below define value will be effective
-```php
-const PHP_GTK_ID_GLIB = 'glib';
-const PHP_GTK_ID_GIO = 'gio';
-const PHP_GTK_ID_GOBJECT = 'gobject';
-const PHP_GTK_ID_GTK = 'gtk';
-const PHP_GTK_ID_PANGO = 'pango';
-const PHP_GTK_ID_GDK = 'gdk';
-const PHP_GTK_ID_PIXBUF = 'pixbuf';
-const PHP_GTK_ID_ATK = 'atk';
-```
-constant and property of `Gtk\APP`:
+DLL file name and header file name map list:
 
 ```php
 class App {
-......
-    const GLIB_ID = PHP_GTK_ID_GLIB;
-    const GIO_ID = PHP_GTK_ID_GIO;
-    const GOBJECT_ID = PHP_GTK_ID_GOBJECT;
-    const GTK_ID = PHP_GTK_ID_GTK;
-    const GDK_ID = PHP_GTK_ID_GDK;
-    const PANGO_ID = PHP_GTK_ID_PANGO;
-    const PIXBUF_ID = PHP_GTK_ID_PIXBUF;
-    const ATK_ID = PHP_GTK_ID_ATK;
     public static $gtkDllMap  = [
         self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib']],
         self::GIO_ID => ['name' => 'libgio', 'header' => ['gio']],
@@ -52,7 +32,7 @@ class App {
 }
 ```
 
-`Gtk\APP::$gtkDllMap` determine load dynamic library path and header file.
+`Gtk\APP::$gtkDllMap` determine load dynamic library name prefix and header file.
 
 **Load Dynamic Library**
 * In Linux, default find:
