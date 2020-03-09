@@ -103,5 +103,5 @@ class PHPGtk {
 * most class is sub of `Gtk\GtkAbstract`
 
 ## For Windows
-1. get libgtk3 binary DLL file, see https://www.gtk.org/download/windows.php
+1. get libgtk3 binary DLL file, see https://www.gtk.org/docs/installations/windows/
 2. copy libgtk3 all DLL file and dependency to your path, if use MSYS install, pass `YOUP_PATH/mingw32/bin` or `YOUP_PATH/mingw64/bin` to `PHPGtk::gtk($libpath)`, if not installed other package,In the path DLL file is libgtk dependency package
