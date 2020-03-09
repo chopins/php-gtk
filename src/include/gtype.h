@@ -605,7 +605,7 @@ extern
 void g_value_take_string (GValue *value,gchar *v_string);
 extern
 void g_value_set_string_take_ownership (GValue *value,gchar *v_string);
-extern GType g_unicode_type_get_type (void);
-extern GType g_unicode_break_type_get_type (void);
-extern GType g_unicode_script_get_type (void);
-extern GType g_normalize_mode_get_type (void);
+GLIB_AVAILABLE_IN_2_60 GType g_unicode_type_get_type (void);
+GLIB_AVAILABLE_IN_2_60 GType g_unicode_break_type_get_type (void);
+GLIB_AVAILABLE_IN_2_60 GType g_unicode_script_get_type (void);
+GLIB_AVAILABLE_IN_2_60 GType g_normalize_mode_get_type (void);

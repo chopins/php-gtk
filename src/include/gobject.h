@@ -60,8 +60,7 @@ extern
 guint g_signal_handlers_unblock_matched (gpointer instance,GSignalMatchType mask,guint signal_id,GQuark detail,GClosure *closure,gpointer func,gpointer data);
 extern
 guint g_signal_handlers_disconnect_matched (gpointer instance,GSignalMatchType mask,guint signal_id,GQuark detail,GClosure *closure,gpointer func,gpointer data);
-extern
-void g_clear_signal_handler (gulong *handler_id_ptr,gpointer instance);
+GLIB_AVAILABLE_IN_2_62 void g_clear_signal_handler (gulong *handler_id_ptr,gpointer instance);
 extern
 void g_signal_override_class_closure (guint signal_id,GType instance_type,GClosure *class_closure);
 extern

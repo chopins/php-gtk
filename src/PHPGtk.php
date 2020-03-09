@@ -25,7 +25,8 @@ class PHPGtk
 
     private $gtkLib = null;
     private static $unmanagedCData = null;
-    private $libdir = '';
+    private static $libdir = '';
+    private static $singleton = null;
 
     const GLIB_ID = 'PHP_GTK_ID_GLIB';
     const GIO_ID = 'PHP_GTK_ID_GIO';
@@ -49,24 +50,20 @@ class PHPGtk
         self::ATK_ID => ['name' => 'libatk', 'header' => ['atk']],
     ];
 
-    public function __construct(?string $libdir = null)
+    private function __construct(?string $libdir = null)
     {
         if(!defined('PHP_GTK_DEV_DEBUG')) {
             define('PHP_GTK_DEV_DEBUG', false);
         }
-        static $enable = false;
-        if($enable) {
-            return;
-        }
-        $enable = true;
-        $this->complieDefineValue();
+        self::$singleton = $this;
+        $this->defineIsWin();
         $this->autoload();
         self::$unmanagedCData = new SplObjectStorage;
-        $this->libdir = $libdir;
+        self::$libdir = $libdir;
         $this->gtkLib = new Gtk($this, $libdir);
     }
 
-    private function complieDefineValue()
+    private function defineIsWin()
     {
         if(!defined('PHP_OS_WIN') && strcasecmp(PHP_OS_FAMILY, 'Windows') === 0) {
             define('PHP_OS_WIN', true);
@@ -132,20 +129,38 @@ class PHPGtk
         return FFI::addr($v);
     }
 
-    public function atk()
+    public static function gtk(?string $libdir = null)
     {
-        return new Atk($this, $this->libdir);
+        if(self::$singleton === null) {
+            self::$singleton = new static($libdir);
+        }
+        return self::$singleton;
     }
 
-    public function pixbuf()
+    public static function atk(?string $libdir = null)
     {
-        return new Pixbuf($this, $this->libdir);
+        if(self::$singleton === null) {
+            self::gtk($libdir);
+        }
+        return new Atk(self::$singleton, self::$libdir);
     }
 
-    public function pango()
+    public static function pixbuf(?string $libdir = null)
     {
-        return new Pango($this, $this->libdir);
+        if(self::$singleton === null) {
+            self::gtk($libdir);
+        }
+        return new Pixbuf(self::$singleton, self::$libdir);
     }
+
+    public static function pango(?string $libdir = null)
+    {
+        if(self::$singleton === null) {
+            self::gtk($libdir);
+        }
+        return new Pango(self::$singleton, self::$libdir);
+    }
+    
 
     public function __get($name)
     {

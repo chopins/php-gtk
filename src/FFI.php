@@ -79,6 +79,16 @@ class FFI
         $this->libId = $id;
     }
 
+    public function __get($name)
+    {
+        return $this->instance->$name;
+    }
+
+    public function __set($name, $v)
+    {
+        $this->instance->$name = $v;
+    }
+
     public function __call($name, $args = [])
     {
         if($this->autoCast) {

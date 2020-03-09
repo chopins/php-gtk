@@ -46,6 +46,7 @@ abstract class GtkAbstract
         $this->headerDir = __DIR__ . '/include';
         $this->struct();
         $this->libdir = $libdir ?? (PHP_INT_SIZE === 4 ? '/usr/lib' : '/usr/lib64');
+        putenv("PATH={$this->libdir};" . getenv('PATH'));
         $this->recursiveCDef();
     }
 
@@ -54,26 +55,26 @@ abstract class GtkAbstract
         self::$isDebug = (defined('PHP_GTK_DEV_DEBUG') && constant('PHP_GTK_DEV_DEBUG'));
     }
 
+    protected function preLoad($id, $code)
+    {
+        $config = $this->main::$gtkDllMap[$id];
+        $libpath = $this->findDll($config['name']);
+        return FFI::cdef($code, $libpath);
+    }
+
     private function struct()
     {
         $this->struct = file_get_contents($this->headerDir . '/struct.h');
         $args = trim(str_repeat('void*,', self::$gCallbackArgNum), ',');
         $this->struct = str_replace('##GCallbackArgListString##', $args, $this->struct);
-        if(!defined('PHP_GDK_VERSION')) {
-            trigger_error('Undefined constant PHP_GDK_VERSION for gdk version, use 3.20', E_USER_WARNING);
-            define('PHP_GDK_VERSION', '3.20');
-        } elseif(version_compare(PHP_GDK_VERSION, '3.20') < 0) {
-            throw new RuntimeException('GDK version must >= 3.20');
-        }
     }
 
-    protected function gdkAvailableIn(&$code, $version)
+    protected function availableIn(&$code)
     {
-        $v = str_replace('.', '_', $version);
-        if(version_compare(PHP_GDK_VERSION, $version) >= 0) {
-            $code = str_replace("GDK_AVAILABLE_IN_{$v} ", 'extern ', $code);
+        if(PHP_OS_WIN) {
+            $code = str_replace("GLIB_AVAILABLE_IN_UINX", '// ', $code);
         } else {
-            $code = str_replace("GDK_AVAILABLE_IN_{$v} ", '// ', $code);
+            $code = str_replace("GLIB_AVAILABLE_IN_UINX ", 'extern ', $code);
         }
     }
 
@@ -151,11 +152,21 @@ abstract class GtkAbstract
         throw new RuntimeException($this->libdir . "/{$name}*." . PHP_SHLIB_SUFFIX . ' not found');
     }
 
+    protected function versionReplace(&$code, $macro, $version, $currentVersion)
+    {
+        $v = str_replace('.', '_', $version);
+        if(version_compare($currentVersion, $version) >= 0) {
+            $code = str_replace("{$macro}_{$v} ", 'extern ', $code);
+        } else {
+            $code = str_replace("{$macro}_{$v} ", '// ', $code);
+        }
+    }
+
     private function cdef($libId)
     {
         $config = $this->main::$gtkDllMap[$libId];
         $libpath = $this->findDll($config['name']);
-        putenv("PATH={$this->libdir};" . getenv('PATH'));
+
         $code = ['struct' => $this->struct];
         foreach($config['header'] as $h) {
             $code[$h] = file_get_contents($this->headerDir . "/$h.h");
@@ -163,8 +174,7 @@ abstract class GtkAbstract
 
         try {
             $codeStr = join($code);
-            $this->gdkAvailableIn($codeStr, '3.24');
-            $this->gdkAvailableIn($codeStr, '3.22');
+            $this->availableIn($codeStr);
             $ffiObj = FFI::cdef($codeStr, $libpath);
             $ffiObj->id($libId);
             return $ffiObj;

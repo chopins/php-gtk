@@ -1,3241 +1,3208 @@
 extern
-GArray* g_array_new (gboolean zero_terminated,gboolean clear_,guint element_size);
+GArray* g_array_new(gboolean zero_terminated, gboolean clear_, guint element_size);
 extern
-GArray* g_array_sized_new (gboolean zero_terminated,gboolean clear_,guint element_size,guint reserved_size);
+GArray* g_array_sized_new(gboolean zero_terminated, gboolean clear_, guint element_size, guint reserved_size);
+GLIB_AVAILABLE_IN_2_62 GArray* g_array_copy(GArray *array);
 extern
-GArray* g_array_copy (GArray *array);
+gchar* g_array_free(GArray *array, gboolean free_segment);
 extern
-gchar* g_array_free (GArray *array,gboolean free_segment);
+GArray *g_array_ref(GArray *array);
 extern
-GArray *g_array_ref (GArray *array);
+void g_array_unref(GArray *array);
 extern
-void g_array_unref (GArray *array);
+guint g_array_get_element_size(GArray *array);
 extern
-guint g_array_get_element_size (GArray *array);
+GArray* g_array_append_vals(GArray *array, gconstpointer data, guint len);
 extern
-GArray* g_array_append_vals (GArray *array,gconstpointer data,guint len);
+GArray* g_array_prepend_vals(GArray *array, gconstpointer data, guint len);
 extern
-GArray* g_array_prepend_vals (GArray *array,gconstpointer data,guint len);
+GArray* g_array_insert_vals(GArray *array, guint index_, gconstpointer data, guint len);
 extern
-GArray* g_array_insert_vals (GArray *array,guint index_,gconstpointer data,guint len);
+GArray* g_array_set_size(GArray *array, guint length);
 extern
-GArray* g_array_set_size (GArray *array,guint length);
+GArray* g_array_remove_index(GArray *array, guint index_);
 extern
-GArray* g_array_remove_index (GArray *array,guint index_);
+GArray* g_array_remove_index_fast(GArray *array, guint index_);
 extern
-GArray* g_array_remove_index_fast (GArray *array,guint index_);
+GArray* g_array_remove_range(GArray *array, guint index_, guint length);
 extern
-GArray* g_array_remove_range (GArray *array,guint index_,guint length);
+void g_array_sort(GArray *array, GCompareFunc compare_func);
 extern
-void g_array_sort (GArray *array,GCompareFunc compare_func);
+void g_array_sort_with_data(GArray *array, GCompareDataFunc compare_func, gpointer user_data);
+GLIB_AVAILABLE_IN_2_62 gboolean g_array_binary_search(GArray *array, gconstpointer target, GCompareFunc compare_func, guint *out_match_index);
 extern
-void g_array_sort_with_data (GArray *array,GCompareDataFunc compare_func,gpointer user_data);
+void g_array_set_clear_func(GArray *array, GDestroyNotify clear_func);
 extern
-gboolean g_array_binary_search (GArray *array,gconstpointer target,GCompareFunc compare_func,guint *out_match_index);
+GPtrArray* g_ptr_array_new(void);
 extern
-void g_array_set_clear_func (GArray *array,GDestroyNotify clear_func);
+GPtrArray* g_ptr_array_new_with_free_func(GDestroyNotify element_free_func);
+GLIB_AVAILABLE_IN_2_62 GPtrArray *g_ptr_array_copy(GPtrArray *array, GCopyFunc func, gpointer user_data);
 extern
-GPtrArray* g_ptr_array_new (void);
+GPtrArray* g_ptr_array_sized_new(guint reserved_size);
 extern
-GPtrArray* g_ptr_array_new_with_free_func (GDestroyNotify element_free_func);
+GPtrArray* g_ptr_array_new_full(guint reserved_size, GDestroyNotify element_free_func);
 extern
-GPtrArray *g_ptr_array_copy (GPtrArray *array,GCopyFunc func,gpointer user_data);
+gpointer* g_ptr_array_free(GPtrArray *array, gboolean free_seg);
 extern
-GPtrArray* g_ptr_array_sized_new (guint reserved_size);
+GPtrArray* g_ptr_array_ref(GPtrArray *array);
 extern
-GPtrArray* g_ptr_array_new_full (guint reserved_size,GDestroyNotify element_free_func);
+void g_ptr_array_unref(GPtrArray *array);
 extern
-gpointer* g_ptr_array_free (GPtrArray *array,gboolean free_seg);
+void g_ptr_array_set_free_func(GPtrArray *array, GDestroyNotify element_free_func);
 extern
-GPtrArray* g_ptr_array_ref (GPtrArray *array);
+void g_ptr_array_set_size(GPtrArray *array, gint length);
 extern
-void g_ptr_array_unref (GPtrArray *array);
+gpointer g_ptr_array_remove_index(GPtrArray *array, guint index_);
 extern
-void g_ptr_array_set_free_func (GPtrArray *array,GDestroyNotify element_free_func);
+gpointer g_ptr_array_remove_index_fast(GPtrArray *array, guint index_);
+GLIB_AVAILABLE_IN_2_58 gpointer g_ptr_array_steal_index(GPtrArray *array, guint index_);
+GLIB_AVAILABLE_IN_2_58 gpointer g_ptr_array_steal_index_fast(GPtrArray *array, guint index_);
 extern
-void g_ptr_array_set_size (GPtrArray *array,gint length);
+gboolean g_ptr_array_remove(GPtrArray *array, gpointer data);
 extern
-gpointer g_ptr_array_remove_index (GPtrArray *array,guint index_);
+gboolean g_ptr_array_remove_fast(GPtrArray *array, gpointer data);
 extern
-gpointer g_ptr_array_remove_index_fast (GPtrArray *array,guint index_);
+GPtrArray *g_ptr_array_remove_range(GPtrArray *array, guint index_, guint length);
 extern
-gpointer g_ptr_array_steal_index (GPtrArray *array,guint index_);
+void g_ptr_array_add(GPtrArray *array, gpointer data);
+GLIB_AVAILABLE_IN_2_62 void g_ptr_array_extend(GPtrArray *array_to_extend, GPtrArray *array, GCopyFunc func, gpointer user_data);
+GLIB_AVAILABLE_IN_2_62 void g_ptr_array_extend_and_steal(GPtrArray *array_to_extend, GPtrArray *array);
 extern
-gpointer g_ptr_array_steal_index_fast (GPtrArray *array,guint index_);
+void g_ptr_array_insert(GPtrArray *array, gint index_, gpointer data);
 extern
-gboolean g_ptr_array_remove (GPtrArray *array,gpointer data);
+void g_ptr_array_sort(GPtrArray *array, GCompareFunc compare_func);
 extern
-gboolean g_ptr_array_remove_fast (GPtrArray *array,gpointer data);
+void g_ptr_array_sort_with_data(GPtrArray *array, GCompareDataFunc compare_func, gpointer user_data);
 extern
-GPtrArray *g_ptr_array_remove_range (GPtrArray *array,guint index_,guint length);
+void g_ptr_array_foreach(GPtrArray *array, GFunc func, gpointer user_data);
 extern
-void g_ptr_array_add (GPtrArray *array,gpointer data);
+gboolean g_ptr_array_find(GPtrArray *haystack, gconstpointer needle, guint *index_);
 extern
-void g_ptr_array_extend (GPtrArray *array_to_extend,GPtrArray *array,GCopyFunc func,gpointer user_data);
+gboolean g_ptr_array_find_with_equal_func(GPtrArray *haystack, gconstpointer needle, GEqualFunc equal_func, guint *index_);
 extern
-void g_ptr_array_extend_and_steal (GPtrArray *array_to_extend,GPtrArray *array);
+GByteArray* g_byte_array_new(void);
 extern
-void g_ptr_array_insert (GPtrArray *array,gint index_,gpointer data);
+GByteArray* g_byte_array_new_take(guint8 *data, gsize len);
 extern
-void g_ptr_array_sort (GPtrArray *array,GCompareFunc compare_func);
+GByteArray* g_byte_array_sized_new(guint reserved_size);
 extern
-void g_ptr_array_sort_with_data (GPtrArray *array,GCompareDataFunc compare_func,gpointer user_data);
+guint8* g_byte_array_free(GByteArray *array, gboolean free_segment);
 extern
-void g_ptr_array_foreach (GPtrArray *array,GFunc func,gpointer user_data);
+GBytes* g_byte_array_free_to_bytes(GByteArray *array);
 extern
-gboolean g_ptr_array_find (GPtrArray *haystack,gconstpointer needle,guint *index_);
+GByteArray *g_byte_array_ref(GByteArray *array);
 extern
-gboolean g_ptr_array_find_with_equal_func (GPtrArray *haystack,gconstpointer needle,GEqualFunc equal_func,guint *index_);
+void g_byte_array_unref(GByteArray *array);
 extern
-GByteArray* g_byte_array_new (void);
+GByteArray* g_byte_array_append(GByteArray *array, const guint8 *data, guint len);
 extern
-GByteArray* g_byte_array_new_take (guint8 *data,gsize len);
+GByteArray* g_byte_array_prepend(GByteArray *array, const guint8 *data, guint len);
 extern
-GByteArray* g_byte_array_sized_new (guint reserved_size);
+GByteArray* g_byte_array_set_size(GByteArray *array, guint length);
 extern
-guint8* g_byte_array_free (GByteArray *array,gboolean free_segment);
+GByteArray* g_byte_array_remove_index(GByteArray *array, guint index_);
 extern
-GBytes* g_byte_array_free_to_bytes (GByteArray *array);
+GByteArray* g_byte_array_remove_index_fast(GByteArray *array, guint index_);
 extern
-GByteArray *g_byte_array_ref (GByteArray *array);
+GByteArray* g_byte_array_remove_range(GByteArray *array, guint index_, guint length);
 extern
-void g_byte_array_unref (GByteArray *array);
+void g_byte_array_sort(GByteArray *array, GCompareFunc compare_func);
 extern
-GByteArray* g_byte_array_append (GByteArray *array,const guint8 *data,guint len);
+void g_byte_array_sort_with_data(GByteArray *array, GCompareDataFunc compare_func, gpointer user_data);
 extern
-GByteArray* g_byte_array_prepend (GByteArray *array,const guint8 *data,guint len);
+gint g_atomic_int_get(const volatile gint *atomic);
 extern
-GByteArray* g_byte_array_set_size (GByteArray *array,guint length);
+void g_atomic_int_set(volatile gint *atomic, gint newval);
 extern
-GByteArray* g_byte_array_remove_index (GByteArray *array,guint index_);
+void g_atomic_int_inc(volatile gint *atomic);
 extern
-GByteArray* g_byte_array_remove_index_fast (GByteArray *array,guint index_);
+gboolean g_atomic_int_dec_and_test(volatile gint *atomic);
 extern
-GByteArray* g_byte_array_remove_range (GByteArray *array,guint index_,guint length);
+gboolean g_atomic_int_compare_and_exchange(volatile gint *atomic, gint oldval, gint newval);
 extern
-void g_byte_array_sort (GByteArray *array,GCompareFunc compare_func);
+gint g_atomic_int_add(volatile gint *atomic, gint val);
 extern
-void g_byte_array_sort_with_data (GByteArray *array,GCompareDataFunc compare_func,gpointer user_data);
+guint g_atomic_int_and(volatile guint *atomic, guint val);
 extern
-gint g_atomic_int_get (const volatile gint *atomic);
+guint g_atomic_int_or(volatile guint *atomic, guint val);
 extern
-void g_atomic_int_set (volatile gint *atomic,gint newval);
+guint g_atomic_int_xor(volatile guint *atomic, guint val);
 extern
-void g_atomic_int_inc (volatile gint *atomic);
+gpointer g_atomic_pointer_get(const volatile void *atomic);
 extern
-gboolean g_atomic_int_dec_and_test (volatile gint *atomic);
+void g_atomic_pointer_set(volatile void *atomic, gpointer newval);
 extern
-gboolean g_atomic_int_compare_and_exchange (volatile gint *atomic,gint oldval,gint newval);
+gboolean g_atomic_pointer_compare_and_exchange(volatile void *atomic, gpointer oldval, gpointer newval);
 extern
-gint g_atomic_int_add (volatile gint *atomic,gint val);
+gssize g_atomic_pointer_add(volatile void *atomic, gssize val);
 extern
-guint g_atomic_int_and (volatile guint *atomic,guint val);
+gsize g_atomic_pointer_and(volatile void *atomic, gsize val);
 extern
-guint g_atomic_int_or (volatile guint *atomic,guint val);
+gsize g_atomic_pointer_or(volatile void *atomic, gsize val);
 extern
-guint g_atomic_int_xor (volatile guint *atomic,guint val);
+gsize g_atomic_pointer_xor(volatile void *atomic, gsize val);
 extern
-gpointer g_atomic_pointer_get (const volatile void *atomic);
+gint g_atomic_int_exchange_and_add(volatile gint *atomic, gint val);
 extern
-void g_atomic_pointer_set (volatile void *atomic,gpointer newval);
+GQuark g_quark_try_string(const gchar *string);
 extern
-gboolean g_atomic_pointer_compare_and_exchange (volatile void *atomic,gpointer oldval,gpointer newval);
+GQuark g_quark_from_static_string(const gchar *string);
 extern
-gssize g_atomic_pointer_add (volatile void *atomic,gssize val);
+GQuark g_quark_from_string(const gchar *string);
 extern
-gsize g_atomic_pointer_and (volatile void *atomic,gsize val);
+const gchar * g_quark_to_string(GQuark quark);
 extern
-gsize g_atomic_pointer_or (volatile void *atomic,gsize val);
+const gchar * g_intern_string(const gchar *string);
 extern
-gsize g_atomic_pointer_xor (volatile void *atomic,gsize val);extern
-gint g_atomic_int_exchange_and_add (volatile gint *atomic,gint val);
+const gchar * g_intern_static_string(const gchar *string);
 extern
-GQuark g_quark_try_string (const gchar *string);
+GError* g_error_new(GQuark domain, gint code, const gchar *format, ...);
 extern
-GQuark g_quark_from_static_string (const gchar *string);
+GError* g_error_new_literal(GQuark domain, gint code, const gchar *message);
 extern
-GQuark g_quark_from_string (const gchar *string);
+GError* g_error_new_valist(GQuark domain, gint code, const gchar *format, va_list args);
 extern
-const gchar * g_quark_to_string (GQuark quark);
+void g_error_free(GError *error);
 extern
-const gchar * g_intern_string (const gchar *string);
+GError* g_error_copy(const GError *error);
 extern
-const gchar * g_intern_static_string (const gchar *string);
+gboolean g_error_matches(const GError *error, GQuark domain, gint code);
 extern
-GError* g_error_new (GQuark domain,gint code,const gchar *format,...);
+void g_set_error(GError **err, GQuark domain, gint code, const gchar *format, ...);
 extern
-GError* g_error_new_literal (GQuark domain,gint code,const gchar *message);
+void g_set_error_literal(GError **err, GQuark domain, gint code, const gchar *message);
 extern
-GError* g_error_new_valist (GQuark domain,gint code,const gchar *format,va_list args);
+void g_propagate_error(GError **dest, GError *src);
 extern
-void g_error_free (GError *error);
+void g_clear_error(GError **err);
 extern
-GError* g_error_copy (const GError *error);
+void g_prefix_error(GError **err, const gchar *format, ...);
 extern
-gboolean g_error_matches (const GError *error,GQuark domain,gint code);
+void g_propagate_prefixed_error(GError **dest, GError *src, const gchar *format, ...);
 extern
-void g_set_error (GError **err,GQuark domain,gint code,const gchar *format,...);
+const gchar * g_get_user_name(void);
 extern
-void g_set_error_literal (GError **err,GQuark domain,gint code,const gchar *message);
+const gchar * g_get_real_name(void);
 extern
-void g_propagate_error (GError **dest,GError *src);
+const gchar * g_get_home_dir(void);
 extern
-void g_clear_error (GError **err);
+const gchar * g_get_tmp_dir(void);
 extern
-void g_prefix_error (GError **err,const gchar *format,...);
+const gchar * g_get_host_name(void);
 extern
-void g_propagate_prefixed_error (GError **dest,GError *src,const gchar *format,...);
+const gchar * g_get_prgname(void);
 extern
-const gchar * g_get_user_name (void);
+void g_set_prgname(const gchar *prgname);
 extern
-const gchar * g_get_real_name (void);
+const gchar * g_get_application_name(void);
 extern
-const gchar * g_get_home_dir (void);
+void g_set_application_name(const gchar *application_name);
 extern
-const gchar * g_get_tmp_dir (void);
+void g_reload_user_special_dirs_cache(void);
 extern
-const gchar * g_get_host_name (void);
+const gchar * g_get_user_data_dir(void);
 extern
-const gchar * g_get_prgname (void);
+const gchar * g_get_user_config_dir(void);
 extern
-void g_set_prgname (const gchar *prgname);
+const gchar * g_get_user_cache_dir(void);
 extern
-const gchar * g_get_application_name (void);
+const gchar * const * g_get_system_data_dirs(void);
 extern
-void g_set_application_name (const gchar *application_name);
+const gchar * const * g_get_system_config_dirs(void);
 extern
-void g_reload_user_special_dirs_cache (void);
+const gchar * g_get_user_runtime_dir(void);
 extern
-const gchar * g_get_user_data_dir (void);
+const gchar * g_get_user_special_dir(GUserDirectory directory);
 extern
-const gchar * g_get_user_config_dir (void);
+guint g_parse_debug_string(const gchar *string, const GDebugKey *keys, guint nkeys);
 extern
-const gchar * g_get_user_cache_dir (void);
+gint g_snprintf(gchar *string, gulong n, gchar const *format, ...);
 extern
-const gchar * const * g_get_system_data_dirs (void);
+gint g_vsnprintf(gchar *string, gulong n, gchar const *format, va_list args);
 extern
-const gchar * const * g_get_system_config_dirs (void);
+void g_nullify_pointer(gpointer *nullify_location);
 extern
-const gchar * g_get_user_runtime_dir (void);
+gchar *g_format_size_full(guint64 size, GFormatSizeFlags flags);
 extern
-const gchar * g_get_user_special_dir (GUserDirectory directory);
+gchar *g_format_size(guint64 size);
 extern
-guint g_parse_debug_string (const gchar *string,const GDebugKey *keys,guint nkeys);
+gchar *g_format_size_for_display(goffset size);
 extern
-gint g_snprintf (gchar *string,gulong n,gchar const *format,...);
+void g_atexit(GVoidFunc func);
 extern
-gint g_vsnprintf (gchar *string,gulong n,gchar const *format,va_list args);
+gchar* g_find_program_in_path(const gchar *program);
 extern
-void g_nullify_pointer (gpointer *nullify_location);
+GThread * g_thread_ref(GThread *thread);
 extern
-gchar *g_format_size_full (guint64 size,GFormatSizeFlags flags);
+void g_thread_unref(GThread *thread);
 extern
-gchar *g_format_size (guint64 size);
+GThread * g_thread_new(const gchar *name, GThreadFunc func, gpointer data);
 extern
-gchar *g_format_size_for_display (goffset size);
+GThread * g_thread_try_new(const gchar *name, GThreadFunc func, gpointer data, GError **error);
 extern
-void g_atexit (GVoidFunc func);
+GThread * g_thread_self(void);
 extern
-gchar* g_find_program_in_path (const gchar *program);
+void g_thread_exit(gpointer retval);
 extern
-GThread * g_thread_ref (GThread *thread);
+gpointer g_thread_join(GThread *thread);
 extern
-void g_thread_unref (GThread *thread);
+void g_thread_yield(void);
 extern
-GThread * g_thread_new (const gchar *name,GThreadFunc func,gpointer data);
+void g_mutex_init(GMutex *mutex);
 extern
-GThread * g_thread_try_new (const gchar *name,GThreadFunc func,gpointer data,GError **error);
+void g_mutex_clear(GMutex *mutex);
 extern
-GThread * g_thread_self (void);
+void g_mutex_lock(GMutex *mutex);
 extern
-void g_thread_exit (gpointer retval);
+gboolean g_mutex_trylock(GMutex *mutex);
 extern
-gpointer g_thread_join (GThread *thread);
+void g_mutex_unlock(GMutex *mutex);
 extern
-void g_thread_yield (void);
+void g_rw_lock_init(GRWLock *rw_lock);
 extern
-void g_mutex_init (GMutex *mutex);
+void g_rw_lock_clear(GRWLock *rw_lock);
 extern
-void g_mutex_clear (GMutex *mutex);
+void g_rw_lock_writer_lock(GRWLock *rw_lock);
 extern
-void g_mutex_lock (GMutex *mutex);
+gboolean g_rw_lock_writer_trylock(GRWLock *rw_lock);
 extern
-gboolean g_mutex_trylock (GMutex *mutex);
+void g_rw_lock_writer_unlock(GRWLock *rw_lock);
 extern
-void g_mutex_unlock (GMutex *mutex);
+void g_rw_lock_reader_lock(GRWLock *rw_lock);
 extern
-void g_rw_lock_init (GRWLock *rw_lock);
+gboolean g_rw_lock_reader_trylock(GRWLock *rw_lock);
 extern
-void g_rw_lock_clear (GRWLock *rw_lock);
+void g_rw_lock_reader_unlock(GRWLock *rw_lock);
 extern
-void g_rw_lock_writer_lock (GRWLock *rw_lock);
+void g_rec_mutex_init(GRecMutex *rec_mutex);
 extern
-gboolean g_rw_lock_writer_trylock (GRWLock *rw_lock);
+void g_rec_mutex_clear(GRecMutex *rec_mutex);
 extern
-void g_rw_lock_writer_unlock (GRWLock *rw_lock);
+void g_rec_mutex_lock(GRecMutex *rec_mutex);
 extern
-void g_rw_lock_reader_lock (GRWLock *rw_lock);
+gboolean g_rec_mutex_trylock(GRecMutex *rec_mutex);
 extern
-gboolean g_rw_lock_reader_trylock (GRWLock *rw_lock);
+void g_rec_mutex_unlock(GRecMutex *rec_mutex);
 extern
-void g_rw_lock_reader_unlock (GRWLock *rw_lock);
+void g_cond_init(GCond *cond);
 extern
-void g_rec_mutex_init (GRecMutex *rec_mutex);
+void g_cond_clear(GCond *cond);
 extern
-void g_rec_mutex_clear (GRecMutex *rec_mutex);
+void g_cond_wait(GCond *cond, GMutex *mutex);
 extern
-void g_rec_mutex_lock (GRecMutex *rec_mutex);
+void g_cond_signal(GCond *cond);
 extern
-gboolean g_rec_mutex_trylock (GRecMutex *rec_mutex);
+void g_cond_broadcast(GCond *cond);
 extern
-void g_rec_mutex_unlock (GRecMutex *rec_mutex);
+gboolean g_cond_wait_until(GCond *cond, GMutex *mutex, gint64 end_time);
 extern
-void g_cond_init (GCond *cond);
+gpointer g_private_get(GPrivate *key);
 extern
-void g_cond_clear (GCond *cond);
+void g_private_set(GPrivate *key, gpointer value);
 extern
-void g_cond_wait (GCond *cond,GMutex *mutex);
+void g_private_replace(GPrivate *key, gpointer value);
 extern
-void g_cond_signal (GCond *cond);
+gpointer g_once_impl(GOnce *once, GThreadFunc func, gpointer arg);
 extern
-void g_cond_broadcast (GCond *cond);
+gboolean g_once_init_enter(volatile void *location);
 extern
-gboolean g_cond_wait_until (GCond *cond,GMutex *mutex,gint64 end_time);
+void g_once_init_leave(volatile void *location, gsize result);
 extern
-gpointer g_private_get (GPrivate *key);
+guint g_get_num_processors(void);
 extern
-void g_private_set (GPrivate *key,gpointer value);
+GAsyncQueue *g_async_queue_new(void);
 extern
-void g_private_replace (GPrivate *key,gpointer value);
+GAsyncQueue *g_async_queue_new_full(GDestroyNotify item_free_func);
 extern
-gpointer g_once_impl (GOnce *once,GThreadFunc func,gpointer arg);
+void g_async_queue_lock(GAsyncQueue *queue);
 extern
-gboolean g_once_init_enter (volatile void *location);
+void g_async_queue_unlock(GAsyncQueue *queue);
 extern
-void g_once_init_leave (volatile void *location,gsize result);
+GAsyncQueue *g_async_queue_ref(GAsyncQueue *queue);
 extern
-guint g_get_num_processors (void);
+void g_async_queue_unref(GAsyncQueue *queue);
 extern
-GAsyncQueue *g_async_queue_new (void);
+void g_async_queue_ref_unlocked(GAsyncQueue *queue);
 extern
-GAsyncQueue *g_async_queue_new_full (GDestroyNotify item_free_func);
+void g_async_queue_unref_and_unlock(GAsyncQueue *queue);
 extern
-void g_async_queue_lock (GAsyncQueue *queue);
+void g_async_queue_push(GAsyncQueue *queue, gpointer data);
 extern
-void g_async_queue_unlock (GAsyncQueue *queue);
+void g_async_queue_push_unlocked(GAsyncQueue *queue, gpointer data);
 extern
-GAsyncQueue *g_async_queue_ref (GAsyncQueue *queue);
+void g_async_queue_push_sorted(GAsyncQueue *queue, gpointer data, GCompareDataFunc func, gpointer user_data);
 extern
-void g_async_queue_unref (GAsyncQueue *queue);extern
-void g_async_queue_ref_unlocked (GAsyncQueue *queue);extern
-void g_async_queue_unref_and_unlock (GAsyncQueue *queue);
+void g_async_queue_push_sorted_unlocked(GAsyncQueue *queue, gpointer data, GCompareDataFunc func, gpointer user_data);
 extern
-void g_async_queue_push (GAsyncQueue *queue,gpointer data);
+gpointer g_async_queue_pop(GAsyncQueue *queue);
 extern
-void g_async_queue_push_unlocked (GAsyncQueue *queue,gpointer data);
+gpointer g_async_queue_pop_unlocked(GAsyncQueue *queue);
 extern
-void g_async_queue_push_sorted (GAsyncQueue *queue,gpointer data,GCompareDataFunc func,gpointer user_data);
+gpointer g_async_queue_try_pop(GAsyncQueue *queue);
 extern
-void g_async_queue_push_sorted_unlocked (GAsyncQueue *queue,gpointer data,GCompareDataFunc func,gpointer user_data);
+gpointer g_async_queue_try_pop_unlocked(GAsyncQueue *queue);
 extern
-gpointer g_async_queue_pop (GAsyncQueue *queue);
+gpointer g_async_queue_timeout_pop(GAsyncQueue *queue, guint64 timeout);
 extern
-gpointer g_async_queue_pop_unlocked (GAsyncQueue *queue);
+gpointer g_async_queue_timeout_pop_unlocked(GAsyncQueue *queue, guint64 timeout);
 extern
-gpointer g_async_queue_try_pop (GAsyncQueue *queue);
+gint g_async_queue_length(GAsyncQueue *queue);
 extern
-gpointer g_async_queue_try_pop_unlocked (GAsyncQueue *queue);
+gint g_async_queue_length_unlocked(GAsyncQueue *queue);
 extern
-gpointer g_async_queue_timeout_pop (GAsyncQueue *queue,guint64 timeout);
+void g_async_queue_sort(GAsyncQueue *queue, GCompareDataFunc func, gpointer user_data);
 extern
-gpointer g_async_queue_timeout_pop_unlocked (GAsyncQueue *queue,guint64 timeout);
+void g_async_queue_sort_unlocked(GAsyncQueue *queue, GCompareDataFunc func, gpointer user_data);
 extern
-gint g_async_queue_length (GAsyncQueue *queue);
+gboolean g_async_queue_remove(GAsyncQueue *queue, gpointer item);
 extern
-gint g_async_queue_length_unlocked (GAsyncQueue *queue);
+gboolean g_async_queue_remove_unlocked(GAsyncQueue *queue, gpointer item);
 extern
-void g_async_queue_sort (GAsyncQueue *queue,GCompareDataFunc func,gpointer user_data);
+void g_async_queue_push_front(GAsyncQueue *queue, gpointer item);
 extern
-void g_async_queue_sort_unlocked (GAsyncQueue *queue,GCompareDataFunc func,gpointer user_data);
+void g_async_queue_push_front_unlocked(GAsyncQueue *queue, gpointer item);
 extern
-gboolean g_async_queue_remove (GAsyncQueue *queue,gpointer item);
+gpointer g_async_queue_timed_pop(GAsyncQueue *queue, GTimeVal *end_time);
 extern
-gboolean g_async_queue_remove_unlocked (GAsyncQueue *queue,gpointer item);
+gpointer g_async_queue_timed_pop_unlocked(GAsyncQueue *queue, GTimeVal *end_time);
 extern
-void g_async_queue_push_front (GAsyncQueue *queue,gpointer item);
+void g_on_error_query(const gchar *prg_name);
 extern
-void g_async_queue_push_front_unlocked (GAsyncQueue *queue,gpointer item);extern
-gpointer g_async_queue_timed_pop (GAsyncQueue *queue,GTimeVal *end_time);extern
-gpointer g_async_queue_timed_pop_unlocked (GAsyncQueue *queue,GTimeVal *end_time);extern
-void g_on_error_query (const gchar *prg_name);
+void g_on_error_stack_trace(const gchar *prg_name);
 extern
-void g_on_error_stack_trace (const gchar *prg_name);
+gsize g_base64_encode_step(const guchar *in, gsize len, gboolean break_lines, gchar *out, gint *state, gint *save);
 extern
-gsize g_base64_encode_step (const guchar *in,gsize len,gboolean break_lines,gchar *out,gint *state,gint *save);
+gsize g_base64_encode_close(gboolean break_lines, gchar *out, gint *state, gint *save);
 extern
-gsize g_base64_encode_close (gboolean break_lines,gchar *out,gint *state,gint *save);
+gchar* g_base64_encode(const guchar *data, gsize len);
 extern
-gchar* g_base64_encode (const guchar *data,gsize len);
+gsize g_base64_decode_step(const gchar *in, gsize len, guchar *out, gint *state, guint *save);
 extern
-gsize g_base64_decode_step (const gchar *in,gsize len,guchar *out,gint *state,guint *save);
+guchar *g_base64_decode(const gchar *text, gsize *out_len);
 extern
-guchar *g_base64_decode (const gchar *text,gsize *out_len);
+guchar *g_base64_decode_inplace(gchar *text, gsize *out_len);
 extern
-guchar *g_base64_decode_inplace (gchar *text,gsize *out_len);
+void g_bit_lock(volatile gint *address, gint lock_bit);
 extern
-void g_bit_lock (volatile gint *address,gint lock_bit);
+gboolean g_bit_trylock(volatile gint *address, gint lock_bit);
 extern
-gboolean g_bit_trylock (volatile gint *address,gint lock_bit);
+void g_bit_unlock(volatile gint *address, gint lock_bit);
 extern
-void g_bit_unlock (volatile gint *address,gint lock_bit);
+void g_pointer_bit_lock(volatile void *address, gint lock_bit);
 extern
-void g_pointer_bit_lock (volatile void *address,gint lock_bit);
+gboolean g_pointer_bit_trylock(volatile void *address, gint lock_bit);
 extern
-gboolean g_pointer_bit_trylock (volatile void *address,gint lock_bit);
+void g_pointer_bit_unlock(volatile void *address, gint lock_bit);
 extern
-void g_pointer_bit_unlock (volatile void *address,gint lock_bit);
+GBookmarkFile *g_bookmark_file_new(void);
 extern
-GBookmarkFile *g_bookmark_file_new (void);
+void g_bookmark_file_free(GBookmarkFile *bookmark);
 extern
-void g_bookmark_file_free (GBookmarkFile *bookmark);
+gboolean g_bookmark_file_load_from_file(GBookmarkFile *bookmark, const gchar *filename, GError **error);
 extern
-gboolean g_bookmark_file_load_from_file (GBookmarkFile *bookmark,const gchar *filename,GError **error);
+gboolean g_bookmark_file_load_from_data(GBookmarkFile *bookmark, const gchar *data, gsize length, GError **error);
 extern
-gboolean g_bookmark_file_load_from_data (GBookmarkFile *bookmark,const gchar *data,gsize length,GError **error);
+gboolean g_bookmark_file_load_from_data_dirs(GBookmarkFile *bookmark, const gchar *file, gchar **full_path, GError **error);
 extern
-gboolean g_bookmark_file_load_from_data_dirs (GBookmarkFile *bookmark,const gchar *file,gchar **full_path,GError **error);
+gchar * g_bookmark_file_to_data(GBookmarkFile *bookmark, gsize *length, GError **error);
 extern
-gchar * g_bookmark_file_to_data (GBookmarkFile *bookmark,gsize *length,GError **error);
+gboolean g_bookmark_file_to_file(GBookmarkFile *bookmark, const gchar *filename, GError **error);
 extern
-gboolean g_bookmark_file_to_file (GBookmarkFile *bookmark,const gchar *filename,GError **error);
+void g_bookmark_file_set_title(GBookmarkFile *bookmark, const gchar *uri, const gchar *title);
 extern
-void g_bookmark_file_set_title (GBookmarkFile *bookmark,const gchar *uri,const gchar *title);
+gchar * g_bookmark_file_get_title(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-gchar * g_bookmark_file_get_title (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+void g_bookmark_file_set_description(GBookmarkFile *bookmark, const gchar *uri, const gchar *description);
 extern
-void g_bookmark_file_set_description (GBookmarkFile *bookmark,const gchar *uri,const gchar *description);
+gchar * g_bookmark_file_get_description(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-gchar * g_bookmark_file_get_description (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+void g_bookmark_file_set_mime_type(GBookmarkFile *bookmark, const gchar *uri, const gchar *mime_type);
 extern
-void g_bookmark_file_set_mime_type (GBookmarkFile *bookmark,const gchar *uri,const gchar *mime_type);
+gchar * g_bookmark_file_get_mime_type(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-gchar * g_bookmark_file_get_mime_type (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+void g_bookmark_file_set_groups(GBookmarkFile *bookmark, const gchar *uri, const gchar **groups, gsize length);
 extern
-void g_bookmark_file_set_groups (GBookmarkFile *bookmark,const gchar *uri,const gchar **groups,gsize length);
+void g_bookmark_file_add_group(GBookmarkFile *bookmark, const gchar *uri, const gchar *group);
 extern
-void g_bookmark_file_add_group (GBookmarkFile *bookmark,const gchar *uri,const gchar *group);
+gboolean g_bookmark_file_has_group(GBookmarkFile *bookmark, const gchar *uri, const gchar *group, GError **error);
 extern
-gboolean g_bookmark_file_has_group (GBookmarkFile *bookmark,const gchar *uri,const gchar *group,GError **error);
+gchar ** g_bookmark_file_get_groups(GBookmarkFile *bookmark, const gchar *uri, gsize *length, GError **error);
 extern
-gchar ** g_bookmark_file_get_groups (GBookmarkFile *bookmark,const gchar *uri,gsize *length,GError **error);
+void g_bookmark_file_add_application(GBookmarkFile *bookmark, const gchar *uri, const gchar *name, const gchar *exec);
 extern
-void g_bookmark_file_add_application (GBookmarkFile *bookmark,const gchar *uri,const gchar *name,const gchar *exec);
+gboolean g_bookmark_file_has_application(GBookmarkFile *bookmark, const gchar *uri, const gchar *name, GError **error);
 extern
-gboolean g_bookmark_file_has_application (GBookmarkFile *bookmark,const gchar *uri,const gchar *name,GError **error);
+gchar ** g_bookmark_file_get_applications(GBookmarkFile *bookmark, const gchar *uri, gsize *length, GError **error);
 extern
-gchar ** g_bookmark_file_get_applications (GBookmarkFile *bookmark,const gchar *uri,gsize *length,GError **error);
+gboolean g_bookmark_file_set_app_info(GBookmarkFile *bookmark, const gchar *uri, const gchar *name, const gchar *exec, gint count, time_t stamp, GError **error);
 extern
-gboolean g_bookmark_file_set_app_info (GBookmarkFile *bookmark,const gchar *uri,const gchar *name,const gchar *exec,gint count,time_t stamp,GError **error);
+gboolean g_bookmark_file_get_app_info(GBookmarkFile *bookmark, const gchar *uri, const gchar *name, gchar **exec, guint *count, time_t *stamp, GError **error);
 extern
-gboolean g_bookmark_file_get_app_info (GBookmarkFile *bookmark,const gchar *uri,const gchar *name,gchar **exec,guint *count,time_t *stamp,GError **error);
+void g_bookmark_file_set_is_private(GBookmarkFile *bookmark, const gchar *uri, gboolean is_private);
 extern
-void g_bookmark_file_set_is_private (GBookmarkFile *bookmark,const gchar *uri,gboolean is_private);
+gboolean g_bookmark_file_get_is_private(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-gboolean g_bookmark_file_get_is_private (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+void g_bookmark_file_set_icon(GBookmarkFile *bookmark, const gchar *uri, const gchar *href, const gchar *mime_type);
 extern
-void g_bookmark_file_set_icon (GBookmarkFile *bookmark,const gchar *uri,const gchar *href,const gchar *mime_type);
+gboolean g_bookmark_file_get_icon(GBookmarkFile *bookmark, const gchar *uri, gchar **href, gchar **mime_type, GError **error);
 extern
-gboolean g_bookmark_file_get_icon (GBookmarkFile *bookmark,const gchar *uri,gchar **href,gchar **mime_type,GError **error);
+void g_bookmark_file_set_added(GBookmarkFile *bookmark, const gchar *uri, time_t added);
 extern
-void g_bookmark_file_set_added (GBookmarkFile *bookmark,const gchar *uri,time_t added);
+time_t g_bookmark_file_get_added(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-time_t g_bookmark_file_get_added (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+void g_bookmark_file_set_modified(GBookmarkFile *bookmark, const gchar *uri, time_t modified);
 extern
-void g_bookmark_file_set_modified (GBookmarkFile *bookmark,const gchar *uri,time_t modified);
+time_t g_bookmark_file_get_modified(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-time_t g_bookmark_file_get_modified (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+void g_bookmark_file_set_visited(GBookmarkFile *bookmark, const gchar *uri, time_t visited);
 extern
-void g_bookmark_file_set_visited (GBookmarkFile *bookmark,const gchar *uri,time_t visited);
+time_t g_bookmark_file_get_visited(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-time_t g_bookmark_file_get_visited (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+gboolean g_bookmark_file_has_item(GBookmarkFile *bookmark, const gchar *uri);
 extern
-gboolean g_bookmark_file_has_item (GBookmarkFile *bookmark,const gchar *uri);
+gint g_bookmark_file_get_size(GBookmarkFile *bookmark);
 extern
-gint g_bookmark_file_get_size (GBookmarkFile *bookmark);
+gchar ** g_bookmark_file_get_uris(GBookmarkFile *bookmark, gsize *length);
 extern
-gchar ** g_bookmark_file_get_uris (GBookmarkFile *bookmark,gsize *length);
+gboolean g_bookmark_file_remove_group(GBookmarkFile *bookmark, const gchar *uri, const gchar *group, GError **error);
 extern
-gboolean g_bookmark_file_remove_group (GBookmarkFile *bookmark,const gchar *uri,const gchar *group,GError **error);
+gboolean g_bookmark_file_remove_application(GBookmarkFile *bookmark, const gchar *uri, const gchar *name, GError **error);
 extern
-gboolean g_bookmark_file_remove_application (GBookmarkFile *bookmark,const gchar *uri,const gchar *name,GError **error);
+gboolean g_bookmark_file_remove_item(GBookmarkFile *bookmark, const gchar *uri, GError **error);
 extern
-gboolean g_bookmark_file_remove_item (GBookmarkFile *bookmark,const gchar *uri,GError **error);
+gboolean g_bookmark_file_move_item(GBookmarkFile *bookmark, const gchar *old_uri, const gchar *new_uri, GError **error);
 extern
-gboolean g_bookmark_file_move_item (GBookmarkFile *bookmark,const gchar *old_uri,const gchar *new_uri,GError **error);
+GBytes * g_bytes_new(gconstpointer data, gsize size);
 extern
-GBytes * g_bytes_new (gconstpointer data,gsize size);
+GBytes * g_bytes_new_take(gpointer data, gsize size);
 extern
-GBytes * g_bytes_new_take (gpointer data,gsize size);
+GBytes * g_bytes_new_static(gconstpointer data, gsize size);
 extern
-GBytes * g_bytes_new_static (gconstpointer data,gsize size);
+GBytes * g_bytes_new_with_free_func(gconstpointer data, gsize size, GDestroyNotify free_func, gpointer user_data);
 extern
-GBytes * g_bytes_new_with_free_func (gconstpointer data,gsize size,GDestroyNotify free_func,gpointer user_data);
+GBytes * g_bytes_new_from_bytes(GBytes *bytes, gsize offset, gsize length);
 extern
-GBytes * g_bytes_new_from_bytes (GBytes *bytes,gsize offset,gsize length);
+gconstpointer g_bytes_get_data(GBytes *bytes, gsize *size);
 extern
-gconstpointer g_bytes_get_data (GBytes *bytes,gsize *size);
+gsize g_bytes_get_size(GBytes *bytes);
 extern
-gsize g_bytes_get_size (GBytes *bytes);
+GBytes * g_bytes_ref(GBytes *bytes);
 extern
-GBytes * g_bytes_ref (GBytes *bytes);
+void g_bytes_unref(GBytes *bytes);
 extern
-void g_bytes_unref (GBytes *bytes);
+gpointer g_bytes_unref_to_data(GBytes *bytes, gsize *size);
 extern
-gpointer g_bytes_unref_to_data (GBytes *bytes,gsize *size);
+GByteArray * g_bytes_unref_to_array(GBytes *bytes);
 extern
-GByteArray * g_bytes_unref_to_array (GBytes *bytes);
+guint g_bytes_hash(gconstpointer bytes);
 extern
-guint g_bytes_hash (gconstpointer bytes);
+gboolean g_bytes_equal(gconstpointer bytes1, gconstpointer bytes2);
 extern
-gboolean g_bytes_equal (gconstpointer bytes1,gconstpointer bytes2);
+gint g_bytes_compare(gconstpointer bytes1, gconstpointer bytes2);
 extern
-gint g_bytes_compare (gconstpointer bytes1,gconstpointer bytes2);
+gboolean g_get_charset(const char **charset);
 extern
-gboolean g_get_charset (const char **charset);
+gchar * g_get_codeset(void);
+GLIB_AVAILABLE_IN_2_62 gboolean g_get_console_charset(const char **charset);
 extern
-gchar * g_get_codeset (void);
+const gchar * const * g_get_language_names(void);
+GLIB_AVAILABLE_IN_2_58 const gchar * const * g_get_language_names_with_category(const gchar *category_name);
 extern
-gboolean g_get_console_charset (const char **charset);
+gchar ** g_get_locale_variants(const gchar *locale);
 extern
-const gchar * const * g_get_language_names (void);
+gssize g_checksum_type_get_length(GChecksumType checksum_type);
 extern
-const gchar * const * g_get_language_names_with_category(const gchar *category_name);
+GChecksum * g_checksum_new(GChecksumType checksum_type);
 extern
-gchar ** g_get_locale_variants (const gchar *locale);
+void g_checksum_reset(GChecksum *checksum);
 extern
-gssize g_checksum_type_get_length (GChecksumType checksum_type);
+GChecksum * g_checksum_copy(const GChecksum *checksum);
 extern
-GChecksum * g_checksum_new (GChecksumType checksum_type);
+void g_checksum_free(GChecksum *checksum);
 extern
-void g_checksum_reset (GChecksum *checksum);
+void g_checksum_update(GChecksum *checksum, const guchar *data, gssize length);
 extern
-GChecksum * g_checksum_copy (const GChecksum *checksum);
+const gchar * g_checksum_get_string(GChecksum *checksum);
 extern
-void g_checksum_free (GChecksum *checksum);
+void g_checksum_get_digest(GChecksum *checksum, guint8 *buffer, gsize *digest_len);
 extern
-void g_checksum_update (GChecksum *checksum,const guchar *data,gssize length);
+gchar *g_compute_checksum_for_data(GChecksumType checksum_type, const guchar *data, gsize length);
 extern
-const gchar * g_checksum_get_string (GChecksum *checksum);
+gchar *g_compute_checksum_for_string(GChecksumType checksum_type, const gchar *str, gssize length);
 extern
-void g_checksum_get_digest (GChecksum *checksum,guint8 *buffer,gsize *digest_len);
+gchar *g_compute_checksum_for_bytes(GChecksumType checksum_type, GBytes *data);
 extern
-gchar *g_compute_checksum_for_data (GChecksumType checksum_type,const guchar *data,gsize length);
+GQuark g_convert_error_quark(void);
 extern
-gchar *g_compute_checksum_for_string (GChecksumType checksum_type,const gchar *str,gssize length);
+GIConv g_iconv_open(const gchar *to_codeset, const gchar *from_codeset);
 extern
-gchar *g_compute_checksum_for_bytes (GChecksumType checksum_type,GBytes *data);extern
-GQuark g_convert_error_quark (void);
+gsize g_iconv(GIConv converter, gchar **inbuf, gsize *inbytes_left, gchar **outbuf, gsize *outbytes_left);
 extern
-GIConv g_iconv_open (const gchar *to_codeset,const gchar *from_codeset);
+gint g_iconv_close(GIConv converter);
 extern
-gsize g_iconv (GIConv converter,gchar **inbuf,gsize *inbytes_left,gchar **outbuf,gsize *outbytes_left);
+gchar* g_convert(const gchar *str, gssize len, const gchar *to_codeset, const gchar *from_codeset, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gint g_iconv_close (GIConv converter);
+gchar* g_convert_with_iconv(const gchar *str, gssize len, GIConv converter, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gchar* g_convert (const gchar *str,gssize len,const gchar *to_codeset,const gchar *from_codeset,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar* g_convert_with_fallback(const gchar *str, gssize len, const gchar *to_codeset, const gchar *from_codeset, const gchar *fallback, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gchar* g_convert_with_iconv (const gchar *str,gssize len,GIConv converter,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar* g_locale_to_utf8(const gchar *opsysstring, gssize len, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gchar* g_convert_with_fallback (const gchar *str,gssize len,const gchar *to_codeset,const gchar *from_codeset,const gchar *fallback,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar* g_locale_from_utf8(const gchar *utf8string, gssize len, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gchar* g_locale_to_utf8 (const gchar *opsysstring,gssize len,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar* g_filename_to_utf8(const gchar *opsysstring, gssize len, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gchar* g_locale_from_utf8 (const gchar *utf8string,gssize len,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar* g_filename_from_utf8(const gchar *utf8string, gssize len, gsize *bytes_read, gsize *bytes_written, GError **error);
 extern
-gchar* g_filename_to_utf8 (const gchar *opsysstring,gssize len,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar *g_filename_from_uri(const gchar *uri, gchar **hostname, GError **error);
 extern
-gchar* g_filename_from_utf8 (const gchar *utf8string,gssize len,gsize *bytes_read,gsize *bytes_written,GError **error);
+gchar *g_filename_to_uri(const gchar *filename, const gchar *hostname, GError **error);
 extern
-gchar *g_filename_from_uri (const gchar *uri,gchar **hostname,GError **error);
+gchar *g_filename_display_name(const gchar *filename);
 extern
-gchar *g_filename_to_uri (const gchar *filename,const gchar *hostname,GError **error);
+gboolean g_get_filename_charsets(const gchar ***filename_charsets);
 extern
-gchar *g_filename_display_name (const gchar *filename);
+gchar *g_filename_display_basename(const gchar *filename);
 extern
-gboolean g_get_filename_charsets (const gchar ***filename_charsets);
+gchar **g_uri_list_extract_uris(const gchar *uri_list);
 extern
-gchar *g_filename_display_basename (const gchar *filename);
+void g_datalist_init(GData **datalist);
 extern
-gchar **g_uri_list_extract_uris (const gchar *uri_list);
+void g_datalist_clear(GData **datalist);
 extern
-void g_datalist_init (GData **datalist);
+gpointer g_datalist_id_get_data(GData **datalist, GQuark key_id);
 extern
-void g_datalist_clear (GData **datalist);
+void g_datalist_id_set_data_full(GData **datalist, GQuark key_id, gpointer data, GDestroyNotify destroy_func);
 extern
-gpointer g_datalist_id_get_data (GData **datalist,GQuark key_id);
+gpointer g_datalist_id_dup_data(GData **datalist, GQuark key_id, GDuplicateFunc dup_func, gpointer user_data);
 extern
-void g_datalist_id_set_data_full (GData **datalist,GQuark key_id,gpointer data,GDestroyNotify destroy_func);
+gboolean g_datalist_id_replace_data(GData **datalist, GQuark key_id, gpointer oldval, gpointer newval, GDestroyNotify destroy, GDestroyNotify *old_destroy);
 extern
-gpointer g_datalist_id_dup_data (GData **datalist,GQuark key_id,GDuplicateFunc dup_func,gpointer user_data);
+gpointer g_datalist_id_remove_no_notify(GData **datalist, GQuark key_id);
 extern
-gboolean g_datalist_id_replace_data (GData **datalist,GQuark key_id,gpointer oldval,gpointer newval,GDestroyNotify destroy,GDestroyNotify *old_destroy);
+void g_datalist_foreach(GData **datalist, GDataForeachFunc func, gpointer user_data);
 extern
-gpointer g_datalist_id_remove_no_notify (GData **datalist,GQuark key_id);
+void g_datalist_set_flags(GData **datalist, guint flags);
 extern
-void g_datalist_foreach (GData **datalist,GDataForeachFunc func,gpointer user_data);
+void g_datalist_unset_flags(GData **datalist, guint flags);
 extern
-void g_datalist_set_flags (GData **datalist,guint flags);
+guint g_datalist_get_flags(GData **datalist);
 extern
-void g_datalist_unset_flags (GData **datalist,guint flags);
+void g_dataset_destroy(gconstpointer dataset_location);
 extern
-guint g_datalist_get_flags (GData **datalist);
+gpointer g_dataset_id_get_data(gconstpointer dataset_location, GQuark key_id);
 extern
-void g_dataset_destroy (gconstpointer dataset_location);
+gpointer g_datalist_get_data(GData **datalist, const gchar *key);
 extern
-gpointer g_dataset_id_get_data (gconstpointer dataset_location,GQuark key_id);
+void g_dataset_id_set_data_full(gconstpointer dataset_location, GQuark key_id, gpointer data, GDestroyNotify destroy_func);
 extern
-gpointer g_datalist_get_data (GData **datalist,const gchar *key);
+gpointer g_dataset_id_remove_no_notify(gconstpointer dataset_location, GQuark key_id);
 extern
-void g_dataset_id_set_data_full (gconstpointer dataset_location,GQuark key_id,gpointer data,GDestroyNotify destroy_func);
+void g_dataset_foreach(gconstpointer dataset_location, GDataForeachFunc func, gpointer user_data);
 extern
-gpointer g_dataset_id_remove_no_notify (gconstpointer dataset_location,GQuark key_id);
+GDate* g_date_new(void);
 extern
-void g_dataset_foreach (gconstpointer dataset_location,GDataForeachFunc func,gpointer user_data);extern
-GDate* g_date_new (void);
+GDate* g_date_new_dmy(GDateDay day, GDateMonth month, GDateYear year);
 extern
-GDate* g_date_new_dmy (GDateDay day,GDateMonth month,GDateYear year);
+GDate* g_date_new_julian(guint32 julian_day);
 extern
-GDate* g_date_new_julian (guint32 julian_day);
+void g_date_free(GDate *date);
 extern
-void g_date_free (GDate *date);
+GDate* g_date_copy(const GDate *date);
 extern
-GDate* g_date_copy (const GDate *date);
+gboolean g_date_valid(const GDate *date);
 extern
-gboolean g_date_valid (const GDate *date);
+gboolean g_date_valid_day(GDateDay day);
 extern
-gboolean g_date_valid_day (GDateDay day);
+gboolean g_date_valid_month(GDateMonth month);
 extern
-gboolean g_date_valid_month (GDateMonth month);
+gboolean g_date_valid_year(GDateYear year);
 extern
-gboolean g_date_valid_year (GDateYear year);
+gboolean g_date_valid_weekday(GDateWeekday weekday);
 extern
-gboolean g_date_valid_weekday (GDateWeekday weekday);
+gboolean g_date_valid_julian(guint32 julian_date);
 extern
-gboolean g_date_valid_julian (guint32 julian_date);
+gboolean g_date_valid_dmy(GDateDay day, GDateMonth month, GDateYear year);
 extern
-gboolean g_date_valid_dmy (GDateDay day,GDateMonth month,GDateYear year);
+GDateWeekday g_date_get_weekday(const GDate *date);
 extern
-GDateWeekday g_date_get_weekday (const GDate *date);
+GDateMonth g_date_get_month(const GDate *date);
 extern
-GDateMonth g_date_get_month (const GDate *date);
+GDateYear g_date_get_year(const GDate *date);
 extern
-GDateYear g_date_get_year (const GDate *date);
+GDateDay g_date_get_day(const GDate *date);
 extern
-GDateDay g_date_get_day (const GDate *date);
+guint32 g_date_get_julian(const GDate *date);
 extern
-guint32 g_date_get_julian (const GDate *date);
+guint g_date_get_day_of_year(const GDate *date);
 extern
-guint g_date_get_day_of_year (const GDate *date);
+guint g_date_get_monday_week_of_year(const GDate *date);
 extern
-guint g_date_get_monday_week_of_year (const GDate *date);
+guint g_date_get_sunday_week_of_year(const GDate *date);
 extern
-guint g_date_get_sunday_week_of_year (const GDate *date);
+guint g_date_get_iso8601_week_of_year(const GDate *date);
 extern
-guint g_date_get_iso8601_week_of_year (const GDate *date);
+void g_date_clear(GDate *date, guint n_dates);
 extern
-void g_date_clear (GDate *date,guint n_dates);
+void g_date_set_parse(GDate *date, const gchar *str);
 extern
-void g_date_set_parse (GDate *date,const gchar *str);
+void g_date_set_time_t(GDate *date, time_t timet);
 extern
-void g_date_set_time_t (GDate *date,time_t timet);extern
-void g_date_set_time_val (GDate *date,GTimeVal *timeval);extern
-void g_date_set_time (GDate *date,GTime time_);extern
-void g_date_set_month (GDate *date,GDateMonth month);
+void g_date_set_time_val(GDate *date, GTimeVal *timeval);
 extern
-void g_date_set_day (GDate *date,GDateDay day);
+void g_date_set_time(GDate *date, GTime time_);
 extern
-void g_date_set_year (GDate *date,GDateYear year);
+void g_date_set_month(GDate *date, GDateMonth month);
 extern
-void g_date_set_dmy (GDate *date,GDateDay day,GDateMonth month,GDateYear y);
+void g_date_set_day(GDate *date, GDateDay day);
 extern
-void g_date_set_julian (GDate *date,guint32 julian_date);
+void g_date_set_year(GDate *date, GDateYear year);
 extern
-gboolean g_date_is_first_of_month (const GDate *date);
+void g_date_set_dmy(GDate *date, GDateDay day, GDateMonth month, GDateYear y);
 extern
-gboolean g_date_is_last_of_month (const GDate *date);
+void g_date_set_julian(GDate *date, guint32 julian_date);
 extern
-void g_date_add_days (GDate *date,guint n_days);
+gboolean g_date_is_first_of_month(const GDate *date);
 extern
-void g_date_subtract_days (GDate *date,guint n_days);
+gboolean g_date_is_last_of_month(const GDate *date);
 extern
-void g_date_add_months (GDate *date,guint n_months);
+void g_date_add_days(GDate *date, guint n_days);
 extern
-void g_date_subtract_months (GDate *date,guint n_months);
+void g_date_subtract_days(GDate *date, guint n_days);
 extern
-void g_date_add_years (GDate *date,guint n_years);
+void g_date_add_months(GDate *date, guint n_months);
 extern
-void g_date_subtract_years (GDate *date,guint n_years);
+void g_date_subtract_months(GDate *date, guint n_months);
 extern
-gboolean g_date_is_leap_year (GDateYear year);
+void g_date_add_years(GDate *date, guint n_years);
 extern
-guint8 g_date_get_days_in_month (GDateMonth month,GDateYear year);
+void g_date_subtract_years(GDate *date, guint n_years);
 extern
-guint8 g_date_get_monday_weeks_in_year (GDateYear year);
+gboolean g_date_is_leap_year(GDateYear year);
 extern
-guint8 g_date_get_sunday_weeks_in_year (GDateYear year);
+guint8 g_date_get_days_in_month(GDateMonth month, GDateYear year);
 extern
-gint g_date_days_between (const GDate *date1,const GDate *date2);
+guint8 g_date_get_monday_weeks_in_year(GDateYear year);
 extern
-gint g_date_compare (const GDate *lhs,const GDate *rhs);
+guint8 g_date_get_sunday_weeks_in_year(GDateYear year);
 extern
-void g_date_to_struct_tm (const GDate *date,struct tm *tm);
+gint g_date_days_between(const GDate *date1, const GDate *date2);
 extern
-void g_date_clamp (GDate *date,const GDate *min_date,const GDate *max_date);
+gint g_date_compare(const GDate *lhs, const GDate *rhs);
 extern
-void g_date_order (GDate *date1, GDate *date2);
+void g_date_to_struct_tm(const GDate *date, struct tm *tm);
 extern
-gsize g_date_strftime (gchar *s,gsize slen,const gchar *format,const GDate *date);extern
-GTimeZone * g_time_zone_new (const gchar *identifier);
+void g_date_clamp(GDate *date, const GDate *min_date, const GDate *max_date);
 extern
-GTimeZone * g_time_zone_new_utc (void);
+void g_date_order(GDate *date1, GDate *date2);
 extern
-GTimeZone * g_time_zone_new_local (void);
+gsize g_date_strftime(gchar *s, gsize slen, const gchar *format, const GDate *date);
 extern
-GTimeZone * g_time_zone_new_offset (gint32 seconds);
+GTimeZone * g_time_zone_new(const gchar *identifier);
 extern
-GTimeZone * g_time_zone_ref (GTimeZone *tz);
+GTimeZone * g_time_zone_new_utc(void);
 extern
-void g_time_zone_unref (GTimeZone *tz);
+GTimeZone * g_time_zone_new_local(void);
+GLIB_AVAILABLE_IN_2_58 GTimeZone * g_time_zone_new_offset(gint32 seconds);
 extern
-gint g_time_zone_find_interval (GTimeZone *tz,GTimeType type,gint64 time_);
+GTimeZone * g_time_zone_ref(GTimeZone *tz);
 extern
-gint g_time_zone_adjust_time (GTimeZone *tz,GTimeType type,gint64 *time_);
+void g_time_zone_unref(GTimeZone *tz);
 extern
-const gchar * g_time_zone_get_abbreviation (GTimeZone *tz,gint interval);
+gint g_time_zone_find_interval(GTimeZone *tz, GTimeType type, gint64 time_);
 extern
-gint32 g_time_zone_get_offset (GTimeZone *tz,gint interval);
+gint g_time_zone_adjust_time(GTimeZone *tz, GTimeType type, gint64 *time_);
 extern
-gboolean g_time_zone_is_dst (GTimeZone *tz,gint interval);
+const gchar * g_time_zone_get_abbreviation(GTimeZone *tz, gint interval);
 extern
-const gchar * g_time_zone_get_identifier (GTimeZone *tz);
+gint32 g_time_zone_get_offset(GTimeZone *tz, gint interval);
 extern
-void g_date_time_unref (GDateTime *datetime);
+gboolean g_time_zone_is_dst(GTimeZone *tz, gint interval);
+GLIB_AVAILABLE_IN_2_58 const gchar * g_time_zone_get_identifier(GTimeZone *tz);
 extern
-GDateTime * g_date_time_ref (GDateTime *datetime);
+void g_date_time_unref(GDateTime *datetime);
 extern
-GDateTime * g_date_time_new_now (GTimeZone *tz);
+GDateTime * g_date_time_ref(GDateTime *datetime);
 extern
-GDateTime * g_date_time_new_now_local (void);
+GDateTime * g_date_time_new_now(GTimeZone *tz);
 extern
-GDateTime * g_date_time_new_now_utc (void);
+GDateTime * g_date_time_new_now_local(void);
 extern
-GDateTime * g_date_time_new_from_unix_local (gint64 t);
+GDateTime * g_date_time_new_now_utc(void);
 extern
-GDateTime * g_date_time_new_from_unix_utc (gint64 t);
+GDateTime * g_date_time_new_from_unix_local(gint64 t);
 extern
-GDateTime * g_date_time_new_from_timeval_local (const GTimeVal *tv);extern
-GDateTime * g_date_time_new_from_timeval_utc (const GTimeVal *tv);
+GDateTime * g_date_time_new_from_unix_utc(gint64 t);
 extern
-GDateTime * g_date_time_new_from_iso8601 (const gchar *text,GTimeZone *default_tz);
+GDateTime * g_date_time_new_from_timeval_local(const GTimeVal *tv);
 extern
-GDateTime * g_date_time_new (GTimeZone *tz,gint year,gint month,gint day,gint hour,gint minute,gdouble seconds);
+GDateTime * g_date_time_new_from_timeval_utc(const GTimeVal *tv);
 extern
-GDateTime * g_date_time_new_local (gint year,gint month,gint day,gint hour,gint minute,gdouble seconds);
+GDateTime * g_date_time_new_from_iso8601(const gchar *text, GTimeZone *default_tz);
 extern
-GDateTime * g_date_time_new_utc (gint year,gint month,gint day,gint hour,gint minute,gdouble seconds);
+GDateTime * g_date_time_new(GTimeZone *tz, gint year, gint month, gint day, gint hour, gint minute, gdouble seconds);
 extern
-GDateTime * g_date_time_add (GDateTime *datetime,GTimeSpan timespan);
+GDateTime * g_date_time_new_local(gint year, gint month, gint day, gint hour, gint minute, gdouble seconds);
 extern
-GDateTime * g_date_time_add_years (GDateTime *datetime,gint years);
+GDateTime * g_date_time_new_utc(gint year, gint month, gint day, gint hour, gint minute, gdouble seconds);
 extern
-GDateTime * g_date_time_add_months (GDateTime *datetime,gint months);
+GDateTime * g_date_time_add(GDateTime *datetime, GTimeSpan timespan);
 extern
-GDateTime * g_date_time_add_weeks (GDateTime *datetime,gint weeks);
+GDateTime * g_date_time_add_years(GDateTime *datetime, gint years);
 extern
-GDateTime * g_date_time_add_days (GDateTime *datetime,gint days);
+GDateTime * g_date_time_add_months(GDateTime *datetime, gint months);
 extern
-GDateTime * g_date_time_add_hours (GDateTime *datetime,gint hours);
+GDateTime * g_date_time_add_weeks(GDateTime *datetime, gint weeks);
 extern
-GDateTime * g_date_time_add_minutes (GDateTime *datetime,gint minutes);
+GDateTime * g_date_time_add_days(GDateTime *datetime, gint days);
 extern
-GDateTime * g_date_time_add_seconds (GDateTime *datetime,gdouble seconds);
+GDateTime * g_date_time_add_hours(GDateTime *datetime, gint hours);
 extern
-GDateTime * g_date_time_add_full (GDateTime *datetime,gint years,gint months,gint days,gint hours,gint minutes,gdouble seconds);
+GDateTime * g_date_time_add_minutes(GDateTime *datetime, gint minutes);
 extern
-gint g_date_time_compare (gconstpointer dt1,gconstpointer dt2);
+GDateTime * g_date_time_add_seconds(GDateTime *datetime, gdouble seconds);
 extern
-GTimeSpan g_date_time_difference (GDateTime *end,GDateTime *begin);
+GDateTime * g_date_time_add_full(GDateTime *datetime, gint years, gint months, gint days, gint hours, gint minutes, gdouble seconds);
 extern
-guint g_date_time_hash (gconstpointer datetime);
+gint g_date_time_compare(gconstpointer dt1, gconstpointer dt2);
 extern
-gboolean g_date_time_equal (gconstpointer dt1,gconstpointer dt2);
+GTimeSpan g_date_time_difference(GDateTime *end, GDateTime *begin);
 extern
-void g_date_time_get_ymd (GDateTime *datetime,gint *year,gint *month,gint *day);
+guint g_date_time_hash(gconstpointer datetime);
 extern
-gint g_date_time_get_year (GDateTime *datetime);
+gboolean g_date_time_equal(gconstpointer dt1, gconstpointer dt2);
 extern
-gint g_date_time_get_month (GDateTime *datetime);
+void g_date_time_get_ymd(GDateTime *datetime, gint *year, gint *month, gint *day);
 extern
-gint g_date_time_get_day_of_month (GDateTime *datetime);
+gint g_date_time_get_year(GDateTime *datetime);
 extern
-gint g_date_time_get_week_numbering_year (GDateTime *datetime);
+gint g_date_time_get_month(GDateTime *datetime);
 extern
-gint g_date_time_get_week_of_year (GDateTime *datetime);
+gint g_date_time_get_day_of_month(GDateTime *datetime);
 extern
-gint g_date_time_get_day_of_week (GDateTime *datetime);
+gint g_date_time_get_week_numbering_year(GDateTime *datetime);
 extern
-gint g_date_time_get_day_of_year (GDateTime *datetime);
+gint g_date_time_get_week_of_year(GDateTime *datetime);
 extern
-gint g_date_time_get_hour (GDateTime *datetime);
+gint g_date_time_get_day_of_week(GDateTime *datetime);
 extern
-gint g_date_time_get_minute (GDateTime *datetime);
+gint g_date_time_get_day_of_year(GDateTime *datetime);
 extern
-gint g_date_time_get_second (GDateTime *datetime);
+gint g_date_time_get_hour(GDateTime *datetime);
 extern
-gint g_date_time_get_microsecond (GDateTime *datetime);
+gint g_date_time_get_minute(GDateTime *datetime);
 extern
-gdouble g_date_time_get_seconds (GDateTime *datetime);
+gint g_date_time_get_second(GDateTime *datetime);
 extern
-gint64 g_date_time_to_unix (GDateTime *datetime);extern
-gboolean g_date_time_to_timeval (GDateTime *datetime,GTimeVal *tv);
+gint g_date_time_get_microsecond(GDateTime *datetime);
 extern
-GTimeSpan g_date_time_get_utc_offset (GDateTime *datetime);
+gdouble g_date_time_get_seconds(GDateTime *datetime);
 extern
-GTimeZone * g_date_time_get_timezone (GDateTime *datetime);
+gint64 g_date_time_to_unix(GDateTime *datetime);
 extern
-const gchar * g_date_time_get_timezone_abbreviation (GDateTime *datetime);
+gboolean g_date_time_to_timeval(GDateTime *datetime, GTimeVal *tv);
 extern
-gboolean g_date_time_is_daylight_savings (GDateTime *datetime);
+GTimeSpan g_date_time_get_utc_offset(GDateTime *datetime);
+GLIB_AVAILABLE_IN_2_58 GTimeZone * g_date_time_get_timezone(GDateTime *datetime);
 extern
-GDateTime * g_date_time_to_timezone (GDateTime *datetime,GTimeZone *tz);
+const gchar * g_date_time_get_timezone_abbreviation(GDateTime *datetime);
 extern
-GDateTime * g_date_time_to_local (GDateTime *datetime);
+gboolean g_date_time_is_daylight_savings(GDateTime *datetime);
 extern
-GDateTime * g_date_time_to_utc (GDateTime *datetime);
+GDateTime * g_date_time_to_timezone(GDateTime *datetime, GTimeZone *tz);
 extern
-gchar * g_date_time_format (GDateTime *datetime, const gchar *format);
+GDateTime * g_date_time_to_local(GDateTime *datetime);
 extern
-gchar * g_date_time_format_iso8601 (GDateTime *datetime);
+GDateTime * g_date_time_to_utc(GDateTime *datetime);
 extern
-GDir * g_dir_open (const gchar *path,guint flags,GError **error);
+gchar * g_date_time_format(GDateTime *datetime, const gchar *format);
+GLIB_AVAILABLE_IN_2_62 gchar * g_date_time_format_iso8601(GDateTime *datetime);
 extern
-const gchar * g_dir_read_name (GDir *dir);
+GDir * g_dir_open(const gchar *path, guint flags, GError **error);
 extern
-void g_dir_rewind (GDir *dir);
+const gchar * g_dir_read_name(GDir *dir);
 extern
-void g_dir_close (GDir *dir);
+void g_dir_rewind(GDir *dir);
 extern
-const gchar * g_getenv (const gchar *variable);
+void g_dir_close(GDir *dir);
 extern
-gboolean g_setenv (const gchar *variable,const gchar *value,gboolean overwrite);
+const gchar * g_getenv(const gchar *variable);
 extern
-void g_unsetenv (const gchar *variable);
+gboolean g_setenv(const gchar *variable, const gchar *value, gboolean overwrite);
 extern
-gchar ** g_listenv (void);
+void g_unsetenv(const gchar *variable);
 extern
-gchar ** g_get_environ (void);
+gchar ** g_listenv(void);
 extern
-const gchar * g_environ_getenv (gchar **envp,const gchar *variable);
+gchar ** g_get_environ(void);
 extern
-gchar ** g_environ_setenv (gchar **envp,const gchar *variable,const gchar *value,gboolean overwrite);
+const gchar * g_environ_getenv(gchar **envp, const gchar *variable);
 extern
-gchar ** g_environ_unsetenv (gchar **envp,const gchar *variable);extern
-GQuark g_file_error_quark (void);
+gchar ** g_environ_setenv(gchar **envp, const gchar *variable, const gchar *value, gboolean overwrite);
 extern
-GFileError g_file_error_from_errno (gint err_no);
+gchar ** g_environ_unsetenv(gchar **envp, const gchar *variable);
 extern
-gboolean g_file_test (const gchar *filename,GFileTest test);
+GQuark g_file_error_quark(void);
 extern
-gboolean g_file_get_contents (const gchar *filename,gchar **contents,gsize *length,GError **error);
+GFileError g_file_error_from_errno(gint err_no);
 extern
-gboolean g_file_set_contents (const gchar *filename,const gchar *contents,gssize length,GError **error);
+gboolean g_file_test(const gchar *filename, GFileTest test);
 extern
-gchar *g_file_read_link (const gchar *filename,GError **error);
+gboolean g_file_get_contents(const gchar *filename, gchar **contents, gsize *length, GError **error);
 extern
-gchar *g_mkdtemp (gchar *tmpl);
+gboolean g_file_set_contents(const gchar *filename, const gchar *contents, gssize length, GError **error);
 extern
-gchar *g_mkdtemp_full (gchar *tmpl,gint mode);
+gchar *g_file_read_link(const gchar *filename, GError **error);
 extern
-gint g_mkstemp (gchar *tmpl);
+gchar *g_mkdtemp(gchar *tmpl);
 extern
-gint g_mkstemp_full (gchar *tmpl,gint flags,gint mode);
+gchar *g_mkdtemp_full(gchar *tmpl, gint mode);
 extern
-gint g_file_open_tmp (const gchar *tmpl,gchar **name_used,GError **error);
+gint g_mkstemp(gchar *tmpl);
 extern
-gchar *g_dir_make_tmp (const gchar *tmpl,GError **error);
+gint g_mkstemp_full(gchar *tmpl, gint flags, gint mode);
 extern
-gchar *g_build_path (const gchar *separator,const gchar *first_element,...);
+gint g_file_open_tmp(const gchar *tmpl, gchar **name_used, GError **error);
 extern
-gchar *g_build_pathv (const gchar *separator,gchar **args);
+gchar *g_dir_make_tmp(const gchar *tmpl, GError **error);
 extern
-gchar *g_build_filename (const gchar *first_element,...);
+gchar *g_build_path(const gchar *separator, const gchar *first_element, ...);
 extern
-gchar *g_build_filenamev (gchar **args);
+gchar *g_build_pathv(const gchar *separator, gchar **args);
 extern
-gchar *g_build_filename_valist (const gchar *first_element,va_list *args);
+gchar *g_build_filename(const gchar *first_element, ...);
 extern
-gint g_mkdir_with_parents (const gchar *pathname,gint mode);
+gchar *g_build_filenamev(gchar **args);
 extern
-gboolean g_path_is_absolute (const gchar *file_name);
+gchar *g_build_filename_valist(const gchar *first_element, va_list *args);
 extern
-const gchar *g_path_skip_root (const gchar *file_name);extern
-const gchar *g_basename (const gchar *file_name);
+gint g_mkdir_with_parents(const gchar *pathname, gint mode);
 extern
-gchar *g_get_current_dir (void);
+gboolean g_path_is_absolute(const gchar *file_name);
 extern
-gchar *g_path_get_basename (const gchar *file_name);
+const gchar *g_path_skip_root(const gchar *file_name);
 extern
-gchar *g_path_get_dirname (const gchar *file_name);
+const gchar *g_basename(const gchar *file_name);
 extern
-gchar *g_canonicalize_filename (const gchar *filename,const gchar *relative_to);
+gchar *g_get_current_dir(void);
 extern
-const gchar *g_strip_context (const gchar *msgid,const gchar *msgval);
+gchar *g_path_get_basename(const gchar *file_name);
 extern
-const gchar *g_dgettext (const gchar *domain,const gchar *msgid);
+gchar *g_path_get_dirname(const gchar *file_name);
+GLIB_AVAILABLE_IN_2_58 gchar *g_canonicalize_filename(const gchar *filename, const gchar *relative_to);
 extern
-const gchar *g_dcgettext (const gchar *domain,const gchar *msgid,gint category);
+const gchar *g_strip_context(const gchar *msgid, const gchar *msgval);
 extern
-const gchar *g_dngettext (const gchar *domain,const gchar *msgid,const gchar *msgid_plural,gulong n);
+const gchar *g_dgettext(const gchar *domain, const gchar *msgid);
 extern
-const gchar *g_dpgettext (const gchar *domain,const gchar *msgctxtid,gsize msgidoffset);
+const gchar *g_dcgettext(const gchar *domain, const gchar *msgid, gint category);
 extern
-const gchar *g_dpgettext2 (const gchar *domain,const gchar *context,const gchar *msgid);
+const gchar *g_dngettext(const gchar *domain, const gchar *msgid, const gchar *msgid_plural, gulong n);
 extern
-void g_free (gpointer mem);
+const gchar *g_dpgettext(const gchar *domain, const gchar *msgctxtid, gsize msgidoffset);
 extern
-void g_clear_pointer (gpointer *pp,GDestroyNotify destroy);
+const gchar *g_dpgettext2(const gchar *domain, const gchar *context, const gchar *msgid);
 extern
-gpointer g_malloc (gsize n_bytes);
+void g_free(gpointer mem);
 extern
-gpointer g_malloc0 (gsize n_bytes);
+void g_clear_pointer(gpointer *pp, GDestroyNotify destroy);
 extern
-gpointer g_realloc (gpointer mem,gsize n_bytes);
+gpointer g_malloc(gsize n_bytes);
 extern
-gpointer g_try_malloc (gsize n_bytes);
+gpointer g_malloc0(gsize n_bytes);
 extern
-gpointer g_try_malloc0 (gsize n_bytes);
+gpointer g_realloc(gpointer mem, gsize n_bytes);
 extern
-gpointer g_try_realloc (gpointer mem,gsize n_bytes);
+gpointer g_try_malloc(gsize n_bytes);
 extern
-gpointer g_malloc_n (gsize n_blocks,gsize n_block_bytes);
+gpointer g_try_malloc0(gsize n_bytes);
 extern
-gpointer g_malloc0_n (gsize n_blocks,gsize n_block_bytes);
+gpointer g_try_realloc(gpointer mem, gsize n_bytes);
 extern
-gpointer g_realloc_n (gpointer mem,gsize n_blocks,gsize n_block_bytes);
+gpointer g_malloc_n(gsize n_blocks, gsize n_block_bytes);
 extern
-gpointer g_try_malloc_n (gsize n_blocks,gsize n_block_bytes);
+gpointer g_malloc0_n(gsize n_blocks, gsize n_block_bytes);
 extern
-gpointer g_try_malloc0_n (gsize n_blocks,gsize n_block_bytes);
+gpointer g_realloc_n(gpointer mem, gsize n_blocks, gsize n_block_bytes);
 extern
-gpointer g_try_realloc_n (gpointer mem,gsize n_blocks,gsize n_block_bytes);
+gpointer g_try_malloc_n(gsize n_blocks, gsize n_block_bytes);
 extern
-void g_mem_set_vtable (GMemVTable *vtable);
+gpointer g_try_malloc0_n(gsize n_blocks, gsize n_block_bytes);
 extern
-gboolean g_mem_is_system_malloc (void);
+gpointer g_try_realloc_n(gpointer mem, gsize n_blocks, gsize n_block_bytes);
+extern
+void g_mem_set_vtable(GMemVTable *vtable);
+extern
+gboolean g_mem_is_system_malloc(void);
 extern gboolean g_mem_gc_friendly;
 extern GMemVTable *glib_mem_profiler_table;
 extern
-void g_mem_profile (void);
+void g_mem_profile(void);
 extern
-GNode* g_node_new (gpointer data);
+GNode* g_node_new(gpointer data);
 extern
-void g_node_destroy (GNode *root);
+void g_node_destroy(GNode *root);
 extern
-void g_node_unlink (GNode *node);
+void g_node_unlink(GNode *node);
 extern
-GNode* g_node_copy_deep (GNode *node,GCopyFunc copy_func,gpointer data);
+GNode* g_node_copy_deep(GNode *node, GCopyFunc copy_func, gpointer data);
 extern
-GNode* g_node_copy (GNode *node);
+GNode* g_node_copy(GNode *node);
 extern
-GNode* g_node_insert (GNode *parent,gint position,GNode *node);
+GNode* g_node_insert(GNode *parent, gint position, GNode *node);
 extern
-GNode* g_node_insert_before (GNode *parent,GNode *sibling,GNode *node);
+GNode* g_node_insert_before(GNode *parent, GNode *sibling, GNode *node);
 extern
-GNode* g_node_insert_after (GNode *parent,GNode *sibling,GNode *node);
+GNode* g_node_insert_after(GNode *parent, GNode *sibling, GNode *node);
 extern
-GNode* g_node_prepend (GNode *parent,GNode *node);
+GNode* g_node_prepend(GNode *parent, GNode *node);
 extern
-guint g_node_n_nodes (GNode *root,GTraverseFlags flags);
+guint g_node_n_nodes(GNode *root, GTraverseFlags flags);
 extern
-GNode* g_node_get_root (GNode *node);
+GNode* g_node_get_root(GNode *node);
 extern
-gboolean g_node_is_ancestor (GNode *node,GNode *descendant);
+gboolean g_node_is_ancestor(GNode *node, GNode *descendant);
 extern
-guint g_node_depth (GNode *node);
+guint g_node_depth(GNode *node);
 extern
-GNode* g_node_find (GNode *root,GTraverseType order,GTraverseFlags flags,gpointer data);
+GNode* g_node_find(GNode *root, GTraverseType order, GTraverseFlags flags, gpointer data);
 extern
-void g_node_traverse (GNode *root,GTraverseType order,GTraverseFlags flags,gint max_depth,GNodeTraverseFunc func,gpointer data);
+void g_node_traverse(GNode *root, GTraverseType order, GTraverseFlags flags, gint max_depth, GNodeTraverseFunc func, gpointer data);
 extern
-guint g_node_max_height (GNode *root);
+guint g_node_max_height(GNode *root);
 extern
-void g_node_children_foreach (GNode *node,GTraverseFlags flags,GNodeForeachFunc func,gpointer data);
+void g_node_children_foreach(GNode *node, GTraverseFlags flags, GNodeForeachFunc func, gpointer data);
 extern
-void g_node_reverse_children (GNode *node);
+void g_node_reverse_children(GNode *node);
 extern
-guint g_node_n_children (GNode *node);
+guint g_node_n_children(GNode *node);
 extern
-GNode* g_node_nth_child (GNode *node,guint n);
+GNode* g_node_nth_child(GNode *node, guint n);
 extern
-GNode* g_node_last_child (GNode *node);
+GNode* g_node_last_child(GNode *node);
 extern
-GNode* g_node_find_child (GNode *node,GTraverseFlags flags,gpointer data);
+GNode* g_node_find_child(GNode *node, GTraverseFlags flags, gpointer data);
 extern
-gint g_node_child_position (GNode *node,GNode *child);
+gint g_node_child_position(GNode *node, GNode *child);
 extern
-gint g_node_child_index (GNode *node,gpointer data);
+gint g_node_child_index(GNode *node, gpointer data);
 extern
-GNode* g_node_first_sibling (GNode *node);
+GNode* g_node_first_sibling(GNode *node);
 extern
-GNode* g_node_last_sibling (GNode *node);
+GNode* g_node_last_sibling(GNode *node);
 extern
-GList* g_list_alloc (void);
+GList* g_list_alloc(void);
 extern
-void g_list_free (GList *list);
+void g_list_free(GList *list);
 extern
-void g_list_free_1 (GList *list);
+void g_list_free_1(GList *list);
 extern
-void g_list_free_full (GList *list,GDestroyNotify free_func);
+void g_list_free_full(GList *list, GDestroyNotify free_func);
 extern
-GList* g_list_append (GList *list,gpointer data);
+GList* g_list_append(GList *list, gpointer data);
 extern
-GList* g_list_prepend (GList *list,gpointer data);
+GList* g_list_prepend(GList *list, gpointer data);
 extern
-GList* g_list_insert (GList *list,gpointer data,gint position);
+GList* g_list_insert(GList *list, gpointer data, gint position);
 extern
-GList* g_list_insert_sorted (GList *list,gpointer data,GCompareFunc func);
+GList* g_list_insert_sorted(GList *list, gpointer data, GCompareFunc func);
 extern
-GList* g_list_insert_sorted_with_data (GList *list,gpointer data,GCompareDataFunc func,gpointer user_data);
+GList* g_list_insert_sorted_with_data(GList *list, gpointer data, GCompareDataFunc func, gpointer user_data);
 extern
-GList* g_list_insert_before (GList *list,GList *sibling,gpointer data);
+GList* g_list_insert_before(GList *list, GList *sibling, gpointer data);
+GLIB_AVAILABLE_IN_2_62 GList* g_list_insert_before_link(GList *list, GList *sibling, GList *link_);
 extern
-GList* g_list_insert_before_link (GList *list,GList *sibling,GList *link_);
+GList* g_list_concat(GList *list1, GList *list2);
 extern
-GList* g_list_concat (GList *list1,GList *list2);
+GList* g_list_remove(GList *list, gconstpointer data);
 extern
-GList* g_list_remove (GList *list,gconstpointer data);
+GList* g_list_remove_all(GList *list, gconstpointer data);
 extern
-GList* g_list_remove_all (GList *list,gconstpointer data);
+GList* g_list_remove_link(GList *list, GList *llink);
 extern
-GList* g_list_remove_link (GList *list,GList *llink);
+GList* g_list_delete_link(GList *list, GList *link_);
 extern
-GList* g_list_delete_link (GList *list,GList *link_);
+GList* g_list_reverse(GList *list);
 extern
-GList* g_list_reverse (GList *list);
+GList* g_list_copy(GList *list);
 extern
-GList* g_list_copy (GList *list);
+GList* g_list_copy_deep(GList *list, GCopyFunc func, gpointer user_data);
 extern
-GList* g_list_copy_deep (GList *list,GCopyFunc func,gpointer user_data);
+GList* g_list_nth(GList *list, guint n);
 extern
-GList* g_list_nth (GList *list,guint n);
+GList* g_list_nth_prev(GList *list, guint n);
 extern
-GList* g_list_nth_prev (GList *list,guint n);
+GList* g_list_find(GList *list, gconstpointer data);
 extern
-GList* g_list_find (GList *list,gconstpointer data);
+GList* g_list_find_custom(GList *list, gconstpointer data, GCompareFunc func);
 extern
-GList* g_list_find_custom (GList *list,gconstpointer data,GCompareFunc func);
+gint g_list_position(GList *list, GList *llink);
 extern
-gint g_list_position (GList *list,GList *llink);
+gint g_list_index(GList *list, gconstpointer data);
 extern
-gint g_list_index (GList *list,gconstpointer data);
+GList* g_list_last(GList *list);
 extern
-GList* g_list_last (GList *list);
+GList* g_list_first(GList *list);
 extern
-GList* g_list_first (GList *list);
+guint g_list_length(GList *list);
 extern
-guint g_list_length (GList *list);
+void g_list_foreach(GList *list, GFunc func, gpointer user_data);
 extern
-void g_list_foreach (GList *list,GFunc func,gpointer user_data);
+GList* g_list_sort(GList *list, GCompareFunc compare_func);
 extern
-GList* g_list_sort (GList *list,GCompareFunc compare_func);
+GList* g_list_sort_with_data(GList *list, GCompareDataFunc compare_func, gpointer user_data);
 extern
-GList* g_list_sort_with_data (GList *list,GCompareDataFunc compare_func,gpointer user_data);
+gpointer g_list_nth_data(GList *list, guint n);
 extern
-gpointer g_list_nth_data (GList *list,guint n);
+GHashTable* g_hash_table_new(GHashFunc hash_func, GEqualFunc key_equal_func);
 extern
-GHashTable* g_hash_table_new (GHashFunc hash_func,GEqualFunc key_equal_func);
+GHashTable* g_hash_table_new_full(GHashFunc hash_func, GEqualFunc key_equal_func, GDestroyNotify key_destroy_func, GDestroyNotify value_destroy_func);
 extern
-GHashTable* g_hash_table_new_full (GHashFunc hash_func,GEqualFunc key_equal_func,GDestroyNotify key_destroy_func,GDestroyNotify value_destroy_func);
+void g_hash_table_destroy(GHashTable *hash_table);
 extern
-void g_hash_table_destroy (GHashTable *hash_table);
+gboolean g_hash_table_insert(GHashTable *hash_table, gpointer key, gpointer value);
 extern
-gboolean g_hash_table_insert (GHashTable *hash_table,gpointer key,gpointer value);
+gboolean g_hash_table_replace(GHashTable *hash_table, gpointer key, gpointer value);
 extern
-gboolean g_hash_table_replace (GHashTable *hash_table,gpointer key,gpointer value);
+gboolean g_hash_table_add(GHashTable *hash_table, gpointer key);
 extern
-gboolean g_hash_table_add (GHashTable *hash_table,gpointer key);
+gboolean g_hash_table_remove(GHashTable *hash_table, gconstpointer key);
 extern
-gboolean g_hash_table_remove (GHashTable *hash_table,gconstpointer key);
+void g_hash_table_remove_all(GHashTable *hash_table);
 extern
-void g_hash_table_remove_all (GHashTable *hash_table);
+gboolean g_hash_table_steal(GHashTable *hash_table, gconstpointer key);
+GLIB_AVAILABLE_IN_2_58 gboolean g_hash_table_steal_extended(GHashTable *hash_table, gconstpointer lookup_key, gpointer *stolen_key, gpointer *stolen_value);
 extern
-gboolean g_hash_table_steal (GHashTable *hash_table,gconstpointer key);
+void g_hash_table_steal_all(GHashTable *hash_table);
 extern
-gboolean g_hash_table_steal_extended (GHashTable *hash_table,gconstpointer lookup_key,gpointer *stolen_key,gpointer *stolen_value);
+gpointer g_hash_table_lookup(GHashTable *hash_table, gconstpointer key);
 extern
-void g_hash_table_steal_all (GHashTable *hash_table);
+gboolean g_hash_table_contains(GHashTable *hash_table, gconstpointer key);
 extern
-gpointer g_hash_table_lookup (GHashTable *hash_table,gconstpointer key);
+gboolean g_hash_table_lookup_extended(GHashTable *hash_table, gconstpointer lookup_key, gpointer *orig_key, gpointer *value);
 extern
-gboolean g_hash_table_contains (GHashTable *hash_table,gconstpointer key);
+void g_hash_table_foreach(GHashTable *hash_table, GHFunc func, gpointer user_data);
 extern
-gboolean g_hash_table_lookup_extended (GHashTable *hash_table,gconstpointer lookup_key,gpointer *orig_key,gpointer *value);
+gpointer g_hash_table_find(GHashTable *hash_table, GHRFunc predicate, gpointer user_data);
 extern
-void g_hash_table_foreach (GHashTable *hash_table,GHFunc func,gpointer user_data);
+guint g_hash_table_foreach_remove(GHashTable *hash_table, GHRFunc func, gpointer user_data);
 extern
-gpointer g_hash_table_find (GHashTable *hash_table,GHRFunc predicate,gpointer user_data);
+guint g_hash_table_foreach_steal(GHashTable *hash_table, GHRFunc func, gpointer user_data);
 extern
-guint g_hash_table_foreach_remove (GHashTable *hash_table,GHRFunc func,gpointer user_data);
+guint g_hash_table_size(GHashTable *hash_table);
 extern
-guint g_hash_table_foreach_steal (GHashTable *hash_table,GHRFunc func,gpointer user_data);
+GList * g_hash_table_get_keys(GHashTable *hash_table);
 extern
-guint g_hash_table_size (GHashTable *hash_table);
+GList * g_hash_table_get_values(GHashTable *hash_table);
 extern
-GList * g_hash_table_get_keys (GHashTable *hash_table);
+gpointer * g_hash_table_get_keys_as_array(GHashTable *hash_table, guint *length);
 extern
-GList * g_hash_table_get_values (GHashTable *hash_table);
+void g_hash_table_iter_init(GHashTableIter *iter, GHashTable *hash_table);
 extern
-gpointer * g_hash_table_get_keys_as_array (GHashTable *hash_table,guint *length);
+gboolean g_hash_table_iter_next(GHashTableIter *iter, gpointer *key, gpointer *value);
 extern
-void g_hash_table_iter_init (GHashTableIter *iter,GHashTable *hash_table);
+GHashTable* g_hash_table_iter_get_hash_table(GHashTableIter *iter);
 extern
-gboolean g_hash_table_iter_next (GHashTableIter *iter,gpointer *key,gpointer *value);
+void g_hash_table_iter_remove(GHashTableIter *iter);
 extern
-GHashTable* g_hash_table_iter_get_hash_table (GHashTableIter *iter);
+void g_hash_table_iter_replace(GHashTableIter *iter, gpointer value);
 extern
-void g_hash_table_iter_remove (GHashTableIter *iter);
+void g_hash_table_iter_steal(GHashTableIter *iter);
 extern
-void g_hash_table_iter_replace (GHashTableIter *iter,gpointer value);
+GHashTable* g_hash_table_ref(GHashTable *hash_table);
 extern
-void g_hash_table_iter_steal (GHashTableIter *iter);
+void g_hash_table_unref(GHashTable *hash_table);
 extern
-GHashTable* g_hash_table_ref (GHashTable *hash_table);
+gboolean g_str_equal(gconstpointer v1, gconstpointer v2);
 extern
-void g_hash_table_unref (GHashTable *hash_table);
+guint g_str_hash(gconstpointer v);
 extern
-gboolean g_str_equal (gconstpointer v1,gconstpointer v2);
+gboolean g_int_equal(gconstpointer v1, gconstpointer v2);
 extern
-guint g_str_hash (gconstpointer v);
+guint g_int_hash(gconstpointer v);
 extern
-gboolean g_int_equal (gconstpointer v1,gconstpointer v2);
+gboolean g_int64_equal(gconstpointer v1, gconstpointer v2);
 extern
-guint g_int_hash (gconstpointer v);
+guint g_int64_hash(gconstpointer v);
 extern
-gboolean g_int64_equal (gconstpointer v1,gconstpointer v2);
+gboolean g_double_equal(gconstpointer v1, gconstpointer v2);
 extern
-guint g_int64_hash (gconstpointer v);
+guint g_double_hash(gconstpointer v);
 extern
-gboolean g_double_equal (gconstpointer v1,gconstpointer v2);
+guint g_direct_hash(gconstpointer v);
 extern
-guint g_double_hash (gconstpointer v);
+gboolean g_direct_equal(gconstpointer v1, gconstpointer v2);
 extern
-guint g_direct_hash (gconstpointer v);
+GHmac * g_hmac_new(GChecksumType digest_type, const guchar *key, gsize key_len);
 extern
-gboolean g_direct_equal (gconstpointer v1,gconstpointer v2);
+GHmac * g_hmac_copy(const GHmac *hmac);
 extern
-GHmac * g_hmac_new (GChecksumType digest_type,const guchar *key,gsize key_len);
+GHmac * g_hmac_ref(GHmac *hmac);
 extern
-GHmac * g_hmac_copy (const GHmac *hmac);
+void g_hmac_unref(GHmac *hmac);
 extern
-GHmac * g_hmac_ref (GHmac *hmac);
+void g_hmac_update(GHmac *hmac, const guchar *data, gssize length);
 extern
-void g_hmac_unref (GHmac *hmac);
+const gchar * g_hmac_get_string(GHmac *hmac);
 extern
-void g_hmac_update (GHmac *hmac,const guchar *data,gssize length);
+void g_hmac_get_digest(GHmac *hmac, guint8 *buffer, gsize *digest_len);
 extern
-const gchar * g_hmac_get_string (GHmac *hmac);
+gchar *g_compute_hmac_for_data(GChecksumType digest_type, const guchar *key, gsize key_len, const guchar *data, gsize length);
 extern
-void g_hmac_get_digest (GHmac *hmac,guint8 *buffer,gsize *digest_len);
+gchar *g_compute_hmac_for_string(GChecksumType digest_type, const guchar *key, gsize key_len, const gchar *str, gssize length);
 extern
-gchar *g_compute_hmac_for_data (GChecksumType digest_type,const guchar *key,gsize key_len,const guchar *data,gsize length);
+gchar *g_compute_hmac_for_bytes(GChecksumType digest_type, GBytes *key, GBytes *data);
 extern
-gchar *g_compute_hmac_for_string (GChecksumType digest_type,const guchar *key,gsize key_len,const gchar *str,gssize length);
+void g_hook_list_init(GHookList *hook_list, guint hook_size);
 extern
-gchar *g_compute_hmac_for_bytes (GChecksumType digest_type,GBytes *key,GBytes *data);
+void g_hook_list_clear(GHookList *hook_list);
 extern
-void g_hook_list_init (GHookList *hook_list,guint hook_size);
+GHook* g_hook_alloc(GHookList *hook_list);
 extern
-void g_hook_list_clear (GHookList *hook_list);
+void g_hook_free(GHookList *hook_list, GHook *hook);
 extern
-GHook* g_hook_alloc (GHookList *hook_list);
+GHook * g_hook_ref(GHookList *hook_list, GHook *hook);
 extern
-void g_hook_free (GHookList *hook_list,GHook *hook);
+void g_hook_unref(GHookList *hook_list, GHook *hook);
 extern
-GHook * g_hook_ref (GHookList *hook_list,GHook *hook);
+gboolean g_hook_destroy(GHookList *hook_list, gulong hook_id);
 extern
-void g_hook_unref (GHookList *hook_list,GHook *hook);
+void g_hook_destroy_link(GHookList *hook_list, GHook *hook);
 extern
-gboolean g_hook_destroy (GHookList *hook_list,gulong hook_id);
+void g_hook_prepend(GHookList *hook_list, GHook *hook);
 extern
-void g_hook_destroy_link (GHookList *hook_list,GHook *hook);
+void g_hook_insert_before(GHookList *hook_list, GHook *sibling, GHook *hook);
 extern
-void g_hook_prepend (GHookList *hook_list,GHook *hook);
+void g_hook_insert_sorted(GHookList *hook_list, GHook *hook, GHookCompareFunc func);
 extern
-void g_hook_insert_before (GHookList *hook_list,GHook *sibling,GHook *hook);
+GHook* g_hook_get(GHookList *hook_list, gulong hook_id);
 extern
-void g_hook_insert_sorted (GHookList *hook_list,GHook *hook,GHookCompareFunc func);
+GHook* g_hook_find(GHookList *hook_list, gboolean need_valids, GHookFindFunc func, gpointer data);
 extern
-GHook* g_hook_get (GHookList *hook_list,gulong hook_id);
+GHook* g_hook_find_data(GHookList *hook_list, gboolean need_valids, gpointer data);
 extern
-GHook* g_hook_find (GHookList *hook_list,gboolean need_valids,GHookFindFunc func,gpointer data);
+GHook* g_hook_find_func(GHookList *hook_list, gboolean need_valids, gpointer func);
 extern
-GHook* g_hook_find_data (GHookList *hook_list,gboolean need_valids,gpointer data);
+GHook* g_hook_find_func_data(GHookList *hook_list, gboolean need_valids, gpointer func, gpointer data);
 extern
-GHook* g_hook_find_func (GHookList *hook_list,gboolean need_valids,gpointer func);
+GHook* g_hook_first_valid(GHookList *hook_list, gboolean may_be_in_call);
 extern
-GHook* g_hook_find_func_data (GHookList *hook_list,gboolean need_valids,gpointer func,gpointer data);
+GHook* g_hook_next_valid(GHookList *hook_list, GHook *hook, gboolean may_be_in_call);
 extern
-GHook* g_hook_first_valid (GHookList *hook_list,gboolean may_be_in_call);
+gint g_hook_compare_ids(GHook *new_hook, GHook *sibling);
 extern
-GHook* g_hook_next_valid (GHookList *hook_list,GHook *hook,gboolean may_be_in_call);
+void g_hook_list_invoke(GHookList *hook_list, gboolean may_recurse);
 extern
-gint g_hook_compare_ids (GHook *new_hook,GHook *sibling);
+void g_hook_list_invoke_check(GHookList *hook_list, gboolean may_recurse);
 extern
-void g_hook_list_invoke (GHookList *hook_list,gboolean may_recurse);
+void g_hook_list_marshal(GHookList *hook_list, gboolean may_recurse, GHookMarshaller marshaller, gpointer marshal_data);
 extern
-void g_hook_list_invoke_check (GHookList *hook_list,gboolean may_recurse);
+void g_hook_list_marshal_check(GHookList *hook_list, gboolean may_recurse, GHookCheckMarshaller marshaller, gpointer marshal_data);
 extern
-void g_hook_list_marshal (GHookList *hook_list,gboolean may_recurse,GHookMarshaller marshaller,gpointer marshal_data);
+gboolean g_hostname_is_non_ascii(const gchar *hostname);
 extern
-void g_hook_list_marshal_check (GHookList *hook_list,gboolean may_recurse,GHookCheckMarshaller marshaller,gpointer marshal_data);
+gboolean g_hostname_is_ascii_encoded(const gchar *hostname);
 extern
-gboolean g_hostname_is_non_ascii (const gchar *hostname);
+gboolean g_hostname_is_ip_address(const gchar *hostname);
 extern
-gboolean g_hostname_is_ascii_encoded (const gchar *hostname);
+gchar *g_hostname_to_ascii(const gchar *hostname);
 extern
-gboolean g_hostname_is_ip_address (const gchar *hostname);
-extern
-gchar *g_hostname_to_ascii (const gchar *hostname);
-extern
-gchar *g_hostname_to_unicode (const gchar *hostname);
+gchar *g_hostname_to_unicode(const gchar *hostname);
 extern
 gint
-g_poll (GPollFD *fds,guint nfds,gint timeout);
+g_poll(GPollFD *fds, guint nfds, gint timeout);
 extern
-GSList* g_slist_alloc (void);
+GSList* g_slist_alloc(void);
 extern
-void g_slist_free (GSList *list);
+void g_slist_free(GSList *list);
 extern
-void g_slist_free_1 (GSList *list);
+void g_slist_free_1(GSList *list);
 extern
-void g_slist_free_full (GSList *list,GDestroyNotify free_func);
+void g_slist_free_full(GSList *list, GDestroyNotify free_func);
 extern
-GSList* g_slist_append (GSList *list,gpointer data);
+GSList* g_slist_append(GSList *list, gpointer data);
 extern
-GSList* g_slist_prepend (GSList *list,gpointer data);
+GSList* g_slist_prepend(GSList *list, gpointer data);
 extern
-GSList* g_slist_insert (GSList *list,gpointer data,gint position);
+GSList* g_slist_insert(GSList *list, gpointer data, gint position);
 extern
-GSList* g_slist_insert_sorted (GSList *list,gpointer data,GCompareFunc func);
+GSList* g_slist_insert_sorted(GSList *list, gpointer data, GCompareFunc func);
 extern
-GSList* g_slist_insert_sorted_with_data (GSList *list,gpointer data,GCompareDataFunc func,gpointer user_data);
+GSList* g_slist_insert_sorted_with_data(GSList *list, gpointer data, GCompareDataFunc func, gpointer user_data);
 extern
-GSList* g_slist_insert_before (GSList *slist,GSList *sibling,gpointer data);
+GSList* g_slist_insert_before(GSList *slist, GSList *sibling, gpointer data);
 extern
-GSList* g_slist_concat (GSList *list1,GSList *list2);
+GSList* g_slist_concat(GSList *list1, GSList *list2);
 extern
-GSList* g_slist_remove (GSList *list,gconstpointer data);
+GSList* g_slist_remove(GSList *list, gconstpointer data);
 extern
-GSList* g_slist_remove_all (GSList *list,gconstpointer data);
+GSList* g_slist_remove_all(GSList *list, gconstpointer data);
 extern
-GSList* g_slist_remove_link (GSList *list,GSList *link_);
+GSList* g_slist_remove_link(GSList *list, GSList *link_);
 extern
-GSList* g_slist_delete_link (GSList *list,GSList *link_);
+GSList* g_slist_delete_link(GSList *list, GSList *link_);
 extern
-GSList* g_slist_reverse (GSList *list);
+GSList* g_slist_reverse(GSList *list);
 extern
-GSList* g_slist_copy (GSList *list);
+GSList* g_slist_copy(GSList *list);
 extern
-GSList* g_slist_copy_deep (GSList *list,GCopyFunc func,gpointer user_data);
+GSList* g_slist_copy_deep(GSList *list, GCopyFunc func, gpointer user_data);
 extern
-GSList* g_slist_nth (GSList *list,guint n);
+GSList* g_slist_nth(GSList *list, guint n);
 extern
-GSList* g_slist_find (GSList *list,gconstpointer data);
+GSList* g_slist_find(GSList *list, gconstpointer data);
 extern
-GSList* g_slist_find_custom (GSList *list,gconstpointer data,GCompareFunc func);
+GSList* g_slist_find_custom(GSList *list, gconstpointer data, GCompareFunc func);
 extern
-gint g_slist_position (GSList *list,GSList *llink);
+gint g_slist_position(GSList *list, GSList *llink);
 extern
-gint g_slist_index (GSList *list,gconstpointer data);
+gint g_slist_index(GSList *list, gconstpointer data);
 extern
-GSList* g_slist_last (GSList *list);
+GSList* g_slist_last(GSList *list);
 extern
-guint g_slist_length (GSList *list);
+guint g_slist_length(GSList *list);
 extern
-void g_slist_foreach (GSList *list,GFunc func,gpointer user_data);
+void g_slist_foreach(GSList *list, GFunc func, gpointer user_data);
 extern
-GSList* g_slist_sort (GSList *list,GCompareFunc compare_func);
+GSList* g_slist_sort(GSList *list, GCompareFunc compare_func);
 extern
-GSList* g_slist_sort_with_data (GSList *list,GCompareDataFunc compare_func,gpointer user_data);
+GSList* g_slist_sort_with_data(GSList *list, GCompareDataFunc compare_func, gpointer user_data);
 extern
-gpointer g_slist_nth_data (GSList *list,guint n);
+gpointer g_slist_nth_data(GSList *list, guint n);
 extern
-GMainContext *g_main_context_new (void);
+GMainContext *g_main_context_new(void);
 extern
-GMainContext *g_main_context_ref (GMainContext *context);
+GMainContext *g_main_context_ref(GMainContext *context);
 extern
-void g_main_context_unref (GMainContext *context);
+void g_main_context_unref(GMainContext *context);
 extern
-GMainContext *g_main_context_default (void);
+GMainContext *g_main_context_default(void);
 extern
-gboolean g_main_context_iteration (GMainContext *context,gboolean may_block);
+gboolean g_main_context_iteration(GMainContext *context, gboolean may_block);
 extern
-gboolean g_main_context_pending (GMainContext *context);
+gboolean g_main_context_pending(GMainContext *context);
 extern
-GSource *g_main_context_find_source_by_id (GMainContext *context,guint source_id);
+GSource *g_main_context_find_source_by_id(GMainContext *context, guint source_id);
 extern
-GSource *g_main_context_find_source_by_user_data (GMainContext *context,gpointer user_data);
+GSource *g_main_context_find_source_by_user_data(GMainContext *context, gpointer user_data);
 extern
-GSource *g_main_context_find_source_by_funcs_user_data (GMainContext *context,GSourceFuncs *funcs,gpointer user_data);
+GSource *g_main_context_find_source_by_funcs_user_data(GMainContext *context, GSourceFuncs *funcs, gpointer user_data);
 extern
-void g_main_context_wakeup (GMainContext *context);
+void g_main_context_wakeup(GMainContext *context);
 extern
-gboolean g_main_context_acquire (GMainContext *context);
+gboolean g_main_context_acquire(GMainContext *context);
 extern
-void g_main_context_release (GMainContext *context);
+void g_main_context_release(GMainContext *context);
 extern
-gboolean g_main_context_is_owner (GMainContext *context);extern
-gboolean g_main_context_wait (GMainContext *context,GCond *cond,GMutex *mutex);
+gboolean g_main_context_is_owner(GMainContext *context);
 extern
-gboolean g_main_context_prepare (GMainContext *context,gint *priority);
+gboolean g_main_context_wait(GMainContext *context, GCond *cond, GMutex *mutex);
 extern
-gint g_main_context_query (GMainContext *context,gint max_priority,gint *timeout_,GPollFD *fds,gint n_fds);
+gboolean g_main_context_prepare(GMainContext *context, gint *priority);
 extern
-gboolean g_main_context_check (GMainContext *context,gint max_priority,GPollFD *fds,gint n_fds);
+gint g_main_context_query(GMainContext *context, gint max_priority, gint *timeout_, GPollFD *fds, gint n_fds);
 extern
-void g_main_context_dispatch (GMainContext *context);
+gboolean g_main_context_check(GMainContext *context, gint max_priority, GPollFD *fds, gint n_fds);
 extern
-void g_main_context_set_poll_func (GMainContext *context,GPollFunc func);
+void g_main_context_dispatch(GMainContext *context);
 extern
-GPollFunc g_main_context_get_poll_func (GMainContext *context);
+void g_main_context_set_poll_func(GMainContext *context, GPollFunc func);
 extern
-void g_main_context_add_poll (GMainContext *context,GPollFD *fd,gint priority);
+GPollFunc g_main_context_get_poll_func(GMainContext *context);
 extern
-void g_main_context_remove_poll (GMainContext *context,GPollFD *fd);
+void g_main_context_add_poll(GMainContext *context, GPollFD *fd, gint priority);
 extern
-gint g_main_depth (void);
+void g_main_context_remove_poll(GMainContext *context, GPollFD *fd);
 extern
-GSource *g_main_current_source (void);
+gint g_main_depth(void);
 extern
-void g_main_context_push_thread_default (GMainContext *context);
+GSource *g_main_current_source(void);
 extern
-void g_main_context_pop_thread_default (GMainContext *context);
+void g_main_context_push_thread_default(GMainContext *context);
 extern
-GMainContext *g_main_context_get_thread_default (void);
+void g_main_context_pop_thread_default(GMainContext *context);
 extern
-GMainContext *g_main_context_ref_thread_default (void);
+GMainContext *g_main_context_get_thread_default(void);
 extern
-GMainLoop *g_main_loop_new (GMainContext *context,gboolean is_running);
+GMainContext *g_main_context_ref_thread_default(void);
 extern
-void g_main_loop_run (GMainLoop *loop);
+GMainLoop *g_main_loop_new(GMainContext *context, gboolean is_running);
 extern
-void g_main_loop_quit (GMainLoop *loop);
+void g_main_loop_run(GMainLoop *loop);
 extern
-GMainLoop *g_main_loop_ref (GMainLoop *loop);
+void g_main_loop_quit(GMainLoop *loop);
 extern
-void g_main_loop_unref (GMainLoop *loop);
+GMainLoop *g_main_loop_ref(GMainLoop *loop);
 extern
-gboolean g_main_loop_is_running (GMainLoop *loop);
+void g_main_loop_unref(GMainLoop *loop);
 extern
-GMainContext *g_main_loop_get_context (GMainLoop *loop);
+gboolean g_main_loop_is_running(GMainLoop *loop);
 extern
-GSource *g_source_new (GSourceFuncs *source_funcs,guint struct_size);
+GMainContext *g_main_loop_get_context(GMainLoop *loop);
 extern
-GSource *g_source_ref (GSource *source);
+GSource *g_source_new(GSourceFuncs *source_funcs, guint struct_size);
 extern
-void g_source_unref (GSource *source);
+GSource *g_source_ref(GSource *source);
 extern
-guint g_source_attach (GSource *source,GMainContext *context);
+void g_source_unref(GSource *source);
 extern
-void g_source_destroy (GSource *source);
+guint g_source_attach(GSource *source, GMainContext *context);
 extern
-void g_source_set_priority (GSource *source,gint priority);
+void g_source_destroy(GSource *source);
 extern
-gint g_source_get_priority (GSource *source);
+void g_source_set_priority(GSource *source, gint priority);
 extern
-void g_source_set_can_recurse (GSource *source,gboolean can_recurse);
+gint g_source_get_priority(GSource *source);
 extern
-gboolean g_source_get_can_recurse (GSource *source);
+void g_source_set_can_recurse(GSource *source, gboolean can_recurse);
 extern
-guint g_source_get_id (GSource *source);
+gboolean g_source_get_can_recurse(GSource *source);
 extern
-GMainContext *g_source_get_context (GSource *source);
+guint g_source_get_id(GSource *source);
 extern
-void g_source_set_callback (GSource *source,GSourceFunc func,gpointer data,GDestroyNotify notify);
+GMainContext *g_source_get_context(GSource *source);
 extern
-void g_source_set_funcs (GSource *source,GSourceFuncs *funcs);
+void g_source_set_callback(GSource *source, GSourceFunc func, gpointer data, GDestroyNotify notify);
 extern
-gboolean g_source_is_destroyed (GSource *source);
+void g_source_set_funcs(GSource *source, GSourceFuncs *funcs);
 extern
-void g_source_set_name (GSource *source,const char *name);
+gboolean g_source_is_destroyed(GSource *source);
 extern
-const char * g_source_get_name (GSource *source);
+void g_source_set_name(GSource *source, const char *name);
 extern
-void g_source_set_name_by_id (guint tag,const char *name);
+const char * g_source_get_name(GSource *source);
 extern
-void g_source_set_ready_time (GSource *source,gint64 ready_time);
+void g_source_set_name_by_id(guint tag, const char *name);
 extern
-gint64 g_source_get_ready_time (GSource *source);
+void g_source_set_ready_time(GSource *source, gint64 ready_time);
 extern
-gpointer g_source_add_unix_fd (GSource *source,gint fd,GIOCondition events);
+gint64 g_source_get_ready_time(GSource *source);
 extern
-void g_source_modify_unix_fd (GSource *source,gpointer tag,GIOCondition new_events);
+gpointer g_source_add_unix_fd(GSource *source, gint fd, GIOCondition events);
 extern
-void g_source_remove_unix_fd (GSource *source,gpointer tag);
+void g_source_modify_unix_fd(GSource *source, gpointer tag, GIOCondition new_events);
 extern
-GIOCondition g_source_query_unix_fd (GSource *source,gpointer tag);
+void g_source_remove_unix_fd(GSource *source, gpointer tag);
+GLIB_AVAILABLE_IN_UINX GIOCondition g_source_query_unix_fd(GSource *source, gpointer tag);
 extern
-void g_source_set_callback_indirect (GSource *source,gpointer callback_data,GSourceCallbackFuncs *callback_funcs);
+void g_source_set_callback_indirect(GSource *source, gpointer callback_data, GSourceCallbackFuncs *callback_funcs);
 extern
-void g_source_add_poll (GSource *source,GPollFD *fd);
+void g_source_add_poll(GSource *source, GPollFD *fd);
 extern
-void g_source_remove_poll (GSource *source,GPollFD *fd);
+void g_source_remove_poll(GSource *source, GPollFD *fd);
 extern
-void g_source_add_child_source (GSource *source,GSource *child_source);
+void g_source_add_child_source(GSource *source, GSource *child_source);
 extern
-void g_source_remove_child_source (GSource *source,GSource *child_source);extern
-void g_source_get_current_time (GSource *source,GTimeVal *timeval);
+void g_source_remove_child_source(GSource *source, GSource *child_source);
 extern
-gint64 g_source_get_time (GSource *source);
+void g_source_get_current_time(GSource *source, GTimeVal *timeval);
 extern
-GSource *g_idle_source_new (void);
+gint64 g_source_get_time(GSource *source);
 extern
-GSource *g_child_watch_source_new (GPid pid);
+GSource *g_idle_source_new(void);
 extern
-GSource *g_timeout_source_new (guint interval);
+GSource *g_child_watch_source_new(GPid pid);
 extern
-GSource *g_timeout_source_new_seconds (guint interval);extern
-void g_get_current_time (GTimeVal *result);
+GSource *g_timeout_source_new(guint interval);
 extern
-gint64 g_get_monotonic_time (void);
+GSource *g_timeout_source_new_seconds(guint interval);
 extern
-gint64 g_get_real_time (void);
+void g_get_current_time(GTimeVal *result);
 extern
-gboolean g_source_remove (guint tag);
+gint64 g_get_monotonic_time(void);
 extern
-gboolean g_source_remove_by_user_data (gpointer user_data);
+gint64 g_get_real_time(void);
 extern
-gboolean g_source_remove_by_funcs_user_data (GSourceFuncs *funcs,gpointer user_data);
+gboolean g_source_remove(guint tag);
 extern
-void g_clear_handle_id (guint *tag_ptr,GClearHandleFunc clear_func);
+gboolean g_source_remove_by_user_data(gpointer user_data);
 extern
-guint g_timeout_add_full (gint priority,guint interval,GSourceFunc function,gpointer data,GDestroyNotify notify);
+gboolean g_source_remove_by_funcs_user_data(GSourceFuncs *funcs, gpointer user_data);
 extern
-guint g_timeout_add (guint interval,GSourceFunc function,gpointer data);
+void g_clear_handle_id(guint *tag_ptr, GClearHandleFunc clear_func);
 extern
-guint g_timeout_add_seconds_full (gint priority,guint interval,GSourceFunc function,gpointer data,GDestroyNotify notify);
+guint g_timeout_add_full(gint priority, guint interval, GSourceFunc function, gpointer data, GDestroyNotify notify);
 extern
-guint g_timeout_add_seconds (guint interval,GSourceFunc function,gpointer data);
+guint g_timeout_add(guint interval, GSourceFunc function, gpointer data);
 extern
-guint g_child_watch_add_full (gint priority,GPid pid,GChildWatchFunc function,gpointer data,GDestroyNotify notify);
+guint g_timeout_add_seconds_full(gint priority, guint interval, GSourceFunc function, gpointer data, GDestroyNotify notify);
 extern
-guint g_child_watch_add (GPid pid,GChildWatchFunc function,gpointer data);
+guint g_timeout_add_seconds(guint interval, GSourceFunc function, gpointer data);
 extern
-guint g_idle_add (GSourceFunc function,gpointer data);
+guint g_child_watch_add_full(gint priority, GPid pid, GChildWatchFunc function, gpointer data, GDestroyNotify notify);
 extern
-guint g_idle_add_full (gint priority,GSourceFunc function,gpointer data,GDestroyNotify notify);
+guint g_child_watch_add(GPid pid, GChildWatchFunc function, gpointer data);
 extern
-gboolean g_idle_remove_by_data (gpointer data);
+guint g_idle_add(GSourceFunc function, gpointer data);
 extern
-void g_main_context_invoke_full (GMainContext *context,gint priority,GSourceFunc function,gpointer data,GDestroyNotify notify);
+guint g_idle_add_full(gint priority, GSourceFunc function, gpointer data, GDestroyNotify notify);
 extern
-void g_main_context_invoke (GMainContext *context,GSourceFunc function,gpointer data);
+gboolean g_idle_remove_by_data(gpointer data);
+extern
+void g_main_context_invoke_full(GMainContext *context, gint priority, GSourceFunc function, gpointer data, GDestroyNotify notify);
+extern
+void g_main_context_invoke(GMainContext *context, GSourceFunc function, gpointer data);
 extern GSourceFuncs g_timeout_funcs;
 extern GSourceFuncs g_child_watch_funcs;
 extern GSourceFuncs g_idle_funcs;
-extern GSourceFuncs g_unix_signal_funcs;
-extern GSourceFuncs g_unix_fd_source_funcs;
+GLIB_AVAILABLE_IN_UINX GSourceFuncs g_unix_signal_funcs;
+GLIB_AVAILABLE_IN_UINX GSourceFuncs g_unix_fd_source_funcs;
 extern
-guint32 g_unicode_script_to_iso15924 (GUnicodeScript script);
+guint32 g_unicode_script_to_iso15924(GUnicodeScript script);
 extern
-GUnicodeScript g_unicode_script_from_iso15924 (guint32 iso15924);
+GUnicodeScript g_unicode_script_from_iso15924(guint32 iso15924);
 extern
-gboolean g_unichar_isalnum (gunichar c);
+gboolean g_unichar_isalnum(gunichar c);
 extern
-gboolean g_unichar_isalpha (gunichar c);
+gboolean g_unichar_isalpha(gunichar c);
 extern
-gboolean g_unichar_iscntrl (gunichar c);
+gboolean g_unichar_iscntrl(gunichar c);
 extern
-gboolean g_unichar_isdigit (gunichar c);
+gboolean g_unichar_isdigit(gunichar c);
 extern
-gboolean g_unichar_isgraph (gunichar c);
+gboolean g_unichar_isgraph(gunichar c);
 extern
-gboolean g_unichar_islower (gunichar c);
+gboolean g_unichar_islower(gunichar c);
 extern
-gboolean g_unichar_isprint (gunichar c);
+gboolean g_unichar_isprint(gunichar c);
 extern
-gboolean g_unichar_ispunct (gunichar c);
+gboolean g_unichar_ispunct(gunichar c);
 extern
-gboolean g_unichar_isspace (gunichar c);
+gboolean g_unichar_isspace(gunichar c);
 extern
-gboolean g_unichar_isupper (gunichar c);
+gboolean g_unichar_isupper(gunichar c);
 extern
-gboolean g_unichar_isxdigit (gunichar c);
+gboolean g_unichar_isxdigit(gunichar c);
 extern
-gboolean g_unichar_istitle (gunichar c);
+gboolean g_unichar_istitle(gunichar c);
 extern
-gboolean g_unichar_isdefined (gunichar c);
+gboolean g_unichar_isdefined(gunichar c);
 extern
-gboolean g_unichar_iswide (gunichar c);
+gboolean g_unichar_iswide(gunichar c);
 extern
 gboolean g_unichar_iswide_cjk(gunichar c);
 extern
 gboolean g_unichar_iszerowidth(gunichar c);
 extern
-gboolean g_unichar_ismark (gunichar c);
+gboolean g_unichar_ismark(gunichar c);
 extern
-gunichar g_unichar_toupper (gunichar c);
+gunichar g_unichar_toupper(gunichar c);
 extern
-gunichar g_unichar_tolower (gunichar c);
+gunichar g_unichar_tolower(gunichar c);
 extern
-gunichar g_unichar_totitle (gunichar c);
+gunichar g_unichar_totitle(gunichar c);
 extern
-gint g_unichar_digit_value (gunichar c);
+gint g_unichar_digit_value(gunichar c);
 extern
-gint g_unichar_xdigit_value (gunichar c);
+gint g_unichar_xdigit_value(gunichar c);
 extern
-GUnicodeType g_unichar_type (gunichar c);
+GUnicodeType g_unichar_type(gunichar c);
 extern
-GUnicodeBreakType g_unichar_break_type (gunichar c);
+GUnicodeBreakType g_unichar_break_type(gunichar c);
 extern
-gint g_unichar_combining_class (gunichar uc);
+gint g_unichar_combining_class(gunichar uc);
 extern
-gboolean g_unichar_get_mirror_char (gunichar ch,gunichar *mirrored_ch);
+gboolean g_unichar_get_mirror_char(gunichar ch, gunichar *mirrored_ch);
 extern
-GUnicodeScript g_unichar_get_script (gunichar ch);
+GUnicodeScript g_unichar_get_script(gunichar ch);
 extern
-gboolean g_unichar_validate (gunichar ch);
+gboolean g_unichar_validate(gunichar ch);
 extern
-gboolean g_unichar_compose (gunichar a,gunichar b,gunichar *ch);
+gboolean g_unichar_compose(gunichar a, gunichar b, gunichar *ch);
 extern
-gboolean g_unichar_decompose (gunichar ch,gunichar *a,gunichar *b);
+gboolean g_unichar_decompose(gunichar ch, gunichar *a, gunichar *b);
 extern
-gsize g_unichar_fully_decompose (gunichar ch,gboolean compat,gunichar *result,gsize result_len);
+gsize g_unichar_fully_decompose(gunichar ch, gboolean compat, gunichar *result, gsize result_len);
 extern
-void g_unicode_canonical_ordering (gunichar *string,gsize len);
+void g_unicode_canonical_ordering(gunichar *string, gsize len);
 extern
-gunichar *g_unicode_canonical_decomposition (gunichar ch,gsize *result_len);
+gunichar *g_unicode_canonical_decomposition(gunichar ch, gsize *result_len);
 extern const gchar * const g_utf8_skip;
 extern
-gunichar g_utf8_get_char (const gchar *p);
+gunichar g_utf8_get_char(const gchar *p);
 extern
-gunichar g_utf8_get_char_validated (const gchar *p,gssize max_len);
+gunichar g_utf8_get_char_validated(const gchar *p, gssize max_len);
 extern
-gchar* g_utf8_offset_to_pointer (const gchar *str,glong offset);
+gchar* g_utf8_offset_to_pointer(const gchar *str, glong offset);
 extern
-glong g_utf8_pointer_to_offset (const gchar *str,const gchar *pos);
+glong g_utf8_pointer_to_offset(const gchar *str, const gchar *pos);
 extern
-gchar* g_utf8_prev_char (const gchar *p);
+gchar* g_utf8_prev_char(const gchar *p);
 extern
-gchar* g_utf8_find_next_char (const gchar *p,const gchar *end);
+gchar* g_utf8_find_next_char(const gchar *p, const gchar *end);
 extern
-gchar* g_utf8_find_prev_char (const gchar *str,const gchar *p);
+gchar* g_utf8_find_prev_char(const gchar *str, const gchar *p);
 extern
-glong g_utf8_strlen (const gchar *p,gssize max);
+glong g_utf8_strlen(const gchar *p, gssize max);
 extern
-gchar *g_utf8_substring (const gchar *str,glong start_pos,glong end_pos);
+gchar *g_utf8_substring(const gchar *str, glong start_pos, glong end_pos);
 extern
-gchar *g_utf8_strncpy (gchar *dest,const gchar *src,gsize n);
+gchar *g_utf8_strncpy(gchar *dest, const gchar *src, gsize n);
 extern
-gchar* g_utf8_strchr (const gchar *p,gssize len,gunichar c);
+gchar* g_utf8_strchr(const gchar *p, gssize len, gunichar c);
 extern
-gchar* g_utf8_strrchr (const gchar *p,gssize len,gunichar c);
+gchar* g_utf8_strrchr(const gchar *p, gssize len, gunichar c);
 extern
-gchar* g_utf8_strreverse (const gchar *str,gssize len);
+gchar* g_utf8_strreverse(const gchar *str, gssize len);
 extern
-gunichar2 *g_utf8_to_utf16 (const gchar *str,glong len,glong *items_read,glong *items_written,GError **error);
+gunichar2 *g_utf8_to_utf16(const gchar *str, glong len, glong *items_read, glong *items_written, GError **error);
 extern
-gunichar * g_utf8_to_ucs4 (const gchar *str,glong len,glong *items_read,glong *items_written,GError **error);
+gunichar * g_utf8_to_ucs4(const gchar *str, glong len, glong *items_read, glong *items_written, GError **error);
 extern
-gunichar * g_utf8_to_ucs4_fast (const gchar *str,glong len,glong *items_written);
+gunichar * g_utf8_to_ucs4_fast(const gchar *str, glong len, glong *items_written);
 extern
-gunichar * g_utf16_to_ucs4 (const gunichar2 *str,glong len,glong *items_read,glong *items_written,GError **error);
+gunichar * g_utf16_to_ucs4(const gunichar2 *str, glong len, glong *items_read, glong *items_written, GError **error);
 extern
-gchar* g_utf16_to_utf8 (const gunichar2 *str,glong len,glong *items_read,glong *items_written,GError **error);
+gchar* g_utf16_to_utf8(const gunichar2 *str, glong len, glong *items_read, glong *items_written, GError **error);
 extern
-gunichar2 *g_ucs4_to_utf16 (const gunichar *str,glong len,glong *items_read,glong *items_written,GError **error);
+gunichar2 *g_ucs4_to_utf16(const gunichar *str, glong len, glong *items_read, glong *items_written, GError **error);
 extern
-gchar* g_ucs4_to_utf8 (const gunichar *str,glong len,glong *items_read,glong *items_written,GError **error);
+gchar* g_ucs4_to_utf8(const gunichar *str, glong len, glong *items_read, glong *items_written, GError **error);
 extern
-gint g_unichar_to_utf8 (gunichar c,gchar *outbuf);
+gint g_unichar_to_utf8(gunichar c, gchar *outbuf);
 extern
-gboolean g_utf8_validate (const gchar *str,gssize max_len,const gchar **end);
+gboolean g_utf8_validate(const gchar *str, gssize max_len, const gchar **end);
+GLIB_AVAILABLE_IN_2_60 gboolean g_utf8_validate_len(const gchar *str, gsize max_len, const gchar **end);
 extern
-gboolean g_utf8_validate_len (const gchar *str,gsize max_len,const gchar **end);
+gchar *g_utf8_strup(const gchar *str, gssize len);
 extern
-gchar *g_utf8_strup (const gchar *str,gssize len);
+gchar *g_utf8_strdown(const gchar *str, gssize len);
 extern
-gchar *g_utf8_strdown (const gchar *str,gssize len);
+gchar *g_utf8_casefold(const gchar *str, gssize len);
 extern
-gchar *g_utf8_casefold (const gchar *str,gssize len);
+gchar *g_utf8_normalize(const gchar *str, gssize len, GNormalizeMode mode);
 extern
-gchar *g_utf8_normalize (const gchar *str,gssize len,GNormalizeMode mode);
+gint g_utf8_collate(const gchar *str1, const gchar *str2);
 extern
-gint g_utf8_collate (const gchar *str1,const gchar *str2);
+gchar *g_utf8_collate_key(const gchar *str, gssize len);
 extern
-gchar *g_utf8_collate_key (const gchar *str,gssize len);
+gchar *g_utf8_collate_key_for_filename(const gchar *str, gssize len);
 extern
-gchar *g_utf8_collate_key_for_filename (const gchar *str,gssize len);
+gchar *g_utf8_make_valid(const gchar *str, gssize len);
 extern
-gchar *g_utf8_make_valid (const gchar *str,gssize len);
+GString* g_string_new(const gchar *init);
 extern
-GString* g_string_new (const gchar *init);
+GString* g_string_new_len(const gchar *init, gssize len);
 extern
-GString* g_string_new_len (const gchar *init,gssize len);
+GString* g_string_sized_new(gsize dfl_size);
 extern
-GString* g_string_sized_new (gsize dfl_size);
+gchar* g_string_free(GString *string, gboolean free_segment);
 extern
-gchar* g_string_free (GString *string,gboolean free_segment);
+GBytes* g_string_free_to_bytes(GString *string);
 extern
-GBytes* g_string_free_to_bytes (GString *string);
+gboolean g_string_equal(const GString *v, const GString *v2);
 extern
-gboolean g_string_equal (const GString *v,const GString *v2);
+guint g_string_hash(const GString *str);
 extern
-guint g_string_hash (const GString *str);
+GString* g_string_assign(GString *string, const gchar *rval);
 extern
-GString* g_string_assign (GString *string,const gchar *rval);
+GString* g_string_truncate(GString *string, gsize len);
 extern
-GString* g_string_truncate (GString *string,gsize len);
+GString* g_string_set_size(GString *string, gsize len);
 extern
-GString* g_string_set_size (GString *string,gsize len);
+GString* g_string_insert_len(GString *string, gssize pos, const gchar *val, gssize len);
 extern
-GString* g_string_insert_len (GString *string,gssize pos,const gchar *val,gssize len);
+GString* g_string_append(GString *string, const gchar *val);
 extern
-GString* g_string_append (GString *string,const gchar *val);
+GString* g_string_append_len(GString *string, const gchar *val, gssize len);
 extern
-GString* g_string_append_len (GString *string,const gchar *val,gssize len);
+GString* g_string_append_c(GString *string, gchar c);
 extern
-GString* g_string_append_c (GString *string,gchar c);
+GString* g_string_append_unichar(GString *string, gunichar wc);
 extern
-GString* g_string_append_unichar (GString *string,gunichar wc);
+GString* g_string_prepend(GString *string, const gchar *val);
 extern
-GString* g_string_prepend (GString *string,const gchar *val);
+GString* g_string_prepend_c(GString *string, gchar c);
 extern
-GString* g_string_prepend_c (GString *string,gchar c);
+GString* g_string_prepend_unichar(GString *string, gunichar wc);
 extern
-GString* g_string_prepend_unichar (GString *string,gunichar wc);
+GString* g_string_prepend_len(GString *string, const gchar *val, gssize len);
 extern
-GString* g_string_prepend_len (GString *string,const gchar *val,gssize len);
+GString* g_string_insert(GString *string, gssize pos, const gchar *val);
 extern
-GString* g_string_insert (GString *string,gssize pos,const gchar *val);
+GString* g_string_insert_c(GString *string, gssize pos, gchar c);
 extern
-GString* g_string_insert_c (GString *string,gssize pos,gchar c);
+GString* g_string_insert_unichar(GString *string, gssize pos, gunichar wc);
 extern
-GString* g_string_insert_unichar (GString *string,gssize pos,gunichar wc);
+GString* g_string_overwrite(GString *string, gsize pos, const gchar *val);
 extern
-GString* g_string_overwrite (GString *string,gsize pos,const gchar *val);
+GString* g_string_overwrite_len(GString *string, gsize pos, const gchar *val, gssize len);
 extern
-GString* g_string_overwrite_len (GString *string,gsize pos,const gchar *val,gssize len);
+GString* g_string_erase(GString *string, gssize pos, gssize len);
 extern
-GString* g_string_erase (GString *string,gssize pos,gssize len);
+GString* g_string_ascii_down(GString *string);
 extern
-GString* g_string_ascii_down (GString *string);
+GString* g_string_ascii_up(GString *string);
 extern
-GString* g_string_ascii_up (GString *string);
+void g_string_vprintf(GString *string, const gchar *format, va_list args);
 extern
-void g_string_vprintf (GString *string,const gchar *format,va_list args);
+void g_string_printf(GString *string, const gchar *format, ...);
 extern
-void g_string_printf (GString *string,const gchar *format,...);
+void g_string_append_vprintf(GString *string, const gchar *format, va_list args);
 extern
-void g_string_append_vprintf (GString *string,const gchar *format,va_list args);
+void g_string_append_printf(GString *string, const gchar *format, ...);
 extern
-void g_string_append_printf (GString *string,const gchar *format,...);
+GString* g_string_append_uri_escaped(GString *string, const gchar *unescaped, const gchar *reserved_chars_allowed, gboolean allow_utf8);
 extern
-GString* g_string_append_uri_escaped (GString *string,const gchar *unescaped,const gchar *reserved_chars_allowed,gboolean allow_utf8);
+GString *g_string_down(GString *string);
 extern
-GString *g_string_down (GString *string);
+GString *g_string_up(GString *string);
 extern
-GString *g_string_up (GString *string);
+void g_io_channel_init(GIOChannel *channel);
 extern
-void g_io_channel_init (GIOChannel *channel);
+GIOChannel *g_io_channel_ref(GIOChannel *channel);
 extern
-GIOChannel *g_io_channel_ref (GIOChannel *channel);
+void g_io_channel_unref(GIOChannel *channel);
 extern
-void g_io_channel_unref (GIOChannel *channel);
+GIOError g_io_channel_read(GIOChannel *channel, gchar *buf, gsize count, gsize *bytes_read);
 extern
-GIOError g_io_channel_read (GIOChannel *channel,gchar *buf,gsize count,gsize *bytes_read);
+GIOError g_io_channel_write(GIOChannel *channel, const gchar *buf, gsize count, gsize *bytes_written);
 extern
-GIOError g_io_channel_write (GIOChannel *channel,const gchar *buf,gsize count,gsize *bytes_written);extern
-GIOError g_io_channel_seek (GIOChannel *channel,gint64 offset,GSeekType type);
+GIOError g_io_channel_seek(GIOChannel *channel, gint64 offset, GSeekType type);
 extern
-void g_io_channel_close (GIOChannel *channel);
+void g_io_channel_close(GIOChannel *channel);
 extern
-GIOStatus g_io_channel_shutdown (GIOChannel *channel,gboolean flush,GError **err);
+GIOStatus g_io_channel_shutdown(GIOChannel *channel, gboolean flush, GError **err);
 extern
-guint g_io_add_watch_full (GIOChannel *channel,gint priority,GIOCondition condition,GIOFunc func,gpointer user_data,GDestroyNotify notify);
+guint g_io_add_watch_full(GIOChannel *channel, gint priority, GIOCondition condition, GIOFunc func, gpointer user_data, GDestroyNotify notify);
 extern
-GSource * g_io_create_watch (GIOChannel *channel,GIOCondition condition);
+GSource * g_io_create_watch(GIOChannel *channel, GIOCondition condition);
 extern
-guint g_io_add_watch (GIOChannel *channel,GIOCondition condition,GIOFunc func,gpointer user_data);
+guint g_io_add_watch(GIOChannel *channel, GIOCondition condition, GIOFunc func, gpointer user_data);
 extern
-void g_io_channel_set_buffer_size (GIOChannel *channel,gsize size);
+void g_io_channel_set_buffer_size(GIOChannel *channel, gsize size);
 extern
-gsize g_io_channel_get_buffer_size (GIOChannel *channel);
+gsize g_io_channel_get_buffer_size(GIOChannel *channel);
 extern
-GIOCondition g_io_channel_get_buffer_condition (GIOChannel *channel);
+GIOCondition g_io_channel_get_buffer_condition(GIOChannel *channel);
 extern
-GIOStatus g_io_channel_set_flags (GIOChannel *channel,GIOFlags flags,GError **error);
+GIOStatus g_io_channel_set_flags(GIOChannel *channel, GIOFlags flags, GError **error);
 extern
-GIOFlags g_io_channel_get_flags (GIOChannel *channel);
+GIOFlags g_io_channel_get_flags(GIOChannel *channel);
 extern
-void g_io_channel_set_line_term (GIOChannel *channel,const gchar *line_term,gint length);
+void g_io_channel_set_line_term(GIOChannel *channel, const gchar *line_term, gint length);
 extern
-const gchar * g_io_channel_get_line_term (GIOChannel *channel,gint *length);
+const gchar * g_io_channel_get_line_term(GIOChannel *channel, gint *length);
 extern
-void g_io_channel_set_buffered (GIOChannel *channel,gboolean buffered);
+void g_io_channel_set_buffered(GIOChannel *channel, gboolean buffered);
 extern
-gboolean g_io_channel_get_buffered (GIOChannel *channel);
+gboolean g_io_channel_get_buffered(GIOChannel *channel);
 extern
-GIOStatus g_io_channel_set_encoding (GIOChannel *channel,const gchar *encoding,GError **error);
+GIOStatus g_io_channel_set_encoding(GIOChannel *channel, const gchar *encoding, GError **error);
 extern
-const gchar * g_io_channel_get_encoding (GIOChannel *channel);
+const gchar * g_io_channel_get_encoding(GIOChannel *channel);
 extern
-void g_io_channel_set_close_on_unref (GIOChannel *channel,gboolean do_close);
+void g_io_channel_set_close_on_unref(GIOChannel *channel, gboolean do_close);
 extern
-gboolean g_io_channel_get_close_on_unref (GIOChannel *channel);
+gboolean g_io_channel_get_close_on_unref(GIOChannel *channel);
 extern
-GIOStatus g_io_channel_flush (GIOChannel *channel,GError **error);
+GIOStatus g_io_channel_flush(GIOChannel *channel, GError **error);
 extern
-GIOStatus g_io_channel_read_line (GIOChannel *channel,gchar **str_return,gsize *length,gsize *terminator_pos,GError **error);
+GIOStatus g_io_channel_read_line(GIOChannel *channel, gchar **str_return, gsize *length, gsize *terminator_pos, GError **error);
 extern
-GIOStatus g_io_channel_read_line_string (GIOChannel *channel,GString *buffer,gsize *terminator_pos,GError **error);
+GIOStatus g_io_channel_read_line_string(GIOChannel *channel, GString *buffer, gsize *terminator_pos, GError **error);
 extern
-GIOStatus g_io_channel_read_to_end (GIOChannel *channel,gchar **str_return,gsize *length,GError **error);
+GIOStatus g_io_channel_read_to_end(GIOChannel *channel, gchar **str_return, gsize *length, GError **error);
 extern
-GIOStatus g_io_channel_read_chars (GIOChannel *channel,gchar *buf,gsize count,gsize *bytes_read,GError **error);
+GIOStatus g_io_channel_read_chars(GIOChannel *channel, gchar *buf, gsize count, gsize *bytes_read, GError **error);
 extern
-GIOStatus g_io_channel_read_unichar (GIOChannel *channel,gunichar *thechar,GError **error);
+GIOStatus g_io_channel_read_unichar(GIOChannel *channel, gunichar *thechar, GError **error);
 extern
-GIOStatus g_io_channel_write_chars (GIOChannel *channel,const gchar *buf,gssize count,gsize *bytes_written,GError **error);
+GIOStatus g_io_channel_write_chars(GIOChannel *channel, const gchar *buf, gssize count, gsize *bytes_written, GError **error);
 extern
-GIOStatus g_io_channel_write_unichar (GIOChannel *channel,gunichar thechar,GError **error);
+GIOStatus g_io_channel_write_unichar(GIOChannel *channel, gunichar thechar, GError **error);
 extern
-GIOStatus g_io_channel_seek_position (GIOChannel *channel,gint64 offset,GSeekType type,GError **error);
+GIOStatus g_io_channel_seek_position(GIOChannel *channel, gint64 offset, GSeekType type, GError **error);
 extern
-GIOChannel* g_io_channel_new_file (const gchar *filename,const gchar *mode,GError **error);
+GIOChannel* g_io_channel_new_file(const gchar *filename, const gchar *mode, GError **error);
 extern
-GQuark g_io_channel_error_quark (void);
+GQuark g_io_channel_error_quark(void);
 extern
-GIOChannelError g_io_channel_error_from_errno (gint en);
-extern
-GIOChannel* g_io_channel_unix_new (int fd);
-extern
-gint g_io_channel_unix_get_fd (GIOChannel *channel);
+GIOChannelError g_io_channel_error_from_errno(gint en);
+GLIB_AVAILABLE_IN_UINX GIOChannel* g_io_channel_unix_new(int fd);
+GLIB_AVAILABLE_IN_UINX gint g_io_channel_unix_get_fd(GIOChannel *channel);
 extern GSourceFuncs g_io_watch_funcs;
 extern
-GQuark g_key_file_error_quark (void);
+GQuark g_key_file_error_quark(void);
 extern
-GKeyFile *g_key_file_new (void);
+GKeyFile *g_key_file_new(void);
 extern
-GKeyFile *g_key_file_ref (GKeyFile *key_file);
+GKeyFile *g_key_file_ref(GKeyFile *key_file);
 extern
-void g_key_file_unref (GKeyFile *key_file);
+void g_key_file_unref(GKeyFile *key_file);
 extern
-void g_key_file_free (GKeyFile *key_file);
+void g_key_file_free(GKeyFile *key_file);
 extern
-void g_key_file_set_list_separator (GKeyFile *key_file,gchar separator);
+void g_key_file_set_list_separator(GKeyFile *key_file, gchar separator);
 extern
-gboolean g_key_file_load_from_file (GKeyFile *key_file,const gchar *file,GKeyFileFlags flags,GError **error);
+gboolean g_key_file_load_from_file(GKeyFile *key_file, const gchar *file, GKeyFileFlags flags, GError **error);
 extern
-gboolean g_key_file_load_from_data (GKeyFile *key_file,const gchar *data,gsize length,GKeyFileFlags flags,GError **error);
+gboolean g_key_file_load_from_data(GKeyFile *key_file, const gchar *data, gsize length, GKeyFileFlags flags, GError **error);
 extern
-gboolean g_key_file_load_from_bytes (GKeyFile *key_file,GBytes *bytes,GKeyFileFlags flags,GError **error);
+gboolean g_key_file_load_from_bytes(GKeyFile *key_file, GBytes *bytes, GKeyFileFlags flags, GError **error);
 extern
-gboolean g_key_file_load_from_dirs (GKeyFile *key_file,const gchar *file,const gchar **search_dirs,gchar **full_path,GKeyFileFlags flags,GError **error);
+gboolean g_key_file_load_from_dirs(GKeyFile *key_file, const gchar *file, const gchar **search_dirs, gchar **full_path, GKeyFileFlags flags, GError **error);
 extern
-gboolean g_key_file_load_from_data_dirs (GKeyFile *key_file,const gchar *file,gchar **full_path,GKeyFileFlags flags,GError **error);
+gboolean g_key_file_load_from_data_dirs(GKeyFile *key_file, const gchar *file, gchar **full_path, GKeyFileFlags flags, GError **error);
 extern
-gchar *g_key_file_to_data (GKeyFile *key_file,gsize *length,GError **error);
+gchar *g_key_file_to_data(GKeyFile *key_file, gsize *length, GError **error);
 extern
-gboolean g_key_file_save_to_file (GKeyFile *key_file,const gchar *filename,GError **error);
+gboolean g_key_file_save_to_file(GKeyFile *key_file, const gchar *filename, GError **error);
 extern
-gchar *g_key_file_get_start_group (GKeyFile *key_file);
+gchar *g_key_file_get_start_group(GKeyFile *key_file);
 extern
-gchar **g_key_file_get_groups (GKeyFile *key_file,gsize *length);
+gchar **g_key_file_get_groups(GKeyFile *key_file, gsize *length);
 extern
-gchar **g_key_file_get_keys (GKeyFile *key_file,const gchar *group_name,gsize *length,GError **error);
+gchar **g_key_file_get_keys(GKeyFile *key_file, const gchar *group_name, gsize *length, GError **error);
 extern
-gboolean g_key_file_has_group (GKeyFile *key_file,const gchar *group_name);
+gboolean g_key_file_has_group(GKeyFile *key_file, const gchar *group_name);
 extern
-gboolean g_key_file_has_key (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gboolean g_key_file_has_key(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-gchar *g_key_file_get_value (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gchar *g_key_file_get_value(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_value (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *value);
+void g_key_file_set_value(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *value);
 extern
-gchar *g_key_file_get_string (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gchar *g_key_file_get_string(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_string (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *string);
+void g_key_file_set_string(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *string);
 extern
-gchar *g_key_file_get_locale_string (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *locale,GError **error);
+gchar *g_key_file_get_locale_string(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *locale, GError **error);
 extern
-gchar *g_key_file_get_locale_for_key (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *locale);
+gchar *g_key_file_get_locale_for_key(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *locale);
 extern
-void g_key_file_set_locale_string (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *locale,const gchar *string);
+void g_key_file_set_locale_string(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *locale, const gchar *string);
 extern
-gboolean g_key_file_get_boolean (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gboolean g_key_file_get_boolean(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_boolean (GKeyFile *key_file,const gchar *group_name,const gchar *key,gboolean value);
+void g_key_file_set_boolean(GKeyFile *key_file, const gchar *group_name, const gchar *key, gboolean value);
 extern
-gint g_key_file_get_integer (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gint g_key_file_get_integer(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_integer (GKeyFile *key_file,const gchar *group_name,const gchar *key,gint value);
+void g_key_file_set_integer(GKeyFile *key_file, const gchar *group_name, const gchar *key, gint value);
 extern
-gint64 g_key_file_get_int64 (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gint64 g_key_file_get_int64(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_int64 (GKeyFile *key_file,const gchar *group_name,const gchar *key,gint64 value);
+void g_key_file_set_int64(GKeyFile *key_file, const gchar *group_name, const gchar *key, gint64 value);
 extern
-guint64 g_key_file_get_uint64 (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+guint64 g_key_file_get_uint64(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_uint64 (GKeyFile *key_file,const gchar *group_name,const gchar *key,guint64 value);
+void g_key_file_set_uint64(GKeyFile *key_file, const gchar *group_name, const gchar *key, guint64 value);
 extern
-gdouble g_key_file_get_double (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gdouble g_key_file_get_double(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-void g_key_file_set_double (GKeyFile *key_file,const gchar *group_name,const gchar *key,gdouble value);
+void g_key_file_set_double(GKeyFile *key_file, const gchar *group_name, const gchar *key, gdouble value);
 extern
-gchar **g_key_file_get_string_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gsize *length,GError **error);
+gchar **g_key_file_get_string_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gsize *length, GError **error);
 extern
-void g_key_file_set_string_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar * const list[],gsize length);
+void g_key_file_set_string_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar * const list[], gsize length);
 extern
-gchar **g_key_file_get_locale_string_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *locale,gsize *length,GError **error);
+gchar **g_key_file_get_locale_string_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *locale, gsize *length, GError **error);
 extern
-void g_key_file_set_locale_string_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *locale,const gchar * const list[],gsize length);
+void g_key_file_set_locale_string_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *locale, const gchar * const list[], gsize length);
 extern
-gboolean *g_key_file_get_boolean_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gsize *length,GError **error);
+gboolean *g_key_file_get_boolean_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gsize *length, GError **error);
 extern
-void g_key_file_set_boolean_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gboolean list[],gsize length);
+void g_key_file_set_boolean_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gboolean list[], gsize length);
 extern
-gint *g_key_file_get_integer_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gsize *length,GError **error);
+gint *g_key_file_get_integer_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gsize *length, GError **error);
 extern
-void g_key_file_set_double_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gdouble list[],gsize length);
+void g_key_file_set_double_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gdouble list[], gsize length);
 extern
-gdouble *g_key_file_get_double_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gsize *length,GError **error);
+gdouble *g_key_file_get_double_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gsize *length, GError **error);
 extern
-void g_key_file_set_integer_list (GKeyFile *key_file,const gchar *group_name,const gchar *key,gint list[],gsize length);
+void g_key_file_set_integer_list(GKeyFile *key_file, const gchar *group_name, const gchar *key, gint list[], gsize length);
 extern
-gboolean g_key_file_set_comment (GKeyFile *key_file,const gchar *group_name,const gchar *key,const gchar *comment,GError **error);
+gboolean g_key_file_set_comment(GKeyFile *key_file, const gchar *group_name, const gchar *key, const gchar *comment, GError **error);
 extern
-gchar *g_key_file_get_comment (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gchar *g_key_file_get_comment(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-gboolean g_key_file_remove_comment (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gboolean g_key_file_remove_comment(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-gboolean g_key_file_remove_key (GKeyFile *key_file,const gchar *group_name,const gchar *key,GError **error);
+gboolean g_key_file_remove_key(GKeyFile *key_file, const gchar *group_name, const gchar *key, GError **error);
 extern
-gboolean g_key_file_remove_group (GKeyFile *key_file,const gchar *group_name,GError **error);
+gboolean g_key_file_remove_group(GKeyFile *key_file, const gchar *group_name, GError **error);
 extern
-GMappedFile *g_mapped_file_new (const gchar *filename,gboolean writable,GError **error);
+GMappedFile *g_mapped_file_new(const gchar *filename, gboolean writable, GError **error);
 extern
-GMappedFile *g_mapped_file_new_from_fd (gint fd,gboolean writable,GError **error);
+GMappedFile *g_mapped_file_new_from_fd(gint fd, gboolean writable, GError **error);
 extern
-gsize g_mapped_file_get_length (GMappedFile *file);
+gsize g_mapped_file_get_length(GMappedFile *file);
 extern
-gchar *g_mapped_file_get_contents (GMappedFile *file);
+gchar *g_mapped_file_get_contents(GMappedFile *file);
 extern
-GBytes * g_mapped_file_get_bytes (GMappedFile *file);
+GBytes * g_mapped_file_get_bytes(GMappedFile *file);
 extern
-GMappedFile *g_mapped_file_ref (GMappedFile *file);
+GMappedFile *g_mapped_file_ref(GMappedFile *file);
 extern
-void g_mapped_file_unref (GMappedFile *file);extern
-void g_mapped_file_free (GMappedFile *file);
+void g_mapped_file_unref(GMappedFile *file);
 extern
-GQuark g_markup_error_quark (void);
+void g_mapped_file_free(GMappedFile *file);
 extern
-GMarkupParseContext *g_markup_parse_context_new (const GMarkupParser *parser,GMarkupParseFlags flags,gpointer user_data,GDestroyNotify user_data_dnotify);
+GQuark g_markup_error_quark(void);
 extern
-GMarkupParseContext *g_markup_parse_context_ref (GMarkupParseContext *context);
+GMarkupParseContext *g_markup_parse_context_new(const GMarkupParser *parser, GMarkupParseFlags flags, gpointer user_data, GDestroyNotify user_data_dnotify);
 extern
-void g_markup_parse_context_unref (GMarkupParseContext *context);
+GMarkupParseContext *g_markup_parse_context_ref(GMarkupParseContext *context);
 extern
-void g_markup_parse_context_free (GMarkupParseContext *context);
+void g_markup_parse_context_unref(GMarkupParseContext *context);
 extern
-gboolean g_markup_parse_context_parse (GMarkupParseContext *context,const gchar *text,gssize text_len,GError **error);
+void g_markup_parse_context_free(GMarkupParseContext *context);
 extern
-void g_markup_parse_context_push (GMarkupParseContext *context,const GMarkupParser *parser,gpointer user_data);
+gboolean g_markup_parse_context_parse(GMarkupParseContext *context, const gchar *text, gssize text_len, GError **error);
 extern
-gpointer g_markup_parse_context_pop (GMarkupParseContext *context);
+void g_markup_parse_context_push(GMarkupParseContext *context, const GMarkupParser *parser, gpointer user_data);
 extern
-gboolean g_markup_parse_context_end_parse (GMarkupParseContext *context,GError **error);
+gpointer g_markup_parse_context_pop(GMarkupParseContext *context);
 extern
-const gchar * g_markup_parse_context_get_element (GMarkupParseContext *context);
+gboolean g_markup_parse_context_end_parse(GMarkupParseContext *context, GError **error);
 extern
-const GSList * g_markup_parse_context_get_element_stack (GMarkupParseContext *context);
+const gchar * g_markup_parse_context_get_element(GMarkupParseContext *context);
 extern
-void g_markup_parse_context_get_position (GMarkupParseContext *context,gint *line_number,gint *char_number);
+const GSList * g_markup_parse_context_get_element_stack(GMarkupParseContext *context);
 extern
-gpointer g_markup_parse_context_get_user_data (GMarkupParseContext *context);
+void g_markup_parse_context_get_position(GMarkupParseContext *context, gint *line_number, gint *char_number);
 extern
-gchar* g_markup_escape_text (const gchar *text,gssize length);
+gpointer g_markup_parse_context_get_user_data(GMarkupParseContext *context);
 extern
-gchar *g_markup_printf_escaped (const char *format,...);
+gchar* g_markup_escape_text(const gchar *text, gssize length);
 extern
-gchar *g_markup_vprintf_escaped (const char *format,va_list args);
+gchar *g_markup_printf_escaped(const char *format, ...);
 extern
-gboolean g_markup_collect_attributes (const gchar *element_name,const gchar **attribute_names,const gchar **attribute_values,GError **error,GMarkupCollectType first_type,const gchar *first_attr,...);
+gchar *g_markup_vprintf_escaped(const char *format, va_list args);
 extern
-gboolean g_variant_type_string_is_valid (const gchar *type_string);
+gboolean g_markup_collect_attributes(const gchar *element_name, const gchar **attribute_names, const gchar **attribute_values, GError **error, GMarkupCollectType first_type, const gchar *first_attr, ...);
 extern
-gboolean g_variant_type_string_scan (const gchar *string,const gchar *limit,const gchar **endptr);
+gboolean g_variant_type_string_is_valid(const gchar *type_string);
 extern
-void g_variant_type_free (GVariantType *type);
+gboolean g_variant_type_string_scan(const gchar *string, const gchar *limit, const gchar **endptr);
 extern
-GVariantType * g_variant_type_copy (const GVariantType *type);
+void g_variant_type_free(GVariantType *type);
 extern
-GVariantType * g_variant_type_new (const gchar *type_string);
+GVariantType * g_variant_type_copy(const GVariantType *type);
 extern
-gsize g_variant_type_get_string_length (const GVariantType *type);
+GVariantType * g_variant_type_new(const gchar *type_string);
 extern
-const gchar * g_variant_type_peek_string (const GVariantType *type);
+gsize g_variant_type_get_string_length(const GVariantType *type);
 extern
-gchar * g_variant_type_dup_string (const GVariantType *type);
+const gchar * g_variant_type_peek_string(const GVariantType *type);
 extern
-gboolean g_variant_type_is_definite (const GVariantType *type);
+gchar * g_variant_type_dup_string(const GVariantType *type);
 extern
-gboolean g_variant_type_is_container (const GVariantType *type);
+gboolean g_variant_type_is_definite(const GVariantType *type);
 extern
-gboolean g_variant_type_is_basic (const GVariantType *type);
+gboolean g_variant_type_is_container(const GVariantType *type);
 extern
-gboolean g_variant_type_is_maybe (const GVariantType *type);
+gboolean g_variant_type_is_basic(const GVariantType *type);
 extern
-gboolean g_variant_type_is_array (const GVariantType *type);
+gboolean g_variant_type_is_maybe(const GVariantType *type);
 extern
-gboolean g_variant_type_is_tuple (const GVariantType *type);
+gboolean g_variant_type_is_array(const GVariantType *type);
 extern
-gboolean g_variant_type_is_dict_entry (const GVariantType *type);
+gboolean g_variant_type_is_tuple(const GVariantType *type);
 extern
-gboolean g_variant_type_is_variant (const GVariantType *type);
+gboolean g_variant_type_is_dict_entry(const GVariantType *type);
 extern
-guint g_variant_type_hash (gconstpointer type);
+gboolean g_variant_type_is_variant(const GVariantType *type);
 extern
-gboolean g_variant_type_equal (gconstpointer type1,gconstpointer type2);
+guint g_variant_type_hash(gconstpointer type);
 extern
-gboolean g_variant_type_is_subtype_of (const GVariantType *type,const GVariantType *supertype);
+gboolean g_variant_type_equal(gconstpointer type1, gconstpointer type2);
 extern
-const GVariantType * g_variant_type_element (const GVariantType *type);
+gboolean g_variant_type_is_subtype_of(const GVariantType *type, const GVariantType *supertype);
 extern
-const GVariantType * g_variant_type_first (const GVariantType *type);
+const GVariantType * g_variant_type_element(const GVariantType *type);
 extern
-const GVariantType * g_variant_type_next (const GVariantType *type);
+const GVariantType * g_variant_type_first(const GVariantType *type);
 extern
-gsize g_variant_type_n_items (const GVariantType *type);
+const GVariantType * g_variant_type_next(const GVariantType *type);
 extern
-const GVariantType * g_variant_type_key (const GVariantType *type);
+gsize g_variant_type_n_items(const GVariantType *type);
 extern
-const GVariantType * g_variant_type_value (const GVariantType *type);
+const GVariantType * g_variant_type_key(const GVariantType *type);
 extern
-GVariantType * g_variant_type_new_array (const GVariantType *element);
+const GVariantType * g_variant_type_value(const GVariantType *type);
 extern
-GVariantType * g_variant_type_new_maybe (const GVariantType *element);
+GVariantType * g_variant_type_new_array(const GVariantType *element);
 extern
-GVariantType * g_variant_type_new_tuple (const GVariantType * const *items,gint length);
+GVariantType * g_variant_type_new_maybe(const GVariantType *element);
 extern
-GVariantType * g_variant_type_new_dict_entry (const GVariantType *key,const GVariantType *value);
+GVariantType * g_variant_type_new_tuple(const GVariantType * const *items, gint length);
 extern
-const GVariantType * g_variant_type_checked_ (const gchar *);
+GVariantType * g_variant_type_new_dict_entry(const GVariantType *key, const GVariantType *value);
 extern
-gsize g_variant_type_string_get_depth_ (const gchar *type_string);
+const GVariantType * g_variant_type_checked_(const gchar *);
+GLIB_AVAILABLE_IN_2_60 gsize g_variant_type_string_get_depth_(const gchar *type_string);
 extern
-void g_variant_unref (GVariant *value);
+void g_variant_unref(GVariant *value);
 extern
-GVariant * g_variant_ref (GVariant *value);
+GVariant * g_variant_ref(GVariant *value);
 extern
-GVariant * g_variant_ref_sink (GVariant *value);
+GVariant * g_variant_ref_sink(GVariant *value);
 extern
-gboolean g_variant_is_floating (GVariant *value);
+gboolean g_variant_is_floating(GVariant *value);
 extern
-GVariant * g_variant_take_ref (GVariant *value);
+GVariant * g_variant_take_ref(GVariant *value);
 extern
-const GVariantType * g_variant_get_type (GVariant *value);
+const GVariantType * g_variant_get_type(GVariant *value);
 extern
-const gchar * g_variant_get_type_string (GVariant *value);
+const gchar * g_variant_get_type_string(GVariant *value);
 extern
-gboolean g_variant_is_of_type (GVariant *value,const GVariantType *type);
+gboolean g_variant_is_of_type(GVariant *value, const GVariantType *type);
 extern
-gboolean g_variant_is_container (GVariant *value);
+gboolean g_variant_is_container(GVariant *value);
 extern
-GVariantClass g_variant_classify (GVariant *value);
+GVariantClass g_variant_classify(GVariant *value);
 extern
-GVariant * g_variant_new_boolean (gboolean value);
+GVariant * g_variant_new_boolean(gboolean value);
 extern
-GVariant * g_variant_new_byte (guint8 value);
+GVariant * g_variant_new_byte(guint8 value);
 extern
-GVariant * g_variant_new_int16 (gint16 value);
+GVariant * g_variant_new_int16(gint16 value);
 extern
-GVariant * g_variant_new_uint16 (guint16 value);
+GVariant * g_variant_new_uint16(guint16 value);
 extern
-GVariant * g_variant_new_int32 (gint32 value);
+GVariant * g_variant_new_int32(gint32 value);
 extern
-GVariant * g_variant_new_uint32 (guint32 value);
+GVariant * g_variant_new_uint32(guint32 value);
 extern
-GVariant * g_variant_new_int64 (gint64 value);
+GVariant * g_variant_new_int64(gint64 value);
 extern
-GVariant * g_variant_new_uint64 (guint64 value);
+GVariant * g_variant_new_uint64(guint64 value);
 extern
-GVariant * g_variant_new_handle (gint32 value);
+GVariant * g_variant_new_handle(gint32 value);
 extern
-GVariant * g_variant_new_double (gdouble value);
+GVariant * g_variant_new_double(gdouble value);
 extern
-GVariant * g_variant_new_string (const gchar *string);
+GVariant * g_variant_new_string(const gchar *string);
 extern
-GVariant * g_variant_new_take_string (gchar *string);
+GVariant * g_variant_new_take_string(gchar *string);
 extern
-GVariant * g_variant_new_printf (const gchar *format_string,...);
+GVariant * g_variant_new_printf(const gchar *format_string, ...);
 extern
-GVariant * g_variant_new_object_path (const gchar *object_path);
+GVariant * g_variant_new_object_path(const gchar *object_path);
 extern
-gboolean g_variant_is_object_path (const gchar *string);
+gboolean g_variant_is_object_path(const gchar *string);
 extern
-GVariant * g_variant_new_signature (const gchar *signature);
+GVariant * g_variant_new_signature(const gchar *signature);
 extern
-gboolean g_variant_is_signature (const gchar *string);
+gboolean g_variant_is_signature(const gchar *string);
 extern
-GVariant * g_variant_new_variant (GVariant *value);
+GVariant * g_variant_new_variant(GVariant *value);
 extern
-GVariant * g_variant_new_strv (const gchar * const *strv,gssize length);
+GVariant * g_variant_new_strv(const gchar * const *strv, gssize length);
 extern
-GVariant * g_variant_new_objv (const gchar * const *strv,gssize length);
+GVariant * g_variant_new_objv(const gchar * const *strv, gssize length);
 extern
-GVariant * g_variant_new_bytestring (const gchar *string);
+GVariant * g_variant_new_bytestring(const gchar *string);
 extern
-GVariant * g_variant_new_bytestring_array (const gchar * const *strv,gssize length);
+GVariant * g_variant_new_bytestring_array(const gchar * const *strv, gssize length);
 extern
-GVariant * g_variant_new_fixed_array (const GVariantType *element_type,gconstpointer elements,gsize n_elements,gsize element_size);
+GVariant * g_variant_new_fixed_array(const GVariantType *element_type, gconstpointer elements, gsize n_elements, gsize element_size);
 extern
-gboolean g_variant_get_boolean (GVariant *value);
+gboolean g_variant_get_boolean(GVariant *value);
 extern
-guint8 g_variant_get_byte (GVariant *value);
+guint8 g_variant_get_byte(GVariant *value);
 extern
-gint16 g_variant_get_int16 (GVariant *value);
+gint16 g_variant_get_int16(GVariant *value);
 extern
-guint16 g_variant_get_uint16 (GVariant *value);
+guint16 g_variant_get_uint16(GVariant *value);
 extern
-gint32 g_variant_get_int32 (GVariant *value);
+gint32 g_variant_get_int32(GVariant *value);
 extern
-guint32 g_variant_get_uint32 (GVariant *value);
+guint32 g_variant_get_uint32(GVariant *value);
 extern
-gint64 g_variant_get_int64 (GVariant *value);
+gint64 g_variant_get_int64(GVariant *value);
 extern
-guint64 g_variant_get_uint64 (GVariant *value);
+guint64 g_variant_get_uint64(GVariant *value);
 extern
-gint32 g_variant_get_handle (GVariant *value);
+gint32 g_variant_get_handle(GVariant *value);
 extern
-gdouble g_variant_get_double (GVariant *value);
+gdouble g_variant_get_double(GVariant *value);
 extern
-GVariant * g_variant_get_variant (GVariant *value);
+GVariant * g_variant_get_variant(GVariant *value);
 extern
-const gchar * g_variant_get_string (GVariant *value,gsize *length);
+const gchar * g_variant_get_string(GVariant *value, gsize *length);
 extern
-gchar * g_variant_dup_string (GVariant *value,gsize *length);
+gchar * g_variant_dup_string(GVariant *value, gsize *length);
 extern
-const gchar ** g_variant_get_strv (GVariant *value,gsize *length);
+const gchar ** g_variant_get_strv(GVariant *value, gsize *length);
 extern
-gchar ** g_variant_dup_strv (GVariant *value,gsize *length);
+gchar ** g_variant_dup_strv(GVariant *value, gsize *length);
 extern
-const gchar ** g_variant_get_objv (GVariant *value,gsize *length);
+const gchar ** g_variant_get_objv(GVariant *value, gsize *length);
 extern
-gchar ** g_variant_dup_objv (GVariant *value,gsize *length);
+gchar ** g_variant_dup_objv(GVariant *value, gsize *length);
 extern
-const gchar * g_variant_get_bytestring (GVariant *value);
+const gchar * g_variant_get_bytestring(GVariant *value);
 extern
-gchar * g_variant_dup_bytestring (GVariant *value,gsize *length);
+gchar * g_variant_dup_bytestring(GVariant *value, gsize *length);
 extern
-const gchar ** g_variant_get_bytestring_array (GVariant *value,gsize *length);
+const gchar ** g_variant_get_bytestring_array(GVariant *value, gsize *length);
 extern
-gchar ** g_variant_dup_bytestring_array (GVariant *value,gsize *length);
+gchar ** g_variant_dup_bytestring_array(GVariant *value, gsize *length);
 extern
-GVariant * g_variant_new_maybe (const GVariantType *child_type,GVariant *child);
+GVariant * g_variant_new_maybe(const GVariantType *child_type, GVariant *child);
 extern
-GVariant * g_variant_new_array (const GVariantType *child_type,GVariant * const *children,gsize n_children);
+GVariant * g_variant_new_array(const GVariantType *child_type, GVariant * const *children, gsize n_children);
 extern
-GVariant * g_variant_new_tuple (GVariant * const *children,gsize n_children);
+GVariant * g_variant_new_tuple(GVariant * const *children, gsize n_children);
 extern
-GVariant * g_variant_new_dict_entry (GVariant *key,GVariant *value);
+GVariant * g_variant_new_dict_entry(GVariant *key, GVariant *value);
 extern
-GVariant * g_variant_get_maybe (GVariant *value);
+GVariant * g_variant_get_maybe(GVariant *value);
 extern
-gsize g_variant_n_children (GVariant *value);
+gsize g_variant_n_children(GVariant *value);
 extern
-void g_variant_get_child (GVariant *value,gsize index_,const gchar *format_string,...);
+void g_variant_get_child(GVariant *value, gsize index_, const gchar *format_string, ...);
 extern
-GVariant * g_variant_get_child_value (GVariant *value,gsize index_);
+GVariant * g_variant_get_child_value(GVariant *value, gsize index_);
 extern
-gboolean g_variant_lookup (GVariant *dictionary,const gchar *key,const gchar *format_string,...);
+gboolean g_variant_lookup(GVariant *dictionary, const gchar *key, const gchar *format_string, ...);
 extern
-GVariant * g_variant_lookup_value (GVariant *dictionary,const gchar *key,const GVariantType *expected_type);
+GVariant * g_variant_lookup_value(GVariant *dictionary, const gchar *key, const GVariantType *expected_type);
 extern
-gconstpointer g_variant_get_fixed_array (GVariant *value,gsize *n_elements,gsize element_size);
+gconstpointer g_variant_get_fixed_array(GVariant *value, gsize *n_elements, gsize element_size);
 extern
-gsize g_variant_get_size (GVariant *value);
+gsize g_variant_get_size(GVariant *value);
 extern
-gconstpointer g_variant_get_data (GVariant *value);
+gconstpointer g_variant_get_data(GVariant *value);
 extern
-GBytes * g_variant_get_data_as_bytes (GVariant *value);
+GBytes * g_variant_get_data_as_bytes(GVariant *value);
 extern
-void g_variant_store (GVariant *value,gpointer data);
+void g_variant_store(GVariant *value, gpointer data);
 extern
-gchar * g_variant_print (GVariant *value,gboolean type_annotate);
+gchar * g_variant_print(GVariant *value, gboolean type_annotate);
 extern
-GString * g_variant_print_string (GVariant *value,GString *string,gboolean type_annotate);
+GString * g_variant_print_string(GVariant *value, GString *string, gboolean type_annotate);
 extern
-guint g_variant_hash (gconstpointer value);
+guint g_variant_hash(gconstpointer value);
 extern
-gboolean g_variant_equal (gconstpointer one,gconstpointer two);
+gboolean g_variant_equal(gconstpointer one, gconstpointer two);
 extern
-GVariant * g_variant_get_normal_form (GVariant *value);
+GVariant * g_variant_get_normal_form(GVariant *value);
 extern
-gboolean g_variant_is_normal_form (GVariant *value);
+gboolean g_variant_is_normal_form(GVariant *value);
 extern
-GVariant * g_variant_byteswap (GVariant *value);
+GVariant * g_variant_byteswap(GVariant *value);
 extern
-GVariant * g_variant_new_from_bytes (const GVariantType *type,GBytes *bytes,gboolean trusted);
+GVariant * g_variant_new_from_bytes(const GVariantType *type, GBytes *bytes, gboolean trusted);
 extern
-GVariant * g_variant_new_from_data (const GVariantType *type,gconstpointer data,gsize size,gboolean trusted,GDestroyNotify notify,gpointer user_data);
+GVariant * g_variant_new_from_data(const GVariantType *type, gconstpointer data, gsize size, gboolean trusted, GDestroyNotify notify, gpointer user_data);
 extern
-GVariantIter * g_variant_iter_new (GVariant *value);
+GVariantIter * g_variant_iter_new(GVariant *value);
 extern
-gsize g_variant_iter_init (GVariantIter *iter,GVariant *value);
+gsize g_variant_iter_init(GVariantIter *iter, GVariant *value);
 extern
-GVariantIter * g_variant_iter_copy (GVariantIter *iter);
+GVariantIter * g_variant_iter_copy(GVariantIter *iter);
 extern
-gsize g_variant_iter_n_children (GVariantIter *iter);
+gsize g_variant_iter_n_children(GVariantIter *iter);
 extern
-void g_variant_iter_free (GVariantIter *iter);
+void g_variant_iter_free(GVariantIter *iter);
 extern
-GVariant * g_variant_iter_next_value (GVariantIter *iter);
+GVariant * g_variant_iter_next_value(GVariantIter *iter);
 extern
-gboolean g_variant_iter_next (GVariantIter *iter,const gchar *format_string,...);
+gboolean g_variant_iter_next(GVariantIter *iter, const gchar *format_string, ...);
 extern
-gboolean g_variant_iter_loop (GVariantIter *iter,const gchar *format_string,...);extern
-GQuark g_variant_parser_get_error_quark (void);
+gboolean g_variant_iter_loop(GVariantIter *iter, const gchar *format_string, ...);
 extern
-GQuark g_variant_parse_error_quark (void);
+GQuark g_variant_parser_get_error_quark(void);
 extern
-GVariantBuilder * g_variant_builder_new (const GVariantType *type);
+GQuark g_variant_parse_error_quark(void);
 extern
-void g_variant_builder_unref (GVariantBuilder *builder);
+GVariantBuilder * g_variant_builder_new(const GVariantType *type);
 extern
-GVariantBuilder * g_variant_builder_ref (GVariantBuilder *builder);
+void g_variant_builder_unref(GVariantBuilder *builder);
 extern
-void g_variant_builder_init (GVariantBuilder *builder,const GVariantType *type);
+GVariantBuilder * g_variant_builder_ref(GVariantBuilder *builder);
 extern
-GVariant * g_variant_builder_end (GVariantBuilder *builder);
+void g_variant_builder_init(GVariantBuilder *builder, const GVariantType *type);
 extern
-void g_variant_builder_clear (GVariantBuilder *builder);
+GVariant * g_variant_builder_end(GVariantBuilder *builder);
 extern
-void g_variant_builder_open (GVariantBuilder *builder,const GVariantType *type);
+void g_variant_builder_clear(GVariantBuilder *builder);
 extern
-void g_variant_builder_close (GVariantBuilder *builder);
+void g_variant_builder_open(GVariantBuilder *builder, const GVariantType *type);
 extern
-void g_variant_builder_add_value (GVariantBuilder *builder,GVariant *value);
+void g_variant_builder_close(GVariantBuilder *builder);
 extern
-void g_variant_builder_add (GVariantBuilder *builder,const gchar *format_string,...);
+void g_variant_builder_add_value(GVariantBuilder *builder, GVariant *value);
 extern
-void g_variant_builder_add_parsed (GVariantBuilder *builder,const gchar *format,...);
+void g_variant_builder_add(GVariantBuilder *builder, const gchar *format_string, ...);
 extern
-GVariant * g_variant_new (const gchar *format_string,...);
+void g_variant_builder_add_parsed(GVariantBuilder *builder, const gchar *format, ...);
 extern
-void g_variant_get (GVariant *value,const gchar *format_string,...);
+GVariant * g_variant_new(const gchar *format_string, ...);
 extern
-GVariant * g_variant_new_va (const gchar *format_string,const gchar **endptr,va_list *app);
+void g_variant_get(GVariant *value, const gchar *format_string, ...);
 extern
-void g_variant_get_va (GVariant *value,const gchar *format_string,const gchar **endptr,va_list *app);
+GVariant * g_variant_new_va(const gchar *format_string, const gchar **endptr, va_list *app);
 extern
-gboolean g_variant_check_format_string (GVariant *value,const gchar *format_string,gboolean copy_only);
+void g_variant_get_va(GVariant *value, const gchar *format_string, const gchar **endptr, va_list *app);
 extern
-GVariant * g_variant_parse (const GVariantType *type,const gchar *text,const gchar *limit,const gchar **endptr,GError **error);
+gboolean g_variant_check_format_string(GVariant *value, const gchar *format_string, gboolean copy_only);
 extern
-GVariant * g_variant_new_parsed (const gchar *format,...);
+GVariant * g_variant_parse(const GVariantType *type, const gchar *text, const gchar *limit, const gchar **endptr, GError **error);
 extern
-GVariant * g_variant_new_parsed_va (const gchar *format,va_list *app);
+GVariant * g_variant_new_parsed(const gchar *format, ...);
 extern
-gchar * g_variant_parse_error_print_context (GError *error,const gchar *source_str);
+GVariant * g_variant_new_parsed_va(const gchar *format, va_list *app);
 extern
-gint g_variant_compare (gconstpointer one,gconstpointer two);
+gchar * g_variant_parse_error_print_context(GError *error, const gchar *source_str);
 extern
-GVariantDict * g_variant_dict_new (GVariant *from_asv);
+gint g_variant_compare(gconstpointer one, gconstpointer two);
 extern
-void g_variant_dict_init (GVariantDict *dict,GVariant *from_asv);
+GVariantDict * g_variant_dict_new(GVariant *from_asv);
 extern
-gboolean g_variant_dict_lookup (GVariantDict *dict,const gchar *key,const gchar *format_string,...);
+void g_variant_dict_init(GVariantDict *dict, GVariant *from_asv);
 extern
-GVariant * g_variant_dict_lookup_value (GVariantDict *dict,const gchar *key,const GVariantType *expected_type);
+gboolean g_variant_dict_lookup(GVariantDict *dict, const gchar *key, const gchar *format_string, ...);
 extern
-gboolean g_variant_dict_contains (GVariantDict *dict,const gchar *key);
+GVariant * g_variant_dict_lookup_value(GVariantDict *dict, const gchar *key, const GVariantType *expected_type);
 extern
-void g_variant_dict_insert (GVariantDict *dict,const gchar *key,const gchar *format_string,...);
+gboolean g_variant_dict_contains(GVariantDict *dict, const gchar *key);
 extern
-void g_variant_dict_insert_value (GVariantDict *dict,const gchar *key,GVariant *value);
+void g_variant_dict_insert(GVariantDict *dict, const gchar *key, const gchar *format_string, ...);
 extern
-gboolean g_variant_dict_remove (GVariantDict *dict,const gchar *key);
+void g_variant_dict_insert_value(GVariantDict *dict, const gchar *key, GVariant *value);
 extern
-void g_variant_dict_clear (GVariantDict *dict);
+gboolean g_variant_dict_remove(GVariantDict *dict, const gchar *key);
 extern
-GVariant * g_variant_dict_end (GVariantDict *dict);
+void g_variant_dict_clear(GVariantDict *dict);
 extern
-GVariantDict * g_variant_dict_ref (GVariantDict *dict);
+GVariant * g_variant_dict_end(GVariantDict *dict);
 extern
-void g_variant_dict_unref (GVariantDict *dict);
+GVariantDict * g_variant_dict_ref(GVariantDict *dict);
 extern
-gsize g_printf_string_upper_bound (const gchar* format,va_list args);
+void g_variant_dict_unref(GVariantDict *dict);
 extern
-guint g_log_set_handler (const gchar *log_domain,GLogLevelFlags log_levels,GLogFunc log_func,gpointer user_data);
+gsize g_printf_string_upper_bound(const gchar* format, va_list args);
 extern
-guint g_log_set_handler_full (const gchar *log_domain,GLogLevelFlags log_levels,GLogFunc log_func,gpointer user_data,GDestroyNotify destroy);
+guint g_log_set_handler(const gchar *log_domain, GLogLevelFlags log_levels, GLogFunc log_func, gpointer user_data);
 extern
-void g_log_remove_handler (const gchar *log_domain,guint handler_id);
+guint g_log_set_handler_full(const gchar *log_domain, GLogLevelFlags log_levels, GLogFunc log_func, gpointer user_data, GDestroyNotify destroy);
 extern
-void g_log_default_handler (const gchar *log_domain,GLogLevelFlags log_level,const gchar *message,gpointer unused_data);
+void g_log_remove_handler(const gchar *log_domain, guint handler_id);
 extern
-GLogFunc g_log_set_default_handler (GLogFunc log_func,gpointer user_data);
+void g_log_default_handler(const gchar *log_domain, GLogLevelFlags log_level, const gchar *message, gpointer unused_data);
 extern
-void g_log (const gchar *log_domain,GLogLevelFlags log_level,const gchar *format,...);
+GLogFunc g_log_set_default_handler(GLogFunc log_func, gpointer user_data);
 extern
-void g_logv (const gchar *log_domain,GLogLevelFlags log_level,const gchar *format,va_list args);
+void g_log(const gchar *log_domain, GLogLevelFlags log_level, const gchar *format, ...);
 extern
-GLogLevelFlags g_log_set_fatal_mask (const gchar *log_domain,GLogLevelFlags fatal_mask);
+void g_logv(const gchar *log_domain, GLogLevelFlags log_level, const gchar *format, va_list args);
 extern
-GLogLevelFlags g_log_set_always_fatal (GLogLevelFlags fatal_mask);
+GLogLevelFlags g_log_set_fatal_mask(const gchar *log_domain, GLogLevelFlags fatal_mask);
 extern
-void g_log_structured (const gchar *log_domain,GLogLevelFlags log_level,...);
+GLogLevelFlags g_log_set_always_fatal(GLogLevelFlags fatal_mask);
 extern
-void g_log_structured_array (GLogLevelFlags log_level,const GLogField *fields,gsize n_fields);
+void g_log_structured(const gchar *log_domain, GLogLevelFlags log_level, ...);
 extern
-void g_log_variant (const gchar *log_domain,GLogLevelFlags log_level,GVariant *fields);
+void g_log_structured_array(GLogLevelFlags log_level, const GLogField *fields, gsize n_fields);
 extern
-void g_log_set_writer_func (GLogWriterFunc func,gpointer user_data,GDestroyNotify user_data_free);
+void g_log_variant(const gchar *log_domain, GLogLevelFlags log_level, GVariant *fields);
 extern
-gboolean g_log_writer_supports_color (gint output_fd);
+void g_log_set_writer_func(GLogWriterFunc func, gpointer user_data, GDestroyNotify user_data_free);
 extern
-gboolean g_log_writer_is_journald (gint output_fd);
+gboolean g_log_writer_supports_color(gint output_fd);
 extern
-gchar *g_log_writer_format_fields (GLogLevelFlags log_level,const GLogField *fields,gsize n_fields,gboolean use_color);
+gboolean g_log_writer_is_journald(gint output_fd);
 extern
-GLogWriterOutput g_log_writer_journald (GLogLevelFlags log_level,const GLogField *fields,gsize n_fields,gpointer user_data);
+gchar *g_log_writer_format_fields(GLogLevelFlags log_level, const GLogField *fields, gsize n_fields, gboolean use_color);
 extern
-GLogWriterOutput g_log_writer_standard_streams (GLogLevelFlags log_level,const GLogField *fields,gsize n_fields,gpointer user_data);
+GLogWriterOutput g_log_writer_journald(GLogLevelFlags log_level, const GLogField *fields, gsize n_fields, gpointer user_data);
 extern
-GLogWriterOutput g_log_writer_default (GLogLevelFlags log_level,const GLogField *fields,gsize n_fields,gpointer user_data);
+GLogWriterOutput g_log_writer_standard_streams(GLogLevelFlags log_level, const GLogField *fields, gsize n_fields, gpointer user_data);
 extern
-void g_return_if_fail_warning (const char *log_domain,const char *pretty_function,const char *expression);
+GLogWriterOutput g_log_writer_default(GLogLevelFlags log_level, const GLogField *fields, gsize n_fields, gpointer user_data);
 extern
-void g_warn_message (const char *domain,const char *file,int line,const char *func,const char *warnexpr);
+void g_return_if_fail_warning(const char *log_domain, const char *pretty_function, const char *expression);
 extern
-void g_assert_warning (const char *log_domain,const char *file,const int line,const char *pretty_function,const char *expression);
+void g_warn_message(const char *domain, const char *file, int line, const char *func, const char *warnexpr);
 extern
-void g_log_structured_standard (const gchar *log_domain,GLogLevelFlags log_level,const gchar *file,const gchar *line,const gchar *func,const gchar *message_format,...);
+void g_assert_warning(const char *log_domain, const char *file, const int line, const char *pretty_function, const char *expression);
 extern
-void g_print (const gchar *format,...);
+void g_log_structured_standard(const gchar *log_domain, GLogLevelFlags log_level, const gchar *file, const gchar *line, const gchar *func, const gchar *message_format, ...);
 extern
-GPrintFunc g_set_print_handler (GPrintFunc func);
+void g_print(const gchar *format, ...);
 extern
-void g_printerr (const gchar *format, ...);
+GPrintFunc g_set_print_handler(GPrintFunc func);
 extern
-GPrintFunc g_set_printerr_handler (GPrintFunc func);
+void g_printerr(const gchar *format, ...);
 extern
-GQuark g_option_error_quark (void);
+GPrintFunc g_set_printerr_handler(GPrintFunc func);
 extern
-GOptionContext *g_option_context_new (const gchar *parameter_string);
+GQuark g_option_error_quark(void);
 extern
-void g_option_context_set_summary (GOptionContext *context,const gchar *summary);
+GOptionContext *g_option_context_new(const gchar *parameter_string);
 extern
-const gchar * g_option_context_get_summary (GOptionContext *context);
+void g_option_context_set_summary(GOptionContext *context, const gchar *summary);
 extern
-void g_option_context_set_description (GOptionContext *context,const gchar *description);
+const gchar * g_option_context_get_summary(GOptionContext *context);
 extern
-const gchar * g_option_context_get_description (GOptionContext *context);
+void g_option_context_set_description(GOptionContext *context, const gchar *description);
 extern
-void g_option_context_free (GOptionContext *context);
+const gchar * g_option_context_get_description(GOptionContext *context);
 extern
-void g_option_context_set_help_enabled (GOptionContext *context,gboolean help_enabled);
+void g_option_context_free(GOptionContext *context);
 extern
-gboolean g_option_context_get_help_enabled (GOptionContext *context);
+void g_option_context_set_help_enabled(GOptionContext *context, gboolean help_enabled);
 extern
-void g_option_context_set_ignore_unknown_options (GOptionContext *context,gboolean ignore_unknown);
+gboolean g_option_context_get_help_enabled(GOptionContext *context);
 extern
-gboolean g_option_context_get_ignore_unknown_options (GOptionContext *context);
+void g_option_context_set_ignore_unknown_options(GOptionContext *context, gboolean ignore_unknown);
 extern
-void g_option_context_set_strict_posix (GOptionContext *context,gboolean strict_posix);
+gboolean g_option_context_get_ignore_unknown_options(GOptionContext *context);
 extern
-gboolean g_option_context_get_strict_posix (GOptionContext *context);
+void g_option_context_set_strict_posix(GOptionContext *context, gboolean strict_posix);
 extern
-void g_option_context_add_main_entries (GOptionContext *context,const GOptionEntry *entries,const gchar *translation_domain);
+gboolean g_option_context_get_strict_posix(GOptionContext *context);
 extern
-gboolean g_option_context_parse (GOptionContext *context,gint *argc,gchar ***argv,GError **error);
+void g_option_context_add_main_entries(GOptionContext *context, const GOptionEntry *entries, const gchar *translation_domain);
 extern
-gboolean g_option_context_parse_strv (GOptionContext *context,gchar ***arguments,GError **error);
+gboolean g_option_context_parse(GOptionContext *context, gint *argc, gchar ***argv, GError **error);
 extern
-void g_option_context_set_translate_func (GOptionContext *context,GTranslateFunc func,gpointer data,GDestroyNotify destroy_notify);
+gboolean g_option_context_parse_strv(GOptionContext *context, gchar ***arguments, GError **error);
 extern
-void g_option_context_set_translation_domain (GOptionContext *context,const gchar *domain);
+void g_option_context_set_translate_func(GOptionContext *context, GTranslateFunc func, gpointer data, GDestroyNotify destroy_notify);
 extern
-void g_option_context_add_group (GOptionContext *context,GOptionGroup *group);
+void g_option_context_set_translation_domain(GOptionContext *context, const gchar *domain);
 extern
-void g_option_context_set_main_group (GOptionContext *context,GOptionGroup *group);
+void g_option_context_add_group(GOptionContext *context, GOptionGroup *group);
 extern
-GOptionGroup *g_option_context_get_main_group (GOptionContext *context);
+void g_option_context_set_main_group(GOptionContext *context, GOptionGroup *group);
 extern
-gchar *g_option_context_get_help (GOptionContext *context,gboolean main_help,GOptionGroup *group);
+GOptionGroup *g_option_context_get_main_group(GOptionContext *context);
 extern
-GOptionGroup *g_option_group_new (const gchar *name,const gchar *description,const gchar *help_description,gpointer user_data,GDestroyNotify destroy);
+gchar *g_option_context_get_help(GOptionContext *context, gboolean main_help, GOptionGroup *group);
 extern
-void g_option_group_set_parse_hooks (GOptionGroup *group,GOptionParseFunc pre_parse_func,GOptionParseFunc post_parse_func);
+GOptionGroup *g_option_group_new(const gchar *name, const gchar *description, const gchar *help_description, gpointer user_data, GDestroyNotify destroy);
 extern
-void g_option_group_set_error_hook (GOptionGroup *group,GOptionErrorFunc error_func);
+void g_option_group_set_parse_hooks(GOptionGroup *group, GOptionParseFunc pre_parse_func, GOptionParseFunc post_parse_func);
 extern
-void g_option_group_free (GOptionGroup *group);
+void g_option_group_set_error_hook(GOptionGroup *group, GOptionErrorFunc error_func);
 extern
-GOptionGroup *g_option_group_ref (GOptionGroup *group);
+void g_option_group_free(GOptionGroup *group);
 extern
-void g_option_group_unref (GOptionGroup *group);
+GOptionGroup *g_option_group_ref(GOptionGroup *group);
 extern
-void g_option_group_add_entries (GOptionGroup *group,const GOptionEntry *entries);
+void g_option_group_unref(GOptionGroup *group);
 extern
-void g_option_group_set_translate_func (GOptionGroup *group,GTranslateFunc func,gpointer data,GDestroyNotify destroy_notify);
+void g_option_group_add_entries(GOptionGroup *group, const GOptionEntry *entries);
 extern
-void g_option_group_set_translation_domain (GOptionGroup *group,const gchar *domain);
+void g_option_group_set_translate_func(GOptionGroup *group, GTranslateFunc func, gpointer data, GDestroyNotify destroy_notify);
 extern
-GPatternSpec* g_pattern_spec_new (const gchar *pattern);
+void g_option_group_set_translation_domain(GOptionGroup *group, const gchar *domain);
 extern
-void g_pattern_spec_free (GPatternSpec *pspec);
+GPatternSpec* g_pattern_spec_new(const gchar *pattern);
 extern
-gboolean g_pattern_spec_equal (GPatternSpec *pspec1,GPatternSpec *pspec2);
+void g_pattern_spec_free(GPatternSpec *pspec);
 extern
-gboolean g_pattern_match (GPatternSpec *pspec,guint string_length,const gchar *string,const gchar *string_reversed);
+gboolean g_pattern_spec_equal(GPatternSpec *pspec1, GPatternSpec *pspec2);
 extern
-gboolean g_pattern_match_string (GPatternSpec *pspec,const gchar *string);
+gboolean g_pattern_match(GPatternSpec *pspec, guint string_length, const gchar *string, const gchar *string_reversed);
 extern
-gboolean g_pattern_match_simple (const gchar *pattern,const gchar *string);
+gboolean g_pattern_match_string(GPatternSpec *pspec, const gchar *string);
 extern
-guint g_spaced_primes_closest (guint num);
+gboolean g_pattern_match_simple(const gchar *pattern, const gchar *string);
 extern
-void g_qsort_with_data (gconstpointer pbase,gint total_elems,gsize size,GCompareDataFunc compare_func,gpointer user_data);
+guint g_spaced_primes_closest(guint num);
 extern
-GQueue* g_queue_new (void);
+void g_qsort_with_data(gconstpointer pbase, gint total_elems, gsize size, GCompareDataFunc compare_func, gpointer user_data);
 extern
-void g_queue_free (GQueue *queue);
+GQueue* g_queue_new(void);
 extern
-void g_queue_free_full (GQueue *queue,GDestroyNotify free_func);
+void g_queue_free(GQueue *queue);
 extern
-void g_queue_init (GQueue *queue);
+void g_queue_free_full(GQueue *queue, GDestroyNotify free_func);
 extern
-void g_queue_clear (GQueue *queue);
+void g_queue_init(GQueue *queue);
 extern
-gboolean g_queue_is_empty (GQueue *queue);
+void g_queue_clear(GQueue *queue);
 extern
-void g_queue_clear_full (GQueue *queue,GDestroyNotify free_func);
+gboolean g_queue_is_empty(GQueue *queue);
+GLIB_AVAILABLE_IN_2_60 void g_queue_clear_full(GQueue *queue, GDestroyNotify free_func);
 extern
-guint g_queue_get_length (GQueue *queue);
+guint g_queue_get_length(GQueue *queue);
 extern
-void g_queue_reverse (GQueue *queue);
+void g_queue_reverse(GQueue *queue);
 extern
-GQueue * g_queue_copy (GQueue *queue);
+GQueue * g_queue_copy(GQueue *queue);
 extern
-void g_queue_foreach (GQueue *queue,GFunc func,gpointer user_data);
+void g_queue_foreach(GQueue *queue, GFunc func, gpointer user_data);
 extern
-GList * g_queue_find (GQueue *queue,gconstpointer data);
+GList * g_queue_find(GQueue *queue, gconstpointer data);
 extern
-GList * g_queue_find_custom (GQueue *queue,gconstpointer data,GCompareFunc func);
+GList * g_queue_find_custom(GQueue *queue, gconstpointer data, GCompareFunc func);
 extern
-void g_queue_sort (GQueue *queue,GCompareDataFunc compare_func,gpointer user_data);
+void g_queue_sort(GQueue *queue, GCompareDataFunc compare_func, gpointer user_data);
 extern
-void g_queue_push_head (GQueue *queue,gpointer data);
+void g_queue_push_head(GQueue *queue, gpointer data);
 extern
-void g_queue_push_tail (GQueue *queue,gpointer data);
+void g_queue_push_tail(GQueue *queue, gpointer data);
 extern
-void g_queue_push_nth (GQueue *queue,gpointer data,gint n);
+void g_queue_push_nth(GQueue *queue, gpointer data, gint n);
 extern
-gpointer g_queue_pop_head (GQueue *queue);
+gpointer g_queue_pop_head(GQueue *queue);
 extern
-gpointer g_queue_pop_tail (GQueue *queue);
+gpointer g_queue_pop_tail(GQueue *queue);
 extern
-gpointer g_queue_pop_nth (GQueue *queue,guint n);
+gpointer g_queue_pop_nth(GQueue *queue, guint n);
 extern
-gpointer g_queue_peek_head (GQueue *queue);
+gpointer g_queue_peek_head(GQueue *queue);
 extern
-gpointer g_queue_peek_tail (GQueue *queue);
+gpointer g_queue_peek_tail(GQueue *queue);
 extern
-gpointer g_queue_peek_nth (GQueue *queue,guint n);
+gpointer g_queue_peek_nth(GQueue *queue, guint n);
 extern
-gint g_queue_index (GQueue *queue,gconstpointer data);
+gint g_queue_index(GQueue *queue, gconstpointer data);
 extern
-gboolean g_queue_remove (GQueue *queue,gconstpointer data);
+gboolean g_queue_remove(GQueue *queue, gconstpointer data);
 extern
-guint g_queue_remove_all (GQueue *queue,gconstpointer data);
+guint g_queue_remove_all(GQueue *queue, gconstpointer data);
 extern
-void g_queue_insert_before (GQueue *queue,GList *sibling,gpointer data);
+void g_queue_insert_before(GQueue *queue, GList *sibling, gpointer data);
+GLIB_AVAILABLE_IN_2_62 void g_queue_insert_before_link(GQueue *queue, GList *sibling, GList *link_);
 extern
-void g_queue_insert_before_link(GQueue *queue,GList *sibling,GList *link_);
+void g_queue_insert_after(GQueue *queue, GList *sibling, gpointer data);
+GLIB_AVAILABLE_IN_2_62 void g_queue_insert_after_link(GQueue *queue, GList *sibling, GList *link_);
 extern
-void g_queue_insert_after (GQueue *queue,GList *sibling,gpointer data);
+void g_queue_insert_sorted(GQueue *queue, gpointer data, GCompareDataFunc func, gpointer user_data);
 extern
-void g_queue_insert_after_link(GQueue *queue,GList *sibling,GList *link_);
+void g_queue_push_head_link(GQueue *queue, GList *link_);
 extern
-void g_queue_insert_sorted (GQueue *queue,gpointer data,GCompareDataFunc func,gpointer user_data);
+void g_queue_push_tail_link(GQueue *queue, GList *link_);
 extern
-void g_queue_push_head_link (GQueue *queue,GList *link_);
+void g_queue_push_nth_link(GQueue *queue, gint n, GList *link_);
 extern
-void g_queue_push_tail_link (GQueue *queue,GList *link_);
+GList* g_queue_pop_head_link(GQueue *queue);
 extern
-void g_queue_push_nth_link (GQueue *queue,gint n,GList *link_);
+GList* g_queue_pop_tail_link(GQueue *queue);
 extern
-GList* g_queue_pop_head_link (GQueue *queue);
+GList* g_queue_pop_nth_link(GQueue *queue, guint n);
 extern
-GList* g_queue_pop_tail_link (GQueue *queue);
+GList* g_queue_peek_head_link(GQueue *queue);
 extern
-GList* g_queue_pop_nth_link (GQueue *queue,guint n);
+GList* g_queue_peek_tail_link(GQueue *queue);
 extern
-GList* g_queue_peek_head_link (GQueue *queue);
+GList* g_queue_peek_nth_link(GQueue *queue, guint n);
 extern
-GList* g_queue_peek_tail_link (GQueue *queue);
+gint g_queue_link_index(GQueue *queue, GList *link_);
 extern
-GList* g_queue_peek_nth_link (GQueue *queue,guint n);
+void g_queue_unlink(GQueue *queue, GList *link_);
 extern
-gint g_queue_link_index (GQueue *queue,GList *link_);
+void g_queue_delete_link(GQueue *queue, GList *link_);
 extern
-void g_queue_unlink (GQueue *queue,GList *link_);
+GRand* g_rand_new_with_seed(guint32 seed);
 extern
-void g_queue_delete_link (GQueue *queue,GList *link_);
+GRand* g_rand_new_with_seed_array(const guint32 *seed, guint seed_length);
 extern
-GRand* g_rand_new_with_seed (guint32 seed);
+GRand* g_rand_new(void);
 extern
-GRand* g_rand_new_with_seed_array (const guint32 *seed,guint seed_length);
+void g_rand_free(GRand *rand_);
 extern
-GRand* g_rand_new (void);
+GRand* g_rand_copy(GRand *rand_);
 extern
-void g_rand_free (GRand *rand_);
+void g_rand_set_seed(GRand *rand_, guint32 seed);
 extern
-GRand* g_rand_copy (GRand *rand_);
+void g_rand_set_seed_array(GRand *rand_, const guint32 *seed, guint seed_length);
 extern
-void g_rand_set_seed (GRand *rand_,guint32 seed);
+guint32 g_rand_int(GRand *rand_);
 extern
-void g_rand_set_seed_array (GRand *rand_,const guint32 *seed,guint seed_length);
+gint32 g_rand_int_range(GRand *rand_, gint32 begin, gint32 end);
 extern
-guint32 g_rand_int (GRand *rand_);
+gdouble g_rand_double(GRand *rand_);
 extern
-gint32 g_rand_int_range (GRand *rand_,gint32 begin,gint32 end);
+gdouble g_rand_double_range(GRand *rand_, gdouble begin, gdouble end);
 extern
-gdouble g_rand_double (GRand *rand_);
+void g_random_set_seed(guint32 seed);
 extern
-gdouble g_rand_double_range (GRand *rand_,gdouble begin,gdouble end);
+guint32 g_random_int(void);
 extern
-void g_random_set_seed (guint32 seed);
+gint32 g_random_int_range(gint32 begin, gint32 end);
 extern
-guint32 g_random_int (void);
+gdouble g_random_double(void);
 extern
-gint32 g_random_int_range (gint32 begin,gint32 end);
+gdouble g_random_double_range(gdouble begin, gdouble end);
+GLIB_AVAILABLE_IN_2_58 gpointer g_rc_box_alloc(gsize block_size);
+GLIB_AVAILABLE_IN_2_58 gpointer g_rc_box_alloc0(gsize block_size);
+GLIB_AVAILABLE_IN_2_58 gpointer g_rc_box_dup(gsize block_size, gconstpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 gpointer g_rc_box_acquire(gpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 void g_rc_box_release(gpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 void g_rc_box_release_full(gpointer mem_block, GDestroyNotify clear_func);
+GLIB_AVAILABLE_IN_2_58 gsize g_rc_box_get_size(gpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 gpointer g_atomic_rc_box_alloc(gsize block_size);
+GLIB_AVAILABLE_IN_2_58 gpointer g_atomic_rc_box_alloc0(gsize block_size);
+GLIB_AVAILABLE_IN_2_58 gpointer g_atomic_rc_box_dup(gsize block_size, gconstpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 gpointer g_atomic_rc_box_acquire(gpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 void g_atomic_rc_box_release(gpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 void g_atomic_rc_box_release_full(gpointer mem_block, GDestroyNotify clear_func);
+GLIB_AVAILABLE_IN_2_58 gsize g_atomic_rc_box_get_size(gpointer mem_block);
+GLIB_AVAILABLE_IN_2_58 void g_ref_count_init(grefcount *rc);
+GLIB_AVAILABLE_IN_2_58 void g_ref_count_inc(grefcount *rc);
+GLIB_AVAILABLE_IN_2_58 gboolean g_ref_count_dec(grefcount *rc);
+GLIB_AVAILABLE_IN_2_58 gboolean g_ref_count_compare(grefcount *rc, gint val);
+GLIB_AVAILABLE_IN_2_58 void g_atomic_ref_count_init(gatomicrefcount *arc);
+GLIB_AVAILABLE_IN_2_58 void g_atomic_ref_count_inc(gatomicrefcount *arc);
+GLIB_AVAILABLE_IN_2_58 gboolean g_atomic_ref_count_dec(gatomicrefcount *arc);
+GLIB_AVAILABLE_IN_2_58 gboolean g_atomic_ref_count_compare(gatomicrefcount *arc, gint val);
+GLIB_AVAILABLE_IN_2_58 char * g_ref_string_new(const char *str);
+GLIB_AVAILABLE_IN_2_58 char * g_ref_string_new_len(const char *str, gssize len);
+GLIB_AVAILABLE_IN_2_58 char * g_ref_string_new_intern(const char *str);
+GLIB_AVAILABLE_IN_2_58 char * g_ref_string_acquire(char *str);
+GLIB_AVAILABLE_IN_2_58 void g_ref_string_release(char *str);
+GLIB_AVAILABLE_IN_2_58 gsize g_ref_string_length(char *str);
 extern
-gdouble g_random_double (void);
+GQuark g_regex_error_quark(void);
 extern
-gdouble g_random_double_range (gdouble begin,gdouble end);extern
-gpointer g_rc_box_alloc (gsize block_size);
+GRegex *g_regex_new(const gchar *pattern, GRegexCompileFlags compile_options, GRegexMatchFlags match_options, GError **error);
 extern
-gpointer g_rc_box_alloc0 (gsize block_size);
+GRegex *g_regex_ref(GRegex *regex);
 extern
-gpointer g_rc_box_dup (gsize block_size,gconstpointer mem_block);
+void g_regex_unref(GRegex *regex);
 extern
-gpointer g_rc_box_acquire (gpointer mem_block);
+const gchar *g_regex_get_pattern(const GRegex *regex);
 extern
-void g_rc_box_release (gpointer mem_block);
+gint g_regex_get_max_backref(const GRegex *regex);
 extern
-void g_rc_box_release_full (gpointer mem_block,GDestroyNotify clear_func);
+gint g_regex_get_capture_count(const GRegex *regex);
 extern
-gsize g_rc_box_get_size (gpointer mem_block);
+gboolean g_regex_get_has_cr_or_lf(const GRegex *regex);
 extern
-gpointer g_atomic_rc_box_alloc (gsize block_size);
+gint g_regex_get_max_lookbehind(const GRegex *regex);
 extern
-gpointer g_atomic_rc_box_alloc0 (gsize block_size);
+gint g_regex_get_string_number(const GRegex *regex, const gchar *name);
 extern
-gpointer g_atomic_rc_box_dup (gsize block_size,gconstpointer mem_block);
+gchar *g_regex_escape_string(const gchar *string, gint length);
 extern
-gpointer g_atomic_rc_box_acquire (gpointer mem_block);
+gchar *g_regex_escape_nul(const gchar *string, gint length);
 extern
-void g_atomic_rc_box_release (gpointer mem_block);
+GRegexCompileFlags g_regex_get_compile_flags(const GRegex *regex);
 extern
-void g_atomic_rc_box_release_full (gpointer mem_block,GDestroyNotify clear_func);
+GRegexMatchFlags g_regex_get_match_flags(const GRegex *regex);
 extern
-gsize g_atomic_rc_box_get_size (gpointer mem_block);
+gboolean g_regex_match_simple(const gchar *pattern, const gchar *string, GRegexCompileFlags compile_options, GRegexMatchFlags match_options);
 extern
-void g_ref_count_init (grefcount *rc);
+gboolean g_regex_match(const GRegex *regex, const gchar *string, GRegexMatchFlags match_options, GMatchInfo **match_info);
 extern
-void g_ref_count_inc (grefcount *rc);
+gboolean g_regex_match_full(const GRegex *regex, const gchar *string, gssize string_len, gint start_position, GRegexMatchFlags match_options, GMatchInfo **match_info, GError **error);
 extern
-gboolean g_ref_count_dec (grefcount *rc);
+gboolean g_regex_match_all(const GRegex *regex, const gchar *string, GRegexMatchFlags match_options, GMatchInfo **match_info);
 extern
-gboolean g_ref_count_compare (grefcount *rc,gint val);
+gboolean g_regex_match_all_full(const GRegex *regex, const gchar *string, gssize string_len, gint start_position, GRegexMatchFlags match_options, GMatchInfo **match_info, GError **error);
 extern
-void g_atomic_ref_count_init (gatomicrefcount *arc);
+gchar **g_regex_split_simple(const gchar *pattern, const gchar *string, GRegexCompileFlags compile_options, GRegexMatchFlags match_options);
 extern
-void g_atomic_ref_count_inc (gatomicrefcount *arc);
+gchar **g_regex_split(const GRegex *regex, const gchar *string, GRegexMatchFlags match_options);
 extern
-gboolean g_atomic_ref_count_dec (gatomicrefcount *arc);
+gchar **g_regex_split_full(const GRegex *regex, const gchar *string, gssize string_len, gint start_position, GRegexMatchFlags match_options, gint max_tokens, GError **error);
 extern
-gboolean g_atomic_ref_count_compare (gatomicrefcount *arc,gint val);
+gchar *g_regex_replace(const GRegex *regex, const gchar *string, gssize string_len, gint start_position, const gchar *replacement, GRegexMatchFlags match_options, GError **error);
 extern
-char * g_ref_string_new (const char *str);
+gchar *g_regex_replace_literal(const GRegex *regex, const gchar *string, gssize string_len, gint start_position, const gchar *replacement, GRegexMatchFlags match_options, GError **error);
 extern
-char * g_ref_string_new_len (const char *str,gssize len);
+gchar *g_regex_replace_eval(const GRegex *regex, const gchar *string, gssize string_len, gint start_position, GRegexMatchFlags match_options, GRegexEvalCallback eval, gpointer user_data, GError **error);
 extern
-char * g_ref_string_new_intern (const char *str);
+gboolean g_regex_check_replacement(const gchar *replacement, gboolean *has_references, GError **error);
 extern
-char * g_ref_string_acquire (char *str);
+GRegex *g_match_info_get_regex(const GMatchInfo *match_info);
 extern
-void g_ref_string_release (char *str);
+const gchar *g_match_info_get_string(const GMatchInfo *match_info);
 extern
-gsize g_ref_string_length (char *str);
+GMatchInfo *g_match_info_ref(GMatchInfo *match_info);
 extern
-GQuark g_regex_error_quark (void);
+void g_match_info_unref(GMatchInfo *match_info);
 extern
-GRegex *g_regex_new (const gchar *pattern,GRegexCompileFlags compile_options,GRegexMatchFlags match_options,GError **error);
+void g_match_info_free(GMatchInfo *match_info);
 extern
-GRegex *g_regex_ref (GRegex *regex);
+gboolean g_match_info_next(GMatchInfo *match_info, GError **error);
 extern
-void g_regex_unref (GRegex *regex);
+gboolean g_match_info_matches(const GMatchInfo *match_info);
 extern
-const gchar *g_regex_get_pattern (const GRegex *regex);
+gint g_match_info_get_match_count(const GMatchInfo *match_info);
 extern
-gint g_regex_get_max_backref (const GRegex *regex);
+gboolean g_match_info_is_partial_match(const GMatchInfo *match_info);
 extern
-gint g_regex_get_capture_count (const GRegex *regex);
+gchar *g_match_info_expand_references(const GMatchInfo *match_info, const gchar *string_to_expand, GError **error);
 extern
-gboolean g_regex_get_has_cr_or_lf (const GRegex *regex);
+gchar *g_match_info_fetch(const GMatchInfo *match_info, gint match_num);
 extern
-gint g_regex_get_max_lookbehind (const GRegex *regex);
+gboolean g_match_info_fetch_pos(const GMatchInfo *match_info, gint match_num, gint *start_pos, gint *end_pos);
 extern
-gint g_regex_get_string_number (const GRegex *regex,const gchar *name);
+gchar *g_match_info_fetch_named(const GMatchInfo *match_info, const gchar *name);
 extern
-gchar *g_regex_escape_string (const gchar *string,gint length);
+gboolean g_match_info_fetch_named_pos(const GMatchInfo *match_info, const gchar *name, gint *start_pos, gint *end_pos);
 extern
-gchar *g_regex_escape_nul (const gchar *string,gint length);
+gchar **g_match_info_fetch_all(const GMatchInfo *match_info);
 extern
-GRegexCompileFlags g_regex_get_compile_flags (const GRegex *regex);
+GScanner* g_scanner_new(const GScannerConfig *config_templ);
 extern
-GRegexMatchFlags g_regex_get_match_flags (const GRegex *regex);
+void g_scanner_destroy(GScanner *scanner);
 extern
-gboolean g_regex_match_simple (const gchar *pattern,const gchar *string,GRegexCompileFlags compile_options,GRegexMatchFlags match_options);
+void g_scanner_input_file(GScanner *scanner, gint input_fd);
 extern
-gboolean g_regex_match (const GRegex *regex,const gchar *string,GRegexMatchFlags match_options,GMatchInfo **match_info);
+void g_scanner_sync_file_offset(GScanner *scanner);
 extern
-gboolean g_regex_match_full (const GRegex *regex,const gchar *string,gssize string_len,gint start_position,GRegexMatchFlags match_options,GMatchInfo **match_info,GError **error);
+void g_scanner_input_text(GScanner *scanner, const gchar *text, guint text_len);
 extern
-gboolean g_regex_match_all (const GRegex *regex,const gchar *string,GRegexMatchFlags match_options,GMatchInfo **match_info);
+GTokenType g_scanner_get_next_token(GScanner *scanner);
 extern
-gboolean g_regex_match_all_full (const GRegex *regex,const gchar *string,gssize string_len,gint start_position,GRegexMatchFlags match_options,GMatchInfo **match_info,GError **error);
+GTokenType g_scanner_peek_next_token(GScanner *scanner);
 extern
-gchar **g_regex_split_simple (const gchar *pattern,const gchar *string,GRegexCompileFlags compile_options,GRegexMatchFlags match_options);
+GTokenType g_scanner_cur_token(GScanner *scanner);
 extern
-gchar **g_regex_split (const GRegex *regex,const gchar *string,GRegexMatchFlags match_options);
+GTokenValue g_scanner_cur_value(GScanner *scanner);
 extern
-gchar **g_regex_split_full (const GRegex *regex,const gchar *string,gssize string_len,gint start_position,GRegexMatchFlags match_options,gint max_tokens,GError **error);
+guint g_scanner_cur_line(GScanner *scanner);
 extern
-gchar *g_regex_replace (const GRegex *regex,const gchar *string,gssize string_len,gint start_position,const gchar *replacement,GRegexMatchFlags match_options,GError **error);
+guint g_scanner_cur_position(GScanner *scanner);
 extern
-gchar *g_regex_replace_literal (const GRegex *regex,const gchar *string,gssize string_len,gint start_position,const gchar *replacement,GRegexMatchFlags match_options,GError **error);
+gboolean g_scanner_eof(GScanner *scanner);
 extern
-gchar *g_regex_replace_eval (const GRegex *regex,const gchar *string,gssize string_len,gint start_position,GRegexMatchFlags match_options,GRegexEvalCallback eval,gpointer user_data,GError **error);
+guint g_scanner_set_scope(GScanner *scanner, guint scope_id);
 extern
-gboolean g_regex_check_replacement (const gchar *replacement,gboolean *has_references,GError **error);
+void g_scanner_scope_add_symbol(GScanner *scanner, guint scope_id, const gchar *symbol, gpointer value);
 extern
-GRegex *g_match_info_get_regex (const GMatchInfo *match_info);
+void g_scanner_scope_remove_symbol(GScanner *scanner, guint scope_id, const gchar *symbol);
 extern
-const gchar *g_match_info_get_string (const GMatchInfo *match_info);
+gpointer g_scanner_scope_lookup_symbol(GScanner *scanner, guint scope_id, const gchar *symbol);
 extern
-GMatchInfo *g_match_info_ref (GMatchInfo *match_info);
+void g_scanner_scope_foreach_symbol(GScanner *scanner, guint scope_id, GHFunc func, gpointer user_data);
 extern
-void g_match_info_unref (GMatchInfo *match_info);
+gpointer g_scanner_lookup_symbol(GScanner *scanner, const gchar *symbol);
 extern
-void g_match_info_free (GMatchInfo *match_info);
+void g_scanner_unexp_token(GScanner *scanner, GTokenType expected_token, const gchar *identifier_spec, const gchar *symbol_spec, const gchar *symbol_name, const gchar *message, gint is_error);
 extern
-gboolean g_match_info_next (GMatchInfo *match_info,GError **error);
+void g_scanner_error(GScanner *scanner, const gchar *format, ...);
 extern
-gboolean g_match_info_matches (const GMatchInfo *match_info);
+void g_scanner_warn(GScanner *scanner, const gchar *format, ...);
 extern
-gint g_match_info_get_match_count (const GMatchInfo *match_info);
+GSequence * g_sequence_new(GDestroyNotify data_destroy);
 extern
-gboolean g_match_info_is_partial_match (const GMatchInfo *match_info);
+void g_sequence_free(GSequence *seq);
 extern
-gchar *g_match_info_expand_references(const GMatchInfo *match_info,const gchar *string_to_expand,GError **error);
+gint g_sequence_get_length(GSequence *seq);
 extern
-gchar *g_match_info_fetch (const GMatchInfo *match_info,gint match_num);
+void g_sequence_foreach(GSequence *seq, GFunc func, gpointer user_data);
 extern
-gboolean g_match_info_fetch_pos (const GMatchInfo *match_info,gint match_num,gint *start_pos,gint *end_pos);
+void g_sequence_foreach_range(GSequenceIter *begin, GSequenceIter *end, GFunc func, gpointer user_data);
 extern
-gchar *g_match_info_fetch_named (const GMatchInfo *match_info,const gchar *name);
+void g_sequence_sort(GSequence *seq, GCompareDataFunc cmp_func, gpointer cmp_data);
 extern
-gboolean g_match_info_fetch_named_pos (const GMatchInfo *match_info,const gchar *name,gint *start_pos,gint *end_pos);
+void g_sequence_sort_iter(GSequence *seq, GSequenceIterCompareFunc cmp_func, gpointer cmp_data);
 extern
-gchar **g_match_info_fetch_all (const GMatchInfo *match_info);
+gboolean g_sequence_is_empty(GSequence *seq);
 extern
-GScanner* g_scanner_new (const GScannerConfig *config_templ);
+GSequenceIter *g_sequence_get_begin_iter(GSequence *seq);
 extern
-void g_scanner_destroy (GScanner *scanner);
+GSequenceIter *g_sequence_get_end_iter(GSequence *seq);
 extern
-void g_scanner_input_file (GScanner *scanner,gint input_fd);
+GSequenceIter *g_sequence_get_iter_at_pos(GSequence *seq, gint pos);
 extern
-void g_scanner_sync_file_offset (GScanner *scanner);
+GSequenceIter *g_sequence_append(GSequence *seq, gpointer data);
 extern
-void g_scanner_input_text (GScanner *scanner,const gchar *text,guint text_len);
+GSequenceIter *g_sequence_prepend(GSequence *seq, gpointer data);
 extern
-GTokenType g_scanner_get_next_token (GScanner *scanner);
+GSequenceIter *g_sequence_insert_before(GSequenceIter *iter, gpointer data);
 extern
-GTokenType g_scanner_peek_next_token (GScanner *scanner);
+void g_sequence_move(GSequenceIter *src, GSequenceIter *dest);
 extern
-GTokenType g_scanner_cur_token (GScanner *scanner);
+void g_sequence_swap(GSequenceIter *a, GSequenceIter *b);
 extern
-GTokenValue g_scanner_cur_value (GScanner *scanner);
+GSequenceIter *g_sequence_insert_sorted(GSequence *seq, gpointer data, GCompareDataFunc cmp_func, gpointer cmp_data);
 extern
-guint g_scanner_cur_line (GScanner *scanner);
+GSequenceIter *g_sequence_insert_sorted_iter(GSequence *seq, gpointer data, GSequenceIterCompareFunc iter_cmp, gpointer cmp_data);
 extern
-guint g_scanner_cur_position (GScanner *scanner);
+void g_sequence_sort_changed(GSequenceIter *iter, GCompareDataFunc cmp_func, gpointer cmp_data);
 extern
-gboolean g_scanner_eof (GScanner *scanner);
+void g_sequence_sort_changed_iter(GSequenceIter *iter, GSequenceIterCompareFunc iter_cmp, gpointer cmp_data);
 extern
-guint g_scanner_set_scope (GScanner *scanner,guint scope_id);
+void g_sequence_remove(GSequenceIter *iter);
 extern
-void g_scanner_scope_add_symbol (GScanner *scanner,guint scope_id,const gchar *symbol,gpointer value);
+void g_sequence_remove_range(GSequenceIter *begin, GSequenceIter *end);
 extern
-void g_scanner_scope_remove_symbol (GScanner *scanner,guint scope_id,const gchar *symbol);
+void g_sequence_move_range(GSequenceIter *dest, GSequenceIter *begin, GSequenceIter *end);
 extern
-gpointer g_scanner_scope_lookup_symbol (GScanner *scanner,guint scope_id,const gchar *symbol);
+GSequenceIter *g_sequence_search(GSequence *seq, gpointer data, GCompareDataFunc cmp_func, gpointer cmp_data);
 extern
-void g_scanner_scope_foreach_symbol (GScanner *scanner,guint scope_id,GHFunc func,gpointer user_data);
+GSequenceIter *g_sequence_search_iter(GSequence *seq, gpointer data, GSequenceIterCompareFunc iter_cmp, gpointer cmp_data);
 extern
-gpointer g_scanner_lookup_symbol (GScanner *scanner,const gchar *symbol);
+GSequenceIter *g_sequence_lookup(GSequence *seq, gpointer data, GCompareDataFunc cmp_func, gpointer cmp_data);
 extern
-void g_scanner_unexp_token (GScanner *scanner,GTokenType expected_token,const gchar *identifier_spec,const gchar *symbol_spec,const gchar *symbol_name,const gchar *message,gint is_error);
+GSequenceIter *g_sequence_lookup_iter(GSequence *seq, gpointer data, GSequenceIterCompareFunc iter_cmp, gpointer cmp_data);
 extern
-void g_scanner_error (GScanner *scanner,const gchar *format,...);
+gpointer g_sequence_get(GSequenceIter *iter);
 extern
-void g_scanner_warn (GScanner *scanner,const gchar *format,...);
+void g_sequence_set(GSequenceIter *iter, gpointer data);
 extern
-GSequence * g_sequence_new (GDestroyNotify data_destroy);
+gboolean g_sequence_iter_is_begin(GSequenceIter *iter);
 extern
-void g_sequence_free (GSequence *seq);
+gboolean g_sequence_iter_is_end(GSequenceIter *iter);
 extern
-gint g_sequence_get_length (GSequence *seq);
+GSequenceIter *g_sequence_iter_next(GSequenceIter *iter);
 extern
-void g_sequence_foreach (GSequence *seq,GFunc func,gpointer user_data);
+GSequenceIter *g_sequence_iter_prev(GSequenceIter *iter);
 extern
-void g_sequence_foreach_range (GSequenceIter *begin,GSequenceIter *end,GFunc func,gpointer user_data);
+gint g_sequence_iter_get_position(GSequenceIter *iter);
 extern
-void g_sequence_sort (GSequence *seq,GCompareDataFunc cmp_func,gpointer cmp_data);
+GSequenceIter *g_sequence_iter_move(GSequenceIter *iter, gint delta);
 extern
-void g_sequence_sort_iter (GSequence *seq,GSequenceIterCompareFunc cmp_func,gpointer cmp_data);
+GSequence * g_sequence_iter_get_sequence(GSequenceIter *iter);
 extern
-gboolean g_sequence_is_empty (GSequence *seq);
+gint g_sequence_iter_compare(GSequenceIter *a, GSequenceIter *b);
 extern
-GSequenceIter *g_sequence_get_begin_iter (GSequence *seq);
+GSequenceIter *g_sequence_range_get_midpoint(GSequenceIter *begin, GSequenceIter *end);
 extern
-GSequenceIter *g_sequence_get_end_iter (GSequence *seq);
+GQuark g_shell_error_quark(void);
 extern
-GSequenceIter *g_sequence_get_iter_at_pos (GSequence *seq,gint pos);
+gchar* g_shell_quote(const gchar *unquoted_string);
 extern
-GSequenceIter *g_sequence_append (GSequence *seq,gpointer data);
+gchar* g_shell_unquote(const gchar *quoted_string, GError **error);
 extern
-GSequenceIter *g_sequence_prepend (GSequence *seq,gpointer data);
+gboolean g_shell_parse_argv(const gchar *command_line, gint *argcp, gchar ***argvp, GError **error);
 extern
-GSequenceIter *g_sequence_insert_before (GSequenceIter *iter,gpointer data);
+gpointer g_slice_alloc(gsize block_size);
 extern
-void g_sequence_move (GSequenceIter *src,GSequenceIter *dest);
+gpointer g_slice_alloc0(gsize block_size);
 extern
-void g_sequence_swap (GSequenceIter *a,GSequenceIter *b);
+gpointer g_slice_copy(gsize block_size, gconstpointer mem_block);
 extern
-GSequenceIter *g_sequence_insert_sorted (GSequence *seq,gpointer data,GCompareDataFunc cmp_func,gpointer cmp_data);
+void g_slice_free1(gsize block_size, gpointer mem_block);
 extern
-GSequenceIter *g_sequence_insert_sorted_iter (GSequence *seq,gpointer data,GSequenceIterCompareFunc iter_cmp,gpointer cmp_data);
+void g_slice_free_chain_with_offset(gsize block_size, gpointer mem_chain, gsize next_offset);
 extern
-void g_sequence_sort_changed (GSequenceIter *iter,GCompareDataFunc cmp_func,gpointer cmp_data);
+void g_slice_set_config(GSliceConfig ckey, gint64 value);
 extern
-void g_sequence_sort_changed_iter (GSequenceIter *iter,GSequenceIterCompareFunc iter_cmp,gpointer cmp_data);
+gint64 g_slice_get_config(GSliceConfig ckey);
 extern
-void g_sequence_remove (GSequenceIter *iter);
+gint64* g_slice_get_config_state(GSliceConfig ckey, gint64 address, guint *n_values);
 extern
-void g_sequence_remove_range (GSequenceIter *begin,GSequenceIter *end);
+GQuark g_spawn_error_quark(void);
 extern
-void g_sequence_move_range (GSequenceIter *dest,GSequenceIter *begin,GSequenceIter *end);
+GQuark g_spawn_exit_error_quark(void);
 extern
-GSequenceIter *g_sequence_search (GSequence *seq,gpointer data,GCompareDataFunc cmp_func,gpointer cmp_data);
+gboolean g_spawn_async(const gchar *working_directory, gchar **argv, gchar **envp, GSpawnFlags flags, GSpawnChildSetupFunc child_setup, gpointer user_data, GPid *child_pid, GError **error);
 extern
-GSequenceIter *g_sequence_search_iter (GSequence *seq,gpointer data,GSequenceIterCompareFunc iter_cmp,gpointer cmp_data);
+gboolean g_spawn_async_with_pipes(const gchar *working_directory, gchar **argv, gchar **envp, GSpawnFlags flags, GSpawnChildSetupFunc child_setup, gpointer user_data, GPid *child_pid, gint *standard_input, gint *standard_output, gint *standard_error, GError **error);
+GLIB_AVAILABLE_IN_2_58 gboolean g_spawn_async_with_fds(const gchar *working_directory, gchar **argv, gchar **envp, GSpawnFlags flags, GSpawnChildSetupFunc child_setup, gpointer user_data, GPid *child_pid, gint stdin_fd, gint stdout_fd, gint stderr_fd, GError **error);
 extern
-GSequenceIter *g_sequence_lookup (GSequence *seq,gpointer data,GCompareDataFunc cmp_func,gpointer cmp_data);
+gboolean g_spawn_sync(const gchar *working_directory, gchar **argv, gchar **envp, GSpawnFlags flags, GSpawnChildSetupFunc child_setup, gpointer user_data, gchar **standard_output, gchar **standard_error, gint *exit_status, GError **error);
 extern
-GSequenceIter *g_sequence_lookup_iter (GSequence *seq,gpointer data,GSequenceIterCompareFunc iter_cmp,gpointer cmp_data);
+gboolean g_spawn_command_line_sync(const gchar *command_line, gchar **standard_output, gchar **standard_error, gint *exit_status, GError **error);
 extern
-gpointer g_sequence_get (GSequenceIter *iter);
+gboolean g_spawn_command_line_async(const gchar *command_line, GError **error);
 extern
-void g_sequence_set (GSequenceIter *iter,gpointer data);
+gboolean g_spawn_check_exit_status(gint exit_status, GError **error);
 extern
-gboolean g_sequence_iter_is_begin (GSequenceIter *iter);
-extern
-gboolean g_sequence_iter_is_end (GSequenceIter *iter);
-extern
-GSequenceIter *g_sequence_iter_next (GSequenceIter *iter);
-extern
-GSequenceIter *g_sequence_iter_prev (GSequenceIter *iter);
-extern
-gint g_sequence_iter_get_position (GSequenceIter *iter);
-extern
-GSequenceIter *g_sequence_iter_move (GSequenceIter *iter,gint delta);
-extern
-GSequence * g_sequence_iter_get_sequence (GSequenceIter *iter);
-extern
-gint g_sequence_iter_compare (GSequenceIter *a,GSequenceIter *b);
-extern
-GSequenceIter *g_sequence_range_get_midpoint (GSequenceIter *begin,GSequenceIter *end);
-extern
-GQuark g_shell_error_quark (void);
-extern
-gchar* g_shell_quote (const gchar *unquoted_string);
-extern
-gchar* g_shell_unquote (const gchar *quoted_string,GError **error);
-extern
-gboolean g_shell_parse_argv (const gchar *command_line,gint *argcp,gchar ***argvp,GError **error);
-extern
-gpointer g_slice_alloc (gsize block_size);
-extern
-gpointer g_slice_alloc0 (gsize block_size);
-extern
-gpointer g_slice_copy (gsize block_size,gconstpointer mem_block);
-extern
-void g_slice_free1 (gsize block_size,gpointer mem_block);
-extern
-void g_slice_free_chain_with_offset (gsize block_size,gpointer mem_chain,gsize next_offset);
-extern
-void g_slice_set_config (GSliceConfig ckey, gint64 value);
-extern
-gint64 g_slice_get_config (GSliceConfig ckey);
-extern
-gint64* g_slice_get_config_state (GSliceConfig ckey, gint64 address, guint *n_values);
-extern
-GQuark g_spawn_error_quark (void);
-extern
-GQuark g_spawn_exit_error_quark (void);
-extern
-gboolean g_spawn_async (const gchar *working_directory,gchar **argv,gchar **envp,GSpawnFlags flags,GSpawnChildSetupFunc child_setup,gpointer user_data,GPid *child_pid,GError **error);
-extern
-gboolean g_spawn_async_with_pipes (const gchar *working_directory,gchar **argv,gchar **envp,GSpawnFlags flags,GSpawnChildSetupFunc child_setup,gpointer user_data,GPid *child_pid,gint *standard_input,gint *standard_output,gint *standard_error,GError **error);
-extern
-gboolean g_spawn_async_with_fds (const gchar *working_directory,gchar **argv,gchar **envp,GSpawnFlags flags,GSpawnChildSetupFunc child_setup,gpointer user_data,GPid *child_pid,gint stdin_fd,gint stdout_fd,gint stderr_fd,GError **error);
-extern
-gboolean g_spawn_sync (const gchar *working_directory,gchar **argv,gchar **envp,GSpawnFlags flags,GSpawnChildSetupFunc child_setup,gpointer user_data,gchar **standard_output,gchar **standard_error,gint *exit_status,GError **error);
-extern
-gboolean g_spawn_command_line_sync (const gchar *command_line,gchar **standard_output,gchar **standard_error,gint *exit_status,GError **error);
-extern
-gboolean g_spawn_command_line_async (const gchar *command_line,GError **error);
-extern
-gboolean g_spawn_check_exit_status (gint exit_status,GError **error);
-extern
-void g_spawn_close_pid (GPid pid);
+void g_spawn_close_pid(GPid pid);
 extern const guint16 * const g_ascii_table;
 extern
-gchar g_ascii_tolower (gchar c);
+gchar g_ascii_tolower(gchar c);
 extern
-gchar g_ascii_toupper (gchar c);
+gchar g_ascii_toupper(gchar c);
 extern
-gint g_ascii_digit_value (gchar c);
+gint g_ascii_digit_value(gchar c);
 extern
-gint g_ascii_xdigit_value (gchar c);
+gint g_ascii_xdigit_value(gchar c);
 extern
-gchar* g_strdelimit (gchar *string,const gchar *delimiters,gchar new_delimiter);
+gchar* g_strdelimit(gchar *string, const gchar *delimiters, gchar new_delimiter);
 extern
-gchar* g_strcanon (gchar *string,const gchar *valid_chars,gchar substitutor);
+gchar* g_strcanon(gchar *string, const gchar *valid_chars, gchar substitutor);
 extern
-const gchar * g_strerror (gint errnum);
+const gchar * g_strerror(gint errnum);
 extern
-const gchar * g_strsignal (gint signum);
+const gchar * g_strsignal(gint signum);
 extern
-gchar * g_strreverse (gchar *string);
+gchar * g_strreverse(gchar *string);
 extern
-gsize g_strlcpy (gchar *dest,const gchar *src,gsize dest_size);
+gsize g_strlcpy(gchar *dest, const gchar *src, gsize dest_size);
 extern
-gsize g_strlcat (gchar *dest,const gchar *src,gsize dest_size);
+gsize g_strlcat(gchar *dest, const gchar *src, gsize dest_size);
 extern
-gchar * g_strstr_len (const gchar *haystack,gssize haystack_len,const gchar *needle);
+gchar * g_strstr_len(const gchar *haystack, gssize haystack_len, const gchar *needle);
 extern
-gchar * g_strrstr (const gchar *haystack,const gchar *needle);
+gchar * g_strrstr(const gchar *haystack, const gchar *needle);
 extern
-gchar * g_strrstr_len (const gchar *haystack,gssize haystack_len,const gchar *needle);
+gchar * g_strrstr_len(const gchar *haystack, gssize haystack_len, const gchar *needle);
 extern
-gboolean g_str_has_suffix (const gchar *str,const gchar *suffix);
+gboolean g_str_has_suffix(const gchar *str, const gchar *suffix);
 extern
-gboolean g_str_has_prefix (const gchar *str,const gchar *prefix);
+gboolean g_str_has_prefix(const gchar *str, const gchar *prefix);
 extern
-gdouble g_strtod (const gchar *nptr,gchar **endptr);
+gdouble g_strtod(const gchar *nptr, gchar **endptr);
 extern
-gdouble g_ascii_strtod (const gchar *nptr,gchar **endptr);
+gdouble g_ascii_strtod(const gchar *nptr, gchar **endptr);
 extern
-guint64 g_ascii_strtoull (const gchar *nptr,gchar **endptr,guint base);
+guint64 g_ascii_strtoull(const gchar *nptr, gchar **endptr, guint base);
 extern
-gint64 g_ascii_strtoll (const gchar *nptr,gchar **endptr,guint base);
+gint64 g_ascii_strtoll(const gchar *nptr, gchar **endptr, guint base);
 extern
-gchar * g_ascii_dtostr (gchar *buffer,gint buf_len,gdouble d);
+gchar * g_ascii_dtostr(gchar *buffer, gint buf_len, gdouble d);
 extern
-gchar * g_ascii_formatd (gchar *buffer,gint buf_len,const gchar *format,gdouble d);
+gchar * g_ascii_formatd(gchar *buffer, gint buf_len, const gchar *format, gdouble d);
 extern
-gchar* g_strchug (gchar *string);
+gchar* g_strchug(gchar *string);
 extern
-gchar* g_strchomp (gchar *string);
+gchar* g_strchomp(gchar *string);
 extern
-gint g_ascii_strcasecmp (const gchar *s1,const gchar *s2);
+gint g_ascii_strcasecmp(const gchar *s1, const gchar *s2);
 extern
-gint g_ascii_strncasecmp (const gchar *s1,const gchar *s2,gsize n);
+gint g_ascii_strncasecmp(const gchar *s1, const gchar *s2, gsize n);
 extern
-gchar* g_ascii_strdown (const gchar *str,gssize len);
+gchar* g_ascii_strdown(const gchar *str, gssize len);
 extern
-gchar* g_ascii_strup (const gchar *str,gssize len);
+gchar* g_ascii_strup(const gchar *str, gssize len);
 extern
-gboolean g_str_is_ascii (const gchar *str);
+gboolean g_str_is_ascii(const gchar *str);
 extern
-gint g_strcasecmp (const gchar *s1,const gchar *s2);
+gint g_strcasecmp(const gchar *s1, const gchar *s2);
 extern
-gint g_strncasecmp (const gchar *s1,const gchar *s2,guint n);
+gint g_strncasecmp(const gchar *s1, const gchar *s2, guint n);
 extern
-gchar* g_strdown (gchar *string);
+gchar* g_strdown(gchar *string);
 extern
-gchar* g_strup (gchar *string);
+gchar* g_strup(gchar *string);
 extern
-gchar* g_strdup (const gchar *str);
+gchar* g_strdup(const gchar *str);
 extern
-gchar* g_strdup_printf (const gchar *format,...);
+gchar* g_strdup_printf(const gchar *format, ...);
 extern
-gchar* g_strdup_vprintf (const gchar *format,va_list args);
+gchar* g_strdup_vprintf(const gchar *format, va_list args);
 extern
-gchar* g_strndup (const gchar *str,gsize n);
+gchar* g_strndup(const gchar *str, gsize n);
 extern
-gchar* g_strnfill (gsize length,gchar fill_char);
+gchar* g_strnfill(gsize length, gchar fill_char);
 extern
-gchar* g_strconcat (const gchar *string1,...);
+gchar* g_strconcat(const gchar *string1, ...);
 extern
-gchar* g_strjoin (const gchar *separator,...);
+gchar* g_strjoin(const gchar *separator, ...);
 extern
-gchar* g_strcompress (const gchar *source);
+gchar* g_strcompress(const gchar *source);
 extern
-gchar* g_strescape (const gchar *source,const gchar *exceptions);
+gchar* g_strescape(const gchar *source, const gchar *exceptions);
 extern
-gpointer g_memdup (gconstpointer mem,guint byte_size);
+gpointer g_memdup(gconstpointer mem, guint byte_size);
 extern
-gchar** g_strsplit (const gchar *string,const gchar *delimiter,gint max_tokens);
+gchar** g_strsplit(const gchar *string, const gchar *delimiter, gint max_tokens);
 extern
-gchar ** g_strsplit_set (const gchar *string,const gchar *delimiters,gint max_tokens);
+gchar ** g_strsplit_set(const gchar *string, const gchar *delimiters, gint max_tokens);
 extern
-gchar* g_strjoinv (const gchar *separator,gchar **str_array);
+gchar* g_strjoinv(const gchar *separator, gchar **str_array);
 extern
-void g_strfreev (gchar **str_array);
+void g_strfreev(gchar **str_array);
 extern
-gchar** g_strdupv (gchar **str_array);
+gchar** g_strdupv(gchar **str_array);
 extern
-guint g_strv_length (gchar **str_array);
+guint g_strv_length(gchar **str_array);
 extern
-gchar* g_stpcpy (gchar *dest,const char *src);
+gchar* g_stpcpy(gchar *dest, const char *src);
 extern
-gchar * g_str_to_ascii (const gchar *str,const gchar *from_locale);
+gchar * g_str_to_ascii(const gchar *str, const gchar *from_locale);
 extern
-gchar ** g_str_tokenize_and_fold (const gchar *string,const gchar *translit_locale,gchar ***ascii_alternates);
+gchar ** g_str_tokenize_and_fold(const gchar *string, const gchar *translit_locale, gchar ***ascii_alternates);
 extern
-gboolean g_str_match_string (const gchar *search_term,const gchar *potential_hit,gboolean accept_alternates);
+gboolean g_str_match_string(const gchar *search_term, const gchar *potential_hit, gboolean accept_alternates);
 extern
-gboolean g_strv_contains (const gchar * const *strv,const gchar *str);
+gboolean g_strv_contains(const gchar * const *strv, const gchar *str);
+GLIB_AVAILABLE_IN_2_60 gboolean g_strv_equal(const gchar * const *strv1, const gchar * const *strv2);
 extern
-gboolean g_strv_equal (const gchar * const *strv1,const gchar * const *strv2);
+GQuark g_number_parser_error_quark(void);
 extern
-GQuark g_number_parser_error_quark (void);
+gboolean g_ascii_string_to_signed(const gchar *str, guint base, gint64 min, gint64 max, gint64 *out_num, GError **error);
 extern
-gboolean g_ascii_string_to_signed (const gchar *str,guint base,gint64 min,gint64 max,gint64 *out_num,GError **error);
+gboolean g_ascii_string_to_unsigned(const gchar *str, guint base, guint64 min, guint64 max, guint64 *out_num, GError **error);
 extern
-gboolean g_ascii_string_to_unsigned (const gchar *str,guint base,guint64 min,guint64 max,guint64 *out_num,GError **error);
+GStringChunk* g_string_chunk_new(gsize size);
 extern
-GStringChunk* g_string_chunk_new (gsize size);
+void g_string_chunk_free(GStringChunk *chunk);
 extern
-void g_string_chunk_free (GStringChunk *chunk);
+void g_string_chunk_clear(GStringChunk *chunk);
 extern
-void g_string_chunk_clear (GStringChunk *chunk);
+gchar* g_string_chunk_insert(GStringChunk *chunk, const gchar *string);
 extern
-gchar* g_string_chunk_insert (GStringChunk *chunk,const gchar *string);
+gchar* g_string_chunk_insert_len(GStringChunk *chunk, const gchar *string, gssize len);
 extern
-gchar* g_string_chunk_insert_len (GStringChunk *chunk,const gchar *string,gssize len);
+gchar* g_string_chunk_insert_const(GStringChunk *chunk, const gchar *string);
 extern
-gchar* g_string_chunk_insert_const (GStringChunk *chunk,const gchar *string);
+int g_strcmp0(const char *str1, const char *str2);
 extern
-int g_strcmp0 (const char *str1,const char *str2);
+void g_test_minimized_result(double minimized_quantity, const char *format, ...);
 extern
-void g_test_minimized_result (double minimized_quantity,const char *format,...);
+void g_test_maximized_result(double maximized_quantity, const char *format, ...);
 extern
-void g_test_maximized_result (double maximized_quantity,const char *format,...);
+void g_test_init(int *argc, char ***argv, ...);
 extern
-void g_test_init (int *argc,char ***argv,...);
+gboolean g_test_subprocess(void);
 extern
-gboolean g_test_subprocess (void);
+int g_test_run(void);
 extern
-int g_test_run (void);
+void g_test_add_func(const char *testpath, GTestFunc test_func);
 extern
-void g_test_add_func (const char *testpath,GTestFunc test_func);
+void g_test_add_data_func(const char *testpath, gconstpointer test_data, GTestDataFunc test_func);
 extern
-void g_test_add_data_func (const char *testpath,gconstpointer test_data,GTestDataFunc test_func);
+void g_test_add_data_func_full(const char *testpath, gpointer test_data, GTestDataFunc test_func, GDestroyNotify data_free_func);
 extern
-void g_test_add_data_func_full (const char *testpath,gpointer test_data,GTestDataFunc test_func,GDestroyNotify data_free_func);
+void g_test_fail(void);
 extern
-void g_test_fail (void);
+void g_test_incomplete(const gchar *msg);
 extern
-void g_test_incomplete (const gchar *msg);
+void g_test_skip(const gchar *msg);
 extern
-void g_test_skip (const gchar *msg);
+gboolean g_test_failed(void);
 extern
-gboolean g_test_failed (void);
+void g_test_set_nonfatal_assertions(void);
 extern
-void g_test_set_nonfatal_assertions (void);
+void g_test_message(const char *format, ...);
 extern
-void g_test_message (const char *format,...);
+void g_test_bug_base(const char *uri_pattern);
 extern
-void g_test_bug_base (const char *uri_pattern);
+void g_test_bug(const char *bug_uri_snippet);
+GLIB_AVAILABLE_IN_2_62 void g_test_summary(const char *summary);
 extern
-void g_test_bug (const char *bug_uri_snippet);
+void g_test_timer_start(void);
 extern
-void g_test_summary (const char *summary);
+double g_test_timer_elapsed(void);
 extern
-void g_test_timer_start (void);
+double g_test_timer_last(void);
 extern
-double g_test_timer_elapsed (void);
+void g_test_queue_free(gpointer gfree_pointer);
 extern
-double g_test_timer_last (void);
+void g_test_queue_destroy(GDestroyNotify destroy_func, gpointer destroy_data);
 extern
-void g_test_queue_free (gpointer gfree_pointer);
+gboolean g_test_trap_fork(guint64 usec_timeout, GTestTrapFlags test_trap_flags);
 extern
-void g_test_queue_destroy (GDestroyNotify destroy_func,gpointer destroy_data);
+void g_test_trap_subprocess(const char *test_path, guint64 usec_timeout, GTestSubprocessFlags test_flags);
 extern
-gboolean g_test_trap_fork (guint64 usec_timeout,GTestTrapFlags test_trap_flags);
+gboolean g_test_trap_has_passed(void);
 extern
-void g_test_trap_subprocess (const char *test_path,guint64 usec_timeout,GTestSubprocessFlags test_flags);
+gboolean g_test_trap_reached_timeout(void);
 extern
-gboolean g_test_trap_has_passed (void);
+gint32 g_test_rand_int(void);
 extern
-gboolean g_test_trap_reached_timeout (void);
+gint32 g_test_rand_int_range(gint32 begin, gint32 end);
 extern
-gint32 g_test_rand_int (void);
+double g_test_rand_double(void);
 extern
-gint32 g_test_rand_int_range (gint32 begin,gint32 end);
+double g_test_rand_double_range(double range_start, double range_end);
 extern
-double g_test_rand_double (void);
+GTestCase* g_test_create_case(const char *test_name, gsize data_size, gconstpointer test_data, GTestFixtureFunc data_setup, GTestFixtureFunc data_test, GTestFixtureFunc data_teardown);
 extern
-double g_test_rand_double_range (double range_start,double range_end);
+GTestSuite* g_test_create_suite(const char *suite_name);
 extern
-GTestCase* g_test_create_case (const char *test_name,gsize data_size,gconstpointer test_data,GTestFixtureFunc data_setup,GTestFixtureFunc data_test,GTestFixtureFunc data_teardown);
+GTestSuite* g_test_get_root(void);
 extern
-GTestSuite* g_test_create_suite (const char *suite_name);
+void g_test_suite_add(GTestSuite *suite, GTestCase *test_case);
 extern
-GTestSuite* g_test_get_root (void);
+void g_test_suite_add_suite(GTestSuite *suite, GTestSuite *nestedsuite);
 extern
-void g_test_suite_add (GTestSuite *suite,GTestCase *test_case);
+int g_test_run_suite(GTestSuite *suite);
 extern
-void g_test_suite_add_suite (GTestSuite *suite,GTestSuite *nestedsuite);
+void g_test_trap_assertions(const char *domain, const char *file, int line, const char *func, guint64 assertion_flags, const char *pattern);
 extern
-int g_test_run_suite (GTestSuite *suite);
+void g_assertion_message(const char *domain, const char *file, int line, const char *func, const char *message);
 extern
-void g_test_trap_assertions (const char *domain,const char *file,int line,const char *func,guint64 assertion_flags,const char *pattern);
+void g_assertion_message_expr(const char *domain, const char *file, int line, const char *func, const char *expr);
 extern
-void g_assertion_message (const char *domain,const char *file,int line,const char *func,const char *message);
+void g_assertion_message_cmpstr(const char *domain, const char *file, int line, const char *func, const char *expr, const char *arg1, const char *cmp, const char *arg2);
 extern
-void g_assertion_message_expr (const char *domain,const char *file,int line,const char *func,const char *expr);
+void g_assertion_message_cmpnum(const char *domain, const char *file, int line, const char *func, const char *expr, long double arg1, const char *cmp, long double arg2, char numtype);
 extern
-void g_assertion_message_cmpstr (const char *domain,const char *file,int line,const char *func,const char *expr,const char *arg1,const char *cmp,const char *arg2);
+void g_assertion_message_error(const char *domain, const char *file, int line, const char *func, const char *expr, const GError *error, GQuark error_domain, int error_code);
 extern
-void g_assertion_message_cmpnum (const char *domain,const char *file,int line,const char *func,const char *expr,long double arg1,const char *cmp,long double arg2,char numtype);
-extern
-void g_assertion_message_error (const char *domain,const char *file,int line,const char *func,const char *expr,const GError *error,GQuark error_domain,int error_code);
-extern
-void g_test_add_vtable (const char *testpath,gsize data_size,gconstpointer test_data,GTestFixtureFunc data_setup,GTestFixtureFunc data_test,GTestFixtureFunc data_teardown);
+void g_test_add_vtable(const char *testpath, gsize data_size, gconstpointer test_data, GTestFixtureFunc data_setup, GTestFixtureFunc data_test, GTestFixtureFunc data_teardown);
 extern const GTestConfig * const g_test_config_vars;
 extern
-const char* g_test_log_type_name (GTestLogType log_type);
+const char* g_test_log_type_name(GTestLogType log_type);
 extern
-GTestLogBuffer* g_test_log_buffer_new (void);
+GTestLogBuffer* g_test_log_buffer_new(void);
 extern
-void g_test_log_buffer_free (GTestLogBuffer *tbuffer);
+void g_test_log_buffer_free(GTestLogBuffer *tbuffer);
 extern
-void g_test_log_buffer_push (GTestLogBuffer *tbuffer,guint n_bytes,const guint8 *bytes);
+void g_test_log_buffer_push(GTestLogBuffer *tbuffer, guint n_bytes, const guint8 *bytes);
 extern
-GTestLogMsg* g_test_log_buffer_pop (GTestLogBuffer *tbuffer);
+GTestLogMsg* g_test_log_buffer_pop(GTestLogBuffer *tbuffer);
 extern
-void g_test_log_msg_free (GTestLogMsg *tmsg);
-extern void g_test_log_set_fatal_handler (GTestLogFatalFunc log_func,gpointer user_data);
+void g_test_log_msg_free(GTestLogMsg *tmsg);
+extern void g_test_log_set_fatal_handler(GTestLogFatalFunc log_func, gpointer user_data);
 extern
-void g_test_expect_message (const gchar *log_domain,GLogLevelFlags log_level,const gchar *pattern);
+void g_test_expect_message(const gchar *log_domain, GLogLevelFlags log_level, const gchar *pattern);
 extern
-void g_test_assert_expected_messages_internal (const char *domain,const char *file,int line,const char *func);
+void g_test_assert_expected_messages_internal(const char *domain, const char *file, int line, const char *func);
 extern
-gchar * g_test_build_filename (GTestFileType file_type,const gchar *first_path,...);
+gchar * g_test_build_filename(GTestFileType file_type, const gchar *first_path, ...);
 extern
-const gchar *g_test_get_dir (GTestFileType file_type);
+const gchar *g_test_get_dir(GTestFileType file_type);
 extern
-const gchar *g_test_get_filename (GTestFileType file_type,const gchar *first_path,...);
+const gchar *g_test_get_filename(GTestFileType file_type, const gchar *first_path, ...);
 extern
-GThreadPool * g_thread_pool_new (GFunc func,gpointer user_data,gint max_threads,gboolean exclusive,GError **error);
+GThreadPool * g_thread_pool_new(GFunc func, gpointer user_data, gint max_threads, gboolean exclusive, GError **error);
 extern
-void g_thread_pool_free (GThreadPool *pool,gboolean immediate,gboolean wait_);
+void g_thread_pool_free(GThreadPool *pool, gboolean immediate, gboolean wait_);
 extern
-gboolean g_thread_pool_push (GThreadPool *pool,gpointer data,GError **error);
+gboolean g_thread_pool_push(GThreadPool *pool, gpointer data, GError **error);
 extern
-guint g_thread_pool_unprocessed (GThreadPool *pool);
+guint g_thread_pool_unprocessed(GThreadPool *pool);
 extern
-void g_thread_pool_set_sort_function (GThreadPool *pool,GCompareDataFunc func,gpointer user_data);
+void g_thread_pool_set_sort_function(GThreadPool *pool, GCompareDataFunc func, gpointer user_data);
 extern
-gboolean g_thread_pool_move_to_front (GThreadPool *pool,gpointer data);
+gboolean g_thread_pool_move_to_front(GThreadPool *pool, gpointer data);
 extern
-gboolean g_thread_pool_set_max_threads (GThreadPool *pool,gint max_threads,GError **error);
+gboolean g_thread_pool_set_max_threads(GThreadPool *pool, gint max_threads, GError **error);
 extern
-gint g_thread_pool_get_max_threads (GThreadPool *pool);
+gint g_thread_pool_get_max_threads(GThreadPool *pool);
 extern
-guint g_thread_pool_get_num_threads (GThreadPool *pool);
+guint g_thread_pool_get_num_threads(GThreadPool *pool);
 extern
-void g_thread_pool_set_max_unused_threads (gint max_threads);
+void g_thread_pool_set_max_unused_threads(gint max_threads);
 extern
-gint g_thread_pool_get_max_unused_threads (void);
+gint g_thread_pool_get_max_unused_threads(void);
 extern
-guint g_thread_pool_get_num_unused_threads (void);
+guint g_thread_pool_get_num_unused_threads(void);
 extern
-void g_thread_pool_stop_unused_threads (void);
+void g_thread_pool_stop_unused_threads(void);
 extern
-void g_thread_pool_set_max_idle_time (guint interval);
+void g_thread_pool_set_max_idle_time(guint interval);
 extern
-guint g_thread_pool_get_max_idle_time (void);
+guint g_thread_pool_get_max_idle_time(void);
 extern
-GTimer* g_timer_new (void);
+GTimer* g_timer_new(void);
 extern
-void g_timer_destroy (GTimer *timer);
+void g_timer_destroy(GTimer *timer);
 extern
-void g_timer_start (GTimer *timer);
+void g_timer_start(GTimer *timer);
 extern
-void g_timer_stop (GTimer *timer);
+void g_timer_stop(GTimer *timer);
 extern
-void g_timer_reset (GTimer *timer);
+void g_timer_reset(GTimer *timer);
 extern
-void g_timer_continue (GTimer *timer);
+void g_timer_continue(GTimer *timer);
 extern
-gdouble g_timer_elapsed (GTimer *timer,gulong *microseconds);
+gdouble g_timer_elapsed(GTimer *timer, gulong *microseconds);
+GLIB_AVAILABLE_IN_2_62 gboolean g_timer_is_active(GTimer *timer);
 extern
-gboolean g_timer_is_active (GTimer *timer);
+void g_usleep(gulong microseconds);
 extern
-void g_usleep (gulong microseconds);
+void g_time_val_add(GTimeVal *time_, glong microseconds);
 extern
-void g_time_val_add (GTimeVal *time_,glong microseconds);
+gboolean g_time_val_from_iso8601(const gchar *iso_date, GTimeVal *time_);
 extern
-gboolean g_time_val_from_iso8601 (const gchar *iso_date,GTimeVal *time_);
+gchar* g_time_val_to_iso8601(GTimeVal *time_);
 extern
-gchar* g_time_val_to_iso8601 (GTimeVal *time_);
+void g_trash_stack_push(GTrashStack **stack_p, gpointer data_p);
 extern
-void g_trash_stack_push (GTrashStack **stack_p,gpointer data_p);
+gpointer g_trash_stack_pop(GTrashStack **stack_p);
 extern
-gpointer g_trash_stack_pop (GTrashStack **stack_p);
+gpointer g_trash_stack_peek(GTrashStack **stack_p);
 extern
-gpointer g_trash_stack_peek (GTrashStack **stack_p);
+guint g_trash_stack_height(GTrashStack **stack_p);
 extern
-guint g_trash_stack_height (GTrashStack **stack_p);
+GTree* g_tree_new(GCompareFunc key_compare_func);
 extern
-GTree* g_tree_new (GCompareFunc key_compare_func);
+GTree* g_tree_new_with_data(GCompareDataFunc key_compare_func, gpointer key_compare_data);
 extern
-GTree* g_tree_new_with_data (GCompareDataFunc key_compare_func,gpointer key_compare_data);
+GTree* g_tree_new_full(GCompareDataFunc key_compare_func, gpointer key_compare_data, GDestroyNotify key_destroy_func, GDestroyNotify value_destroy_func);
 extern
-GTree* g_tree_new_full (GCompareDataFunc key_compare_func,gpointer key_compare_data,GDestroyNotify key_destroy_func,GDestroyNotify value_destroy_func);
+GTree* g_tree_ref(GTree *tree);
 extern
-GTree* g_tree_ref (GTree *tree);
+void g_tree_unref(GTree *tree);
 extern
-void g_tree_unref (GTree *tree);
+void g_tree_destroy(GTree *tree);
 extern
-void g_tree_destroy (GTree *tree);
+void g_tree_insert(GTree *tree, gpointer key, gpointer value);
 extern
-void g_tree_insert (GTree *tree,gpointer key,gpointer value);
+void g_tree_replace(GTree *tree, gpointer key, gpointer value);
 extern
-void g_tree_replace (GTree *tree,gpointer key,gpointer value);
+gboolean g_tree_remove(GTree *tree, gconstpointer key);
 extern
-gboolean g_tree_remove (GTree *tree,gconstpointer key);
+gboolean g_tree_steal(GTree *tree, gconstpointer key);
 extern
-gboolean g_tree_steal (GTree *tree,gconstpointer key);
+gpointer g_tree_lookup(GTree *tree, gconstpointer key);
 extern
-gpointer g_tree_lookup (GTree *tree,gconstpointer key);
+gboolean g_tree_lookup_extended(GTree *tree, gconstpointer lookup_key, gpointer *orig_key, gpointer *value);
 extern
-gboolean g_tree_lookup_extended (GTree *tree,gconstpointer lookup_key,gpointer *orig_key,gpointer *value);
+void g_tree_foreach(GTree *tree, GTraverseFunc func, gpointer user_data);
 extern
-void g_tree_foreach (GTree *tree,GTraverseFunc func,gpointer user_data);
+void g_tree_traverse(GTree *tree, GTraverseFunc traverse_func, GTraverseType traverse_type, gpointer user_data);
 extern
-void g_tree_traverse (GTree *tree,GTraverseFunc traverse_func,GTraverseType traverse_type,gpointer user_data);
+gpointer g_tree_search(GTree *tree, GCompareFunc search_func, gconstpointer user_data);
 extern
-gpointer g_tree_search (GTree *tree,GCompareFunc search_func,gconstpointer user_data);
+gint g_tree_height(GTree *tree);
 extern
-gint g_tree_height (GTree *tree);
+gint g_tree_nnodes(GTree *tree);
 extern
-gint g_tree_nnodes (GTree *tree);
+char * g_uri_unescape_string(const char *escaped_string, const char *illegal_characters);
 extern
-char * g_uri_unescape_string (const char *escaped_string,const char *illegal_characters);
+char * g_uri_unescape_segment(const char *escaped_string, const char *escaped_string_end, const char *illegal_characters);
 extern
-char * g_uri_unescape_segment (const char *escaped_string,const char *escaped_string_end,const char *illegal_characters);
+char * g_uri_parse_scheme(const char *uri);
 extern
-char * g_uri_parse_scheme (const char *uri);
+char * g_uri_escape_string(const char *unescaped, const char *reserved_chars_allowed, gboolean allow_utf8);
 extern
-char * g_uri_escape_string (const char *unescaped,const char *reserved_chars_allowed,gboolean allow_utf8);
+gboolean g_uuid_string_is_valid(const gchar *str);
 extern
-gboolean g_uuid_string_is_valid (const gchar *str);
-extern
-gchar * g_uuid_string_random (void);
+gchar * g_uuid_string_random(void);
 extern const guint glib_major_version;
 extern const guint glib_minor_version;
 extern const guint glib_micro_version;
 extern const guint glib_interface_age;
 extern const guint glib_binary_age;
 extern
-const gchar * glib_check_version (guint required_major,guint required_minor,guint required_micro);
+const gchar * glib_check_version(guint required_major, guint required_minor, guint required_micro);
 extern
-GMemChunk * g_mem_chunk_new (const gchar *name,gint atom_size,gsize area_size,gint type);
+GMemChunk * g_mem_chunk_new(const gchar *name, gint atom_size, gsize area_size, gint type);
 extern
-void g_mem_chunk_destroy (GMemChunk *mem_chunk);
+void g_mem_chunk_destroy(GMemChunk *mem_chunk);
 extern
-gpointer g_mem_chunk_alloc (GMemChunk *mem_chunk);
+gpointer g_mem_chunk_alloc(GMemChunk *mem_chunk);
 extern
-gpointer g_mem_chunk_alloc0 (GMemChunk *mem_chunk);
+gpointer g_mem_chunk_alloc0(GMemChunk *mem_chunk);
 extern
-void g_mem_chunk_free (GMemChunk *mem_chunk,gpointer mem);
+void g_mem_chunk_free(GMemChunk *mem_chunk, gpointer mem);
 extern
-void g_mem_chunk_clean (GMemChunk *mem_chunk);
+void g_mem_chunk_clean(GMemChunk *mem_chunk);
 extern
-void g_mem_chunk_reset (GMemChunk *mem_chunk);
+void g_mem_chunk_reset(GMemChunk *mem_chunk);
 extern
-void g_mem_chunk_print (GMemChunk *mem_chunk);
+void g_mem_chunk_print(GMemChunk *mem_chunk);
 extern
-void g_mem_chunk_info (void);
+void g_mem_chunk_info(void);
 extern
-void g_blow_chunks (void);
+void g_blow_chunks(void);
 extern
-GAllocator * g_allocator_new (const gchar *name,guint n_preallocs);
+GAllocator * g_allocator_new(const gchar *name, guint n_preallocs);
 extern
-void g_allocator_free (GAllocator *allocator);
+void g_allocator_free(GAllocator *allocator);
 extern
-void g_list_push_allocator (GAllocator *allocator);
+void g_list_push_allocator(GAllocator *allocator);
 extern
-void g_list_pop_allocator (void);
+void g_list_pop_allocator(void);
 extern
-void g_slist_push_allocator (GAllocator *allocator);
+void g_slist_push_allocator(GAllocator *allocator);
 extern
-void g_slist_pop_allocator (void);
+void g_slist_pop_allocator(void);
 extern
-void g_node_push_allocator (GAllocator *allocator);
+void g_node_push_allocator(GAllocator *allocator);
 extern
-void g_node_pop_allocator (void);
+void g_node_pop_allocator(void);
 extern
-GCache* g_cache_new (GCacheNewFunc value_new_func,GCacheDestroyFunc value_destroy_func,GCacheDupFunc key_dup_func,GCacheDestroyFunc key_destroy_func,GHashFunc hash_key_func,GHashFunc hash_value_func,GEqualFunc key_equal_func);
+GCache* g_cache_new(GCacheNewFunc value_new_func, GCacheDestroyFunc value_destroy_func, GCacheDupFunc key_dup_func, GCacheDestroyFunc key_destroy_func, GHashFunc hash_key_func, GHashFunc hash_value_func, GEqualFunc key_equal_func);
 extern
-void g_cache_destroy (GCache *cache);
+void g_cache_destroy(GCache *cache);
 extern
-gpointer g_cache_insert (GCache *cache,gpointer key);
+gpointer g_cache_insert(GCache *cache, gpointer key);
 extern
-void g_cache_remove (GCache *cache,gconstpointer value);
+void g_cache_remove(GCache *cache, gconstpointer value);
 extern
-void g_cache_key_foreach (GCache *cache,GHFunc func,gpointer user_data);
+void g_cache_key_foreach(GCache *cache, GHFunc func, gpointer user_data);
 extern
-void g_cache_value_foreach (GCache *cache,GHFunc func,gpointer user_data);
+void g_cache_value_foreach(GCache *cache, GHFunc func, gpointer user_data);
 extern
-GCompletion* g_completion_new (GCompletionFunc func);
+GCompletion* g_completion_new(GCompletionFunc func);
 extern
-void g_completion_add_items (GCompletion* cmp,GList* items);
+void g_completion_add_items(GCompletion* cmp, GList* items);
 extern
-void g_completion_remove_items (GCompletion* cmp,GList* items);
+void g_completion_remove_items(GCompletion* cmp, GList* items);
 extern
-void g_completion_clear_items (GCompletion* cmp);
+void g_completion_clear_items(GCompletion* cmp);
 extern
-GList* g_completion_complete (GCompletion* cmp,const gchar* prefix,gchar** new_prefix);
+GList* g_completion_complete(GCompletion* cmp, const gchar* prefix, gchar** new_prefix);
 extern
-GList* g_completion_complete_utf8 (GCompletion *cmp,const gchar* prefix,gchar** new_prefix);
+GList* g_completion_complete_utf8(GCompletion *cmp, const gchar* prefix, gchar** new_prefix);
 extern
-void g_completion_set_compare (GCompletion *cmp,GCompletionStrncmpFunc strncmp_func);
+void g_completion_set_compare(GCompletion *cmp, GCompletionStrncmpFunc strncmp_func);
 extern
-void g_completion_free (GCompletion* cmp);
+void g_completion_free(GCompletion* cmp);
 extern
-GRelation* g_relation_new (gint fields);
+GRelation* g_relation_new(gint fields);
 extern
-void g_relation_destroy (GRelation *relation);
+void g_relation_destroy(GRelation *relation);
 extern
-void g_relation_index (GRelation *relation,gint field,GHashFunc hash_func,GEqualFunc key_equal_func);
+void g_relation_index(GRelation *relation, gint field, GHashFunc hash_func, GEqualFunc key_equal_func);
 extern
-void g_relation_insert (GRelation *relation,...);
+void g_relation_insert(GRelation *relation, ...);
 extern
-gint g_relation_delete (GRelation *relation,gconstpointer key,gint field);
+gint g_relation_delete(GRelation *relation, gconstpointer key, gint field);
 extern
-GTuples* g_relation_select (GRelation *relation,gconstpointer key,gint field);
+GTuples* g_relation_select(GRelation *relation, gconstpointer key, gint field);
 extern
-gint g_relation_count (GRelation *relation,gconstpointer key,gint field);
+gint g_relation_count(GRelation *relation, gconstpointer key, gint field);
 extern
-gboolean g_relation_exists (GRelation *relation,...);
+gboolean g_relation_exists(GRelation *relation, ...);
 extern
-void g_relation_print (GRelation *relation);
+void g_relation_print(GRelation *relation);
 extern
-void g_tuples_destroy (GTuples *tuples);
+void g_tuples_destroy(GTuples *tuples);
 extern
-gpointer g_tuples_index (GTuples *tuples,gint index_,gint field);
+gpointer g_tuples_index(GTuples *tuples, gint index_, gint field);
 extern GThreadFunctions g_thread_functions_for_glib_use;
 extern gboolean g_thread_use_default_impl;
-extern guint64 (*g_thread_gettime) (void);
+extern guint64(*g_thread_gettime) (void);
 extern
-GThread *g_thread_create (GThreadFunc func,gpointer data,gboolean joinable,GError **error);
+GThread *g_thread_create(GThreadFunc func, gpointer data, gboolean joinable, GError **error);
 extern
-GThread *g_thread_create_full (GThreadFunc func,gpointer data,gulong stack_size,gboolean joinable,gboolean bound,GThreadPriority priority,GError **error);
+GThread *g_thread_create_full(GThreadFunc func, gpointer data, gulong stack_size, gboolean joinable, gboolean bound, GThreadPriority priority, GError **error);
 extern
-void g_thread_set_priority (GThread *thread,GThreadPriority priority);
+void g_thread_set_priority(GThread *thread, GThreadPriority priority);
 extern
-void g_thread_foreach (GFunc thread_func,gpointer user_data);
+void g_thread_foreach(GFunc thread_func, gpointer user_data);
 extern
-void g_static_mutex_init (GStaticMutex *mutex);
+void g_static_mutex_init(GStaticMutex *mutex);
 extern
-void g_static_mutex_free (GStaticMutex *mutex);
+void g_static_mutex_free(GStaticMutex *mutex);
 extern
-GMutex *g_static_mutex_get_mutex_impl (GStaticMutex *mutex);
+GMutex *g_static_mutex_get_mutex_impl(GStaticMutex *mutex);
 extern
-void g_static_rec_mutex_init (GStaticRecMutex *mutex);
+void g_static_rec_mutex_init(GStaticRecMutex *mutex);
 extern
-void g_static_rec_mutex_lock (GStaticRecMutex *mutex);
+void g_static_rec_mutex_lock(GStaticRecMutex *mutex);
 extern
-gboolean g_static_rec_mutex_trylock (GStaticRecMutex *mutex);
+gboolean g_static_rec_mutex_trylock(GStaticRecMutex *mutex);
 extern
-void g_static_rec_mutex_unlock (GStaticRecMutex *mutex);
+void g_static_rec_mutex_unlock(GStaticRecMutex *mutex);
 extern
-void g_static_rec_mutex_lock_full (GStaticRecMutex *mutex,guint depth);
+void g_static_rec_mutex_lock_full(GStaticRecMutex *mutex, guint depth);
 extern
-guint g_static_rec_mutex_unlock_full (GStaticRecMutex *mutex);
+guint g_static_rec_mutex_unlock_full(GStaticRecMutex *mutex);
 extern
-void g_static_rec_mutex_free (GStaticRecMutex *mutex);
+void g_static_rec_mutex_free(GStaticRecMutex *mutex);
 extern
-void g_static_rw_lock_init (GStaticRWLock *lock);
+void g_static_rw_lock_init(GStaticRWLock *lock);
 extern
-void g_static_rw_lock_reader_lock (GStaticRWLock *lock);
+void g_static_rw_lock_reader_lock(GStaticRWLock *lock);
 extern
-gboolean g_static_rw_lock_reader_trylock (GStaticRWLock *lock);
+gboolean g_static_rw_lock_reader_trylock(GStaticRWLock *lock);
 extern
-void g_static_rw_lock_reader_unlock (GStaticRWLock *lock);
+void g_static_rw_lock_reader_unlock(GStaticRWLock *lock);
 extern
-void g_static_rw_lock_writer_lock (GStaticRWLock *lock);
+void g_static_rw_lock_writer_lock(GStaticRWLock *lock);
 extern
-gboolean g_static_rw_lock_writer_trylock (GStaticRWLock *lock);
+gboolean g_static_rw_lock_writer_trylock(GStaticRWLock *lock);
 extern
-void g_static_rw_lock_writer_unlock (GStaticRWLock *lock);
+void g_static_rw_lock_writer_unlock(GStaticRWLock *lock);
 extern
-void g_static_rw_lock_free (GStaticRWLock *lock);
+void g_static_rw_lock_free(GStaticRWLock *lock);
 extern
-GPrivate * g_private_new (GDestroyNotify notify);
+GPrivate * g_private_new(GDestroyNotify notify);
 extern
-void g_static_private_init (GStaticPrivate *private_key);
+void g_static_private_init(GStaticPrivate *private_key);
 extern
-gpointer g_static_private_get (GStaticPrivate *private_key);
+gpointer g_static_private_get(GStaticPrivate *private_key);
 extern
-void g_static_private_set (GStaticPrivate *private_key,gpointer data,GDestroyNotify notify);
+void g_static_private_set(GStaticPrivate *private_key, gpointer data, GDestroyNotify notify);
 extern
-void g_static_private_free (GStaticPrivate *private_key);
+void g_static_private_free(GStaticPrivate *private_key);
 extern
-gboolean g_once_init_enter_impl (volatile gsize *location);
+gboolean g_once_init_enter_impl(volatile gsize *location);
 extern
-gboolean g_thread_get_initialized (void);
+gboolean g_thread_get_initialized(void);
 extern gboolean g_threads_got_initialized;
 extern
-GMutex * g_mutex_new (void);
+GMutex * g_mutex_new(void);
 extern
-void g_mutex_free (GMutex *mutex);
+void g_mutex_free(GMutex *mutex);
 extern
-GCond * g_cond_new (void);
+GCond * g_cond_new(void);
 extern
-void g_cond_free (GCond *cond);
+void g_cond_free(GCond *cond);
 extern
-gboolean g_cond_timed_wait (GCond *cond,GMutex *mutex,GTimeVal *timeval);
+gboolean g_cond_timed_wait(GCond *cond, GMutex *mutex, GTimeVal *timeval);
