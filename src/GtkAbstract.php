@@ -80,9 +80,9 @@ abstract class GtkAbstract
     protected function availableIn(&$code)
     {
         if(PHP_OS_WIN) {
-            $code = str_replace("GLIB_AVAILABLE_IN_UINX", '// ', $code);
+            $code = str_replace("LIBGTK_FUNC_AVAILABLE_IN_UINX", '// ', $code);
         } else {
-            $code = str_replace("GLIB_AVAILABLE_IN_UINX ", 'extern ', $code);
+            $code = str_replace("LIBGTK_FUNC_AVAILABLE_IN_UINX ", 'extern ', $code);
         }
     }
 

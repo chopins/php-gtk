@@ -1377,10 +1377,10 @@ extern
 void g_source_set_ready_time(GSource *source, gint64 ready_time);
 extern
 gint64 g_source_get_ready_time(GSource *source);
-GLIB_AVAILABLE_IN_UINX gpointer g_source_add_unix_fd(GSource *source, gint fd, GIOCondition events);
-GLIB_AVAILABLE_IN_UINX void g_source_modify_unix_fd(GSource *source, gpointer tag, GIOCondition new_events);
-GLIB_AVAILABLE_IN_UINX void g_source_remove_unix_fd(GSource *source, gpointer tag);
-GLIB_AVAILABLE_IN_UINX  GIOCondition g_source_query_unix_fd(GSource *source, gpointer tag);
+LIBGTK_FUNC_AVAILABLE_IN_UINX gpointer g_source_add_unix_fd(GSource *source, gint fd, GIOCondition events);
+LIBGTK_FUNC_AVAILABLE_IN_UINX void g_source_modify_unix_fd(GSource *source, gpointer tag, GIOCondition new_events);
+LIBGTK_FUNC_AVAILABLE_IN_UINX void g_source_remove_unix_fd(GSource *source, gpointer tag);
+LIBGTK_FUNC_AVAILABLE_IN_UINX  GIOCondition g_source_query_unix_fd(GSource *source, gpointer tag);
 extern
 void g_source_set_callback_indirect(GSource *source, gpointer callback_data, GSourceCallbackFuncs *callback_funcs);
 extern
@@ -1442,8 +1442,8 @@ void g_main_context_invoke(GMainContext *context, GSourceFunc function, gpointer
 extern GSourceFuncs g_timeout_funcs;
 extern GSourceFuncs g_child_watch_funcs;
 extern GSourceFuncs g_idle_funcs;
-GLIB_AVAILABLE_IN_UINX GSourceFuncs g_unix_signal_funcs;
-GLIB_AVAILABLE_IN_UINX GSourceFuncs g_unix_fd_source_funcs;
+LIBGTK_FUNC_AVAILABLE_IN_UINX GSourceFuncs g_unix_signal_funcs;
+LIBGTK_FUNC_AVAILABLE_IN_UINX GSourceFuncs g_unix_fd_source_funcs;
 extern
 guint32 g_unicode_script_to_iso15924(GUnicodeScript script);
 extern
@@ -1716,8 +1716,8 @@ extern
 GQuark g_io_channel_error_quark(void);
 extern
 GIOChannelError g_io_channel_error_from_errno(gint en);
-GLIB_AVAILABLE_IN_UINX GIOChannel* g_io_channel_unix_new(int fd);
-GLIB_AVAILABLE_IN_UINX gint g_io_channel_unix_get_fd(GIOChannel *channel);
+LIBGTK_FUNC_AVAILABLE_IN_UINX GIOChannel* g_io_channel_unix_new(int fd);
+LIBGTK_FUNC_AVAILABLE_IN_UINX gint g_io_channel_unix_get_fd(GIOChannel *channel);
 extern GSourceFuncs g_io_watch_funcs;
 extern
 GQuark g_key_file_error_quark(void);

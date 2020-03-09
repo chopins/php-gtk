@@ -545,9 +545,9 @@ extern
 void g_credentials_set_native(GCredentials *credentials, GCredentialsType native_type, gpointer native);
 extern
 gboolean g_credentials_is_same_user(GCredentials *credentials, GCredentials *other_credentials, GError **error);
-GLIB_AVAILABLE_IN_UINX pid_t g_credentials_get_unix_pid(GCredentials *credentials, GError **error);
-GLIB_AVAILABLE_IN_UINX uid_t g_credentials_get_unix_user(GCredentials *credentials, GError **error);
-GLIB_AVAILABLE_IN_UINX gboolean g_credentials_set_unix_user(GCredentials *credentials, uid_t uid, GError **error);
+LIBGTK_FUNC_AVAILABLE_IN_UINX pid_t g_credentials_get_unix_pid(GCredentials *credentials, GError **error);
+LIBGTK_FUNC_AVAILABLE_IN_UINX uid_t g_credentials_get_unix_user(GCredentials *credentials, GError **error);
+LIBGTK_FUNC_AVAILABLE_IN_UINX gboolean g_credentials_set_unix_user(GCredentials *credentials, uid_t uid, GError **error);
 extern GType g_datagram_based_get_type(void);
 extern gint g_datagram_based_receive_messages(GDatagramBased *datagram_based, GInputMessage *messages, guint num_messages, gint flags, gint64 timeout, GCancellable *cancellable, GError **error);
 extern gint g_datagram_based_send_messages(GDatagramBased *datagram_based, GOutputMessage *messages, guint num_messages, gint flags, gint64 timeout, GCancellable *cancellable, GError **error);

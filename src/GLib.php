@@ -81,7 +81,7 @@ class GLib extends GtkAbstract implements DefineValue
     protected function availableIn(&$code)
     {
         parent::availableIn($code);
-        $ffi = $this->preLoad(self::ID, 'extern const unsigned int glib_major_version;extern const unsigned int glib_minor_version;extern const unsigned int glib_micro_version;');
+        $ffi = $this->preLoad(self::ID, 'typedef unsigned int guint;guint glib_major_version;guint glib_minor_version;guint glib_micro_version;');
         $v = "{$ffi->glib_major_version}.{$ffi->glib_minor_version}.{$ffi->glib_micro_version}";
         $this->requireMinVersion(self::ID, '2.56', $v);
         $this->versionReplace($code, 'GLIB_AVAILABLE_IN', '2.60', $v);
