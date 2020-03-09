@@ -1377,13 +1377,10 @@ extern
 void g_source_set_ready_time(GSource *source, gint64 ready_time);
 extern
 gint64 g_source_get_ready_time(GSource *source);
-extern
-gpointer g_source_add_unix_fd(GSource *source, gint fd, GIOCondition events);
-extern
-void g_source_modify_unix_fd(GSource *source, gpointer tag, GIOCondition new_events);
-extern
-void g_source_remove_unix_fd(GSource *source, gpointer tag);
-GLIB_AVAILABLE_IN_UINX GIOCondition g_source_query_unix_fd(GSource *source, gpointer tag);
+GLIB_AVAILABLE_IN_UINX gpointer g_source_add_unix_fd(GSource *source, gint fd, GIOCondition events);
+GLIB_AVAILABLE_IN_UINX void g_source_modify_unix_fd(GSource *source, gpointer tag, GIOCondition new_events);
+GLIB_AVAILABLE_IN_UINX void g_source_remove_unix_fd(GSource *source, gpointer tag);
+GLIB_AVAILABLE_IN_UINX  GIOCondition g_source_query_unix_fd(GSource *source, gpointer tag);
 extern
 void g_source_set_callback_indirect(GSource *source, gpointer callback_data, GSourceCallbackFuncs *callback_funcs);
 extern
