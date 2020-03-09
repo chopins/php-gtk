@@ -26,5 +26,15 @@ class Pixbuf extends Gdk
     {
         
     }
+    
+    protected function availableIn(&$code)
+    {
+        parent::availableIn($code);
+        $ffi = $this->preLoad(self::ID, 'typedef unsigned int guint;guint gdk_pixbuf_major_version;guint gdk_pixbuf_minor_version;guint gdk_pixbuf_micro_version;');
+        $v = "{$ffi->gdk_pixbuf_major_version}.{$ffi->gdk_pixbuf_minor_version}.{$ffi->gdk_pixbuf_micro_version}";
+        $this->requireMinVersion(self::ID, $v);
+        $this->versionReplace($code, 'GDK_PIXBUF_AVAILABLE_IN', '2.40', $v);
+        $this->versionReplace($code, 'GDK_PIXBUF_AVAILABLE_IN', '2.38', $v);
+    }
 
 }

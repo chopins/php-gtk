@@ -54,11 +54,10 @@ class Atk extends GObject
     protected function availableIn(&$code)
     {
         parent::availableIn($code);
-        $ffi = $this->preLoad(self::ID, 'typedef unsigned int guint;guint atk_get_major_version (void) ;guint atk_get_minor_version (void) ;guint atk_get_micro_version (void);');
+        $ffi = $this->preLoad(self::ID, 'typedef unsigned int guint;guint atk_get_major_version(void);guint atk_get_minor_version(void);guint atk_get_micro_version(void);');
         $v = "{$ffi->atk_get_major_version()}.{$ffi->atk_get_minor_version()}.{$ffi->atk_get_micro_version()}";
-        var_dump($v);
-        $this->requireMinVersion(self::ID, '2.30', $v);
-        $this->versionReplace($code, 'ATK_AVAILABLE_IN_2_30', '2.30', $v);
+        $this->requireMinVersion(self::ID, $v);
+        $this->versionReplace($code, 'ATK_AVAILABLE_IN', '2.30', $v);
     }
 
     public function ATK_TYPE_RANGE()

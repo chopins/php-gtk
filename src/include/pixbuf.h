@@ -32,7 +32,8 @@ extern GdkPixbuf *gdk_pixbuf_new_from_bytes(GBytes *data, GdkColorspace colorspa
 extern GdkPixbuf *gdk_pixbuf_new_from_xpm_data(const char **data);
 extern GdkPixbuf* gdk_pixbuf_new_from_inline(gint data_length, const guint8 *data, gboolean copy_pixels, GError **error);
 extern void gdk_pixbuf_fill(GdkPixbuf *pixbuf, guint32 pixel);
-extern gboolean gdk_pixbuf_save(GdkPixbuf *pixbuf, const char *filename, const char *type, GError **error, ...);
+LIBGTK_FUNC_AVAILABLE_IN_UINX gboolean gdk_pixbuf_save(GdkPixbuf *pixbuf, const char *filename, const char *type, GError **error, ...);
+LIBGTK_FUNC_AVAILABLE_IN_WIN gboolean gdk_pixbuf_savev_utf8(GdkPixbuf *pixbuf, const char *filename, const char *type, char **option_keys, char **option_values, GError **error);
 extern gboolean gdk_pixbuf_savev(GdkPixbuf *pixbuf, const char *filename, const char *type, char **option_keys, char **option_values, GError **error);
 extern gboolean gdk_pixbuf_save_to_callback(GdkPixbuf *pixbuf, GdkPixbufSaveFunc save_func, gpointer user_data, const char *type, GError **error, ...);
 extern gboolean gdk_pixbuf_save_to_callbackv(GdkPixbuf *pixbuf, GdkPixbufSaveFunc save_func, gpointer user_data, const char *type, char **option_keys, char **option_values, GError **error);
@@ -88,7 +89,7 @@ extern GdkPixbufSimpleAnim *gdk_pixbuf_simple_anim_new(gint width, gint height, 
 extern void gdk_pixbuf_simple_anim_add_frame(GdkPixbufSimpleAnim *animation, GdkPixbuf *pixbuf);
 extern void gdk_pixbuf_simple_anim_set_loop(GdkPixbufSimpleAnim *animation, gboolean loop);
 extern gboolean gdk_pixbuf_simple_anim_get_loop(GdkPixbufSimpleAnim *animation);
-extern gboolean gdk_pixbuf_init_modules(const char *path, GError **error);
+GDK_PIXBUF_AVAILABLE_IN_2_40 gboolean gdk_pixbuf_init_modules(const char *path, GError **error);
 extern GType gdk_pixbuf_format_get_type(void);
 extern GSList *gdk_pixbuf_get_formats(void);
 extern gchar *gdk_pixbuf_format_get_name(GdkPixbufFormat *format);

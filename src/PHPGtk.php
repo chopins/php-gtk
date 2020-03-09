@@ -39,15 +39,15 @@ class PHPGtk
     const ATK_ID = 'PHP_GTK_ID_ATK';
 
     public static $gtkDllMap = [
-        self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib']],
+        self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib'], 'require_version' => '2.56'],
         self::GIO_ID => ['name' => 'libgio', 'header' => ['gio']],
         self::GOBJECT_ID => ['name' => 'libgobject', 'header' => ['gtype', 'gobject']],
         self::GTK_ID => ['name' => 'libgtk', 'header' => ['gtkfunc']],
-        self::GDK_ID => ['name' => 'libgdk', 'header' => ['gdk']],
-        self::PIXBUF_ID => ['name' => 'libgdk_pixbuf', 'header' => ['pixbuf']],
-        self::PANGO_ID => ['name' => 'libpango', 'header' => ['pango']],
+        self::GDK_ID => ['name' => 'libgdk', 'header' => ['gdk'], 'require_version' => '3.20'],
+        self::PIXBUF_ID => ['name' => 'libgdk_pixbuf', 'header' => ['pixbuf'], 'require_version' => '2.36'],
+        self::PANGO_ID => ['name' => 'libpango', 'header' => ['pango'], 'require_version' => '1.42'],
         self::PANGO_CAIRO_ID => ['name' => 'libpangocairo', 'header' => ['pango_cairo']],
-        self::ATK_ID => ['name' => 'libatk', 'header' => ['atk']],
+        self::ATK_ID => ['name' => 'libatk', 'header' => ['atk'], 'require_version' => '2.28'],
     ];
 
     private function __construct(?string $libdir = null)

@@ -37,8 +37,8 @@ extern gboolean atk_object_remove_relationship(AtkObject *object, AtkRelationTyp
 extern const gchar* atk_role_get_localized_name(AtkRole role);
 extern AtkRole atk_role_register(const gchar *name);
 extern const gchar* atk_object_get_object_locale(AtkObject *accessible);
-extern const gchar* atk_object_get_accessible_id(AtkObject *accessible);
-extern void atk_object_set_accessible_id(AtkObject *accessible, const gchar *name);
+LIBGTK_FUNC_AVAILABLE_IN_UINX const gchar* atk_object_get_accessible_id(AtkObject *accessible);
+LIBGTK_FUNC_AVAILABLE_IN_UINX void atk_object_set_accessible_id(AtkObject *accessible, const gchar *name);
 extern GType atk_action_get_type(void);
 extern gboolean atk_action_do_action(AtkAction *action, gint i);
 extern gint atk_action_get_n_actions(AtkAction *action);

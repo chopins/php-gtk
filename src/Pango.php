@@ -32,7 +32,7 @@ class Pango extends PangoCairo
     {
         parent::availableIn($code);
         $version = $this->preLoad(self::ID, 'const char *pango_version_string (void);')->pango_version_string();
-        $this->requireMinVersion(self::ID, '1.42', $version);
+        $this->requireMinVersion(self::ID, $version);
         $this->versionReplace($code, 'PANGO_AVAILABLE_IN', '1.44', $version);
     }
 
