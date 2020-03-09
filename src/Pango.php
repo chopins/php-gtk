@@ -25,7 +25,12 @@ class Pango extends PangoCairo
 
     protected static function compileVersion()
     {
-        
+        define('PANGO_VERSION_STRING', self::$ffi->pango_version_string());
+        define('PANGO_VERSION', self::$ffi->pango_version());
+        $v = explode('.', PANGO_VERSION_STRING);
+        define('PANGO_VERSION_MAJOR', $v[0]);
+        define('PANGO_VERSION_MINOR', $v[1]);
+        define('PANGO_VERSION_MICRO', $v[2]);
     }
     
     protected function availableIn(&$code)
