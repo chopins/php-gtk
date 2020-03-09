@@ -55,7 +55,15 @@ abstract class GtkAbstract
         self::$isDebug = (defined('PHP_GTK_DEV_DEBUG') && constant('PHP_GTK_DEV_DEBUG'));
     }
 
-    protected function preLoad($id, $code)
+    final public function requireMinVersion($id, $requireVersion, $currentVersion)
+    {
+        if(version_compare($requireVersion, $currentVersion) > 0) {
+            $libname = $this->main::$gtkDllMap[$id]['name'];
+            throw new RuntimeException("GTK lib '$libname' require version >= $requireVersion, current $currentVersion");
+        }
+    }
+
+    final protected function preLoad($id, $code)
     {
         $config = $this->main::$gtkDllMap[$id];
         $libpath = $this->findDll($config['name']);

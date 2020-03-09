@@ -78,16 +78,12 @@ class GLib extends GtkAbstract implements DefineValue
         define('GLIB_BINARY_AGE', self::$ffi->glib_binary_age);
     }
 
-    private function preGLibVersion()
-    {
-        $ffi = $this->preLoad(self::ID, 'extern const unsigned int glib_major_version;extern const unsigned int glib_minor_version;extern const unsigned int glib_micro_version;');
-        return "{$ffi->glib_major_version}.{$ffi->glib_minor_version}.{$ffi->glib_micro_version}";
-    }
-
     protected function availableIn(&$code)
     {
         parent::availableIn($code);
-        $v = $this->preGLibVersion();
+        $ffi = $this->preLoad(self::ID, 'extern const unsigned int glib_major_version;extern const unsigned int glib_minor_version;extern const unsigned int glib_micro_version;');
+        $v = "{$ffi->glib_major_version}.{$ffi->glib_minor_version}.{$ffi->glib_micro_version}";
+        $this->requireMinVersion(self::ID, '2.56', $v);
         $this->versionReplace($code, 'GLIB_AVAILABLE_IN', '2.60', $v);
         $this->versionReplace($code, 'GLIB_AVAILABLE_IN', '2.62', $v);
         $this->versionReplace($code, 'GLIB_AVAILABLE_IN', '2.58', $v);
