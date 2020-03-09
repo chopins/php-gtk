@@ -60,8 +60,7 @@ class App {
   * when `PHP_INT_SIZE` equal 8, OS is 64bit, find `/usr/lib64`
 * specify lib path by self through `new Gtk\App($libpath)`, 
   * if `$libpath` is string, value must be lib directory path
-    ```
-    if given some lib path in array, other lib will find in the first lib directory
+  * will find match $libpath/$name-*.so, and load the first dll
 * specify lib name through set `name` value of specify lib row of `Gtk\APP::$gtkDllMap`
 
 ### Usage
