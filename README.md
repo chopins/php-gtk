@@ -17,7 +17,7 @@ The project only expose GTK API by FFI
 DLL file name and header file name map list:
 
 ```php
-class App {
+class PHPGtk {
     public static $gtkDllMap  = [
         self::GLIB_ID => ['name' => 'libglib', 'header' => ['glib']],
         self::GIO_ID => ['name' => 'libgio', 'header' => ['gio']],
@@ -32,7 +32,7 @@ class App {
 }
 ```
 
-`Gtk\APP::$gtkDllMap` determine load dynamic library name prefix and header file.
+`Gtk\PHPGtk::$gtkDllMap` determine load dynamic library name prefix and header file.
 
 **Load Dynamic Library**
 * In Linux, default find:
