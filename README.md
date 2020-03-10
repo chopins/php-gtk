@@ -10,7 +10,6 @@ The project only expose GTK API by FFI
 **Status**
 * support C function call of `GLib`, `GObject`, `Gio`, `Gtk`, `Atk`, `Gdk`, `Gdk-Pixbuf`, `Pango`
 * support C macro value and call of `GLib`,`GLib`, and a small part of `GTK`
-* current, only simple test in linux
   
 **Defined Constants**
 
