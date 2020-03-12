@@ -8,8 +8,8 @@ The project only expose GTK API by FFI
 * PHP FFI extension available
 * toknot/ffi-extend >=0.1
 
-**Install**
-use composer install:
+**composer install** 
+
 ```
 composer require toknot/gtk
 
