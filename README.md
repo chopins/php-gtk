@@ -46,7 +46,7 @@ class PHPGtk {
 * In Linux, default find:
   * when `PHP_INT_SIZE` equal 4, OS is 32bit, find `/usr/lib`
   * when `PHP_INT_SIZE` equal 8, OS is 64bit, find `/usr/lib64`
-* specify lib path by self through `new Gtk\PHPGtk($libpath)`, 
+* specify lib path by self through `Gtk\PHPGtk::gtk($libpath)`, 
   * if `$libpath` is string, value must be lib directory path
   * will find match $libpath/$name-*.so, and load the first dll
 * specify lib name through set `name` value of specify lib row of `Gtk\APP::$gtkDllMap`
