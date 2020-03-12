@@ -6,6 +6,14 @@ The project only expose GTK API by FFI
 **Requirements**
 * PHP >= 7.4
 * PHP FFI extension available
+* toknot/ffi-extend >=0.1
+
+**Install**
+use composer install:
+```
+composer require toknot/gtk
+
+```
 
 **Status**
 * support C function call of `GLib`, `GObject`, `Gio`, `Gtk`, `Atk`, `Gdk`, `Gdk-Pixbuf`, `Pango`
