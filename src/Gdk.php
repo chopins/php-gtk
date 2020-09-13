@@ -33,7 +33,7 @@ class Gdk extends Gio
     {
         parent::availableIn($code);
         if(!defined('PHP_GDK_VERSION')) {
-            self::$isDebug && trigger_error('Undefined PHP_GDK_VERSION for gdk version, default 3.20', E_USER_WARNING);
+            self::$isDebug && trigger_error('Undefined PHP_GDK_VERSION for gdk version, so set version to 3.20', E_USER_WARNING);
             define('PHP_GDK_VERSION', '3.20');
         }
         $this->requireMinVersion(self::ID, PHP_GDK_VERSION);
