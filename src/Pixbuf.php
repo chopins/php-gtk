@@ -13,8 +13,9 @@ namespace Gtk;
 
 use Gtk\PHPGtk;
 use Gtk\FFI;
+use Gtk\GtkAbstract;
 
-class Pixbuf extends Gdk
+class Pixbuf extends GtkAbstract
 {
 
     protected static ?FFI $ffi = null;

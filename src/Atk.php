@@ -13,9 +13,9 @@ namespace Gtk;
 
 use Gtk\FFI;
 use Gtk\PHPGtk;
-use Gtk\GObject;
+use Gtk\GtkAbstract;
 
-class Atk extends GObject
+class Atk extends GtkAbstract
 {
 
     protected static ?FFI $ffi = null;

@@ -13,9 +13,9 @@ namespace Gtk;
 
 use Gtk\FFI;
 use Gtk\PHPGtk;
-use Gtk\GObject;
+use Gtk\GtkAbstract;
 
-class PangoCairo extends GObject
+class PangoCairo extends GtkAbstract
 {
 
     protected static ?FFI $ffi = null;
