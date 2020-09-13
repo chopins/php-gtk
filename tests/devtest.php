@@ -8,7 +8,9 @@ $gtk->gtk_init($argc, $argv);
 // Create the main window
 $mainwin = $gtk->gtk_window_new(GtkEnum::GTK_WINDOW_TOPLEVEL);
 
+\Gtk\GtkWidget::init($gtk);
 
+new \Gtk\WindowWidget();
 
 $b = $gtk->gtk_builder_new_from_string('<?xml version="1.0" encoding="UTF-8"?><interface><object class="GtkEntry" id="entry1"><property name="invisible_char">*</property></object></interface>', -1);
 $obj = $gtk->gtk_builder_get_object($b, 'entry1');

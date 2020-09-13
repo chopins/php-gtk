@@ -29,6 +29,10 @@ class GtkWidget
         }
     }
 
+    public static function getGtkApp() {
+        return self::$gtkApp;
+    }
+
     private function __construct($widget)
     {
         $this->widget = $widget;
