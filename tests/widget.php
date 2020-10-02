@@ -1,6 +1,5 @@
 <?php
 
-use Gtk\GtkEnum;
 use Gtk\GtkWidget;
 
 include __DIR__ . '/load.php';
@@ -23,7 +22,7 @@ function activate($app, $user_data)
         $window->set_title("Window");
         $window->set_default_size(200, 200);
 
-        $button_box = GtkWidget::gtk_button_box_new(GtkEnum::GTK_ORIENTATION_HORIZONTAL);
+        $button_box = GtkWidget::gtk_button_box_new($gtk->GTK_ORIENTATION_HORIZONTAL);
         $wc = $window->container();
         $wc->add($button_box);
         $bbc = $button_box->container();
@@ -47,7 +46,7 @@ function main(int $argc, $argv): int
 {
     global $gtk, $app;
 
-    $app = $gtk->gtk_application_new("org.gtk.example", GtkEnum::G_APPLICATION_FLAGS_NONE);
+    $app = $gtk->gtk_application_new("org.gtk.example", $gtk->G_APPLICATION_FLAGS_NONE);
     $gtk->g_signal_connect($app, "activate", $gtk->G_CALLBACK('activate'), NULL);
 
     $status = $gtk->g_application_run($gtk->G_APPLICATION($app), $argc, $argv);

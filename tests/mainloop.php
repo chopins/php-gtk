@@ -2,8 +2,6 @@
 
 include __DIR__ . '/load.php';
 
-use Gtk\GtkEnum;
-
 function main(int $argc, $argv)
 {
     global $gtk;
@@ -16,7 +14,7 @@ function main(int $argc, $argv)
     $gtk->gtk_init($argc, $argv);
 
     // Create the main window
-    $mainwin = $gtk->gtk_window_new(GtkEnum::GTK_WINDOW_TOPLEVEL);
+    $mainwin = $gtk->gtk_window_new($gtk->GTK_WINDOW_TOPLEVEL);
 
     // Set up our GUI elements
 

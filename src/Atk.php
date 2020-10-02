@@ -89,12 +89,12 @@ class Atk extends GtkAbstract
 
     public function ATK_DEFINE_ABSTRACT_TYPE(string $TN, string $tuN, $TPVar)
     {
-        return $this->ATK_DEFINE_TYPE_EXTENDED($TN, $tuN, $TPVar, GtkEnum::G_TYPE_FLAG_ABSTRACT, '');
+        return $this->ATK_DEFINE_TYPE_EXTENDED($TN, $tuN, $TPVar, self::$ffi->G_TYPE_FLAG_ABSTRACT, '');
     }
 
     public function ATK_DEFINE_ABSTRACT_TYPE_WITH_CODE(string $TN, string $tuN, $__TPVar, string $U_CODE)
     {
-        $__fVal = GtkEnum::G_TYPE_FLAG_ABSTRACT;
+        $__fVal = self::$ffi->G_TYPE_FLAG_ABSTRACT;
         $code = $this->_ATK_DEFINE_TYPE_EXTENDED_BEGIN($TN, $tuN);
         $code .= $U_CODE;
         $code .= $this->_ATK_DEFINE_TYPE_EXTENDED_END();
@@ -109,7 +109,7 @@ class Atk extends GtkAbstract
         $tn_get_type = "{$typeName}_get_type";
         $tn_class_intern_init = "{$typeName}_class_intern_init";
 
-        $code .= <<<CODE
+        $code = <<<CODE
         \$this->$tn_parent_class = \$this->new('gpointer');
 
         \$this->defineTypeFunc['$tn_class_intern_init'] = function (\$klass){

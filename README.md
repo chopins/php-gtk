@@ -94,7 +94,6 @@ class PHPGtk {
   * `PHPGtk::atk()` return `Gtk\Atk`, can be call `GLib`,`GObject`,`ATK` function
   * `PHPGtk::gdk()` return `Gtk\Pixbuf`, can be call `GLib`, `GObject`, `GIO`, `GDK`,`gdk-pixbuf` function
   * `PHPGtk::pango()` return `Gtk\Pango`, can be call `GLib`,`GObject`,`Pango` function
-  * All enum value defined in `Gtk\GtkEnum`
   * macro value get by same name constant of class
   * macro function call by same name method of class
   * lib version value defined by macro get by global same name  constant

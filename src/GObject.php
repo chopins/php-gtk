@@ -56,37 +56,37 @@ class GObject extends GLib
 
     public function g_signal_connect_swapped($instance, $detailedSignal, $chandler, $data)
     {
-        return $this->g_signal_connect_data($instance, $detailedSignal, $chandler, $data, NULL, GtkEnum::G_CONNECT_SWAPPED);
+        return $this->g_signal_connect_data($instance, $detailedSignal, $chandler, $data, NULL, self::$ffi->G_CONNECT_SWAPPED);
     }
 
     public function g_signal_connect_after($instance, $detailedSignal, $chandler, $data)
     {
-        return $this->g_signal_connect_data($instance, $detailedSignal, $chandler, $data, NULL, GtkEnum::G_CONNECT_AFTER);
+        return $this->g_signal_connect_data($instance, $detailedSignal, $chandler, $data, NULL, self::$ffi->G_CONNECT_AFTER);
     }
 
     public function g_signal_handlers_disconnect_by_data($instance, $data)
     {
-        return $this->g_signal_handlers_disconnect_matched($instance, GtkEnum::G_SIGNAL_MATCH_DATA, 0, 0, NULL, NULL, $data);
+        return $this->g_signal_handlers_disconnect_matched($instance, self::$ffi->G_SIGNAL_MATCH_DATA, 0, 0, NULL, NULL, $data);
     }
 
     public function g_signal_handlers_block_by_func($instance, $func, $data)
     {
         $sig = $this->new('GSignalMatchType');
-        $sig->cdata = (GtkEnum::G_SIGNAL_MATCH_FUNC | GtkEnum::G_SIGNAL_MATCH_DATA);
+        $sig->cdata = (self::$ffi->G_SIGNAL_MATCH_FUNC | self::$ffi->G_SIGNAL_MATCH_DATA);
         return $this->g_signal_handlers_block_matched($instance, $sig, 0, 0, NULL, $func, $data);
     }
 
     public function g_signal_handlers_unblock_by_func($instance, $func, $data)
     {
         $sig = $this->new('GSignalMatchType');
-        $sig->cdata = (GtkEnum::G_SIGNAL_MATCH_FUNC | GtkEnum::G_SIGNAL_MATCH_DATA);
+        $sig->cdata = (self::$ffi->G_SIGNAL_MATCH_FUNC | self::$ffi->G_SIGNAL_MATCH_DATA);
         return $this->g_signal_handlers_unblock_matched($instance, $sig, 0, 0, NULL, $func, $data);
     }
 
     public function g_signal_handlers_disconnect_by_func($instance, $func, $data)
     {
         $sig = $this->new('GSignalMatchType');
-        $sig->cdata = (GtkEnum::G_SIGNAL_MATCH_FUNC | GtkEnum::G_SIGNAL_MATCH_DATA);
+        $sig->cdata = (self::$ffi->G_SIGNAL_MATCH_FUNC | self::$ffi->G_SIGNAL_MATCH_DATA);
         return $this->g_signal_handlers_disconnect_matched($instance, $sig, 0, 0, NULL, $func, $data);
     }
 
@@ -211,14 +211,14 @@ class GObject extends GLib
     {
         trigger_error('G_TYPE_INSTANCE_GET_PRIVATE() macro is deprecated since 2.58 of gobject', E_DEPRECATED);
         $p = $this->cast('GTypeInstance*', $v);
-        $gp = $this->g_type_instance_get_private($p, $gt);
+        $gp = self::$ffi->g_type_instance_get_private($p, $gt);
         return $this->cast("$ct*", $gp);
     }
 
     public function G_TYPE_CLASS_GET_PRIVATE($v, $gt, $ct)
     {
         $p = $this->cast('GTypeClass*', $v);
-        return $this->cast("$ct*", $this->g_type_class_get_private($p, $gt));
+        return $this->cast("$ct*", self::$ffi->g_type_class_get_private($p, $gt));
     }
 
 }

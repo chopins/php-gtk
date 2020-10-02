@@ -235,27 +235,27 @@ class Gtk extends Gdk
 
     public function GTK_STYLE_CONTEXT($o)
     {
-        return $this->G_TYPE_CHECK_INSTANCE_CAST($o, GtkEnum::GTK_TYPE_STYLE_CONTEXT, $this->type('GtkStyleContext'));
+        return $this->G_TYPE_CHECK_INSTANCE_CAST($o, $this->GTK_TYPE_STYLE_CONTEXT, $this->type('GtkStyleContext'));
     }
 
     public function GTK_STYLE_CONTEXT_CLASS($c)
     {
-        return $this->G_TYPE_CHECK_CLASS_CAST($c, GtkEnum::GTK_TYPE_STYLE_CONTEXT, $this->type('GtkStyleContextClass'));
+        return $this->G_TYPE_CHECK_CLASS_CAST($c, $this->GTK_TYPE_STYLE_CONTEXT, $this->type('GtkStyleContextClass'));
     }
 
     public function GTK_IS_STYLE_CONTEXT($o)
     {
-        return $this->G_TYPE_CHECK_INSTANCE_TYPE($o, GtkEnum::GTK_TYPE_STYLE_CONTEXT);
+        return $this->G_TYPE_CHECK_INSTANCE_TYPE($o, $this->GTK_TYPE_STYLE_CONTEXT);
     }
 
     public function GTK_IS_STYLE_CONTEXT_CLASS($c)
     {
-        return $this->G_TYPE_CHECK_CLASS_TYPE($c, GtkEnum::GTK_TYPE_STYLE_CONTEXT);
+        return $this->G_TYPE_CHECK_CLASS_TYPE($c, $this->GTK_TYPE_STYLE_CONTEXT);
     }
 
     public function GTK_STYLE_CONTEXT_GET_CLASS($o)
     {
-        return $this->G_TYPE_INSTANCE_GET_CLASS($o, GtkEnum::GTK_TYPE_STYLE_CONTEXT, $this->type('GtkStyleContextClass'));
+        return $this->G_TYPE_INSTANCE_GET_CLASS($o, $this->GTK_TYPE_STYLE_CONTEXT, $this->type('GtkStyleContextClass'));
     }
 
     public function GTK_CHECK_VERSION($major, $minor, $micro)
@@ -294,7 +294,7 @@ class Gtk extends Gdk
     public function gtk_widget_class_bind_template_callback($widget_class, $callback)
     {
         return self::$ffi->gtk_widget_class_bind_template_callback_full(
-                GTK_WIDGET_CLASS($widget_class),
+                $this->GTK_WIDGET_CLASS($widget_class),
                 $callback,
                 $this->G_CALLBACK($callback)
         );
@@ -388,7 +388,7 @@ class Gtk extends Gdk
     public function GTK_IS_RESIZE_CONTAINER($widget)
     {
         return $this->GTK_IS_CONTAINER($widget) &&
-            (self::$ffi->gtk_container_get_resize_mode($this->GTK_CONTAINER($widget)) != GtkEnum::GTK_RESIZE_PARENT);
+            (self::$ffi->gtk_container_get_resize_mode($this->GTK_CONTAINER($widget)) != $this->GTK_RESIZE_PARENT);
     }
 
     public function GTK_PRINT_ERROR()
