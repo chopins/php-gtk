@@ -318,6 +318,8 @@ abstract class GtkAbstract
         foreach($this->callMap as $a) {
             if($a->ffiExt()->hasCVariable($a->getFFI(), $name)) {
                 return $a->$name;
+            }elseif($a->ffiExt()->hasCEnum($a->getFFI(), $name)) {
+                return $a->$name;
             }
         }
 
